@@ -1,0 +1,1 @@
+Thuộc tính phòng trung gian

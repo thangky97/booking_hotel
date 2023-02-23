@@ -1,0 +1,1 @@
+add Thuộc tính phòng trung gian
