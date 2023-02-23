@@ -53,12 +53,10 @@ Route::prefix('admin')->group(function () {
         return view('admin/dashboard');
     });
 
-    Route::get('/', function () {
-        return view('admin/admin/list');
-    });
-    Route::get('/create', function () {
-        return view('admin/admin/create');
-    });
+    Route::get('/list', 'AdminController@index')->name('route_BackEnd_Admin_index');
+    
+    Route::get('/add', 'AdminController@add')->name('route_BackEnd_Admin_add');
+    
     Route::post('/store', function () {
         return view('admin/admin/store');
     });
@@ -70,12 +68,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/users')->group(function () {
-        Route::get('/', function () {
-            return view('admin/user/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/user/create');
-        });
+        Route::get('/', 'UserController@index')->name('route_BackEnd_User_index');
+        Route::get('/add', 'UserController@add')->name('route_BackEnd_User_add');
         Route::post('/store', function () {
             return view('admin/user/store');
         });
@@ -88,12 +82,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/rooms')->group(function () {
-        Route::get('/', function () { //room
-            return view('admin/rooms/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/rooms/create');
-        });
+        Route::get('/', 'RoomController@index')->name('route_BackEnd_Room_index');
+        Route::get('/add', 'RoomController@add')->name('route_BackEnd_Room_add');
         Route::post('/store', function () {
             return view('admin/rooms/store');
         });
@@ -106,12 +96,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/category_room')->group(function () {
-        Route::get('/', function () { //cate_room
-            return view('admin/category_room/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/category_room/create');
-        });
+        Route::get('/', 'CategoryRoomController@index')->name('route_BackEnd_Category_Room_index');
+        Route::get('/add', 'CategoryRoomController@add')->name('route_BackEnd_Category_Room_add');
         Route::post('/store', function () {
             return view('admin/category_room/store');
         });
@@ -124,12 +110,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/property_room')->group(function () {
-        Route::get('/', function () { //property_room
-            return view('admin/property_room/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/property_room/create');
-        });
+        Route::get('/', 'PropertyRoomController@index')->name('route_BackEnd_Property_Room_index');
+        Route::get('/add', 'PropertyRoomController@add')->name('route_BackEnd_Property_Room_add');
         Route::post('/store', function () {
             return view('admin/property_room/store');
         });
@@ -142,12 +124,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/properties')->group(function () {
-        Route::get('/', function () { //properties
-            return view('admin/properties/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/properties/create');
-        });
+        Route::get('/', 'PropertyController@index')->name('route_BackEnd_Property_index');
+        Route::get('/add', 'PropertyController@add')->name('route_BackEnd_Property_add');
         Route::post('/store', function () {
             return view('admin/properties/store');
         });
@@ -160,12 +138,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/booking')->group(function () {
-        Route::get('/', function () {
-            return view('admin/booking/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/booking/create');
-        });
+        Route::get('/', 'BookingController@index')->name('route_BackEnd_Booking_index');
+        Route::get('/add', 'BookingController@add')->name('route_BackEnd_Booking_add');
         Route::post('/store', function () {
             return view('admin/booking/store');
         });
@@ -178,12 +152,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/booking_detail')->group(function () {
-        Route::get('/', function () {
-            return view('admin/booking_detail/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/booking_detail/create');
-        });
+        Route::get('/', 'BookingDetailController@index')->name('route_BackEnd_Booking_Detail_index');
+        Route::get('/add', 'BookingDetailController@add')->name('route_BackEnd_Booking_Detail_add');
         Route::post('/store', function () {
             return view('admin/booking_detail/store');
         });
@@ -196,12 +166,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/bills')->group(function () {
-        Route::get('/', function () {
-            return view('admin/bills/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/bills/create');
-        });
+        Route::get('/', 'BillController@index')->name('route_BackEnd_Bill_index');
+        Route::get('/add', 'BillController@add')->name('route_BackEnd_Bill_add');
         Route::post('/store', function () {
             return view('admin/bills/store');
         });
@@ -214,12 +180,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/bill_detail')->group(function () {
-        Route::get('/', function () {
-            return view('admin/bill_detail/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/bill_detail/create');
-        });
+        Route::get('/', 'BillDetailController@index')->name('route_BackEnd_Bill_Detail_index');
+        Route::get('/add', 'BillDetailController@add')->name('route_BackEnd_Bill_Detail_add');
         Route::post('/store', function () {
             return view('admin/bill_detail/store');
         });
@@ -232,12 +194,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/services')->group(function () {
-        Route::get('/', function () {
-            return view('admin/services/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/services/create');
-        });
+        Route::get('/', 'ServiceController@index')->name('route_BackEnd_Service_index');
+        Route::get('/add', 'ServiceController@add')->name('route_BackEnd_Service_add');
         Route::post('/store', function () {
             return view('admin/services/store');
         });
@@ -250,12 +208,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/feedback')->group(function () {
-        Route::get('/', function () {
-            return view('admin/feedback/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/feedback/create');
-        });
+        Route::get('/', 'FeedbackController@index')->name('route_BackEnd_Feedback_index');
+        Route::get('/add', 'FeedbackController@add')->name('route_BackEnd_Feedback_add');
         Route::post('/store', function () {
             return view('admin/feedback/store');
         });
@@ -268,12 +222,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/banner')->group(function () {
-        Route::get('/', function () {
-            return view('admin/banner/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/banner/create');
-        });
+        Route::get('/', 'BannerController@index')->name('route_BackEnd_Banner_index');
+        Route::get('/add', 'BannerController@add')->name('route_BackEnd_Banner_add');
         Route::post('/store', function () {
             return view('admin/banner/store');
         });
@@ -286,12 +236,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/contact')->group(function () {
-        Route::get('/', function () {
-            return view('admin/contact/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/contact/create');
-        });
+        Route::get('/', 'ContactController@index')->name('route_BackEnd_Contact_index');
+        Route::get('/add', 'ContactController@add')->name('route_BackEnd_Contact_add');
         Route::post('/store', function () {
             return view('admin/contact/store');
         });
@@ -304,12 +250,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/news')->group(function () {
-        Route::get('/', function () {
-            return view('admin/news/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/news/create');
-        });
+        Route::get('/', 'NewController@index')->name('route_BackEnd_New_index');
+        Route::get('/add', 'NewController@add')->name('route_BackEnd_New_add');
         Route::post('/store', function () {
             return view('admin/news/store');
         });
@@ -322,12 +264,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/category_new')->group(function () {
-        Route::get('/', function () {
-            return view('admin/category_new/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/category_new/create');
-        });
+        Route::get('/', 'CategoryNewController@index')->name('route_BackEnd_Category_New_index');
+        Route::get('/add', 'CategoryNewController@add')->name('route_BackEnd_Category_New_add');
         Route::post('/store', function () {
             return view('admin/category_new/store');
         });
@@ -340,12 +278,8 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/vouchers')->group(function () {
-        Route::get('/', function () {
-            return view('admin/vouchers/list');
-        });
-        Route::get('/create', function () {
-            return view('admin/vouchers/create');
-        });
+        Route::get('/', 'VoucherController@index')->name('route_BackEnd_Voucher_index');
+        Route::get('/add', 'VoucherController@add')->name('route_BackEnd_Voucher_add');
         Route::post('/store', function () {
             return view('admin/vouchers/store');
         });
