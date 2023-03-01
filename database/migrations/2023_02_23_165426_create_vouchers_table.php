@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('vouchers', function (Blueprint $table) {
             $table->id();
+            $table->string('booking_detail_id');
+            $table->string('booking_id');
+            $table->string('total_money');
+            $table->string('status');
+            $table->string('voucher_id');
             $table->timestamps();
         });
     }

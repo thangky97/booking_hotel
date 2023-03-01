@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Apartments DEMO &#8211; Hotel WordPress Theme</title>
+    <title>@yield('title') &#8211; Hotel WordPress Theme</title>
     <meta name='robots' content='max-image-preview:large' />
-    <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
-    <link rel='dns-prefetch' href='http://s.w.org/' />
-    <link rel="alternate" type="application/rss+xml" title="Apartments DEMO &raquo; Feed" href="feed/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Apartments DEMO &raquo; Feed"
+        href="{{ asset('feed/index.html') }}" />
     <link rel="alternate" type="application/rss+xml" title="Apartments DEMO &raquo; Comments Feed"
-        href="comments/feed/index.html" />
+        href="{{ asset('comments/feed/index.html') }}" />
     <script type="text/javascript">
         window._wpemojiSettings = {
             "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/",
@@ -88,13 +88,13 @@
         }
     </style>
     <link rel='stylesheet' id='wp-block-library-css'
-        href='{{ asset('client/wp-includes/css/dist/block-library/style.min6dcf.css?ver=5.9.2') }} ' type='text/css'
+        href='{{ asset('wp-includes/css/dist/block-library/style.min6dcf.css?ver=5.9.2') }}' type='text/css'
         media='all' />
     <link rel='stylesheet' id='wc-blocks-vendors-style-css'
-        href='{{ asset('client/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-stylee1b2.css?ver=6.9.0') }}'
+        href='{{ asset('wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-stylee1b2.css?ver=6.9.0') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='wc-blocks-style-css'
-        href='{{ asset('client/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-stylee1b2.css?ver=6.9.0') }}'
+        href='{{ asset('wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-stylee1b2.css?ver=6.9.0') }}'
         type='text/css' media='all' />
     <style id='global-styles-inline-css' type='text/css'>
         body {
@@ -345,22 +345,22 @@
         }
     </style>
     <link rel='stylesheet' id='contact-form-7-css'
-        href='{{ asset('client/wp-content/plugins/contact-form-7/includes/css/styles5406.css?ver=5.5.6') }}'
-        type='text/css' media='all' />
+        href='{{ asset('wp-content/plugins/contact-form-7/includes/css/styles5406.css?ver=5.5.6') }}' type='text/css'
+        media='all' />
     <link rel='stylesheet' id='nd_booking_style-css'
-        href='{{ asset('client/wp-content/plugins/nd-booking/assets/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
+        href='{{ asset('wp-content/plugins/nd-booking/assets/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
         media='all' />
     <link rel='stylesheet' id='nd_elements_style-css'
-        href='{{ asset('client/wp-content/plugins/nd-elements/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
+        href='{{ asset('wp-content/plugins/nd-elements/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
         media='all' />
     <link rel='stylesheet' id='nd_cc_style-css'
-        href='{{ asset('client/wp-content/plugins/nd-projects/assets/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
+        href='{{ asset('wp-content/plugins/nd-projects/assets/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
         media='all' />
     <link rel='stylesheet' id='nd_rst_style-css'
-        href='{{ asset('client/wp-content/plugins/nd-restaurant-reservations/assets/css/style6dcf.css?ver=5.9.2') }}'
+        href='{{ asset('wp-content/plugins/nd-restaurant-reservations/assets/css/style6dcf.css?ver=5.9.2') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='nd_options_style-css'
-        href='{{ asset('client/wp-content/plugins/nd-shortcodes/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
+        href='{{ asset('wp-content/plugins/nd-shortcodes/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
         media='all' />
     <link rel='stylesheet' id='nd_options_font_family_h-css'
         href='http://fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C700&amp;ver=5.9.2' type='text/css'
@@ -372,67 +372,61 @@
         href='http://fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C700&amp;ver=5.9.2' type='text/css'
         media='all' />
     <link rel='stylesheet' id='nd_tds_style-css'
-        href='{{ asset('client/wp-content/plugins/nd-theme-demos-switcher/css/style6dcf.css?ver=5.9.2') }}'
-        type='text/css' media='all' />
+        href='{{ asset('wp-content/plugins/nd-theme-demos-switcher/css/style6dcf.css?ver=5.9.2') }}' type='text/css'
+        media='all' />
     <link rel='stylesheet' id='woocommerce-layout-css'
-        href='{{ asset('client/wp-content/plugins/woocommerce/assets/css/woocommerce-layout9b30.css?ver=6.3.1') }}'
+        href='{{ asset('wp-content/plugins/woocommerce/assets/css/woocommerce-layout9b30.css?ver=6.3.1') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='woocommerce-smallscreen-css'
-        href='{{ asset('client/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen9b30.css?ver=6.3.1') }}'
+        href='{{ asset('wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen9b30.css?ver=6.3.1') }}'
         type='text/css' media='only screen and (max-width: 768px)' />
     <link rel='stylesheet' id='woocommerce-general-css'
-        href='{{ asset('client/wp-content/plugins/woocommerce/assets/css/woocommerce9b30.css?ver=6.3.1') }}'
-        type='text/css' media='all' />
+        href='{{ asset('wp-content/plugins/woocommerce/assets/css/woocommerce9b30.css?ver=6.3.1') }}' type='text/css'
+        media='all' />
     <style id='woocommerce-inline-inline-css' type='text/css'>
         .woocommerce form .form-row .required {
             visibility: visible;
         }
     </style>
     <link rel='stylesheet' id='nicdark-style-css'
-        href='{{ asset('client/wp-content/themes/hotelbooking/style6dcf.css?ver=5.9.2') }}' type='text/css'
+        href='{{ asset('wp-content/themes/hotelbooking/style6dcf.css?ver=5.9.2') }}' type='text/css'
         media='all' />
     <link rel='stylesheet' id='nicdark-fonts-css'
         href='http://fonts.googleapis.com/css?family=Gilda%2BDisplay%7CRoboto%3A300%2C400%2C500%2C700&amp;ver=1.0.0'
         type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-icons-css'
-        href='{{ asset('client/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.mine900.css?ver=5.14.0') }}'
+        href='{{ asset('wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.mine900.css?ver=5.14.0') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-frontend-css'
-        href='{{ asset('client/wp-content/plugins/elementor/assets/css/frontend-lite.min10cb.css?ver=3.5.6') }}'
+        href='{{ asset('wp-content/plugins/elementor/assets/css/frontend-lite.min10cb.css?ver=3.5.6') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-post-5-css'
-        href='{{ asset('client/wp-content/uploads/sites/4/elementor/css/post-51dd0.css?ver=1652038574') }}'
-        type='text/css' media='all' />
+        href='{{ asset('wp-content/uploads/sites/4/elementor/css/post-51dd0.css?ver=1652038574') }}' type='text/css'
+        media='all' />
     <link rel='stylesheet' id='elementor-post-263-css'
-        href='{{ asset('client/wp-content/uploads/sites/4/elementor/css/post-263499c.css?ver=1652184209') }}'
+        href='{{ asset('wp-content/uploads/sites/4/elementor/css/post-263499c.css?ver=1652184209') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='google-fonts-1-css'
         href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CGilda+Display%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=5.9.2'
         type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-icons-shared-0-css'
-        href='{{ asset('client/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min52d5.css?ver=5.15.3') }}'
+        href='{{ asset('wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min52d5.css?ver=5.15.3') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-icons-fa-brands-css'
-        href='{{ asset('client/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min52d5.css?ver=5.15.3') }}'
+        href='{{ asset('wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min52d5.css?ver=5.15.3') }}'
         type='text/css' media='all' />
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/jquery/jquery.minaf6c.js?ver=3.6.0') }}'
+    <script type='text/javascript' src='{{ asset('wp-includes/js/jquery/jquery.minaf6c.js?ver=3.6.0') }}'
         id='jquery-core-js'></script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2') }}'
+    <script type='text/javascript' src='{{ asset('wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2') }}'
         id='jquery-migrate-js'></script>
-    <link rel="https://api.w.org/" href="{{ asset('client/wp-json/index.html') }}" />
-    <link rel="alternate" type="application/json" href="{{ asset('client/wp-json/wp/v2/pages/263.json') }}" />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD"
-        href="xmlrpc0db0.html?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml"
-        href="{{ asset('client/wp-includes/wlwmanifest.xml') }}" />
+    <link rel="https://api.w.org/" href="{{ asset('wp-json/index.html') }}" />
+    <link rel="alternate" type="application/json" href="{{ asset('wp-json/wp/v2/pages/263.json') }}" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.html?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{{ asset('wp-includes/wlwmanifest.xml') }}" />
     <meta name="generator" content="WordPress 5.9.2" />
     <meta name="generator" content="WooCommerce 6.3.1" />
-    <link rel="canonical" href="index.html" />
-    <link rel='shortlink' href='index.html' />
-    <link rel="alternate" type="application/json+oembed"
-        href="{{ asset('client/wp-json/oembed/1.0/embed54e8.json?url=http%3A%2F%2Fwww.nicdarkthemes.com%2Fthemes%2Fhotel-booking%2Fwp%2Fdemo%2Fapartments%2F') }}" />
-    <link rel="alternate" type="text/xml+oembed"
-        href="{{ asset('client/wp-json/oembed/1.0/embed621b?url=http%3A%2F%2Fwww.nicdarkthemes.com%2Fthemes%2Fhotel-booking%2Fwp%2Fdemo%2Fapartments%2F&amp;format=xml') }}" />
+    <link rel="alternate" type="application/json+oembed" href="{{ asset('wp-json/oembed/1.0/embed54e8.json') }}" />
+    <link rel="alternate" type="text/xml+oembed" href="{{ asset('wp-json/oembed/1.0/embed621b&amp;format=xl') }}" />
 
 
     <style type="text/css">
@@ -714,6 +708,9 @@
             background-color: #6b6978;
         }
     </style>
+
+
+
 
     <!--START  for post-->
     <style type="text/css">
@@ -1114,6 +1111,9 @@
         }
     </style>
 
+
+
+
     <style type="text/css">
         /*START FORMS STYLES*/
         .nd_options_customizer_forms input[type="submit"],
@@ -1129,8 +1129,11 @@
             color: #ffffff;
             cursor: pointer;
             font-family: 'Roboto', sans-serif;
+
         }
     </style>
+
+
 
     <style type="text/css">
         .nd_options_cursor_default_a>a {
@@ -1231,6 +1234,7 @@
             display: none;
         }
     </style>
+
 
     <!--START css-->
     <style type="text/css">
@@ -2513,6 +2517,8 @@
             color: #5c5c5c;
         }
     </style>
+
+
     <style type="text/css">
         .nd_tds_background_color_1 {
             background-color: #444444;
@@ -2527,6 +2533,7 @@
         }
     </style>
 
+
     <noscript>
         <style>
             .woocommerce-product-gallery {
@@ -2536,14 +2543,12 @@
     </noscript>
     <meta name="generator"
         content="Powered by Slider Revolution 6.5.7 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-    <link rel="icon" href="{{ asset('client/wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg') }}"
+    <link rel="icon" href="{{ asset('wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg') }}"
         sizes="32x32" />
-    <link rel="icon" href="{{ asset('client/wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg') }}"
+    <link rel="icon" href="{{ asset('wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg') }}"
         sizes="192x192" />
     <link rel="apple-touch-icon"
-        href="{{ asset('client/wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg') }}" />
-    <meta name="msapplication-TileImage"
-        content="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg" />
+        href="{{ asset('wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg') }}" />
     <script type="text/javascript">
         function setREVStartSize(e) {
             //window.requestAnimationFrame(function() {				 
@@ -2638,48 +2643,49 @@
     <!--START theme-->
     <div class="nicdark_site nicdark_bg_white nicdark_front_page ">
 
-        <!--Header-->
+
+
+        <!--START header 6-->
         <div id="nd_options_header_6" class="nd_options_section">
-            <div class="nd_options_container nd_options_clearfix nd_options_position_relative nd_options_z_index_999">
-        @include('templates.layouts.header')
-            </div>
+
+            <!--start nd_options_container-->
+            @include('templates.layouts.header')
+            <!--end container-->
+
         </div>
-        <div
-            class="nd_tds_display_none_responsive nd_tds_right_30 nd_tds_bottom_30 nd_tds_position_fixed nd_tds_z_index_99">
-
-            <span style="top:1px; left:16px; font-size:10px; line-height:10px; border-radius:0px; padding:3px 5px;"
-                class="nd_tds_position_absolute nd_tds_color_fff_important nd_tds_background_color_3">NEW</span>
-
-            <a href="https://1.envato.market/WLRW3" target="_blank"
-                class="nd_tds_text_align_center nd_tds_width_65 nd_tds_float_left nd_tds_height_65 nd_tds_display_table nd_tds_font_size_25 nd_tds_line_height_25 nd_tds_color_fff_important nd_tds_border_radius_100_percentage nd_tds_background_color_1 nd_tds_box_shadow_0_0_20_000_015 nd_options_second_font">
-                <span
-                    class="nd_tds_position_absolute nd_tds_top_22 nd_tds_left_13 nd_tds_font_size_8 nd_tds_line_height_8">$</span>
-                <span style="padding-top:7px;"
-                    class="nd_tds_display_table_cell nd_tds_vertical_align_middle nd_tds_padding_left_5">54</span>
-            </a>
-        </div>
-
-        <div style="right:80px;"
-            class="nd_tds_display_none_responsive nd_tds_bottom_30 nd_tds_position_fixed nd_tds_z_index_99">
-            <a target="_blank"
-                class="nd_tds_border_radius_100_percentage nd_tds_width_35 nd_tds_height_35 nd_tds_float_left nd_tds_background_color_2 nd_tds_box_shadow_0_0_20_000_015"
-                href="https://1.envato.market/WLRW3">
-                <img class="nd_tds_position_absolute nd_tds_left_10 nd_tds_top_10" width="15px"
-                    src="{{ asset('client/wp-content/plugins/nd-theme-demos-switcher/addons/fixed-img/img/envato.png')}}">
-            </a>
-        </div>
-
+        <!--END header 6-->
 
 
         <!--start nd_options_container-->
         <div class="nd_options_container nd_options_clearfix">
 
-            <!--Content-->
+
+            <!--START all content-->
             <div class="">
-            @yield('content')
+                <div style="float:left; width:100%;" id="post-263"
+                    class="post-263 page type-page status-publish hentry">
+                    <!--start content-->
+                    <div data-elementor-type="wp-page" data-elementor-id="263" class="elementor elementor-263"
+                        data-elementor-settings="[]">
+                        <div class="elementor-section-wrap">
+
+                            <!--content-->
+
+                            @yield('content')
+
+                            <!--end content-->
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!--END all content-->
+
+
+
         </div>
         <!--end container-->
+
+
 
         <style>
             .nd_booking_alert_msg {
@@ -2720,23 +2726,24 @@
             //]]>
         </script>
 
-        <div class="nd_booking_alert_msg">
-            <img class="nd_booking_float_left" width="12px"
-                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/03/icon-WHITE-check.svg">
-            <p>Hurry up ! It's the BEST PRICE !</p>
-        </div>
 
-        <!--Footer-->
+
+        <!--START footer-->
         <div id="nd_options_footer_6" class="nd_options_section">
-            <div class="nd_options_container nd_options_clearfix">
 
-                
-        @include('templates.layouts.footer')
+            <!--start nd_options_container-->
+            @include('templates.layouts.footer')
+            <!--end container-->
+
         </div>
-        </div>
+        <!--END footer-->
+
+
 
     </div>
     <!--END theme-->
+
+
     <script type="text/javascript">
         window.RS_MODULES = window.RS_MODULES || {};
         window.RS_MODULES.modules = window.RS_MODULES.modules || {};
@@ -2771,23 +2778,23 @@
         }
     </script>
     <link rel='stylesheet' id='elementor-post-5346-css'
-        href='{{ asset('client/wp-content/uploads/sites/4/elementor/css/post-5346253a.css?ver=1652092688') }}'
+        href='{{ asset('wp-content/uploads/sites/4/elementor/css/post-5346253a.css?ver=1652092688') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='jquery-ui-datepicker-css-css'
-        href='{{ asset('client/wp-content/plugins/nd-booking/addons/elementor/search/css/jquery-ui-datepicker6dcf.css?ver=5.9.2') }}'
+        href='{{ asset('wp-content/plugins/nd-booking/addons/elementor/search/css/jquery-ui-datepicker6dcf.css?ver=5.9.2') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-post-5342-css'
-        href='{{ asset('client/wp-content/uploads/sites/4/elementor/css/post-5342ca76.css?ver=1652091226') }}'
+        href='{{ asset('wp-content/uploads/sites/4/elementor/css/post-5342ca76.css?ver=1652091226') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='e-animations-css'
-        href='{{ asset('client/wp-content/plugins/elementor/assets/lib/animations/animations.min10cb.css?ver=3.5.6') }}'
+        href='{{ asset('wp-content/plugins/elementor/assets/lib/animations/animations.min10cb.css?ver=3.5.6') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-icons-fa-regular-css'
-        href='{{ asset('client/wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min52d5.css?ver=5.15.3') }}'
+        href='{{ asset('wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min52d5.css?ver=5.15.3') }}'
         type='text/css' media='all' />
     <link rel='stylesheet' id='rs-plugin-settings-css'
-        href='{{ asset('client/wp-content/plugins/revslider/public/assets/css/rs6b134.css?ver=6.5.7') }}'
-        type='text/css' media='all' />
+        href='{{ asset('wp-content/plugins/revslider/public/assets/css/rs6b134.css?ver=6.5.7') }}' type='text/css'
+        media='all' />
     <style id='rs-plugin-settings-inline-css' type='text/css'>
         .rs-layer.Concept-Content a,
         .rs-layer.Concept-Content a:visited {
@@ -2812,520 +2819,352 @@
         }
     </style>
     <script type='text/javascript'
-        src='{{ asset('client/wp-includes/js/dist/vendor/regenerator-runtime.min3937.js?ver=0.13.9') }}'
+        src='{{ asset('wp-includes/js/dist/vendor/regenerator-runtime.min3937.js?ver=0.13.9') }}'
         id='regenerator-runtime-js'></script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/dist/vendor/wp-polyfill.min2c7c.js?ver=3.15.0') }}'
+    <script type='text/javascript' src='{{ asset('wp-includes/js/dist/vendor/wp-polyfill.min2c7c.js?ver=3.15.0') }}'
         id='wp-polyfill-js'></script>
-    <script type="text/javascript">
-        window._wpemojiSettings = {
-            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/",
-            "ext": ".png",
-            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/",
-            "svgExt": ".svg",
-            "source": {
-                "concatemoji": "http:\/\/www.nicdarkthemes.com\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.2"
+    <script type='text/javascript' id='contact-form-7-js-extra'>
+        /* <![CDATA[ */
+        var wpcf7 = {
+            "api": {
+                "root": "http:\/\/www.nicdarkthemes.com\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-json\/",
+                "namespace": "contact-form-7\/v1"
             }
         };
-        /*! This file is auto-generated */
-        ! function(e, a, t) {
-            var n, r, o, i = a.createElement("canvas"),
-                p = i.getContext && i.getContext("2d");
-
-            function s(e, t) {
-                var a = String.fromCharCode;
-                p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0);
-                e = i.toDataURL();
-                return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL()
-            }
-
-            function c(e) {
-                var t = a.createElement("script");
-                t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)
-            }
-            for (o = Array("flag", "emoji"), t.supports = {
-                    everything: !0,
-                    everythingExceptFlag: !0
-                }, r = 0; r < o.length; r++) t.supports[o[r]] = function(e) {
-                if (!p || !p.fillText) return !1;
-                switch (p.textBaseline = "top", p.font = "600 32px Arial", e) {
-                    case "flag":
-                        return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ? !1 : !s([
-                            55356, 56826, 55356, 56819
-                        ], [55356, 56826, 8203, 55356, 56819]) && !s([55356, 57332, 56128, 56423, 56128, 56418,
-                            56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447
-                        ], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203,
-                            56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447
-                        ]);
-                    case "emoji":
-                        return !s([10084, 65039, 8205, 55357, 56613], [10084, 65039, 8203, 55357, 56613])
-                }
-                return !1
-            }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports
-                .everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]);
-            t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t
-                .readyCallback = function() {
-                    t.DOMReady = !0
-                }, t.supports.everything || (n = function() {
-                    t.readyCallback()
-                }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !
-                    1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function() {
-                    "complete" === a.readyState && t.readyCallback()
-                })), (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji), c(n
-                    .wpemoji)))
-        }(window, document, window._wpemojiSettings);
-    </script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/jquery/jquery.minaf6c.js?ver=3.6.0') }}'
-        id='jquery-core-js'></script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2') }}'
-        id='jquery-migrate-js'></script>
-    <script type="text/javascript">
-        function setREVStartSize(e) {
-            //window.requestAnimationFrame(function() {				 
-            window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
-            window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
-            try {
-                var pw = document.getElementById(e.c).parentNode.offsetWidth,
-                    newh;
-                pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
-                e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
-                e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
-                e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
-                e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
-                e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
-                e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
-                e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
-                if (e.layout === "fullscreen" || e.l === "fullscreen")
-                    newh = Math.max(e.mh, window.RSIH);
-                else {
-                    e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-                    for (var i in e.rl)
-                        if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
-                    e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
-                    e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-                    for (var i in e.rl)
-                        if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
-
-                    var nl = new Array(e.rl.length),
-                        ix = 0,
-                        sl;
-                    e.tabw = e.tabhide >= pw ? 0 : e.tabw;
-                    e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
-                    e.tabh = e.tabhide >= pw ? 0 : e.tabh;
-                    e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
-                    for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
-                    sl = nl[0];
-                    for (var i in nl)
-                        if (sl > nl[i] && nl[i] > 0) {
-                            sl = nl[i];
-                            ix = i;
-                        }
-                    var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
-                    newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
-                }
-                var el = document.getElementById(e.c);
-                if (el !== null && el) el.style.height = newh + "px";
-                el = document.getElementById(e.c + "_wrapper");
-                if (el !== null && el) {
-                    el.style.height = newh + "px";
-                    el.style.display = "block";
-                }
-            } catch (e) {
-                console.log("Failure at Presize of Slider:" + e)
-            }
-            //});
-        };
-    </script>
-    <script type="text/javascript">
-            //<![CDATA[
-            jQuery(document).ready(function() {
-
-                jQuery(function($) {
-
-                    $(".nd_booking_alert_msg").delay(5000).fadeIn(1000);
-                    $(".nd_booking_alert_msg").click(function() {
-                        $(this).fadeOut("slow");
-                    });
-
-                });
-
-            });
-            //]]>
-        </script>
-    <script type="text/javascript">
-        window.RS_MODULES = window.RS_MODULES || {};
-        window.RS_MODULES.modules = window.RS_MODULES.modules || {};
-        window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
-        window.RS_MODULES.defered = true;
-        window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
-        window.RS_MODULES.type = 'compiled';
-    </script>
-    <script type="text/javascript">
-        (function() {
-            var c = document.body.className;
-            c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-            document.body.className = c;
-        })();
-    </script>
-    <script type="text/javascript">
-        if (typeof revslider_showDoubleJqueryError === "undefined") {
-            function revslider_showDoubleJqueryError(sliderID) {
-                console.log(
-                    "You have some jquery.js library include that comes after the Slider Revolution files js inclusion."
-                    );
-                console.log("To fix this, you can:");
-                console.log(
-                    "1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"
-                    );
-                console.log("2. Find the double jQuery.js inclusion and remove it");
-                return "Double Included jQuery Library";
-            }
-        }
+        /* ]]> */
     </script>
     <script type='text/javascript'
-        src='{{ asset('client/wp-includes/js/dist/vendor/regenerator-runtime.min3937.js?ver=0.13.9') }}'
-        id='regenerator-runtime-js'></script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/dist/vendor/wp-polyfill.min2c7c.js?ver=3.15.0') }}'
-        id='wp-polyfill-js'></script>
-    <script type="text/javascript">
-        window._wpemojiSettings = {
-            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/",
-            "ext": ".png",
-            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/",
-            "svgExt": ".svg",
-            "source": {
-                "concatemoji": "http:\/\/www.nicdarkthemes.com\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.2"
-            }
-        };
-        /*! This file is auto-generated */
-        ! function(e, a, t) {
-            var n, r, o, i = a.createElement("canvas"),
-                p = i.getContext && i.getContext("2d");
-
-            function s(e, t) {
-                var a = String.fromCharCode;
-                p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0);
-                e = i.toDataURL();
-                return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL()
-            }
-
-            function c(e) {
-                var t = a.createElement("script");
-                t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)
-            }
-            for (o = Array("flag", "emoji"), t.supports = {
-                    everything: !0,
-                    everythingExceptFlag: !0
-                }, r = 0; r < o.length; r++) t.supports[o[r]] = function(e) {
-                if (!p || !p.fillText) return !1;
-                switch (p.textBaseline = "top", p.font = "600 32px Arial", e) {
-                    case "flag":
-                        return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ? !1 : !s([
-                            55356, 56826, 55356, 56819
-                        ], [55356, 56826, 8203, 55356, 56819]) && !s([55356, 57332, 56128, 56423, 56128, 56418,
-                            56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447
-                        ], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203,
-                            56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447
-                        ]);
-                    case "emoji":
-                        return !s([10084, 65039, 8205, 55357, 56613], [10084, 65039, 8203, 55357, 56613])
-                }
-                return !1
-            }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports
-                .everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]);
-            t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t
-                .readyCallback = function() {
-                    t.DOMReady = !0
-                }, t.supports.everything || (n = function() {
-                    t.readyCallback()
-                }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !
-                    1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function() {
-                    "complete" === a.readyState && t.readyCallback()
-                })), (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji), c(n
-                    .wpemoji)))
-        }(window, document, window._wpemojiSettings);
-    </script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/jquery/jquery.minaf6c.js?ver=3.6.0') }}'
-        id='jquery-core-js'></script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2') }}'
-        id='jquery-migrate-js'></script>
-    <script type="text/javascript">
-        function setREVStartSize(e) {
-            //window.requestAnimationFrame(function() {				 
-            window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
-            window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
-            try {
-                var pw = document.getElementById(e.c).parentNode.offsetWidth,
-                    newh;
-                pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
-                e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
-                e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
-                e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
-                e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
-                e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
-                e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
-                e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
-                if (e.layout === "fullscreen" || e.l === "fullscreen")
-                    newh = Math.max(e.mh, window.RSIH);
-                else {
-                    e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-                    for (var i in e.rl)
-                        if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
-                    e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
-                    e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-                    for (var i in e.rl)
-                        if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
-
-                    var nl = new Array(e.rl.length),
-                        ix = 0,
-                        sl;
-                    e.tabw = e.tabhide >= pw ? 0 : e.tabw;
-                    e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
-                    e.tabh = e.tabhide >= pw ? 0 : e.tabh;
-                    e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
-                    for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
-                    sl = nl[0];
-                    for (var i in nl)
-                        if (sl > nl[i] && nl[i] > 0) {
-                            sl = nl[i];
-                            ix = i;
-                        }
-                    var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
-                    newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
-                }
-                var el = document.getElementById(e.c);
-                if (el !== null && el) el.style.height = newh + "px";
-                el = document.getElementById(e.c + "_wrapper");
-                if (el !== null && el) {
-                    el.style.height = newh + "px";
-                    el.style.display = "block";
-                }
-            } catch (e) {
-                console.log("Failure at Presize of Slider:" + e)
-            }
-            //});
-        };
-    </script>
-    <script type="text/javascript">
-            //<![CDATA[
-            jQuery(document).ready(function() {
-
-                jQuery(function($) {
-
-                    $(".nd_booking_alert_msg").delay(5000).fadeIn(1000);
-                    $(".nd_booking_alert_msg").click(function() {
-                        $(this).fadeOut("slow");
-                    });
-
-                });
-
-            });
-            //]]>
-        </script>
-    <script type="text/javascript">
-        window.RS_MODULES = window.RS_MODULES || {};
-        window.RS_MODULES.modules = window.RS_MODULES.modules || {};
-        window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
-        window.RS_MODULES.defered = true;
-        window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
-        window.RS_MODULES.type = 'compiled';
-    </script>
-    <script type="text/javascript">
-        (function() {
-            var c = document.body.className;
-            c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-            document.body.className = c;
-        })();
-    </script>
-    <script type="text/javascript">
-        if (typeof revslider_showDoubleJqueryError === "undefined") {
-            function revslider_showDoubleJqueryError(sliderID) {
-                console.log(
-                    "You have some jquery.js library include that comes after the Slider Revolution files js inclusion."
-                    );
-                console.log("To fix this, you can:");
-                console.log(
-                    "1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"
-                    );
-                console.log("2. Find the double jQuery.js inclusion and remove it");
-                return "Double Included jQuery Library";
-            }
-        }
+        src='{{ asset('wp-content/plugins/contact-form-7/includes/js/index5406.js?ver=5.5.6') }}' id='contact-form-7-js'>
     </script>
     <script type='text/javascript'
-        src='{{ asset('client/wp-includes/js/dist/vendor/regenerator-runtime.min3937.js?ver=0.13.9') }}'
-        id='regenerator-runtime-js'></script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/dist/vendor/wp-polyfill.min2c7c.js?ver=3.15.0') }}'
-        id='wp-polyfill-js'></script>
-    <script type="text/javascript">
-        window._wpemojiSettings = {
-            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/",
-            "ext": ".png",
-            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/",
-            "svgExt": ".svg",
-            "source": {
-                "concatemoji": "http:\/\/www.nicdarkthemes.com\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.2"
-            }
+        src='{{ asset('wp-content/plugins/revslider/public/assets/js/rbtools.minb134.js?ver=6.5.7') }}' defer async
+        id='tp-tools-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/revslider/public/assets/js/rs6.minb134.js?ver=6.5.7') }}' defer async
+        id='revmin-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.minfada.js?ver=2.7.0-wc.6.3.1') }}'
+        id='jquery-blockui-js'></script>
+    <script type='text/javascript' id='wc-add-to-cart-js-extra'>
+        /* <![CDATA[ */
+        var wc_add_to_cart_params = {
+            "ajax_url": "\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/themes\/hotel-booking\/wp\/demo\/apartments\/?wc-ajax=%%endpoint%%",
+            "i18n_view_cart": "View cart",
+            "cart_url": "http:\/\/www.nicdarkthemes.com\/themes\/hotel-booking\/wp\/demo\/apartments\/cart-2\/",
+            "is_cart": "",
+            "cart_redirect_after_add": "no"
         };
-        /*! This file is auto-generated */
-        ! function(e, a, t) {
-            var n, r, o, i = a.createElement("canvas"),
-                p = i.getContext && i.getContext("2d");
-
-            function s(e, t) {
-                var a = String.fromCharCode;
-                p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0);
-                e = i.toDataURL();
-                return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL()
-            }
-
-            function c(e) {
-                var t = a.createElement("script");
-                t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)
-            }
-            for (o = Array("flag", "emoji"), t.supports = {
-                    everything: !0,
-                    everythingExceptFlag: !0
-                }, r = 0; r < o.length; r++) t.supports[o[r]] = function(e) {
-                if (!p || !p.fillText) return !1;
-                switch (p.textBaseline = "top", p.font = "600 32px Arial", e) {
-                    case "flag":
-                        return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ? !1 : !s([
-                            55356, 56826, 55356, 56819
-                        ], [55356, 56826, 8203, 55356, 56819]) && !s([55356, 57332, 56128, 56423, 56128, 56418,
-                            56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447
-                        ], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203,
-                            56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447
-                        ]);
-                    case "emoji":
-                        return !s([10084, 65039, 8205, 55357, 56613], [10084, 65039, 8203, 55357, 56613])
-                }
-                return !1
-            }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports
-                .everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]);
-            t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t
-                .readyCallback = function() {
-                    t.DOMReady = !0
-                }, t.supports.everything || (n = function() {
-                    t.readyCallback()
-                }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !
-                    1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function() {
-                    "complete" === a.readyState && t.readyCallback()
-                })), (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji), c(n
-                    .wpemoji)))
-        }(window, document, window._wpemojiSettings);
-    </script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/jquery/jquery.minaf6c.js?ver=3.6.0') }}'
-        id='jquery-core-js'></script>
-    <script type='text/javascript' src='{{ asset('client/wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2') }}'
-        id='jquery-migrate-js'></script>
-    <script type="text/javascript">
-        function setREVStartSize(e) {
-            //window.requestAnimationFrame(function() {				 
-            window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
-            window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
-            try {
-                var pw = document.getElementById(e.c).parentNode.offsetWidth,
-                    newh;
-                pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
-                e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
-                e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
-                e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
-                e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
-                e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
-                e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
-                e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
-                if (e.layout === "fullscreen" || e.l === "fullscreen")
-                    newh = Math.max(e.mh, window.RSIH);
-                else {
-                    e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-                    for (var i in e.rl)
-                        if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
-                    e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
-                    e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-                    for (var i in e.rl)
-                        if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
-
-                    var nl = new Array(e.rl.length),
-                        ix = 0,
-                        sl;
-                    e.tabw = e.tabhide >= pw ? 0 : e.tabw;
-                    e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
-                    e.tabh = e.tabhide >= pw ? 0 : e.tabh;
-                    e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
-                    for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
-                    sl = nl[0];
-                    for (var i in nl)
-                        if (sl > nl[i] && nl[i] > 0) {
-                            sl = nl[i];
-                            ix = i;
-                        }
-                    var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
-                    newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
-                }
-                var el = document.getElementById(e.c);
-                if (el !== null && el) el.style.height = newh + "px";
-                el = document.getElementById(e.c + "_wrapper");
-                if (el !== null && el) {
-                    el.style.height = newh + "px";
-                    el.style.display = "block";
-                }
-            } catch (e) {
-                console.log("Failure at Presize of Slider:" + e)
-            }
-            //});
-        };
-    </script>
-    <script type="text/javascript">
-            //<![CDATA[
-            jQuery(document).ready(function() {
-
-                jQuery(function($) {
-
-                    $(".nd_booking_alert_msg").delay(5000).fadeIn(1000);
-                    $(".nd_booking_alert_msg").click(function() {
-                        $(this).fadeOut("slow");
-                    });
-
-                });
-
-            });
-            //]]>
-        </script>
-    <script type="text/javascript">
-        window.RS_MODULES = window.RS_MODULES || {};
-        window.RS_MODULES.modules = window.RS_MODULES.modules || {};
-        window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
-        window.RS_MODULES.defered = true;
-        window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
-        window.RS_MODULES.type = 'compiled';
-    </script>
-    <script type="text/javascript">
-        (function() {
-            var c = document.body.className;
-            c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-            document.body.className = c;
-        })();
-    </script>
-    <script type="text/javascript">
-        if (typeof revslider_showDoubleJqueryError === "undefined") {
-            function revslider_showDoubleJqueryError(sliderID) {
-                console.log(
-                    "You have some jquery.js library include that comes after the Slider Revolution files js inclusion."
-                    );
-                console.log("To fix this, you can:");
-                console.log(
-                    "1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"
-                    );
-                console.log("2. Find the double jQuery.js inclusion and remove it");
-                return "Double Included jQuery Library";
-            }
-        }
+        /* ]]> */
     </script>
     <script type='text/javascript'
-        src='{{ asset('client/wp-includes/js/dist/vendor/regenerator-runtime.min3937.js?ver=0.13.9') }}'
-        id='regenerator-runtime-js'></script>
+        src='{{ asset('wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min9b30.js?ver=6.3.1') }}'
+        id='wc-add-to-cart-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min07f2.js?ver=2.1.4-wc.6.3.1') }}'
+        id='js-cookie-js'></script>
+    <script type='text/javascript' id='woocommerce-js-extra'>
+        /* <![CDATA[ */
+        var woocommerce_params = {
+            "ajax_url": "\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/themes\/hotel-booking\/wp\/demo\/apartments\/?wc-ajax=%%endpoint%%"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min9b30.js?ver=6.3.1') }}'
+        id='woocommerce-js'></script>
+    <script type='text/javascript' id='wc-cart-fragments-js-extra'>
+        /* <![CDATA[ */
+        var wc_cart_fragments_params = {
+            "ajax_url": "\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/themes\/hotel-booking\/wp\/demo\/apartments\/?wc-ajax=%%endpoint%%",
+            "cart_hash_key": "wc_cart_hash_37368b5436147e77e79b60d22f59fc77",
+            "fragment_name": "wc_fragments_37368b5436147e77e79b60d22f59fc77",
+            "request_timeout": "5000"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min9b30.js?ver=6.3.1') }}'
+        id='wc-cart-fragments-js'></script>
+    <script type='text/javascript' src='{{ asset('wp-includes/js/comment-reply.min6dcf.js?ver=5.9.2') }}'
+        id='comment-reply-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/themes/hotelbooking/js/nicdark_navigation6dcf.js?ver=5.9.2') }}'
+        id='nicdark_navigation-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/nd-elements/widgets/navigation/js/navigation6dcf.js?ver=5.9.2') }}'
+        id='nd_elements_navigation_js-js'></script>
+    <script type='text/javascript' src='{{ asset('wp-includes/js/jquery/ui/core.min0028.js?ver=1.13.1') }}'
+        id='jquery-ui-core-js'></script>
+    <script type='text/javascript' src='{{ asset('wp-includes/js/jquery/ui/datepicker.min0028.js?ver=1.13.1') }}'
+        id='jquery-ui-datepicker-js'></script>
+    <script type='text/javascript' src='{{ asset('wp-includes/js/imagesloaded.mineda1.js?ver=4.1.4') }}'
+        id='imagesloaded-js'></script>
+    <script type='text/javascript' src='{{ asset('wp-includes/js/masonry.min3a05.js?ver=4.2.2') }}' id='masonry-js'>
+    </script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/nd-booking/addons/elementor/rooms/js/rooms6dcf.js?ver=5.9.2') }}'
+        id='nd_booking_postgrid_js-js'></script>
+    <script type='text/javascript' src='{{ asset('wp-includes/js/jquery/ui/mouse.min0028.js?ver=1.13.1') }}'
+        id='jquery-ui-mouse-js'></script>
+    <script type='text/javascript' src='{{ asset('wp-includes/js/jquery/ui/slider.min0028.js?ver=1.13.1') }}'
+        id='jquery-ui-slider-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/nd-elements/widgets/postgrid/js/postgrid6dcf.js?ver=5.9.2') }}'
+        id='nd_elements_postgrid_js-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/elementor/assets/js/webpack.runtime.min10cb.js?ver=3.5.6') }}'
+        id='elementor-webpack-runtime-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/elementor/assets/js/frontend-modules.min10cb.js?ver=3.5.6') }}'
+        id='elementor-frontend-modules-js'></script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min05da.js?ver=4.0.2') }}'
+        id='elementor-waypoints-js'></script>
+    <script type='text/javascript' id='elementor-frontend-js-before'>
+        var elementorFrontendConfig = {
+            "environmentMode": {
+                "edit": false,
+                "wpPreview": false,
+                "isScriptDebug": false
+            },
+            "i18n": {
+                "shareOnFacebook": "Share on Facebook",
+                "shareOnTwitter": "Share on Twitter",
+                "pinIt": "Pin it",
+                "download": "Download",
+                "downloadImage": "Download image",
+                "fullscreen": "Fullscreen",
+                "zoom": "Zoom",
+                "share": "Share",
+                "playVideo": "Play Video",
+                "previous": "Previous",
+                "next": "Next",
+                "close": "Close"
+            },
+            "is_rtl": false,
+            "breakpoints": {
+                "xs": 0,
+                "sm": 480,
+                "md": 768,
+                "lg": 1025,
+                "xl": 1440,
+                "xxl": 1600
+            },
+            "responsive": {
+                "breakpoints": {
+                    "mobile": {
+                        "label": "Mobile",
+                        "value": 767,
+                        "default_value": 767,
+                        "direction": "max",
+                        "is_enabled": true
+                    },
+                    "mobile_extra": {
+                        "label": "Mobile Extra",
+                        "value": 880,
+                        "default_value": 880,
+                        "direction": "max",
+                        "is_enabled": false
+                    },
+                    "tablet": {
+                        "label": "Tablet",
+                        "value": 1024,
+                        "default_value": 1024,
+                        "direction": "max",
+                        "is_enabled": true
+                    },
+                    "tablet_extra": {
+                        "label": "Tablet Extra",
+                        "value": 1200,
+                        "default_value": 1200,
+                        "direction": "max",
+                        "is_enabled": false
+                    },
+                    "laptop": {
+                        "label": "Laptop",
+                        "value": 1366,
+                        "default_value": 1366,
+                        "direction": "max",
+                        "is_enabled": false
+                    },
+                    "widescreen": {
+                        "label": "Widescreen",
+                        "value": 2400,
+                        "default_value": 2400,
+                        "direction": "min",
+                        "is_enabled": false
+                    }
+                }
+            },
+            "version": "3.5.6",
+            "is_static": false,
+            "experimentalFeatures": {
+                "e_dom_optimization": true,
+                "e_optimized_assets_loading": true,
+                "e_optimized_css_loading": true,
+                "a11y_improvements": true,
+                "e_import_export": true,
+                "additional_custom_breakpoints": true,
+                "e_hidden_wordpress_widgets": true,
+                "landing-pages": true,
+                "elements-color-picker": true,
+                "favorite-widgets": true,
+                "admin-top-bar": true
+            },
+            "urls": {
+                "assets": "http:\/\/www.nicdarkthemes.com\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-content\/plugins\/elementor\/assets\/"
+            },
+            "settings": {
+                "page": [],
+                "editorPreferences": []
+            },
+            "kit": {
+                "active_breakpoints": ["viewport_mobile", "viewport_tablet"],
+                "global_image_lightbox": "yes",
+                "lightbox_enable_counter": "yes",
+                "lightbox_enable_fullscreen": "yes",
+                "lightbox_enable_zoom": "yes",
+                "lightbox_enable_share": "yes",
+                "lightbox_title_src": "title",
+                "lightbox_description_src": "description"
+            },
+            "post": {
+                "id": 263,
+                "title": "Apartments%20DEMO%20%E2%80%93%20Hotel%20WordPress%20Theme",
+                "excerpt": "",
+                "featuredImage": false
+            }
+        };
+    </script>
+    <script type='text/javascript'
+        src='{{ asset('wp-content/plugins/elementor/assets/js/frontend.min10cb.js?ver=3.5.6') }}'
+        id='elementor-frontend-js'></script>
+    <script type="text/javascript" id="rs-initialisation-scripts">
+        var tpj = jQuery;
+
+        var revapi12, revapi11;
+
+        if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+        if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+        RS_MODULES.modules["revslider121"] = {
+            init: function() {
+                window.revapi12 = window.revapi12 === undefined || window.revapi12 === null || window.revapi12
+                    .length === 0 ? document.getElementById("rev_slider_12_1") : window.revapi12;
+                if (window.revapi12 === null || window.revapi12 === undefined || window.revapi12.length == 0) {
+                    window.revapi12initTry = window.revapi12initTry === undefined ? 0 : window.revapi12initTry + 1;
+                    if (window.revapi12initTry < 20) requestAnimationFrame(function() {
+                        RS_MODULES.modules["revslider121"].init()
+                    });
+                    return;
+                }
+                window.revapi12 = jQuery(window.revapi12);
+                if (window.revapi12.revolution == undefined) {
+                    revslider_showDoubleJqueryError("rev_slider_12_1");
+                    return;
+                }
+                revapi12.revolutionInit({
+                    revapi: "revapi12",
+                    DPR: "dpr",
+                    sliderLayout: "fullscreen",
+                    visibilityLevels: "1240,1024,778,480",
+                    gridwidth: "1240,1024,778,480",
+                    gridheight: "868,768,960,720",
+                    minHeight: 600,
+                    lazyType: "smart",
+                    perspective: 600,
+                    perspectiveType: "local",
+                    editorheight: "868,768,960,720",
+                    responsiveLevels: "1240,1024,778,480",
+                    fullScreenOffset: "138px",
+                    progressBar: {
+                        disableProgressBar: true
+                    },
+                    navigation: {
+                        mouseScrollNavigation: false,
+                        wheelCallDelay: 1000,
+                        onHoverStop: false,
+                        touch: {
+                            touchenabled: true,
+                            swipe_min_touches: 50
+                        }
+                    },
+                    parallax: {
+                        levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
+                        type: "scroll",
+                        origo: "slidercenter",
+                        speed: 1000
+                    },
+                    viewPort: {
+                        global: true,
+                        globalDist: "-200px",
+                        enable: false,
+                        visible_area: "20%"
+                    },
+                    fallbacks: {
+                        allowHTML5AutoPlayOnAndroid: true
+                    },
+                });
+
+            }
+        } // End of RevInitScript
+
+        if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+        if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+        RS_MODULES.modules["revslider112"] = {
+            init: function() {
+                window.revapi11 = window.revapi11 === undefined || window.revapi11 === null || window.revapi11
+                    .length === 0 ? document.getElementById("rev_slider_11_2") : window.revapi11;
+                if (window.revapi11 === null || window.revapi11 === undefined || window.revapi11.length == 0) {
+                    window.revapi11initTry = window.revapi11initTry === undefined ? 0 : window.revapi11initTry + 1;
+                    if (window.revapi11initTry < 20) requestAnimationFrame(function() {
+                        RS_MODULES.modules["revslider112"].init()
+                    });
+                    return;
+                }
+                window.revapi11 = jQuery(window.revapi11);
+                if (window.revapi11.revolution == undefined) {
+                    revslider_showDoubleJqueryError("rev_slider_11_2");
+                    return;
+                }
+                revapi11.revolutionInit({
+                    revapi: "revapi11",
+                    sliderType: "hero",
+                    DPR: "dpr",
+                    visibilityLevels: "1240,1024,778,480",
+                    gridwidth: 700,
+                    gridheight: 550,
+                    lazyType: "smart",
+                    perspective: 600,
+                    perspectiveType: "local",
+                    editorheight: "550,600,500,450",
+                    responsiveLevels: "1240,1024,778,480",
+                    progressBar: {
+                        disableProgressBar: true
+                    },
+                    viewPort: {
+                        global: true,
+                        globalDist: "-200px",
+                        enable: false
+                    },
+                    fallbacks: {
+                        allowHTML5AutoPlayOnAndroid: true
+                    },
+                });
+
+            }
+        } // End of RevInitScript
+
+        if (window.RS_MODULES.checkMinimal !== undefined) {
+            window.RS_MODULES.checkMinimal();
+        };
+    </script>
 
 
 </body>
+
+<!-- Mirrored from www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Feb 2023 16:22:02 GMT -->
 
 </html>

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('bill_detail', function (Blueprint $table) {
             $table->id();
+            $table->string('service_id');
+            $table->string('room_id');
+            $table->string('bill_id');
+            $table->string('quantity');
+            $table->date('date');
+            $table->string('status');
             $table->timestamps();
         });
     }

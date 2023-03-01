@@ -6,31 +6,16 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index(Request $request)
+    private $v;
+    public function __construct()
     {
-        return view('admin.administration.index');
+        $this->v = [];
     }
-
-    public function delete() {}
-
-    public function add()
+    public function admin()
     {
-        //thêm
-        return view('admin.administration.add');
-    }
-
-    public function store()
-    {
-        //lưu thêm
-    }
-
-    public function edit( $user)
-    {
-        //sửa
-    }
-
-    public function update() 
-    {
-        //lưu sửa
+        // $jobs = new Employer();
+        // $this->v['list'] = $jobs->loadListWithPager();    
+        $this->v['title'] = '12 Zodiac - Dashboard';
+        return view("admin/dashboard",$this->v);
     }
 }
