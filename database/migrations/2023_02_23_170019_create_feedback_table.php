@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->string('bill_id');
-            $table->date('content');
-            $table->date('star');
-            $table->date('title');
+            $table->integer('bill_id');
+            $table->string('content');
+            $table->string('star')->comment("Số sao");
+            $table->string('title');
+            $table->integer("status");
             $table->timestamps();
         });
     }

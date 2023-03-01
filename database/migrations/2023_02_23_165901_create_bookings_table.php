@@ -14,14 +14,13 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->date('date_from');
-            $table->date('checkin_date');
-            $table->date('checkout_date');
+            $table->date('checkin_date')->comment("Ngày đến");
+            $table->date('checkout_date')->comment("Ngày đi");
             $table->string('people');
             $table->string('cate_room_id');
-            $table->string('status_booking');
-            $table->string('status_pay');
-            $table->string('id_nhanvien');
+            $table->string('status_booking')->comment("Trạng thái đặt phòng");
+            $table->string('status_pay')->comment("Trạng thái thanh toán");
+            $table->string('staff_id')->comment("Nhân viên");
             $table->timestamps();
         });
     }

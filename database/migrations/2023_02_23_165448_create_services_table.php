@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('images');
             $table->string('price');
+            $table->unsignedInteger("status");
             $table->timestamps();
         });
     }

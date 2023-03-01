@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->float('price');
+            $table->decimal('price');
+            $table->unsignedInteger("status");
+            $table->unsignedInteger("gallery_id")->comment("Danh sách ảnh");
             $table->timestamps();
         });
     }

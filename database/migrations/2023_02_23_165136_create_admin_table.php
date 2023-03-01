@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('avatar');
             $table->integer('role');
             $table->integer('new_id');
+            $table->unsignedInteger("status");
             $table->timestamps();
         });
     }

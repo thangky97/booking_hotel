@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bills', function (Blueprint $table) {
-            $table->id();
+            $table->id();   
+            $table->string('booking_detail_id');
+            $table->string('booking_id');
+            $table->string('total_money');
+            $table->unsignedInteger('status');
+            $table->string('voucher_id');
             $table->timestamps();
         });
     }

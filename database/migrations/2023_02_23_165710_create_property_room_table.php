@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('property_room', function (Blueprint $table) {
             $table->id();
-            $table->integer('room_id');
-            $table->integer('properties_id');
+            $table->integer('room_id')->comment("Phòng");
+            $table->integer('properties_id')->comment("Thuộc tính phòng");
+            $table->unsignedInteger("status");
             $table->timestamps();
         });
     }
