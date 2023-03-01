@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('booking_id');
             $table->string('room_id');
-            $table->string('status');  
+            $table->unsignedInteger('status');  
             $table->timestamps();
         });
     }

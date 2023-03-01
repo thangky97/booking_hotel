@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('vouchers', function (Blueprint $table) {
             $table->id();
-            $table->string('booking_detail_id');
-            $table->string('booking_id');
-            $table->string('total_money');
-            $table->string('status');
-            $table->string('voucher_id');
+            $table->string('code')->comment("Mã giảm giá");
+            $table->string('name');
+            $table->string('discount');
+            $table->integer('max_uses_user')->comment("Giới hạn người sử dụng");
+            $table->integer('limit')->comment("Số lượng mã giảm giá");
+            $table->date('date_start')->comment("Ngày có hiệu lực");
+            $table->date('date_end')->comment("Ngày hết hạn");
+            $table->unsignedInteger('status');
             $table->timestamps();
         });
     }
