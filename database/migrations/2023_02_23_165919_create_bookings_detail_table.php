@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('bookings_detail', function (Blueprint $table) {
             $table->id();
+            $table->string('booking_id');
+            $table->string('room_id');
+            $table->string('status');  
             $table->timestamps();
         });
     }

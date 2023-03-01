@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('category_room', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('image');
+            $table->float('price');
             $table->timestamps();
         });
     }
