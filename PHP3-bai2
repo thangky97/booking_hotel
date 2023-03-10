@@ -34,4 +34,3 @@ thêm đoạn này vào để fix lỗi không nhận controller
 trong RouteServiceProvider
 protected $namespace = 'App\Http\Controllers';
 
-
