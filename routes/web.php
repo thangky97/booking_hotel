@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,16 +47,37 @@ Route::get('/booking_search', function () { //Tìm kếm rooms
     return view('templates/pages/booking_search');
 });
 
+
+//Chỉ dùng cho đăng nhập
+// Route::get('/login1', ['as'=>'login', 'uses'=>'Auth\LoginController@getLogin']) ;
+// Route::post('/login1', ['as'=>'login1', 'uses'=>'Auth\LoginController@postLogin']);
+
+Route::middleware('guest')->prefix('/auth')->group(function () {
+    Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
+    Route::post('/login', 'Auth\LoginController@postLogin')->name('postLogin');
+
+    Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
+    Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
+
+    // use Laravel\Socialite\Facades\Socialite;
+    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
+    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
+});
+//Đăng xuất
+Route::get('/auth/logout', ['as'=>'logout', 'uses'=>'Auth\LoginController@getLogout'])->middleware('auth');
 //ADMIN
 //viết middleware sau ở đây
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
-    Route::prefix('/dashboard')->group(function () {
-        Route::get('/', 'AdminController@admin')->name('route_BackEnd_Dashboard');
-    });
+    Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
+    
+    Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
+    Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
+    Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('route_BackEnd_Admin_Edit');
+    Route::post('/update/{id}', 'Admin\AdminController@update')->name('route_BackEnd_Admin_Update');
 
     Route::prefix('/users')->group(function () {
-        Route::get('/', 'App\Http\Controllers\Admin\UserController@users')->name('route_BackEnd_Users_List');
+        Route::get('/', 'UserController@users')->name('route_BackEnd_Users_List');
         Route::match(['get', 'post'], '/add', 'App\Http\Controllers\Admin\UserController@users_add')->name('route_BackEnd_Users_Add');
         Route::get('/detail', 'App\Http\Controllers\Admin\UserController@users_detail')->name('route_BackEnd_Users_Detail');
         Route::post('/update/{id}', 'App\Http\Controllers\Admin\UserController@users_update')->name('route_BackEnd_Users_Update');

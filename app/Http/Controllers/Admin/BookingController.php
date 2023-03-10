@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -15,7 +14,7 @@ class BookingController extends Controller
     }
     public function bookings()
     {
-        // $jobs = new Employer();
+        // $jobs = new Employer();  
         // $this->v['list'] = $jobs->loadListWithPager();
         $booking = Booking::paginate(5);
         $this->v['title'] = '12 Zodiac - Đơn đặt phòng';

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('date');
             $table->integer('gender');
             $table->integer('room_id');
+            $table->unsignedInteger("status");
             $table->timestamps();
         });
     }
