@@ -82,6 +82,7 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('/rooms')->group(function () {
+<<<<<<< refs/remotes/origin/hoang
         Route::get('/', 'RoomController@index')->name('route_BackEnd_Room_index');
         Route::get('/add', 'RoomController@add')->name('route_BackEnd_Room_add');
         Route::post('/store', function () {
@@ -93,6 +94,14 @@ Route::prefix('admin')->group(function () {
         Route::post('/update', function () {
             return view('admin/rooms/update');
         });
+=======
+        Route::get('/', 'App\Http\Controllers\Admin\RoomController@rooms')->name('route_BackEnd_Rooms_List');
+        Route::match(['post','get'], '/add', 'App\Http\Controllers\Admin\RoomController@rooms_add')->name('route_BackEnd_Rooms_Add');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_update')->name('route_BackEnd_Rooms_Update');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_detail')->name('route_BackEnd_Rooms_Detail');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_update')->name('route_BackEnd_Rooms_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_remove')->name('route_BackEnd_Rooms_Remove');
+>>>>>>> local
     });
 
     Route::prefix('/category_room')->group(function () {

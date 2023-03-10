@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('admin', function (Blueprint $table) {
             $table->id();
+<<<<<<< refs/remotes/origin/hoang
+=======
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone');
+            $table->string('password');
+            $table->string('avatar');
+            $table->integer('role');
+            $table->integer('new_id');
+            $table->unsignedInteger('status');
+>>>>>>> local
             $table->timestamps();
         });
     }

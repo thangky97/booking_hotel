@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+<<<<<<< refs/remotes/origin/hoang
+=======
+            $table->string('name');
+            $table->string('cate_room')->comment("Dnah mục phòng");
+            $table->string('images');
+            $table->string('title');
+            $table->string('description');
+            $table->integer('adult')->comment("Người lớn");
+            $table->integer('childrend');
+            $table->integer('bed');
+            $table->unsignedInteger('status');
+>>>>>>> local
             $table->timestamps();
         });
     }

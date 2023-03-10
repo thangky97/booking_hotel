@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
+<<<<<<< refs/remotes/origin/hoang
+=======
+            $table->integer('bill_id');
+            $table->string('content');
+            $table->string('star')->comment("Số sao");
+            $table->string('title');
+            $table->unsignedInteger('status');
+>>>>>>> local
             $table->timestamps();
         });
     }

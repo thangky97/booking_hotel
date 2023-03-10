@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('banner', function (Blueprint $table) {
             $table->id();
+<<<<<<< refs/remotes/origin/hoang
+=======
+            $table->text('images');
+            $table->string('status');
+>>>>>>> local
             $table->timestamps();
         });
     }

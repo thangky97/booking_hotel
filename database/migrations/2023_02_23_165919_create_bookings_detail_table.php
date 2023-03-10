@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('bookings_detail', function (Blueprint $table) {
             $table->id();
+<<<<<<< refs/remotes/origin/hoang
+=======
+            $table->string('booking_id');
+            $table->string('room_id');
+            $table->unsignedInteger('status');
+>>>>>>> local
             $table->timestamps();
         });
     }

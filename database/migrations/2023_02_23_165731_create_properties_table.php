@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+<<<<<<< refs/remotes/origin/hoang
+=======
+            $table->string('name');
+            $table->string('image');
+            $table->unsignedInteger('status');
+>>>>>>> local
             $table->timestamps();
         });
     }

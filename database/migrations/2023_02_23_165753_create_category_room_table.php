@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('category_room', function (Blueprint $table) {
             $table->id();
+<<<<<<< refs/remotes/origin/hoang
+=======
+            $table->string('name');
+            $table->string('image');
+            $table->decimal('price');
+            $table->unsignedInteger('status');
+>>>>>>> local
             $table->timestamps();
         });
     }

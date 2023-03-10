@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('contact', function (Blueprint $table) {
             $table->id();
+<<<<<<< refs/remotes/origin/hoang
+=======
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email')->unique();
+            $table->string('content');
+            $table->string('title');
+            $table->unsignedInteger('status');
+>>>>>>> local
             $table->timestamps();
         });
     }
