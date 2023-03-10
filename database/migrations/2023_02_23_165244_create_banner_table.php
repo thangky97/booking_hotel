@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('banner', function (Blueprint $table) {
             $table->id();
-            $table->text('images')->comment("ảnh");
-            $table->unsignedInteger('status');
+            $table->text('images');
+            $table->unsignedInteger("status");
             $table->timestamps();
         });
     }
