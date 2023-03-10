@@ -1,1 +1,0 @@
-add Thuộc tính phòng
