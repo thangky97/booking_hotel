@@ -1,6 +1,3 @@
-<<<<<<< refs/remotes/origin/hoang
-Danh sách phòng
-=======
 @extends('templates/admin.layoutadmin')
 @section('title', $title)
 @section('css')
@@ -288,4 +285,3 @@ Danh sách phòng
 		</div>
 	</div>
 </div>
->>>>>>> local

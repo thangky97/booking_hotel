@@ -1,6 +1,3 @@
-<<<<<<< refs/remotes/origin/hoang
-add room
-=======
 @extends('templates/admin.layoutadmin')
 @section('title', $title)
 @section('content')
@@ -147,4 +144,3 @@ add room
     </div>
 </div>
 @endsection
->>>>>>> local
