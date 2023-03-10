@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PropertyRoomController extends Controller
+class ContactController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.property_room.index');
+        return view('admin.contact.index');
     }
 
     public function delete() {}
@@ -16,7 +17,7 @@ class PropertyRoomController extends Controller
     public function add()
     {
         //thêm
-        return view('admin.property_room.add');
+        return view('admin.contact.add');
     }
 
     public function store()

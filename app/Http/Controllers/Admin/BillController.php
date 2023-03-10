@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BookingDetailController extends Controller
+class BillController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.booking_detail.index');
+        return view('admin.bill.index');
     }
 
     public function delete() {}
@@ -16,7 +17,7 @@ class BookingDetailController extends Controller
     public function add()
     {
         //thêm
-        return view('admin.booking_detail.add');
+        return view('admin.bill.add');
     }
 
     public function store()

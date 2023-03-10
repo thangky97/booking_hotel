@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PropertyController extends Controller
+class BannerController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.property.index');
+        return view('admin.banner.index');
     }
 
     public function delete() {}
@@ -16,7 +17,7 @@ class PropertyController extends Controller
     public function add()
     {
         //thêm
-        return view('admin.property.add');
+        return view('admin.banner.add');
     }
 
     public function store()

@@ -1,14 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    public function index(Request $request)
+    private $v;
+    public function __construct()
     {
-        return view('admin.service.index');
+        $this->v = [];
+    }
+    public function index() {
+        $this->v['title'] = '12 Zodiac - Admin';
+
+        return view("admin.banner", $this->v);
     }
 
     public function delete() {}

@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryRoomController extends Controller
+class CategoryNewController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.cate_room.index');
+        return view('admin.cate_new.index');
     }
 
     public function delete() {}
@@ -16,7 +17,7 @@ class CategoryRoomController extends Controller
     public function add()
     {
         //thêm
-        return view('admin.cate_room.add');
+        return view('admin.cate_new.add');
     }
 
     public function store()

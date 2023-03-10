@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class BillDetailController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.contact.index');
+        return view('admin.bill_detail.index');
     }
 
     public function delete() {}
@@ -16,7 +17,7 @@ class ContactController extends Controller
     public function add()
     {
         //thêm
-        return view('admin.contact.add');
+        return view('admin.bill_detail.add');
     }
 
     public function store()
