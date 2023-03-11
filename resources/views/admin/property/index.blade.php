@@ -81,36 +81,35 @@
 										id="guestTable-all">
 										<thead>
 											<tr>
-												<th class="bg-none">
+												<th class="bg-none text-center">
 													<div class="form-check style-1">
 														<input class="form-check-input" type="checkbox" value=""
 															id="checkAll">
 													</div>
 												</th>
 												<th class="text-center">Tên Thuộc tính</th>
-												<th class="text-center">Image</th>
+												<th class="text-center">Hình ảnh</th>
                                                 <th class="text-center">Trạng thái</th>
-												<th class="text-center">Action</th>
+												<th class="text-center">Hành động</th>
 											</tr>
 										</thead>
 										<tbody>
                                             @foreach ($properties as $p)
 											<tr>
-												<td>
+												<td class="text-center">
 													<div class="form-check style-1">
 														<input class="form-check-input" type="checkbox" value="">
 													</div>
 												</td>
                                                 <td>
 													<div class="text-center">
-
 														<span >{{ $p->name }}</span>
 													</div>
 												</td>
 												<td class="text-center"><img src="{{ asset('storage/'. $p->image) }}" alt="" width="100px"></td>
                                                 <td class="text-center">{{ $p->status == 1 ? 'kích hoạt' : 'khóa' }}</td>
-                                                <td>
-                                                    <a href="{{route('route_BackEnd_properties_Detail', $p->id)}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
+                                                <td class="text-center">
+                                                    <a href="{{route('route_BackEnd_properties_Detail', $p->id)}}"><button class="btn btn-primary">Sửa</button></a>
                                                 </td>
 											</tr>
                                             @endforeach

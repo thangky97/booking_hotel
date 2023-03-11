@@ -42,14 +42,14 @@
                                                                id="checkAll">
                                                     </div>
                                                 </th>
-                                                <th class="h5">STT</th>
-                                                <th class="h5">Khách hàng</th>
-												<th class="h5">Ngày đặt</th>
-												<th class="h5">Ngày trả</th>
-												<th class="h5">Người</th>
-												<th class="h5">Loại phòng</th>
-												<th class="h5">Thanh toán</th>
-												<th class="h5">Nhân viên</th>
+                                                <th class="h5 text-center">STT</th>
+                                                <th class="h5 text-center">Khách hàng</th>
+												<th class="h5 text-center">Ngày đặt</th>
+												<th class="h5 text-center">Ngày trả</th>
+												<th class="h5 text-center">Người</th>
+												<th class="h5 text-center">Loại phòng</th>
+												<th class="h5 text-center">Thanh toán</th>
+												<th class="h5 text-center">Nhân viên</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -58,15 +58,15 @@
                                         @foreach($listBookings as $index => $item)
                                             @if($item->status_booking==1)
                                             <tr>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="form-check style-1">
                                                         <input class="form-check-input" type="checkbox" value="">
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     {{$i++}}
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>
                                                         @foreach ($listUsers as $user)
                                                             <?php if($item->user_id==$user->id){
@@ -75,22 +75,22 @@
                                                        @endforeach
                                                     </p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div  style="width: 100px">
                                                         <h6>{{$item->checkin_date}}</h6>
                                                         <span class="fs-14">08:29 AM</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div  style="width: 100px">
                                                         <h6>{{$item->checkout_date}}</h6>
                                                         <span class="fs-14">08:29 AM</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>{{$item->people}}</p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>
                                                         @foreach ($listCaterooms as $cate)
                                                                 <?php if($item->cate_room_id==$cate->id){
@@ -99,8 +99,8 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-                                                <td><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
-                                                <td><p style="width: 150px">
+                                                <td class="text-center"><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
+                                                <td class="text-center"><p style="width: 150px">
                                                         @if($item->staff_id==1)
                                                             {{'Nguyễn Đình Huân'}}
                                                         @elseif($item->staff_id==2)
@@ -109,7 +109,7 @@
                                                             {{'Đinh Trung Nguyên'}}
                                                        @endif
                                                         </p></td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="dropdown dropstart">
                                                         <a href="javascript:void(0);" class="btn-link"
                                                            data-bs-toggle="dropdown" aria-expanded="false">
@@ -154,14 +154,14 @@
                                                            id="checkAll">
                                                 </div>
                                             </th>
-                                            <th class="h5">STT</th>
-                                            <th class="h5">Khách hàng</th>
-                                            <th class="h5">Ngày đặt</th>
-                                            <th class="h5">Ngày trả</th>
-                                            <th class="h5">Người</th>
-                                            <th class="h5">Loại phòng</th>
-                                            <th class="h5">Thanh toán</th>
-                                            <th class="h5">Nhân viên</th>
+                                            <th class="h5 text-center">STT</th>
+                                            <th class="h5 text-center">Khách hàng</th>
+                                            <th class="h5 text-center">Ngày đặt</th>
+                                            <th class="h5 text-center">Ngày trả</th>
+                                            <th class="h5 text-center">Người</th>
+                                            <th class="h5 text-center">Loại phòng</th>
+                                            <th class="h5 text-center">Thanh toán</th>
+                                            <th class="h5 text-center">Nhân viên</th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -169,15 +169,15 @@
                                         <?php $j=1?>
                                         @foreach($listBookings as $index => $item)
                                             <tr>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="form-check style-1">
                                                         <input class="form-check-input" type="checkbox" value="">
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     {{$j++}}
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>
                                                         @foreach ($listUsers as $user)
                                                                 <?php if($item->user_id==$user->id){
@@ -186,22 +186,22 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div  style="width: 100px">
                                                         <h6>{{$item->checkin_date}}</h6>
                                                         <span class="fs-14">08:29 AM</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div  style="width: 100px">
                                                         <h6>{{$item->checkout_date}}</h6>
                                                         <span class="fs-14">08:29 AM</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>{{$item->people}}</p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>
                                                         @foreach ($listCaterooms as $cate)
                                                                 <?php if($item->cate_room_id==$cate->id){
@@ -210,8 +210,8 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-                                                <td><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
-                                                <td><p style="width: 150px">
+                                                <td class="text-center"><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
+                                                <td class="text-center"><p style="width: 150px">
                                                         @if($item->staff_id==1)
                                                             {{'Nguyễn Đình Huân'}}
                                                         @elseif($item->staff_id==2)
@@ -220,7 +220,7 @@
                                                             {{'Đinh Trung Nguyên'}}
                                                         @endif
                                                     </p></td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="dropdown dropstart">
                                                         <a href="javascript:void(0);" class="btn-link"
                                                            data-bs-toggle="dropdown" aria-expanded="false">
@@ -264,14 +264,14 @@
                                                            id="checkAll">
                                                 </div>
                                             </th>
-                                            <th class="h5">STT</th>
-                                            <th class="h5">Khách hàng</th>
-                                            <th class="h5">Ngày đặt</th>
-                                            <th class="h5">Ngày trả</th>
-                                            <th class="h5">Người</th>
-                                            <th class="h5">Loại phòng</th>
-                                            <th class="h5">Thanh toán</th>
-                                            <th class="h5">Nhân viên</th>
+                                            <th class="h5 text-center">STT</th>
+                                            <th class="h5 text-center">Khách hàng</th>
+                                            <th class="h5 text-center">Ngày đặt</th>
+                                            <th class="h5 text-center">Ngày trả</th>
+                                            <th class="h5 text-center">Người</th>
+                                            <th class="h5 text-center">Loại phòng</th>
+                                            <th class="h5 text-center">Thanh toán</th>
+                                            <th class="h5 text-center">Nhân viên</th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -280,15 +280,15 @@
                                         @foreach($listBookings as $index => $item)
                                             @if($item->status_booking==0)
                                                 <tr>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div class="form-check style-1">
                                                             <input class="form-check-input" type="checkbox" value="">
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         {{$k++}}
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <p>
                                                             @foreach ($listUsers as $user)
                                                                     <?php if($item->user_id==$user->id){
@@ -297,22 +297,22 @@
                                                             @endforeach
                                                         </p>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div  style="width: 100px">
                                                             <h6>{{$item->checkin_date}}</h6>
                                                             <span class="fs-14">08:29 AM</span>
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div  style="width: 100px">
                                                             <h6>{{$item->checkout_date}}</h6>
                                                             <span class="fs-14">08:29 AM</span>
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <p>{{$item->people}}</p>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <p>
                                                             @foreach ($listCaterooms as $cate)
                                                                     <?php if($item->cate_room_id==$cate->id){
@@ -321,8 +321,8 @@
                                                             @endforeach
                                                         </p>
                                                     </td>
-                                                    <td><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
-                                                    <td><p style="width: 150px">
+                                                    <td class="text-center"><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
+                                                    <td class="text-center"><p style="width: 150px">
                                                             @if($item->staff_id==1)
                                                                 {{'Nguyễn Đình Huân'}}
                                                             @elseif($item->staff_id==2)
@@ -331,7 +331,7 @@
                                                                 {{'Đinh Trung Nguyên'}}
                                                             @endif
                                                         </p></td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div class="dropdown dropstart">
                                                             <a href="javascript:void(0);" class="btn-link"
                                                                data-bs-toggle="dropdown" aria-expanded="false">

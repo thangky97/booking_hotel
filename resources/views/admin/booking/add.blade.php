@@ -127,17 +127,17 @@
                                 <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                     <thead>
                                         <tr>
-                                            <th class="bg-none">
+                                            <th class="bg-none text-center">
                                                 <div class="form-check style-1">
                                                     <input class="form-check-input" type="checkbox" value=""
                                                            id="checkAll">
                                                 </div>
                                             </th>
-                                            <th class="h5">STT</th>
-                                            <th class="h5">Tên phòng</th>
-                                            <th class="h5">Hình ảnh</th>
-                                            <th class="h5">Mô tả</th>
-                                            <th class="h5">Số giường</th>
+                                            <th class="h5 text-center">STT</th>
+                                            <th class="h5 text-center">Tên phòng</th>
+                                            <th class="h5 text-center">Hình ảnh</th>
+                                            <th class="h5 text-center">Mô tả</th>
+                                            <th class="h5 text-center">Số giường</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -145,16 +145,16 @@
                                     @foreach($listRooms as $index => $item)
                                         @if($cate_room->id==$item->cate_room)
                                             <tr>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="form-check style-1">
                                                         <input class="form-check-input" type="checkbox" value="">
                                                     </div>
                                                 </td>
-                                                <td>{{$i++}}</td>
-                                                <td>{{$item->name}}</td>
-                                                <td>{{$item->images}}</td>
-                                                <td>{{$item->description}}</td>
-                                                <td>{{$item->bed}}</td>
+                                                <td class="text-center">{{$i++}}</td>
+                                                <td class="text-center">{{$item->name}}</td>
+                                                <td class="text-center">{{$item->images}}</td>
+                                                <td class="text-center">{{$item->description}}</td>
+                                                <td class="text-center">{{$item->bed}}</td>
                                             </tr>
                                         @endif
                                     @endforeach
