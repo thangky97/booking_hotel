@@ -60,7 +60,7 @@
                                                     @endforeach
                                                 </p>
                                             </td>
-                                            <td style="display: flex">
+                                            <td>
                                                 <a href="{{route('route_BackEnd_PropertyRoom_edit',$item->id)}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
                                             </td>
                                         </tr>

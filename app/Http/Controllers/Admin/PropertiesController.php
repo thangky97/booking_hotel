@@ -57,13 +57,4 @@ class PropertiesController extends Controller
             return redirect()->route('route_BackEnd_properties_List')
             ->with('success', 'sua thanh cong');
         }
-        public function destroy($id)
-        {
-            $delete = Properties::destroy($id);
-            if(!$delete){
-                return redirect()->back();
-            }
-            return redirect()->route('route_BackEnd_properties_List')
-            ->with('success', 'xoa thanh cong');
-        }
 }
