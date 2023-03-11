@@ -12,7 +12,6 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('route_BackEnd_Bookings_List') }}">Đơn đặt phòng</a></li>
-                    <li><a href="{{ route('route_BackEnd_Bookings_Detail') }}">Chi tiết đơn</a></li>
                     <li><a href="{{ route('route_BackEnd_Employees_List') }}">Nhân viên</a></li>
                     <li><a href="{{ route('route_BackEnd_Rooms_List') }}">Phòng</a></li>
                     <li><a href="{{ route('route_BackEnd_Categoryrooms_List') }}">Loại phòng</a></li>

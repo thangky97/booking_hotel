@@ -35,7 +35,7 @@
                 <input value="1" name="status" hidden>
                 <div style="display: flex">
                     <a><button type="submit" class="btn btn-primary">Thêm mới</button></a>
-                    <a href="{{route('route_BackEnd_PropertyRoom_list')}}" style="margin-left: 10px"><button class="btn btn-danger">Hủy cập nhập</button></a>
+                    <a href="{{route('route_BackEnd_PropertyRoom_list')}}" style="margin-left: 10px"><button class="btn btn-danger">Hủy thêm mới</button></a>
                 </div>
             </form>
         </section>

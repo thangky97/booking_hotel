@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Booking extends Model
+class Users extends Model
 {
     use HasFactory;
 
@@ -15,23 +15,23 @@ class Booking extends Model
      *
      * @var array<int, string>
      */
-    protected $table = "bookings";
+    protected $table = "users";
     protected $fillable = [
         'id',
-        'user_id',
-        'checkin_date',
-        'checkout_date',
-        'people',
-        'cate_room_id',
-        'status_booking',
-        'status_pay',
-        'staff_id',
+        'name',
+        'phone',
+        'email',
+        'address',
+        'cccd',
+        'date',
+        'gender',
+        'room_id',
     ];
 
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status_booking', 1);
+            ->select($this->fillable)->where('status', 1);
         $list = $query->paginate(10);
         return $list;
     }
@@ -39,7 +39,7 @@ class Booking extends Model
     public function loadAll($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status_booking', 1);
+            ->select($this->fillable)->where('status', 1);
         $list = $query->get();
         return $list;
     }

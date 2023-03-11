@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class Properties extends Model
 {
+    use HasFactory;
+
     protected $table = "properties";
     protected $fillable = [
         'id',
