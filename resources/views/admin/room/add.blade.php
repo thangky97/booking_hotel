@@ -116,7 +116,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <div>Mô Tả<span class="text-danger">(*)</span></div>
-                                            <textarea class="form-control" rows="5" id="description" name="description" placeholder=" Mô tả" value="@isset($request['description']){{ $request['description'] }}@endisset""></textarea>
+                                            <textarea class="form-control" rows="5" id="description" name="description" placeholder=" Mô tả" value="@isset($request['description']){{ $request['description'] }}@endisset"></textarea>
                                         </div>
                                         <div>
                                             <h5 class=" mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
@@ -131,10 +131,11 @@
                                         <button class="btn btn-primary btn-submit btn-sl-sm me-2" ><span class="me-2"><i class="fa fa-paper-plane"></i></span>Thêm mới</button>
                                         <a href="{{route('route_BackEnd_Rooms_List')}}"><button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i class="fa fa-times"></i></span> Quay Lại</button></a>
                                     </div>
+                                    </div>
                                 </form>
 
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>

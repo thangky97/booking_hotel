@@ -16,7 +16,8 @@
                     <li><a href="{{ route('route_BackEnd_Employees_List') }}">Nhân viên</a></li>
                     <li><a href="{{ route('route_BackEnd_Rooms_List') }}">Phòng</a></li>
                     <li><a href="{{ route('route_BackEnd_Categoryrooms_List') }}">Loại phòng</a></li>
-                    <li><a href="{{ route('route_BackEnd_properties_List') }}">Thuộc tính phòng</a></li>
+                    <li><a href="{{ route('route_BackEnd_properties_List') }}">Thuộc tính</a></li>
+                    <li><a href="{{ route('route_BackEnd_PropertyRoom_list') }}">Thuộc tính phòng</a></li>
                     <li><a href="{{ route('route_BackEnd_Users_List') }}">Người dùng</a></li>
                     <li><a href="{{ route('route_BackEnd_Feedback_List') }}">Nhận xét</a></li>
                 </ul>
