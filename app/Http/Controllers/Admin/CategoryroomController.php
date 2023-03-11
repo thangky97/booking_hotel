@@ -12,15 +12,16 @@ class CategoryRoomController extends Controller
 {
     public function index()
     {
-        $title = '12 Zodiac - Danh mục phòng';
-        $category = DB::table('category_rooms')->orderBy('name', 'desc')->paginate(100); //phan trang , toi da 5 ban ghi
-        return view('admin.cate_room.index', compact('category', 'title'));
+        $categoryRoom = new CategoryRooms();
+        $this->v['categoryRoom'] = $categoryRoom->loadListWithPager();
+        $this->v['title'] = '12 Zodiac - Danh mục phòng';
+        return view('admin.cate_room.index', $this->v);
     }
     public function addForm()
     {
-        $title = '12 Zodiac - Thêm danh mục phòng';
+        $this->v['title'] = '12 Zodiac - Thêm danh mục phòng';
         /// $gallery = DB::table('gallery')->get();
-        return view('admin.cate_room.add', compact('title'));
+        return view('admin.cate_room.add', $this->v);
     }
     public function saveAdd(Request $request)
     {
@@ -45,10 +46,11 @@ class CategoryRoomController extends Controller
     }
     public function editForm($id)
     {   //lay du lieu theo id
-        $title = '12 Zodiac - Sửa danh mục phòng';
-        $editCate = CategoryRooms::find($id); //lay du lieu tu db
         // $gallery = DB::table('gallery')->get();
-        return view('admin.cate_room.detail', compact('editCate', 'id', 'title')); // truyen du lieu de hien thi sang file view de admin nhin thay
+        $this->v['id'] = $id;
+        $this->v['editCate'] = CategoryRooms::find($id); //lay du lieu tu db
+        $this->v['title'] = '12 Zodiac - Sửa danh mục phòng';
+        return view('admin.cate_room.detail', $this->v); // truyen du lieu de hien thi sang file view de admin nhin thay
     }
     public function saveEdit(Request $request, $id)
     {
@@ -66,14 +68,5 @@ class CategoryRoomController extends Controller
         $createEdit->save();
         return redirect()->route('route_BackEnd_Categoryrooms_List')
             ->with('success', 'Sửa thành công');
-    }
-    public function destroy($id)
-    {
-        $delete = CategoryRooms::destroy($id);
-        if (!$delete) {
-            return redirect()->back();
-        }
-        return redirect()->route('route_BackEnd_Categoryrooms_List')
-            ->with('success', 'Xóa thành công');
     }
 }
