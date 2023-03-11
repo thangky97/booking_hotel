@@ -3,35 +3,63 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PropertyRoomRequest;
+use App\Models\Rooms;
+use App\Models\Propertyroom;
+use App\Models\Properties;
 use Illuminate\Http\Request;
 
 class PropertyRoomController extends Controller
 {
-    public function index(Request $request)
+    private $v;
+    public function __construct()
     {
-        return view('admin.property_room.index');
+        $this->v = [];
     }
-
-    public function delete() {}
+    public function propertyrooms()
+    {
+        $Propertyrooms = new Propertyroom();
+        $this->v['listPropertyrooms'] = $Propertyrooms->loadListWithPager();
+        $Rooms = new Rooms();
+        $this->v['listRooms'] = $Rooms->loadListWithPager();
+        $Properties = new Properties();
+        $this->v['listProperties'] = $Properties->loadListWithPager();
+        $this->v['title'] = '12 Zodiac - Phòng';
+        return view("admin.property_room.index", $this->v);
+    }
 
     public function add()
     {
-        //thêm
-        return view('admin.property_room.add');
+        $Rooms = new Rooms();
+        $this->v['listRooms'] = $Rooms->loadListWithPager();
+        $Properties = new Properties();
+        $this->v['listProperties'] = $Properties->loadListWithPager();
+        $this->v['title'] = '12 Zodiac - Thêm thuộc tính phòng';
+        return view('admin.property_room.add', $this->v);
     }
 
-    public function store()
+    public function create(PropertyRoomRequest $request)
     {
-        //lưu thêm
+        Propertyroom::create($request->all());
+        $this->v['title'] = '12 Zodiac - Thêm thuộc tính';
+        return redirect()->route('route_BackEnd_PropertyRoom_list');
     }
 
-    public function edit()
+    public function edit($id, Request $request)
     {
-        //sửa
+        $Rooms = new Rooms();
+        $this->v['listRooms'] = $Rooms->loadListWithPager();
+        $Properties = new Properties();
+        $this->v['listProperties'] = $Properties->loadListWithPager();
+        $this->v['property_rooms'] = Propertyroom::find($id);
+        $this->v['title'] = '12 Zodiac - Sửa thuộc tính phòng';
+        return view('admin.property_room.edit', $this->v);
     }
 
-    public function update() 
+    public function update($id, Request $request)
     {
-        //lưu sửa
+        Propertyroom::find($id)->update($request->all());
+        $this->v['title'] = '12 Zodiac - Thuộc tính phòng';
+        return redirect()->route('route_BackEnd_PropertyRoom_list');
     }
 }

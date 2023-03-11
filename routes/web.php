@@ -68,9 +68,10 @@ Route::get('/auth/logout', ['as'=>'logout', 'uses'=>'Auth\LoginController@getLog
 //ADMIN
 //viết middleware sau ở đây
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+//Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
-    
+
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
     Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
     Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('route_BackEnd_Admin_Edit');
@@ -115,17 +116,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/property_room')->group(function () {
-        Route::get('/', 'PropertyRoomController@index')->name('route_BackEnd_Property_Room_index');
-        Route::get('/add', 'PropertyRoomController@add')->name('route_BackEnd_Property_Room_add');
-        Route::post('/store', function () {
-            return view('admin/property_room/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/property_room/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/property_room/update');
-        });
+        Route::get('/', 'App\Http\Controllers\Admin\PropertyRoomController@propertyrooms')->name('route_BackEnd_PropertyRoom_list');
+        Route::get('/add', 'App\Http\Controllers\Admin\PropertyRoomController@add')->name('route_BackEnd_PropertyRoom_add');
+        Route::post('/create', 'App\Http\Controllers\Admin\PropertyRoomController@create')->name('route_BackEnd_PropertyRoom_create');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Admin\PropertyRoomController@edit')->name('route_BackEnd_PropertyRoom_edit');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\PropertyRoomController@update')->name('route_BackEnd_PropertyRoom_update');
     });
 
     Route::prefix('/properties')->group(function () {
@@ -139,7 +134,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\PropertiesController@destroy')->name('route_BackEnd_properties_Delete');
     });
 
-    
+
     Route::prefix('/bookings')->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\BookingController@bookings')->name('route_BackEnd_Bookings_List');
         Route::get('/detail', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');

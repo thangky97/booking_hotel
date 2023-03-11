@@ -20,6 +20,15 @@ class Rooms extends Model
         $list = $query->paginate(10);
         return $list;
     }
+
+    public function loadAll($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable);
+        $list = $query->get();
+        return $list;
+    }
+
     //Lọc phòng theo loại phòng
     public function loadListWithCategory($param = [],$cate=[])
     {   if(isset($_GET['category_room'])){
@@ -34,7 +43,7 @@ class Rooms extends Model
         return $list;
     }
 
-    //phương thức thêm mới 
+    //phương thức thêm mới
     public function saveNew($params)
     {
         $data = array_merge($params['cols']);// array_merge để nối 2 hay nhiều mảng lại thành 1 mảng
