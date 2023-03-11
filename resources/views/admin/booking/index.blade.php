@@ -99,7 +99,11 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-                                                <td class="text-center"><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
+                                                <td class="text-center">
+                                                        <span class="fs-16">
+                                                            <?= $item->status_pay==0?'<span class="badge light badge-success">Đã thanh toán</span>':'<span class="badge light badge-danger">Chưa thanh toán</span>'?>
+														</span>
+                                                </td>
                                                 <td class="text-center"><p style="width: 150px">
                                                         @if($item->staff_id==1)
                                                             {{'Nguyễn Đình Huân'}}
@@ -210,7 +214,11 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-                                                <td class="text-center"><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
+                                                <td class="text-center">
+                                                        <span class="fs-16">
+                                                            <?= $item->status_pay==0?'<span class="badge light badge-success">Đã thanh toán</span>':'<span class="badge light badge-danger">Chưa thanh toán</span>'?>
+														</span>
+                                                </td>
                                                 <td class="text-center"><p style="width: 150px">
                                                         @if($item->staff_id==1)
                                                             {{'Nguyễn Đình Huân'}}
@@ -321,7 +329,11 @@
                                                             @endforeach
                                                         </p>
                                                     </td>
-                                                    <td class="text-center"><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
+                                                    <td class="text-center">
+                                                        <span class="fs-16">
+                                                            <?= $item->status_pay==0?'<span class="badge light badge-success">Đã thanh toán</span>':'<span class="badge light badge-warning">Chưa thanh toán</span>'?>
+														</span>
+                                                    </td>
                                                     <td class="text-center"><p style="width: 150px">
                                                             @if($item->staff_id==1)
                                                                 {{'Nguyễn Đình Huân'}}

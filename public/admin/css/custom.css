@@ -1,1 +1,8 @@
 /*Thêm style ở đây*/
+#more1 {display: none;}
+#more2 {display: none;}
+.ct-bt{
+    border: none;
+    background-color: #ffffff;
+    color: #8c8989;
+}

@@ -52,17 +52,17 @@ Route::get('/booking_search', function () { //Tìm kếm rooms
 // Route::get('/login1', ['as'=>'login', 'uses'=>'Auth\LoginController@getLogin']) ;
 // Route::post('/login1', ['as'=>'login1', 'uses'=>'Auth\LoginController@postLogin']);
 
-//Route::middleware('guest')->prefix('/auth')->group(function () {
-//    Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
-//    Route::post('/login', 'Auth\LoginController@postLogin')->name('postLogin');
-//
-//    Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
-//    Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
-//
-//    // use Laravel\Socialite\Facades\Socialite;
-//    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
-//    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
-//});
+Route::middleware('guest')->prefix('/auth')->group(function () {
+    Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
+    Route::post('/login', 'Auth\LoginController@postLogin')->name('postLogin');
+
+    Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
+    Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
+
+    // use Laravel\Socialite\Facades\Socialite;
+    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
+    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
+});
 //Đăng xuất
 Route::get('/auth/logout', ['as'=>'logout', 'uses'=>'Auth\LoginController@getLogout'])->middleware('auth');
 
@@ -70,11 +70,11 @@ Route::get('404', 'ErrorController@error404')->name('404');
 Route::get('403', 'ErrorController@error403')->name('403');
 //ADMIN
 //viết middleware sau ở đây
-//Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+//Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
-    
+
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
     Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
     Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('route_BackEnd_Admin_Edit');
