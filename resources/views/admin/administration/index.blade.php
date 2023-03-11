@@ -58,7 +58,7 @@
                         </div>
                         <div class="card-body">
                             <a href="{{ route('route_BackEnd_Admin_Add')}}" class="btn btn-rounded btn-success mb-xxl-0 mb-4"><span
-                                class="btn-icon-start text-success"><i class="fa fa-plus color-info"></i>
+                                class="btn-icon-start text-success"><i class="fa fa-user color-info"></i>
                             </span>Thêm</a>
                             <div class="table-responsive">
                                 <table id="example3" class="table table-striped table-responsive-sm"
@@ -78,7 +78,7 @@
                                     <tbody>
                                         @foreach ($admin_list as $index => $admin)
                                             <tr>
-                                                <td>{{ $index + 1 }}</td>
+                                                <td class="text-primary">{{ $index + 1 }}</td>
                                                 <td><img class="rounded-circle" width="35"
                                                         src="{{ asset($admin->avatar) ? '' . Storage::url($admin->avatar) : ($admin->name) }}" alt=""></td>
                                                 <td>{{ $admin->name }}</td>

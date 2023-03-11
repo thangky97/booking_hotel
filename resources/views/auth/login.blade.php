@@ -83,7 +83,7 @@
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
                                         </div>
-                                        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                                        {{-- <input type="hidden" name="_token" value="{!! csrf_token() !!}"> --}}
                                         <div class="new-account mt-3">
                                             <p>Bạn chưa có tài khoản? <a class="text-primary"
                                                     href="{{ route('getRegister') }}">Đăng ký</a>
