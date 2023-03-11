@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
-class Users extends Model
+class PropertyRoom extends Model
 {
     use HasFactory;
 
@@ -15,17 +16,12 @@ class Users extends Model
      *
      * @var array<int, string>
      */
-    protected $table = "users";
+    protected $table = "property_room";
     protected $fillable = [
         'id',
-        'name',
-        'phone',
-        'email',
-        'address',
-        'cccd',
-        'date',
-        'gender',
         'room_id',
+        'properties_id',
+        'status',
     ];
 
     public function loadListWithPager($param = [])

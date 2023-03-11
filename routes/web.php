@@ -52,17 +52,17 @@ Route::get('/booking_search', function () { //Tìm kếm rooms
 // Route::get('/login1', ['as'=>'login', 'uses'=>'Auth\LoginController@getLogin']) ;
 // Route::post('/login1', ['as'=>'login1', 'uses'=>'Auth\LoginController@postLogin']);
 
-Route::middleware('guest')->prefix('/auth')->group(function () {
-    Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
-    Route::post('/login', 'Auth\LoginController@postLogin')->name('postLogin');
-
-    Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
-    Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
-
-    // use Laravel\Socialite\Facades\Socialite;
-    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
-    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
-});
+//Route::middleware('guest')->prefix('/auth')->group(function () {
+//    Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
+//    Route::post('/login', 'Auth\LoginController@postLogin')->name('postLogin');
+//
+//    Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
+//    Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
+//
+//    // use Laravel\Socialite\Facades\Socialite;
+//    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
+//    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
+//});
 //Đăng xuất
 Route::get('/auth/logout', ['as'=>'logout', 'uses'=>'Auth\LoginController@getLogout'])->middleware('auth');
 
@@ -70,13 +70,10 @@ Route::get('404', 'ErrorController@error404')->name('404');
 Route::get('403', 'ErrorController@error403')->name('403');
 //ADMIN
 //viết middleware sau ở đây
-Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+//Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
-    
-    Route::prefix('/profile')->group(function() {
-        Route::get('/', 'Admin\ProfileController@index')->name('route_BackEnd_Profile');
-    });
     
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
     Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
@@ -122,17 +119,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/property_room')->group(function () {
-        Route::get('/', 'PropertyRoomController@index')->name('route_BackEnd_Property_Room_index');
-        Route::get('/add', 'PropertyRoomController@add')->name('route_BackEnd_Property_Room_add');
-        Route::post('/store', function () {
-            return view('admin/property_room/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/property_room/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/property_room/update');
-        });
+        Route::get('/', 'App\Http\Controllers\Admin\PropertyRoomController@propertyrooms')->name('route_BackEnd_PropertyRoom_list');
+        Route::get('/add', 'App\Http\Controllers\Admin\PropertyRoomController@add')->name('route_BackEnd_PropertyRoom_add');
+        Route::post('/create', 'App\Http\Controllers\Admin\PropertyRoomController@create')->name('route_BackEnd_PropertyRoom_create');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Admin\PropertyRoomController@edit')->name('route_BackEnd_PropertyRoom_edit');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\PropertyRoomController@update')->name('route_BackEnd_PropertyRoom_update');
     });
 
     Route::prefix('/properties')->group(function () {
@@ -149,7 +140,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::prefix('/bookings')->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\BookingController@bookings')->name('route_BackEnd_Bookings_List');
-        Route::get('/detail', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
+        Route::get('/add', 'App\Http\Controllers\Admin\BookingController@add')->name('route_BackEnd_Bookings_Add');
+        Route::get('/adduser', 'App\Http\Controllers\Admin\BookingController@adduser')->name('route_BackEnd_Bookings_Adduser');
+        Route::post('/create', 'App\Http\Controllers\Admin\BookingController@create')->name('route_BackEnd_Bookings_Create');
+        Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
     });
 
     Route::prefix('/booking_detail')->group(function () {
