@@ -1,6 +1,6 @@
 {{-- @php
     $admin = \Illuminate\Support\Facades\Auth::user()->admin();
-    
+
 @endphp --}}
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +35,7 @@
     <link href="{{ asset('admin/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
     <!-- Style css -->
     <link href="{{ asset('admin/css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
     {{-- toast --}}
     <link href="{{ asset('iziToast.min.css') }}" rel="stylesheet">
     @yield('css')
@@ -131,6 +132,7 @@
     <script src="{{ asset('admin/js/custom.min.js') }}"></script>
     <script src="{{ asset('admin/js/deznav-init.js') }}"></script>
     <script src="{{ asset('admin/js/demo.js') }}"></script>
+    <script src="{{ asset('admin/js/custom_new.js') }}"></script>
     <script src="{{ asset('admin/js/styleSwitcher.js') }}"></script>
     <script src="{{ asset('admin/vendor/owl-carousel/owl.carousel.js') }}"></script>
     {{-- Toast --}}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Admin;
 
 class EmployeesController extends Controller
 {
@@ -14,8 +15,8 @@ class EmployeesController extends Controller
     }
     public function employees()
     {
-        // $jobs = new Employer();
-        // $this->v['list'] = $jobs->loadListWithPager();    
+         $Employees = new Admin();
+         $this->v['listEmployees'] = $Employees->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Nhân viên';
         return view("admin/employees.index",$this->v);
     }

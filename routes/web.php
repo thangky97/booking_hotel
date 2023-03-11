@@ -74,12 +74,7 @@ Route::get('403', 'ErrorController@error403')->name('403');
 Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
-    
-    Route::prefix('/profile')->group(function () {
-        Route::get('/edit/{id}', 'Admin\ProfileController@edit')->name('route_BackEnd_Profile_Edit');
-        Route::post('/update/{id}', 'Admin\ProfileController@update')->name('route_BackEnd_Profile_Update');
-    });
-    
+
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
     Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
     Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('route_BackEnd_Admin_Edit');
