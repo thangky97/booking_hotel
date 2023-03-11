@@ -126,19 +126,30 @@
                             <div class="table-responsive">
                                 <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                     <thead>
-                                    <tr>
-                                        <th class="h5">STT</th>
-                                        <th class="h5">Tên phòng</th>
-                                        <th class="h5">Hình ảnh</th>
-                                        <th class="h5">Mô tả</th>
-                                        <th class="h5">Số giường</th>
-                                    </tr>
+                                        <tr>
+                                            <th class="bg-none">
+                                                <div class="form-check style-1">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="checkAll">
+                                                </div>
+                                            </th>
+                                            <th class="h5">STT</th>
+                                            <th class="h5">Tên phòng</th>
+                                            <th class="h5">Hình ảnh</th>
+                                            <th class="h5">Mô tả</th>
+                                            <th class="h5">Số giường</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                     <?php $i=1?>
                                     @foreach($listRooms as $index => $item)
                                         @if($cate_room->id==$item->cate_room)
                                             <tr>
+                                                <td>
+                                                    <div class="form-check style-1">
+                                                        <input class="form-check-input" type="checkbox" value="">
+                                                    </div>
+                                                </td>
                                                 <td>{{$i++}}</td>
                                                 <td>{{$item->name}}</td>
                                                 <td>{{$item->images}}</td>
