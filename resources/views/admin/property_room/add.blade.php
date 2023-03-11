@@ -33,9 +33,11 @@
                     @enderror
                 </div>
                 <input value="1" name="status" hidden>
-                <div style="display: flex">
-                    <a><button type="submit" class="btn btn-primary">Thêm mới</button></a>
-                    <a href="{{route('route_BackEnd_PropertyRoom_list')}}" style="margin-left: 10px"><button class="btn btn-danger">Hủy thêm mới</button></a>
+                <div class="text-start mt-4 mb-3">
+                    <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
+                                class="fa fa-paper-plane"></i></span>Thêm mới</button>
+                    <a href="{{route('route_BackEnd_PropertyRoom_list')}}" class="btn btn-danger light btn-sl-sm"><span class="me-2"><i
+                                class="fa fa-times"></i></span>Hủy thêm mới</a>
                 </div>
             </form>
         </section>

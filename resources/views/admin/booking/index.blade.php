@@ -36,15 +36,21 @@
 									<table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
 										<thead>
 											<tr>
+                                                <th class="bg-none">
+                                                    <div class="form-check style-1">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               id="checkAll">
+                                                    </div>
+                                                </th>
                                                 <th class="h5">STT</th>
                                                 <th class="h5">Khách hàng</th>
 												<th class="h5">Ngày đặt</th>
 												<th class="h5">Ngày trả</th>
-												<th class="h5">Số người</th>
+												<th class="h5">Người</th>
 												<th class="h5">Loại phòng</th>
 												<th class="h5">Thanh toán</th>
 												<th class="h5">Nhân viên</th>
-												<th class="h5">Hành động</th>
+												<th></th>
 											</tr>
 										</thead>
                                         <tbody>
@@ -52,6 +58,11 @@
                                         @foreach($listBookings as $index => $item)
                                             @if($item->status_booking==1)
                                             <tr>
+                                                <td>
+                                                    <div class="form-check style-1">
+                                                        <input class="form-check-input" type="checkbox" value="">
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     {{$i++}}
                                                 </td>
@@ -98,9 +109,31 @@
                                                             {{'Đinh Trung Nguyên'}}
                                                        @endif
                                                         </p></td>
-                                                <td style="display: flex">
-                                                    <a href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}" style="width: 100px"><button class="btn btn-success">Chi tiết</button></a>
-                                                    <a href="{{url(('/bookings/'.$item->id))}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
+                                                <td>
+                                                    <div class="dropdown dropstart">
+                                                        <a href="javascript:void(0);" class="btn-link"
+                                                           data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path
+                                                                    d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path
+                                                                    d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                            </svg>
+                                                        </a>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
+                                                            <a class="dropdown-item" href="">Sửa</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             @endif
@@ -115,21 +148,32 @@
                                     <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                         <thead>
                                         <tr>
+                                            <th class="bg-none">
+                                                <div class="form-check style-1">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="checkAll">
+                                                </div>
+                                            </th>
                                             <th class="h5">STT</th>
                                             <th class="h5">Khách hàng</th>
                                             <th class="h5">Ngày đặt</th>
                                             <th class="h5">Ngày trả</th>
-                                            <th class="h5">Số người</th>
+                                            <th class="h5">Người</th>
                                             <th class="h5">Loại phòng</th>
                                             <th class="h5">Thanh toán</th>
                                             <th class="h5">Nhân viên</th>
-                                            <th class="h5">Hành động</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php $j=1?>
                                         @foreach($listBookings as $index => $item)
                                             <tr>
+                                                <td>
+                                                    <div class="form-check style-1">
+                                                        <input class="form-check-input" type="checkbox" value="">
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     {{$j++}}
                                                 </td>
@@ -176,9 +220,31 @@
                                                             {{'Đinh Trung Nguyên'}}
                                                         @endif
                                                     </p></td>
-                                                <td style="display: flex">
-                                                    <a href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}" style="width: 100px"><button class="btn btn-success">Chi tiết</button></a>
-                                                    <a href="{{url(('/bookings/'.$item->id))}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
+                                                <td>
+                                                    <div class="dropdown dropstart">
+                                                        <a href="javascript:void(0);" class="btn-link"
+                                                           data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path
+                                                                    d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path
+                                                                    d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                            </svg>
+                                                        </a>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
+                                                            <a class="dropdown-item" href="">Sửa</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -192,15 +258,21 @@
                                     <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                         <thead>
                                         <tr>
+                                            <th class="bg-none">
+                                                <div class="form-check style-1">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="checkAll">
+                                                </div>
+                                            </th>
                                             <th class="h5">STT</th>
                                             <th class="h5">Khách hàng</th>
                                             <th class="h5">Ngày đặt</th>
                                             <th class="h5">Ngày trả</th>
-                                            <th class="h5">Số người</th>
+                                            <th class="h5">Người</th>
                                             <th class="h5">Loại phòng</th>
                                             <th class="h5">Thanh toán</th>
                                             <th class="h5">Nhân viên</th>
-                                            <th class="h5">Hành động</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -208,6 +280,11 @@
                                         @foreach($listBookings as $index => $item)
                                             @if($item->status_booking==0)
                                                 <tr>
+                                                    <td>
+                                                        <div class="form-check style-1">
+                                                            <input class="form-check-input" type="checkbox" value="">
+                                                        </div>
+                                                    </td>
                                                     <td>
                                                         {{$k++}}
                                                     </td>
@@ -254,9 +331,31 @@
                                                                 {{'Đinh Trung Nguyên'}}
                                                             @endif
                                                         </p></td>
-                                                    <td style="display: flex">
-                                                        <a href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}" style="width: 100px"><button class="btn btn-success">Chi tiết</button></a>
-                                                        <a href="{{url(('/bookings/'.$item->id))}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
+                                                    <td>
+                                                        <div class="dropdown dropstart">
+                                                            <a href="javascript:void(0);" class="btn-link"
+                                                               data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+                                                                        stroke="#262626" stroke-width="2"
+                                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                                    <path
+                                                                        d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+                                                                        stroke="#262626" stroke-width="2"
+                                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                                    <path
+                                                                        d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+                                                                        stroke="#262626" stroke-width="2"
+                                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </a>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
+                                                                <a class="dropdown-item" href="">Sửa</a>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endif
