@@ -10,11 +10,9 @@
                 <ul class="navbar-nav header-right">
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                            <img src="{{ asset('admin/images/profile/pic1.jpg') }}" alt="">
+                            <img src="{{ asset(Auth::user()->avatar) ? '' . Storage::url(Auth::user()->avatar) : (Auth::user()->name) }}" alt="">
                             <div class="header-info ms-3">
                                 @if (Auth::check())
-                                    <!-- Auth::user() trả về thể hiện của model User chứa thông tin đã đăng nhập -->
-                                    {{-- {{ Auth::user()->email }} --}}
                                     <span>{{ Auth::user()->name }}</span>
                                     <small>@if (Auth::user()->role === 1) 
                                                 Admin
@@ -29,7 +27,7 @@
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a href="app-profile.html" class="dropdown-item ai-icon">
+                            <a href="#" class="dropdown-item ai-icon">
                                 <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
                                     width="18" height="18" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
