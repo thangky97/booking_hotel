@@ -65,11 +65,18 @@ Route::middleware('guest')->prefix('/auth')->group(function () {
 });
 //Đăng xuất
 Route::get('/auth/logout', ['as'=>'logout', 'uses'=>'Auth\LoginController@getLogout'])->middleware('auth');
+
+Route::get('404', 'ErrorController@error404')->name('404');
+Route::get('403', 'ErrorController@error403')->name('403');
 //ADMIN
 //viết middleware sau ở đây
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
+    
+    Route::prefix('/profile')->group(function() {
+        Route::get('/', 'Admin\ProfileController@index')->name('route_BackEnd_Profile');
+    });
     
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
     Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
@@ -77,11 +84,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::post('/update/{id}', 'Admin\AdminController@update')->name('route_BackEnd_Admin_Update');
 
     Route::prefix('/users')->group(function () {
-        Route::get('/', 'UserController@users')->name('route_BackEnd_Users_List');
-        Route::match(['get', 'post'], '/add', 'App\Http\Controllers\Admin\UserController@users_add')->name('route_BackEnd_Users_Add');
-        Route::get('/detail', 'App\Http\Controllers\Admin\UserController@users_detail')->name('route_BackEnd_Users_Detail');
-        Route::post('/update/{id}', 'App\Http\Controllers\Admin\UserController@users_update')->name('route_BackEnd_Users_Update');
-        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\UserController@users_remove')->name('route_BackEnd_Users_Remove');
+        Route::get('/', 'Admin\UserController@index')->name('route_BackEnd_Users_List');
+        Route::match(['get', 'post'], '/add', 'Admin\UserController@add')->name('route_BackEnd_Users_Add');
+        Route::get('/edit/{id}', 'Admin\UserController@edit')->name('route_BackEnd_Users_Edit');
+        Route::post('/update/{id}', 'Admin\UserController@update')->name('route_BackEnd_Users_Update');
+        Route::get('/remove/{id}', 'Admin\UserController@remove')->name('route_BackEnd_Users_Remove');
     });
 
     Route::prefix('/employees')->group(function () {
@@ -139,7 +146,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\PropertiesController@destroy')->name('route_BackEnd_properties_Delete');
     });
 
-    
+
     Route::prefix('/bookings')->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\BookingController@bookings')->name('route_BackEnd_Bookings_List');
         Route::get('/detail', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');

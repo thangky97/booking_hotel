@@ -31,7 +31,7 @@ class CheckAdmin
         // Chỉ user có role = 1 thì mới được vào xem Category
         if ($user->role !== 1) {
             // Nếu không đáp ứng đk thì tự quay về route error.404
-            return redirect()->route('error.404');
+            return redirect()->route('403');
         }
 
         return $next($request);

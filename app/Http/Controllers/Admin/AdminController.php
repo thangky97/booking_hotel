@@ -25,7 +25,7 @@ class AdminController extends Controller
 
     public function index(Request $request)
     {
-        $title = '12 Zodiac - Admin';
+        $title = '12 Zodiac - Danh sách admin';
         $name = $request->get('name');
         if($name){
             $admin = Admin::where('name','like','%'.$name.'%')
@@ -48,7 +48,7 @@ class AdminController extends Controller
     }
 
     public function add(Request $request) {
-        $this->v['title'] = 'Thêm mới admin';
+        $this->v['title'] = '12 Zodiac - Thêm mới admin';
         $method_route = "route_BackEnd_Admin_Add";
 
         if ($request->isMethod('post')) {
@@ -78,7 +78,7 @@ class AdminController extends Controller
     public function edit($id, Request $request) {
         $modelAdmin = new Admin();
         $admin = $modelAdmin->loadOne($id);
-        $this->v['title'] = 'Sửa admin';
+        $this->v['title'] = '12 Zodiac - Sửa admin';
         $this->v['admin'] = $admin;
         return view('admin.administration.edit', $this->v);
     }

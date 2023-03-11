@@ -17,7 +17,7 @@
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- PAGE TITLE HERE -->
-	<title>12 Zodiac - Lỗi 404</title>
+	<title>12 Zodiac - Lỗi 403</title>
 	
 	<!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="{{ asset('admin/images/favicon.png') }}" />
@@ -39,11 +39,11 @@
     <div class="authincation h-100">
         <div class="container h-100">
             <div class="row justify-content-center h-100 align-items-center">
-                <div class="col-md-7">
+                <div class="col-md-5">
                     <div class="form-input-content text-center error-page">
-                        <h1 class="error-text fw-bold">404</h1>
-                        <h4><i class="fa fa-exclamation-triangle text-warning"></i> The page you were looking for is not found!</h4>
-                        <p>You may have mistyped the address or the page may have moved.</p>
+                        <h1 class="error-text  fw-bold">403</h1>
+                        <h4><i class="fa fa-times-circle text-danger"></i> Forbidden Error!</h4>
+                        <p>You do not have permission to view this resource.</p>
 						<div>
                             <a class="btn btn-primary" href="{{ route('logout')}}">Back to Home</a>
                         </div>
