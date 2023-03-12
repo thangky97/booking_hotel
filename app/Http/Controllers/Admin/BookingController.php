@@ -31,13 +31,13 @@ class BookingController extends Controller
         return view('admin.booking.index', $this->v);
     }
 
-    public function add()
+    public function add($id)
     {
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
         $Cate_rooms = new Categoryrooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-        $this->v['usernew'] = Users::find(\DB::table('users')->max('id'));
+        $this->v['usernew'] = Users::find($id);
         $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
         return view('admin.booking.add', $this->v);
     }
@@ -50,23 +50,24 @@ class BookingController extends Controller
 
     public function createuser(UserRequest $request)
     {
-        Users::create($request->all());
+        $user = Users::create($request->all());
+        $userID = $user->id;
         $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
-        return redirect()->route('route_BackEnd_Bookings_Add');
+        return redirect()->route('route_BackEnd_Bookings_Add',$userID);
     }
 
-    public function create(BookingRequest $request)
+    public function create($id,BookingRequest $request)
     {
         $booking = Booking::create($request->all());
-        $id = (string)$booking->id;
+        $idBooking = (string)$booking->id;
         $bookings_detail = new Bookingdetail();
-        $bookings_detail->booking_id = $id;
+        $bookings_detail->booking_id = $idBooking;
         $bookings_detail->room_id = $request->room_id;
         $bookings_detail->status = 1;
 
         $bookings_detail->save();
 
-        $usernew = Users::find(\DB::table('usermains')->max('id'));
+        $usernew = Users::find($id);
         $usernew->name = $request->name;
         $usernew->phone = $request->phone;
         $usernew->email = $request->email;

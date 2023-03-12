@@ -22,7 +22,10 @@
                                 <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
                             </div>
                         </div>
-                        <a href="{{route('route_BackEnd_PropertyRoom_add')}}" class="btn btn-primary mb-xxl-0 mb-4 "><i class="far fa-file-word me-2"></i>Thêm mới</a>
+                        <div>
+                            <a href="{{route('route_BackEnd_PropertyRoom_add')}}" class="btn btn-info mb-xxl-0 mb-4"><i class="fa fa-bed me-2"></i>Thêm mới</a>
+                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                        </div>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane active show" id="All">
