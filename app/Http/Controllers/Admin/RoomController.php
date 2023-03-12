@@ -19,21 +19,12 @@ class RoomController extends Controller
     public function rooms()
     {
         $rooms = new rooms();
-<<<<<<< HEAD
         $this->v['list'] = $rooms->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Phòng';
         return view("admin/room.index", $this->v);
     }
-    //Thêm mới phòng 
-    public function rooms_add(RoomsRequest $request)
-=======
-        $this->v['list'] = $rooms->loadListWithPager();   
-        $this->v['title'] = '12 Zodiac - Phòng';
-        return view("admin/room.index", $this->v);
-    }
-     //Thêm mới phòng 
+     //Thêm mới phòng
      public function rooms_add(RoomsRequest $request)
->>>>>>> a49b4b4376691b7d44011a800d3ef94e0789af9e
     {
         $this->v['title'] = '12 Zodiac - Thêm mới phòng';
         // $cate_rooms = new Rooms();

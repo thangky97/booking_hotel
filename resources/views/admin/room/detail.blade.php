@@ -131,6 +131,7 @@
                                             <button class="btn btn-primary btn-submit btn-sl-sm me-2"><span class="me-2"><i class="fa fa-paper-plane"></i></span>Cập Nhật</button>
                                             <a href="{{route('route_BackEnd_Rooms_List')}}"><button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i class="fa fa-times"></i></span> Quay Lại</button></a>
                                         </div>
+                                    </div>
                                 </form>
 
                             </div>
