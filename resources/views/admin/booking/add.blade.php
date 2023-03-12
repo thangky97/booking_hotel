@@ -205,9 +205,9 @@
                                                 <div class="col-lg-6">
                                                     <select name="staff_id" class="default-select wide form-control">
                                                         <option data-display="Chọn nhân viên" disabled>Chọn nhân viên</option>
-                                                        <option value="1">Nguyễn Đình Huân</option>
-                                                        <option value="2">Nguyễn Văn Linh</option>
-                                                        <option value="3">Đinh Trung Nguyên</option>
+                                                        @foreach($listEmployees as $employees)
+                                                            <option value="{{$employees->id}}">{{$employees->name}}</option>
+                                                        @endforeach
                                                     </select>
                                                     <div class="invalid-feedback">
                                                         Please select a one.
