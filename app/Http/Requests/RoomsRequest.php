@@ -8,7 +8,7 @@ class RoomsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     * 
+     *
      * @return bool
      */
     public function authorize()
@@ -70,11 +70,7 @@ class RoomsRequest extends FormRequest
             'description.required' => 'Bạn phải nhập thông tin mô tả',
             'adult.required' => 'Bạn phải nhập số lượng người lớn',
             'childrend.max' => 'Bạn phải nhập số lượng trẻ em',
-            'bed.required' => 'Bạn phải nhập số lượng giường',  
+            'bed.required' => 'Bạn phải nhập số lượng giường',
         ];
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a49b4b4376691b7d44011a800d3ef94e0789af9e
