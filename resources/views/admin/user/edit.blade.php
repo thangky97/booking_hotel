@@ -49,11 +49,12 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="number" name="cccd" class="form-control"
-                                                    id="validationCustom03" placeholder="Nhập số cccd..." required
-                                                    value="{{ $users->cccd}}">
-                                                <div class="invalid-feedback">
-                                                    Please enter a password.
+                                                <div class="form-file">
+                                                    <input type="file" name="images" class="form-file-input form-control">
+                                                    @if (isset($users) && $users->cccd)
+                                                        <img src="{{ asset($users->cccd ? '' . Storage::url($users->cccd) : $users->name) }}" alt="{{ $users->name }}"
+                                                            width="100">
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

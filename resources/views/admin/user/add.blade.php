@@ -49,11 +49,13 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" name="cccd" class="form-control"
-                                                        id="validationCustom03" placeholder="Nhập số cccd..." required
-                                                        value="@isset($request['cccd']){{ $request['cccd'] }}@endisset">
-                                                    <div class="invalid-feedback">
-                                                        Please enter a password.
+                                                    <div class="form-file">
+                                                        <input type="file" name="images"
+                                                            class="form-file-input form-control">
+                                                        @if (isset($user) && $user->cccd)
+                                                            <img src="{{ asset($user->cccd) }}" alt="{{ $user->name }}"
+                                                                width="100">
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
