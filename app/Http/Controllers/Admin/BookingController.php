@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\BookingRequest;
+use App\Models\Admin;
 use App\Models\Bookingdetail;
 use App\Models\Rooms;
 use App\Models\Users;
@@ -33,6 +34,8 @@ class BookingController extends Controller
 
     public function add($id)
     {
+        $Employees = new Admin();
+        $this->v['listEmployees'] = $Employees->loadAll();
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
         $Cate_rooms = new Categoryrooms();
