@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li><a class="" href="{{ route('route_BackEnd_Users_List') }}" aria-expanded="false">
-                    <i class="flaticon-025-dashboard"></i>
+                    <i class="fa fa-users me-2"></i>
                     <span class="nav-text">Người dùng</span>
                 </a>
             </li>

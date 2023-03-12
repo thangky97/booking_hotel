@@ -24,7 +24,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" name="name" class="form-control"
-                                                           placeholder="Nhập tên..." required>
+                                                           placeholder="Nhập tên...">
                                                     <div class="invalid-feedback">
                                                         Please enter a username.
                                                     </div>
@@ -39,7 +39,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" name="email" class="form-control"
-                                                           placeholder="Nhập email..." required>
+                                                           placeholder="Nhập email...">
                                                     <div class="invalid-feedback">
                                                         Please enter a Email.
                                                     </div>
@@ -54,7 +54,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" name="cccd" class="form-control"
-                                                           placeholder="Nhập số cccd..." required>
+                                                           placeholder="Nhập số cccd...">
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
@@ -88,7 +88,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" name="address" class="form-control"
-                                                           placeholder="Nhập địa chỉ..." required>
+                                                           placeholder="Nhập địa chỉ...">
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
@@ -105,7 +105,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="date" name="date" class="form-control"
-                                                           placeholder="Nhập ngày" required>
+                                                           placeholder="Nhập ngày">
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
@@ -121,7 +121,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" name="phone" class="form-control"
-                                                           placeholder="Nhập số điện thoại..." required>
+                                                           placeholder="Nhập số điện thoại...">
                                                     <div class="invalid-feedback">
                                                         Please enter a phone no.
                                                     </div>
