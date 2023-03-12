@@ -48,7 +48,10 @@ class UserController extends Controller
             $params = [];
             $params['cols'] = $request->post();
             unset( $params['cols']['_token']);
-
+            if ($request->hasFile('images') && $request->file('images')->isValid())
+            {
+                $params['cols']['cccd'] = $this->uploadFile($request->file('images'));
+            }
             $modelTes = new Users();
             $res = $modelTes->saveNew($params);
             if ($res == null) {
@@ -79,6 +82,11 @@ class UserController extends Controller
 
         $params['cols'] = $request->post();
 
+        if ($request->hasFile('images') && $request->file('images')->isValid())
+            {
+                $params['cols']['cccd'] = $this->uploadFile($request->file('images'));
+            }
+
         unset( $params['cols']['_token']);
         $params['cols']['id'] = $id;
 
@@ -95,6 +103,10 @@ class UserController extends Controller
         }
     }
 
+    public function uploadFile($file) {
+        $fileName = time().'_'.$file->getClientOriginalName();
+        return $file->storeAs('cccd',$fileName,'public');
+    }
 
     // public function changeStatus(Request $request)
 
