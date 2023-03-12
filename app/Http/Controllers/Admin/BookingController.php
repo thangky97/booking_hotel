@@ -99,4 +99,11 @@ class BookingController extends Controller
         $this->v['title'] = '12 Zodiac - Chi tiết đơn';
         return view('admin.booking.detail', $this->v);
     }
+    public function updatepay($id,Request $request)
+    {
+        $Booking = Booking::find($id);
+        $Booking->status_pay = $request->status_pay;
+        $Booking->save();
+        return redirect()->route('route_BackEnd_Bookings_List');
+    }
 }

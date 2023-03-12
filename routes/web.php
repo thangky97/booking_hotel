@@ -145,6 +145,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/create/{id}', 'App\Http\Controllers\Admin\BookingController@create')->name('route_BackEnd_Bookings_Create');
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
+        Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
     });
 
     Route::prefix('/booking_detail')->group(function () {
