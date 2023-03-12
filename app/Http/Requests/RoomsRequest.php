@@ -73,4 +73,8 @@ class RoomsRequest extends FormRequest
             'bed.required' => 'Bạn phải nhập số lượng giường',  
         ];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a49b4b4376691b7d44011a800d3ef94e0789af9e

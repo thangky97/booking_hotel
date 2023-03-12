@@ -20,6 +20,8 @@ class Rooms extends Model
         $list = $query->paginate(10);
         return $list;
     }
+<<<<<<< HEAD
+=======
 
     public function loadAll($param = [])
     {
@@ -29,6 +31,7 @@ class Rooms extends Model
         return $list;
     }
 
+>>>>>>> a49b4b4376691b7d44011a800d3ef94e0789af9e
     //Lọc phòng theo loại phòng
     public function loadListWithCategory($param = [],$cate=[])
     {   if(isset($_GET['category_room'])){
@@ -43,7 +46,11 @@ class Rooms extends Model
         return $list;
     }
 
+<<<<<<< HEAD
+    //phương thức thêm mới 
+=======
     //phương thức thêm mới
+>>>>>>> a49b4b4376691b7d44011a800d3ef94e0789af9e
     public function saveNew($params)
     {
         $data = array_merge($params['cols']);// array_merge để nối 2 hay nhiều mảng lại thành 1 mảng
