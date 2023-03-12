@@ -51,7 +51,7 @@
 												<th class="h5 text-center">Ngày trả</th>
 												<th class="h5 text-center">Người</th>
 												<th class="h5 text-center">Loại phòng</th>
-												<th class="h5 text-center">Thanh toán</th>
+												<th class="h5 text-center w180">Thanh toán</th>
 												<th class="h5 text-center">Nhân viên</th>
 												<th></th>
 											</tr>
@@ -103,9 +103,16 @@
                                                     </p>
                                                 </td>
                                                 <td class="text-center">
-                                                        <span class="fs-16">
-                                                            <?= $item->status_pay==0?'<span class="badge light badge-success">Đã thanh toán</span>':'<span class="badge light badge-danger">Chưa thanh toán</span>'?>
-														</span>
+                                                    <form action="{{route('route_BackEnd_Bookings_Updatepay',$item->id)}}" method="post">
+                                                        @csrf
+                                                        @if($item->status_pay==0)
+                                                            <input name="status_pay" value="1" hidden>
+                                                            <button type="submit" class="btn btn-danger w180">Chưa thanh toán</button>
+                                                        @else
+                                                            <input name="status_pay" value="0" hidden>
+                                                            <button type="submit" class="btn btn-success w180">Đã thanh toán</button>
+                                                        @endif
+                                                    </form>
                                                 </td>
                                                 <td class="text-center"><p style="width: 150px">
                                                         @if($item->staff_id==1)
