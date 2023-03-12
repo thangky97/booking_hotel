@@ -6,28 +6,35 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class="" href="{{ route('route_BackEnd_Admin_List') }}" aria-expanded="false">
+                    <i class="flaticon-025-dashboard"></i>
+                    <span class="nav-text">Admin</span>
+                </a>
+            </li>
+            <li><a class="" href="{{ route('route_BackEnd_Users_List') }}" aria-expanded="false">
+                    <i class="flaticon-025-dashboard"></i>
+                    <span class="nav-text">Người dùng</span>
+                </a>
+            </li>
+            <li><a class="has-arrow ai-icon" href="#" aria-expanded="false">
+                <i class="flaticon-025-dashboard"></i>
+                <span class="nav-text">Phòng</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{ route('route_BackEnd_Rooms_List') }}">Phòng</a></li>
+                <li><a href="{{ route('route_BackEnd_Categoryrooms_List') }}">Loại phòng</a></li>
+                <li><a href="{{ route('route_BackEnd_properties_List') }}">Thuộc tính</a></li>
+                <li><a href="{{ route('route_BackEnd_PropertyRoom_list') }}">Thuộc tính phòng</a></li>
+            </ul>
+        </li>
+            <li><a class="has-arrow ai-icon" href="#" aria-expanded="false">
                     <i class="flaticon-025-dashboard"></i>
                     <span class="nav-text">Booking</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('route_BackEnd_Bookings_List') }}">Đơn đặt phòng</a></li>
                     <li><a href="{{ route('route_BackEnd_Employees_List') }}">Nhân viên</a></li>
-                    <li><a href="{{ route('route_BackEnd_Rooms_List') }}">Phòng</a></li>
-                    <li><a href="{{ route('route_BackEnd_Categoryrooms_List') }}">Loại phòng</a></li>
-                    <li><a href="{{ route('route_BackEnd_properties_List') }}">Thuộc tính</a></li>
-                    <li><a href="{{ route('route_BackEnd_PropertyRoom_list') }}">Thuộc tính phòng</a></li>
-                    <li><a href="{{ route('route_BackEnd_Users_List') }}">Người dùng</a></li>
                     <li><a href="{{ route('route_BackEnd_Feedback_List') }}">Nhận xét</a></li>
-                </ul>
-
-            </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-025-dashboard"></i>
-                    <span class="nav-text">Admin</span>
-                </a>
-                <ul aria-expanded="false">
-                    <li><a href="{{ route('route_BackEnd_Admin_List') }}">Danh sách admin</a></li>
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
