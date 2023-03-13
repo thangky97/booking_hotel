@@ -96,7 +96,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="date" name="date" class="form-control"
-                                                        id="validationCustom03" placeholder="Nhập mật khẩu..." required
+                                                        id="validationCustom03" class="picker" placeholder="Nhập mật khẩu..." required
                                                         value="@isset($request['date']){{ $request['date'] }}@endisset">
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
