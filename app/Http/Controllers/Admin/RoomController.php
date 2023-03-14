@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RoomsRequest;
+use App\Models\CategoryRooms;
 use App\Models\Rooms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -19,16 +20,18 @@ class RoomController extends Controller
     public function rooms()
     {
         $rooms = new rooms();
-        $this->v['list'] = $rooms->loadListWithPager();   
+        $this->v['list'] = $rooms->loadListWithPager();
+        $cate_rooms = new CategoryRooms();
+        $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Phòng';
         return view("admin/room.index", $this->v);
     }
-     //Thêm mới phòng 
+     //Thêm mới phòng
      public function rooms_add(RoomsRequest $request)
     {
         $this->v['title'] = '12 Zodiac - Thêm mới phòng';
-        // $cate_rooms = new Rooms();
-        // $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
+        $cate_rooms = new CategoryRooms();
+        $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
         $method_route = 'route_BackEnd_Rooms_Add';
 
         if ($request->isMethod('post')) {
@@ -56,8 +59,8 @@ class RoomController extends Controller
     //Chi tiết phòng
     public function rooms_detail($id)
     {
-        // $lbds = new CategoryLands();
-        // $this->v['list_lbds'] = $lbds->loadListWithPager();
+        $cate_rooms = new CategoryRooms();
+        $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Chi tiết phòng';
         $rooms = new Rooms();
         $objItem = $rooms->loadOne($id);

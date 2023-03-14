@@ -49,11 +49,13 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" name="cccd" class="form-control"
-                                                        id="validationCustom03" placeholder="Nhập số cccd..." required
-                                                        value="@isset($request['cccd']){{ $request['cccd'] }}@endisset">
-                                                    <div class="invalid-feedback">
-                                                        Please enter a password.
+                                                    <div class="form-file">
+                                                        <input type="file" name="images"
+                                                            class="form-file-input form-control">
+                                                        @if (isset($user) && $user->cccd)
+                                                            <img src="{{ asset($user->cccd) }}" alt="{{ $user->name }}"
+                                                                width="100">
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,7 +96,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="date" name="date" class="form-control"
-                                                        id="validationCustom03" placeholder="Nhập mật khẩu..." required
+                                                        id="validationCustom03" class="picker" placeholder="Nhập mật khẩu..." required
                                                         value="@isset($request['date']){{ $request['date'] }}@endisset">
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
@@ -134,8 +136,11 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">
-                                                    <button type="submit" class="btn btn-primary">Thêm</button>
-                                                    <a href="{{ route('route_BackEnd_Users_List') }}" class="btn btn-info">Hủy</a>
+                                                    <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
+                                                                class="fa fa-paper-plane"></i></span>Thêm mới</button>
+                                                    <button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i
+                                                                class="fa fa-times"></i></span><a
+                                                            href="{{ route('route_BackEnd_Users_List') }}">Quay Lại</a></button>
                                                 </div>
                                             </div>
                                         </div>

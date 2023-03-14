@@ -43,26 +43,24 @@ Route::get('/checkout', function () { //thanh toán
     return view('templates/pages/checkout');
 });
 
-Route::get('/booking_search', function () { //Tìm kếm rooms
-    return view('templates/pages/booking_search');
-});
-
+Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
+Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search');
 
 //Chỉ dùng cho đăng nhập
-// Route::get('/login1', ['as'=>'login', 'uses'=>'Auth\LoginController@getLogin']) ;
-// Route::post('/login1', ['as'=>'login1', 'uses'=>'Auth\LoginController@postLogin']);
+ Route::get('/login1', ['as'=>'login', 'uses'=>'Auth\LoginController@getLogin']) ;
+ Route::post('/login1', ['as'=>'login1', 'uses'=>'Auth\LoginController@postLogin']);
 
-//Route::middleware('guest')->prefix('/auth')->group(function () {
-//    Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
-//    Route::post('/login', 'Auth\LoginController@postLogin')->name('postLogin');
-//
-//    Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
-//    Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
-//
-//    // use Laravel\Socialite\Facades\Socialite;
-//    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
-//    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
-//});
+Route::middleware('guest')->prefix('/auth')->group(function () {
+    Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
+    Route::post('/login', 'Auth\LoginController@postLogin')->name('postLogin');
+
+    Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
+    Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
+
+    // use Laravel\Socialite\Facades\Socialite;
+    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
+    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
+});
 //Đăng xuất
 Route::get('/auth/logout', ['as'=>'logout', 'uses'=>'Auth\LoginController@getLogout'])->middleware('auth');
 
@@ -70,16 +68,11 @@ Route::get('404', 'ErrorController@error404')->name('404');
 Route::get('403', 'ErrorController@error403')->name('403');
 //ADMIN
 //viết middleware sau ở đây
-//Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+//Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
-    
-    Route::prefix('/profile')->group(function () {
-        Route::get('/edit/{id}', 'Admin\ProfileController@edit')->name('route_BackEnd_Profile_Edit');
-        Route::post('/update/{id}', 'Admin\ProfileController@update')->name('route_BackEnd_Profile_Update');
-    });
-    
+
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
     Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
     Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('route_BackEnd_Admin_Edit');
@@ -145,11 +138,12 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('/bookings')->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\BookingController@bookings')->name('route_BackEnd_Bookings_List');
-        Route::get('/add', 'App\Http\Controllers\Admin\BookingController@add')->name('route_BackEnd_Bookings_Add');
+        Route::get('/add/{id}', 'App\Http\Controllers\Admin\BookingController@add')->name('route_BackEnd_Bookings_Add');
         Route::get('/adduser', 'App\Http\Controllers\Admin\BookingController@adduser')->name('route_BackEnd_Bookings_Adduser');
-        Route::post('/create', 'App\Http\Controllers\Admin\BookingController@create')->name('route_BackEnd_Bookings_Create');
+        Route::post('/create/{id}', 'App\Http\Controllers\Admin\BookingController@create')->name('route_BackEnd_Bookings_Create');
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
+        Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
     });
 
     Route::prefix('/booking_detail')->group(function () {

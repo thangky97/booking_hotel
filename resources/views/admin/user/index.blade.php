@@ -33,24 +33,35 @@
                                     id="guestTable-all">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Tên</th>
-											<th>Số điện thoại</th>
-											<th>Cmt/Cccd</th>
-                                            <th>Email</th>
-                                            <th>Giới tính</th>
-                                            <th>Ngày sinh</th>
-                                            <th>Trạng thái</th>
-                                            <th class="bg-none">Action</th>
+                                            <th class="bg-none h5 text-center">
+                                                <div class="form-check style-1">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkAll">
+                                                </div>
+                                            </th>
+                                            <th class="h5 text-center">STT</th>
+                                            <th class="h5 text-center">Tên</th>
+                                            <th class="h5 text-center">Số điện thoại</th>
+                                            <th class="h5 text-center">Cmt/Cccd</th>
+                                            <th class="h5 text-center">Email</th>
+                                            <th class="h5 text-center">Giới tính</th>
+                                            <th class="h5 text-center">Ngày sinh</th>
+                                            <th class="h5 text-center">Trạng thái</th>
+                                            <th class="h5 text-center bg-none">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($users as $index => $user)
                                             <tr>
-                                                <td>
+                                                <td class="text-center">
+                                                    <div class="form-check style-1">
+                                                        <input class="form-check-input" type="checkbox">
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
                                                     <span class="text-primary">{{ $index + 1 }}</span>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="guest-bx">
                                                         <div>
                                                             <h4 class="mb-0 mt-1"><a class="text-black"
@@ -58,56 +69,55 @@
                                                         </div>
                                                     </div>
                                                 </td>
-												<td>
+                                                <td class="text-center">
                                                     <div>
 
                                                         <span class="fs-16">{{ $user->phone }}</span>
                                                     </div>
                                                 </td>
-												<td>
-                                                    <div>
-
-                                                        <span class="fs-16">{{ $user->cccd }}</span>
-                                                    </div>
+                                                <td class="text-center">
+                                                    <img class="" width="90"
+                                                        src="{{ asset($user->cccd) ? '' . Storage::url($user->cccd) : $user->name }}"
+                                                        alt="">
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div>
 
                                                         <span class="fs-16">{{ $user->email }}</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div>
 
                                                         <span class="fs-16">
-															@if (($user) && $user->gender === 1)
-																Nam
-															@else 
-																Nữ
-															@endif
-														</span>
+                                                            @if ($user && $user->gender === 1)
+                                                                Nam
+                                                            @else
+                                                                Nữ
+                                                            @endif
+                                                        </span>
                                                     </div>
                                                 </td>
-												<td>
+                                                <td class="text-center">
                                                     <div>
                                                         <span class="fs-16">{{ $user->date }}</span>
                                                     </div>
                                                 </td>
-												<td>
+                                                <td class="text-center">
                                                     <div>
-
                                                         <span class="fs-16">
-															@if (($user) && $user->status === 1)
-															<span class="badge light badge-success">Hoạt động</span>
-															@elseif (($user) && $user->status === 2)
-															<span class="badge light badge-warning">Không hoạt động</span>
-															@else
-															<span class="badge light badge-danger">Khóa</span>
-															@endif
-														</span>
+                                                            @if ($user && $user->status === 1)
+                                                                <span class="badge light badge-success">Hoạt động</span>
+                                                            @elseif ($user && $user->status === 2)
+                                                                <span class="badge light badge-warning">Không hoạt
+                                                                    động</span>
+                                                            @else
+                                                                <span class="badge light badge-danger">Khóa</span>
+                                                            @endif
+                                                        </span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="dropdown dropstart">
                                                         <a href="javascript:void(0);" class="btn-link"
                                                             data-bs-toggle="dropdown" aria-expanded="false">

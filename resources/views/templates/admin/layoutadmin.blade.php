@@ -1,6 +1,6 @@
 {{-- @php
     $admin = \Illuminate\Support\Facades\Auth::user()->admin();
-    
+
 @endphp --}}
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +35,31 @@
     <link href="{{ asset('admin/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
     <!-- Style css -->
     <link href="{{ asset('admin/css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
     {{-- toast --}}
     <link href="{{ asset('iziToast.min.css') }}" rel="stylesheet">
+    {{-- datepicker --}}
+    <link href="{{ asset('datepicker/jquery.datetimepicker.min.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 
 <body>
+<div id="preloader">
+        <div class="waviy">
+            <span style="--i:1">1</span>
+            <span style="--i:2">2</span>
+            <span style="--i:3"> </span>
+            <span style="--i:4">Z</span>
+            <span style="--i:5">o</span>
+            <span style="--i:6">d</span>
+            <span style="--i:7">i</span>
+            <span style="--i:8">a</span>
+            <span style="--i:9">c</span>
+            <span style="--i:10">.</span>
+            <span style="--i:11">.</span>
+            <span style="--i:12">.</span>
+        </div>
+    </div>
 
     <!--**********************************
         Main wrapper start
@@ -131,10 +150,27 @@
     <script src="{{ asset('admin/js/custom.min.js') }}"></script>
     <script src="{{ asset('admin/js/deznav-init.js') }}"></script>
     <script src="{{ asset('admin/js/demo.js') }}"></script>
+    <script src="{{ asset('admin/js/custom_new.js') }}"></script>
     <script src="{{ asset('admin/js/styleSwitcher.js') }}"></script>
     <script src="{{ asset('admin/vendor/owl-carousel/owl.carousel.js') }}"></script>
     {{-- Toast --}}
     <script src="{{ asset('iziToast.min.js') }}"></script>
+    {{-- datepicker --}}
+    <script src="{{ asset('datepicker/jquery.datetimepicker.full.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.picker').datetimepicker({
+                autoclose: true,
+                timepicker: false,
+                datetimepicker: true,
+                format: "d/m/Y",
+                weeks: true,
+            });
+            // $.datetimepicker.setLocale('vi');
+        });
+    </script>
+
     <script>
         $(function() {
             $('#datetimepicker').datetimepicker({
@@ -148,27 +184,6 @@
         });
     </script>
 
-    {{-- @if (session()->get('sucess'))
-        <script>
-            iziToast.show({
-                title: '',
-                position: 'topRight'
-                message: '{{ session()->get('sucess') }}'
-            });
-        </script>
-    @endif
-
-    @if ($errors->any)
-        @foreach ($errors->all() as $error)
-        <script>
-            iziToast.show({
-                title: '',
-                position: 'topRight'
-                message: '{{ error }}'
-            });
-        </script>
-    @endforeach
-    @endif --}}
 </body>
 
 </html>

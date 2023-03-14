@@ -28,7 +28,10 @@
 									<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
 								</div>
 							</div>
-							<a href="{{route('route_BackEnd_Bookings_Adduser')}}" class="btn btn-primary mb-xxl-0 mb-4 "><i class="far fa-file-word me-2"></i>Thêm mới</a>
+                            <div>
+                                <a href="{{route('route_BackEnd_Bookings_Adduser')}}" class="btn btn-info mb-xxl-0 mb-4"><i class="fa fa-bed me-2"></i>Thêm mới</a>
+                                <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                            </div>
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane active show" id="Active">
@@ -42,14 +45,14 @@
                                                                id="checkAll">
                                                     </div>
                                                 </th>
-                                                <th class="h5">STT</th>
-                                                <th class="h5">Khách hàng</th>
-												<th class="h5">Ngày đặt</th>
-												<th class="h5">Ngày trả</th>
-												<th class="h5">Người</th>
-												<th class="h5">Loại phòng</th>
-												<th class="h5">Thanh toán</th>
-												<th class="h5">Nhân viên</th>
+                                                <th class="h5 text-center">STT</th>
+                                                <th class="h5 text-center">Khách hàng</th>
+												<th class="h5 text-center">Ngày đặt</th>
+												<th class="h5 text-center">Ngày trả</th>
+												<th class="h5 text-center">Người</th>
+												<th class="h5 text-center">Loại phòng</th>
+												<th class="h5 text-center w180">Thanh toán</th>
+												<th class="h5 text-center">Nhân viên</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -58,15 +61,15 @@
                                         @foreach($listBookings as $index => $item)
                                             @if($item->status_booking==1)
                                             <tr>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="form-check style-1">
                                                         <input class="form-check-input" type="checkbox" value="">
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     {{$i++}}
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>
                                                         @foreach ($listUsers as $user)
                                                             <?php if($item->user_id==$user->id){
@@ -75,22 +78,22 @@
                                                        @endforeach
                                                     </p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div  style="width: 100px">
                                                         <h6>{{$item->checkin_date}}</h6>
                                                         <span class="fs-14">08:29 AM</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div  style="width: 100px">
                                                         <h6>{{$item->checkout_date}}</h6>
                                                         <span class="fs-14">08:29 AM</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>{{$item->people}}</p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>
                                                         @foreach ($listCaterooms as $cate)
                                                                 <?php if($item->cate_room_id==$cate->id){
@@ -99,8 +102,19 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-                                                <td><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
-                                                <td><p style="width: 150px">
+                                                <td class="text-center">
+                                                    <form action="{{route('route_BackEnd_Bookings_Updatepay',$item->id)}}" method="post">
+                                                        @csrf
+                                                        @if($item->status_pay==0)
+                                                            <input name="status_pay" value="1" hidden>
+                                                            <button type="submit" class="btn btn-danger w180">Chưa thanh toán</button>
+                                                        @else
+                                                            <input name="status_pay" value="0" hidden>
+                                                            <button type="submit" class="btn btn-success w180">Đã thanh toán</button>
+                                                        @endif
+                                                    </form>
+                                                </td>
+                                                <td class="text-center"><p style="width: 150px">
                                                         @if($item->staff_id==1)
                                                             {{'Nguyễn Đình Huân'}}
                                                         @elseif($item->staff_id==2)
@@ -109,7 +123,7 @@
                                                             {{'Đinh Trung Nguyên'}}
                                                        @endif
                                                         </p></td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="dropdown dropstart">
                                                         <a href="javascript:void(0);" class="btn-link"
                                                            data-bs-toggle="dropdown" aria-expanded="false">
@@ -154,14 +168,14 @@
                                                            id="checkAll">
                                                 </div>
                                             </th>
-                                            <th class="h5">STT</th>
-                                            <th class="h5">Khách hàng</th>
-                                            <th class="h5">Ngày đặt</th>
-                                            <th class="h5">Ngày trả</th>
-                                            <th class="h5">Người</th>
-                                            <th class="h5">Loại phòng</th>
-                                            <th class="h5">Thanh toán</th>
-                                            <th class="h5">Nhân viên</th>
+                                            <th class="h5 text-center">STT</th>
+                                            <th class="h5 text-center">Khách hàng</th>
+                                            <th class="h5 text-center">Ngày đặt</th>
+                                            <th class="h5 text-center">Ngày trả</th>
+                                            <th class="h5 text-center">Người</th>
+                                            <th class="h5 text-center">Loại phòng</th>
+                                            <th class="h5 text-center">Thanh toán</th>
+                                            <th class="h5 text-center">Nhân viên</th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -169,15 +183,15 @@
                                         <?php $j=1?>
                                         @foreach($listBookings as $index => $item)
                                             <tr>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="form-check style-1">
                                                         <input class="form-check-input" type="checkbox" value="">
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     {{$j++}}
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>
                                                         @foreach ($listUsers as $user)
                                                                 <?php if($item->user_id==$user->id){
@@ -186,22 +200,22 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div  style="width: 100px">
                                                         <h6>{{$item->checkin_date}}</h6>
                                                         <span class="fs-14">08:29 AM</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div  style="width: 100px">
                                                         <h6>{{$item->checkout_date}}</h6>
                                                         <span class="fs-14">08:29 AM</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>{{$item->people}}</p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p>
                                                         @foreach ($listCaterooms as $cate)
                                                                 <?php if($item->cate_room_id==$cate->id){
@@ -210,8 +224,12 @@
                                                         @endforeach
                                                     </p>
                                                 </td>
-                                                <td><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
-                                                <td><p style="width: 150px">
+                                                <td class="text-center">
+                                                        <span class="fs-16">
+                                                            <?= $item->status_pay==0?'<span class="badge light badge-success">Đã thanh toán</span>':'<span class="badge light badge-danger">Chưa thanh toán</span>'?>
+														</span>
+                                                </td>
+                                                <td class="text-center"><p style="width: 150px">
                                                         @if($item->staff_id==1)
                                                             {{'Nguyễn Đình Huân'}}
                                                         @elseif($item->staff_id==2)
@@ -220,7 +238,7 @@
                                                             {{'Đinh Trung Nguyên'}}
                                                         @endif
                                                     </p></td>
-                                                <td>
+                                                <td class="text-center">
                                                     <div class="dropdown dropstart">
                                                         <a href="javascript:void(0);" class="btn-link"
                                                            data-bs-toggle="dropdown" aria-expanded="false">
@@ -264,14 +282,14 @@
                                                            id="checkAll">
                                                 </div>
                                             </th>
-                                            <th class="h5">STT</th>
-                                            <th class="h5">Khách hàng</th>
-                                            <th class="h5">Ngày đặt</th>
-                                            <th class="h5">Ngày trả</th>
-                                            <th class="h5">Người</th>
-                                            <th class="h5">Loại phòng</th>
-                                            <th class="h5">Thanh toán</th>
-                                            <th class="h5">Nhân viên</th>
+                                            <th class="h5 text-center">STT</th>
+                                            <th class="h5 text-center">Khách hàng</th>
+                                            <th class="h5 text-center">Ngày đặt</th>
+                                            <th class="h5 text-center">Ngày trả</th>
+                                            <th class="h5 text-center">Người</th>
+                                            <th class="h5 text-center">Loại phòng</th>
+                                            <th class="h5 text-center">Thanh toán</th>
+                                            <th class="h5 text-center">Nhân viên</th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -280,15 +298,15 @@
                                         @foreach($listBookings as $index => $item)
                                             @if($item->status_booking==0)
                                                 <tr>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div class="form-check style-1">
                                                             <input class="form-check-input" type="checkbox" value="">
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         {{$k++}}
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <p>
                                                             @foreach ($listUsers as $user)
                                                                     <?php if($item->user_id==$user->id){
@@ -297,22 +315,22 @@
                                                             @endforeach
                                                         </p>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div  style="width: 100px">
                                                             <h6>{{$item->checkin_date}}</h6>
                                                             <span class="fs-14">08:29 AM</span>
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div  style="width: 100px">
                                                             <h6>{{$item->checkout_date}}</h6>
                                                             <span class="fs-14">08:29 AM</span>
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <p>{{$item->people}}</p>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <p>
                                                             @foreach ($listCaterooms as $cate)
                                                                     <?php if($item->cate_room_id==$cate->id){
@@ -321,8 +339,12 @@
                                                             @endforeach
                                                         </p>
                                                     </td>
-                                                    <td><div style="width: 150px"><?= $item->status_pay==0?'<p class="text-danger">Chưa thanh toán</p>':'<p class="text-success">Đã thanh toán</p>'?></div></td>
-                                                    <td><p style="width: 150px">
+                                                    <td class="text-center">
+                                                        <span class="fs-16">
+                                                            <?= $item->status_pay==0?'<span class="badge light badge-success">Đã thanh toán</span>':'<span class="badge light badge-warning">Chưa thanh toán</span>'?>
+														</span>
+                                                    </td>
+                                                    <td class="text-center"><p style="width: 150px">
                                                             @if($item->staff_id==1)
                                                                 {{'Nguyễn Đình Huân'}}
                                                             @elseif($item->staff_id==2)
@@ -331,7 +353,7 @@
                                                                 {{'Đinh Trung Nguyên'}}
                                                             @endif
                                                         </p></td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div class="dropdown dropstart">
                                                             <a href="javascript:void(0);" class="btn-link"
                                                                data-bs-toggle="dropdown" aria-expanded="false">

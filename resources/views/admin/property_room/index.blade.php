@@ -22,7 +22,10 @@
                                 <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
                             </div>
                         </div>
-                        <a href="{{route('route_BackEnd_PropertyRoom_add')}}" class="btn btn-primary mb-xxl-0 mb-4 "><i class="far fa-file-word me-2"></i>Thêm mới</a>
+                        <div>
+                            <a href="{{route('route_BackEnd_PropertyRoom_add')}}" class="btn btn-info mb-xxl-0 mb-4"><i class="fa fa-bed me-2"></i>Thêm mới</a>
+                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                        </div>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane active show" id="All">
@@ -30,19 +33,30 @@
                                 <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                     <thead>
                                     <tr>
-                                        <th class="h5">STT</th>
-                                        <th class="h5">Tên phòng</th>
-                                        <th class="h5">Tên thuộc tính</th>
-                                        <th class="h5">Hành động</th>
+                                        <th class="bg-none text-center">
+                                            <div class="form-check style-1">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                       id="checkAll">
+                                            </div>
+                                        </th>
+                                        <th class="h5 text-center">STT</th>
+                                        <th class="h5 text-center">Tên phòng</th>
+                                        <th class="h5 text-center">Tên thuộc tính</th>
+                                        <th class="h5 text-center">Hành động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($listPropertyrooms as $index => $item)
                                         <tr>
-                                            <td>
+                                            <td class="text-center">
+                                                <div class="form-check style-1">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
                                                 {{$index+1}}
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 <p>
                                                     @foreach ($listRooms as $room)
                                                             <?php if($item->room_id==$room->id){
@@ -51,7 +65,7 @@
                                                     @endforeach
                                                 </p>
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 <p>
                                                     @foreach ($listProperties as $property)
                                                             <?php if($item->properties_id==$property->id){
@@ -60,8 +74,8 @@
                                                     @endforeach
                                                 </p>
                                             </td>
-                                            <td>
-                                                <a href="{{route('route_BackEnd_PropertyRoom_edit',$item->id)}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
+                                            <td class="text-center">
+                                                <a href="{{route('route_BackEnd_PropertyRoom_edit',$item->id)}}"><button class="btn btn-primary">Sửa</button></a>
                                             </td>
                                         </tr>
                                     @endforeach

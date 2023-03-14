@@ -16,7 +16,7 @@ class User extends Controller
 {
     use HasFactory;
 
-    protected $table = 'users';
+    protected $table = 'user';
     protected $fillable = [
         'id', 
         'name', 
