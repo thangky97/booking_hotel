@@ -12,14 +12,14 @@
 Starting the project we need to install a few environments for the project to run, install the following:
 
 - Step 1: 
- - git clone: [https://github.com/thangky97/booking_hotel.git].
- - cd booking_hotel.
+   git clone: [https://github.com/thangky97/booking_hotel.git].
+   cd booking_hotel.
 - Step 2:
- - composer i.
- - npm i.
- - php artisan serve.
+   composer i.
+   npm i.
+   php artisan serve.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Good luck.
 
 ## Learning Laravel
 
