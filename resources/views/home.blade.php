@@ -960,7 +960,8 @@
                     <div class="elementor-element elementor-element-1c5f5a4 elementor-widget elementor-widget-list"
                         data-id="1c5f5a4" data-element_type="widget" data-widget_type="list.default">
                         <div class="elementor-widget-container">
-
+                            
+                            
                             <div class="nd_elements_section nd_elements_list_component">
 
                                 <div class="nd_elements_section nd_elements_position_relative">
@@ -971,17 +972,19 @@
                                     <div
                                         class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
 
-
+                                        @foreach ($categories as $cate)
                                         <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
                                             style="width:80%;">
-                                            <h4><span class="nd_elements_list_component_title">Phòng Nhỏ</span></h4>
+                                            <h4><span class="nd_elements_list_component_title">{{ $cate->name }}</span></h4>
                                         </div>
+                                        @endforeach
 
-
+                                        @foreach ($categories as $cate)
                                         <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
                                             style="width:20%;">
-                                            <p class="nd_elements_list_component_label">50 $ / ĐÊM</p>
+                                            <p class="nd_elements_list_component_label">{{ $cate->price }}</p>
                                         </div>
+                                        @endforeach
 
 
                                         <div style="height:10px;" class="nd_elements_section"></div>
@@ -1007,6 +1010,7 @@
                                 </div>
 
                             </div>
+                            
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-da184df elementor-widget elementor-widget-list"

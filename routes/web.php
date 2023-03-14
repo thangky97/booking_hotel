@@ -14,10 +14,10 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
+// Route::get('/', function () {
+//     return view('home');
+// });
 Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
