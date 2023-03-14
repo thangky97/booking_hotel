@@ -43,8 +43,8 @@ Route::get('/checkout', function () { //thanh toán
     return view('templates/pages/checkout');
 });
 
-Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');
-
+Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
+Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search');
 
 //Chỉ dùng cho đăng nhập
  Route::get('/login1', ['as'=>'login', 'uses'=>'Auth\LoginController@getLogin']) ;
