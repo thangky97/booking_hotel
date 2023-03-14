@@ -14,7 +14,8 @@ Starting the project we need to install a few environments for the project to ru
 Step 1: 
    - git clone: [https://github.com/thangky97/booking_hotel.git].
    - cd booking_hotel.
-Step 2:
+ 
+Step 2: 
    - composer i.
    - npm i.
    - php artisan serve.
