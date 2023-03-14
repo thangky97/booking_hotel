@@ -7,45 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
-class Rooms extends Model
+class Banner extends Model
 {
     use HasFactory;
-    protected $table = "rooms";
-                        
+    protected $table = "banner";
+    protected $fillable = ['id','images','status','created_at','updated_at'];
+
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable);
+            ->select($this->fillable)->where('status', 1);
         $list = $query->paginate(10);
         return $list;
     }
-
 
     public function loadAll($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable);
+            ->select($this->fillable)->where('status', 1);
         $list = $query->get();
         return $list;
     }
-
-
-    //Lọc phòng theo loại phòng
-    public function loadListWithCategory($param = [],$cate=[])
-    {   if(isset($_GET['category_room'])){
-        $category_room = $_GET['category_room'];
-        }else{
-        $category_room = $cate;
-        }
-        $query = DB::table($this->table)
-            ->select($this->fillable)
-            ->where('cate_room_id','=',$category_room);
-        $list = $query->paginate(10);
-        return $list;
-    }
-
-
-    //phương thức thêm mới
 
     public function saveNew($params)
     {
@@ -53,7 +35,7 @@ class Rooms extends Model
         $res = DB::table($this->table)->insertGetId($data);
         return $res;
     }
-    //phương thức lấy 1 mảng dữ liệu
+
     public function loadOne($id, $param = [])
     {
         $query = DB::table($this->table)
@@ -80,4 +62,5 @@ class Rooms extends Model
             ->update($dataUpdate);
         return $res;
     }
+
 }

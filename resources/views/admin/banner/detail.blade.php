@@ -12,15 +12,16 @@
                         <div class="card-body">
                             <div class="email-left-box px-0 mb-3">
                                 <div class="p-0">
-                                    <a href="" class="btn btn-primary btn-block">Thêm Mới Banner</a>
+                                    <a href="" class="btn btn-primary btn-block">Sửa Banner</a>
                                 </div>
 
                             </div>
                             <div class="email-right-box ms-0 ms-sm-2 ms-sm-0">
 
                                 <div class="compose-content">
-                                    <form action="{{ route('route_BackEnd_Banner_Add') }}" method="post"
-                                        enctype="multipart/form-data">
+                                    <form class=""
+                                        action="{{ route('route_BackEnd_Banner_Update', ['id' => request()->route('id')]) }}"
+                                        method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <h5 class="mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
@@ -45,12 +46,11 @@
                                                         hoạt</label>
                                                 </div>
                                             </div>
-
                                             <div class="text-start mt-4 mb-3">
 
                                                 <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span
-                                                        class="me-2"><i class="fa fa-paper-plane"></i></span>Thêm
-                                                    mới</button>
+                                                        class="me-2"><i class="fa fa-paper-plane"></i></span>Cập
+                                                    Nhật</button>
                                                 <button class="btn btn-danger light btn-sl-sm" type="button"><span
                                                         class="me-2"><i class="fa fa-times"></i></span><a
                                                         href="{{ route('route_BackEnd_Banner_List') }}">Quay
