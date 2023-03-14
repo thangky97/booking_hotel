@@ -10,16 +10,21 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryRoomController extends Controller
 {
+    private $v;
+    public function __construct()
+    {
+        $this->v = [];
+    }
     public function index()
     {
         $categoryRoom = new CategoryRooms();
         $this->v['categoryRoom'] = $categoryRoom->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Danh mục phòng';
+        $this->v['title'] = '12 Zodiac - Loại phòng';
         return view('admin.cate_room.index', $this->v);
     }
     public function addForm()
     {
-        $this->v['title'] = '12 Zodiac - Thêm danh mục phòng';
+        $this->v['title'] = '12 Zodiac - Thêm mới';
         /// $gallery = DB::table('gallery')->get();
         return view('admin.cate_room.add', $this->v);
     }
@@ -49,7 +54,7 @@ class CategoryRoomController extends Controller
         // $gallery = DB::table('gallery')->get();
         $this->v['id'] = $id;
         $this->v['editCate'] = CategoryRooms::find($id); //lay du lieu tu db
-        $this->v['title'] = '12 Zodiac - Sửa danh mục phòng';
+        $this->v['title'] = '12 Zodiac - Sửa loại phòng';
         return view('admin.cate_room.detail', $this->v); // truyen du lieu de hien thi sang file view de admin nhin thay
     }
     public function saveEdit(Request $request, $id)

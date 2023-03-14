@@ -44,6 +44,22 @@
 </head>
 
 <body>
+<div id="preloader">
+        <div class="waviy">
+            <span style="--i:1">1</span>
+            <span style="--i:2">2</span>
+            <span style="--i:3"> </span>
+            <span style="--i:4">Z</span>
+            <span style="--i:5">o</span>
+            <span style="--i:6">d</span>
+            <span style="--i:7">i</span>
+            <span style="--i:8">a</span>
+            <span style="--i:9">c</span>
+            <span style="--i:10">.</span>
+            <span style="--i:11">.</span>
+            <span style="--i:12">.</span>
+        </div>
+    </div>
 
     <!--**********************************
         Main wrapper start
@@ -168,27 +184,6 @@
         });
     </script>
 
-    {{-- @if (session()->get('sucess'))
-        <script>
-            iziToast.show({
-                title: '',
-                position: 'topRight'
-                message: '{{ session()->get('sucess') }}'
-            });
-        </script>
-    @endif
-
-    @if ($errors->any)
-        @foreach ($errors->all() as $error)
-        <script>
-            iziToast.show({
-                title: '',
-                position: 'topRight'
-                message: '{{ error }}'
-            });
-        </script>
-    @endforeach
-    @endif --}}
 </body>
 
 </html>

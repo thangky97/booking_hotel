@@ -231,7 +231,7 @@
 
                                 <div
                                     class="nd_booking_width_25_percentage nd_booking_padding_10_15 nd_booking_width_100_percentage_all_iphone nd_booking_width_50_all_ipad nd_booking_float_left  nd_booking_box_sizing_border_box">
-                                    <input style="padding: ; background-color:;"
+                                    <input
                                         class="nd_booking_width_100_percentage nd_booking_white_space_normal nd_booking_border_style_solid "
                                         type="submit" value="SẴN SÀNG KIỂM TRA">
                                 </div>

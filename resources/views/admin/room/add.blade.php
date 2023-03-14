@@ -68,10 +68,9 @@
                                         <div class="mb-3">
                                             <div>Loại Phòng<span class="text-danger">(*)</span></div>
                                             <select name="cate_room" id="" class="form-control bg-transparent">
-                                                <option value="1" selected>Single Bed</option>
-                                                <option value="2">Double Bed</option>
-                                                <option value="3">Queen Bed</option>
-                                                <option value="4">King Bed</option>
+                                                @foreach ($cate_rooms as $cate)
+                                                <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
 
@@ -127,13 +126,13 @@
                                             </form>
                                         </div>
 
-                                    <div class="text-start mt-4 mb-3">
-                                        <button class="btn btn-primary btn-submit btn-sl-sm me-2" ><span class="me-2"><i class="fa fa-paper-plane"></i></span>Thêm mới</button>
-                                        <a href="{{route('route_BackEnd_Rooms_List')}}"><button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i class="fa fa-times"></i></span> Quay Lại</button></a>
-                                    </div>
+                                        <div class="text-start mt-4 mb-3">
+                                            <button class="btn btn-primary btn-submit btn-sl-sm me-2"><span class="me-2"><i class="fa fa-paper-plane"></i></span>Thêm mới</button>
+                                            <a href="{{route('route_BackEnd_Rooms_List')}}"><button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i class="fa fa-times"></i></span> Quay Lại</button></a>
+                                        </div>
                                         <div>
 
-                            </div>
+                                        </div>
 
                                     </div>
                                 </form>
