@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@yield('title') &#8211; Hotel WordPress Theme</title>
+    <title>@yield('title') &#8211; Hotel 12Zodiac</title>
     <meta name='robots' content='max-image-preview:large' />
     <link rel="alternate" type="application/rss+xml" title="Apartments DEMO &raquo; Feed"
         href="{{ asset('feed/index.html') }}" />

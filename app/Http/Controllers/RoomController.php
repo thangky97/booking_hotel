@@ -8,7 +8,7 @@ class RoomController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.room.index');
+        return view('templates.pages.booking_search');
     }
 
     public function delete() {}

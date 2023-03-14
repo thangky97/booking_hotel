@@ -22,37 +22,14 @@
 					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7410219b" data-id="7410219b" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-1af726da elementor-widget elementor-widget-heading" data-id="1af726da" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<style>/*! elementor - v3.5.6 - 28-02-2022 */
-.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">Search</h1>		</div>
+			
 				</div>
 				<div class="elementor-element elementor-element-f23c8c7 elementor-widget elementor-widget-steps" data-id="f23c8c7" data-element_type="widget" data-widget_type="steps.default">
 				<div class="elementor-widget-container">
 			
     <div class="nd_booking_section">
 <!--start steps-->
-<div class="nd_booking_section nd_booking_position_relative nd_booking_text_align_center">
-    <ul class="nd_booking_list_style_none nd_booking_padding_0 nd_booking_margin_0">
-        
-        <li id="nd_booking_vc_steps_search" class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
-            <h1 class=" nd_booking_border_1_solid_white nd_booking_bg_greydark nd_booking_bg_custom_color nd_booking_border_1_solid_greydark_important nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">1</h1>
-            <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text" href="#">Search</a>
-        </li>
-        <li id="nd_booking_vc_steps_booking" class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
-            <h1 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">2</h1>
-            <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text" href="#">Booking</a>
-        </li>
-        <li id="nd_booking_vc_steps_checkout" class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
-            <h1 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">3</h1>
-            <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text" href="#">Checkout</a>
-        </li>
-        <li id="nd_booking_vc_steps_thankyou" class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
-            <h1 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">4</h1>
-            <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text" href="#">Thank You</a>
-        </li>
-        
-    </ul>
-</div>
+
 <!--end steps-->
     </div>		</div>
 				</div>
@@ -130,17 +107,10 @@
 
             <ul id="nd_booking_search_filter_options" class="nd_booking_list_style_none nd_booking_display_inline_block nd_booking_padding_0 nd_booking_margin_0">
                 
-                <li id="nd_booking_el_order_price" class="nd_booking_display_inline_block nd_booking_position_relative nd_booking_padding_20 nd_booking_padding_bottom_15 nd_booking_margin_0 nd_booking_float_left">
-                    <p class="nd_booking_font_size_12 nd_booking_padding_bottom_5 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_float_left nd_options_color_white">Stay Price</p>
-                    <img alt="" class="nd_booking_margin_left_10 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/elementor/order/layout/../img/icon-down-arrow-white.svg">
-                    <ul class="nd_booking_padding_top_12 nd_booking_z_index_99 nd_booking_width_160 nd_booking_list_style_none nd_booking_search_filter_options_child nd_booking_position_absolute nd_booking_left_0 nd_booking_top_50 nd_booking_display_none nd_booking_padding_0 nd_booking_margin_0 nd_booking_width_100_percentage">
-                        <li class="nd_booking_text_align_left nd_booking_bg_greydark_2 nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_15_20"><a data-meta-key="nd_booking_meta_box_min_price" data-order="ASC" class="nd_booking_cursor_pointer nd_options_color_white">Lowest Price</a></li>
-                        <li class="nd_booking_text_align_left nd_booking_bg_greydark nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_15_20"><a data-meta-key="nd_booking_meta_box_min_price" data-order="DESC" class="nd_booking_cursor_pointer nd_options_color_white">Highest Price</a></li>
-                    </ul>
-                </li>  
+                
 
                 <li id="nd_booking_el_order_size" class="nd_booking_display_inline_block nd_booking_position_relative nd_booking_padding_20 nd_booking_padding_bottom_15 nd_booking_margin_0 nd_booking_float_left">
-                    <p class="nd_booking_font_size_12 nd_booking_padding_bottom_5 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_float_left nd_options_color_white">Room Size</p> 
+                    <p class="nd_booking_font_size_12 nd_booking_padding_bottom_5 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_float_left nd_options_color_white">Loại Phòng</p> 
                     <img alt="" class="nd_booking_margin_left_10 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/elementor/order/layout/../img/icon-down-arrow-white.svg">
                     <ul class="nd_booking_padding_top_12 nd_booking_z_index_99 nd_booking_width_160 nd_booking_list_style_none nd_booking_search_filter_options_child nd_booking_position_absolute nd_booking_left_0 nd_booking_top_50 nd_booking_display_none nd_booking_padding_0 nd_booking_margin_0 nd_booking_width_100_percentage">
                         <li class="nd_booking_text_align_left nd_booking_bg_greydark_2 nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_15_20"><a data-meta-key="nd_booking_meta_box_room_size" data-order="DESC" class="nd_booking_cursor_pointer nd_options_color_white">Larger <span class="nd_booking_sorting_label_1">Room</span></a></li>
@@ -196,27 +166,10 @@
 	            	<ul class="nd_booking_branch_ul_1 nd_booking_bg_greydark_2">
 	            		
 	            		<li class="nd_booking_branch_select_active">
-	            			<h3 class="nd_options_color_white">All Branches</h3>
+	            			<h3 class="nd_options_color_white">Lựa Chọn Của Bạn</h3>
 	            			<img class="nd_booking_branch_ul_1_arrow" alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
 	            		</li>
-	            			<li>
-	            				<h3 class="nd_options_color_white">Hotel New York</h3>
-	            				<img class="nd_booking_branch_ul_1_arrow" alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
-	            			</li>
 	            			
-	            			<li>
-	            				<h3 class="nd_options_color_white">Hotel Rome</h3>
-	            				<img class="nd_booking_branch_ul_1_arrow" alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
-	            			</li>
-	            			
-	            			<li>
-	            				<h3 class="nd_options_color_white">Hotel London</h3>
-	            				<img class="nd_booking_branch_ul_1_arrow" alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
-	            			</li>
-	            			
-	            		<ul class="nd_booking_branch_select_sub_menu nd_booking_bg_greydark_2">
-	            			<li data-id="0" data-position="0">All Branches</li><li data-id="6243" data-position="1">Hotel New York</li><li data-id="6213" data-position="2">Hotel Rome</li><li data-id="6211" data-position="3">Hotel London</li>	
-	            		</ul>
 
 	            	</ul>
 	            	
@@ -286,7 +239,7 @@
 
                 <div id="nd_booking_open_calendar_from" class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center nd_booking_cursor_pointer">
                   <div class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                    <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">CHECK-IN</h6>
+                    <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">Ngày Đến</h6>
                     <div class="nd_booking_section nd_booking_height_15"></div> 
                     <div class="nd_booking_display_inline_flex ">
                       <div class="nd_booking_float_left nd_booking_text_align_right">
@@ -309,7 +262,7 @@
 
                 <div id="nd_booking_open_calendar_to" class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center nd_booking_cursor_pointer">
                   <div class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                    <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">CHECK-OUT</h6>
+                    <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">Ngày Đi</h6>
                     <div class="nd_booking_section nd_booking_height_15"></div> 
                     <div class="nd_booking_display_inline_flex ">
                       <div class="nd_booking_float_left nd_booking_text_align_right">
@@ -446,7 +399,7 @@
             <div id="nd_booking_search_cpt_1_form_guests" class="nd_booking_width_50_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_padding_top_0 nd_booking_box_sizing_border_box">
                 <div id="nd_booking_search_guests_bg" class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
                   <div class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                    <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">GUESTS</h6>
+                    <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">Số Người</h6>
                     <div class="nd_booking_section nd_booking_height_15"></div> 
                     <div class="nd_booking_display_inline_flex ">
                       <div class="nd_booking_float_left nd_booking_text_align_right">
@@ -509,7 +462,7 @@
             <div id="nd_booking_search_cpt_1_form_nights" class="nd_booking_width_50_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_padding_top_0 nd_booking_box_sizing_border_box">
                 <div id="nd_booking_search_nights_bg" class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
                   <div class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                    <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">NIGHTS</h6>
+                    <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">Số ngày</h6>
                     <div class="nd_booking_section nd_booking_height_15"></div> 
                     <div class="nd_booking_display_inline_flex ">
                       <div class="nd_booking_float_left nd_booking_text_align_right">

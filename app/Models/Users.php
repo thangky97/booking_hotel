@@ -28,6 +28,7 @@ class Users extends Model
         'date',
         'gender',
         'room_id',
+        'status',
     ];
 
     public function saveNew($params)
