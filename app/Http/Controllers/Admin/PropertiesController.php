@@ -17,7 +17,7 @@ class PropertiesController extends Controller
 
     public function addForm()
     {
-        $title = '12 Zodiac - Thêm thuộc tính phòng';
+        $title = '12 Zodiac - Thêm mới';
         return view('admin.property.addForm', compact('title'));
     }
 
@@ -35,7 +35,7 @@ class PropertiesController extends Controller
         // luu
         $saveProperties->save();
         return redirect()->route('route_BackEnd_properties_List')
-            ->with('success', 'Them thanh cong');
+            ->with('success', 'Thêm mới thành công');
     }
         public function editForm($id)
         {   //lay du lieu theo id
@@ -55,6 +55,6 @@ class PropertiesController extends Controller
             // luu
             $createEdit->save();
             return redirect()->route('route_BackEnd_properties_List')
-            ->with('success', 'sua thanh cong');
+            ->with('success', 'Sửa thông tin thành công');
         }
 }

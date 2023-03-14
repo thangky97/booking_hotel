@@ -1,4 +1,5 @@
 @extends('templates/admin.layoutadmin')
+@section('title', $title)
 @section('css')
 @endsection
 @section('content')
@@ -22,12 +23,12 @@
                                     <form action="{{ route('route_BackEnd_Categoryrooms_saveAdd') }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="" class="col-md-3 col-sm-4 control-label">Tên Phòng<span
+                                            <label for="" class="col-md-3 col-sm-4 control-label">Tên Loại Phòng<span
                                                     class="text-danger">(*)</span></label>
 
                                             <div class="col-md-9 col-sm-8">
                                                 <input type="text" name="name" id="name" class="form-control"
-                                                    placeholder="Tên Phòng">
+                                                    placeholder="Tên Loại Phòng">
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>

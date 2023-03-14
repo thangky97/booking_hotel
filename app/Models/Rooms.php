@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +46,32 @@ class Rooms extends Model
         return $list;
     }
 
+    //Lọc phòng theo trạng thái
+    public function loadAllStatus($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable)
+            ->where('status','=',1);
+        $list = $query->get();
+        return $list;
+    }
+    //Lọc phòng trừ đơn đã order
+    public function loadAllOrder($param = []){
+        $now = date('d/m/Y'); //biến thời gian hiện tại
+        $query = DB::table($this->table) //truy vấn DB
+        ->select($this->fillable) // Hiển thị các cột
+        ->leftJoin('bookings_detail',$this->table.'id','=','bookings_detail.room_id')
+         //Nối bảng rooms với bookings_detail qua rooms.id , bookings_detail.room_id
+        ->leftJoin('bookings','bookings.id','=','bookings_detail.booking_id')
+        //Nối bảng bookings_detail với bookings qua boongkings_detail.bookings_id ,bookings.id
+        ->whereNotBetween($now,['checkin_date','checkout_date'])
+        //Điều kiện thời gian hiện tại không trùng thời gian các đơn đã đặt phòng
+        ->where('status','=',1);
+        //Điều kiện trạng thái phòng đang trống
+        $list = $query->get();
+        return $list;
+    }
+
 
     //phương thức thêm mới
 
@@ -81,4 +108,6 @@ class Rooms extends Model
             ->update($dataUpdate);
         return $res;
     }
+
+   
 }

@@ -24,17 +24,18 @@ class PropertyRoomController extends Controller
         $this->v['listRooms'] = $Rooms->loadListWithPager();
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Phòng';
+        $this->v['title'] = '12 Zodiac - Thuộc tính phòng';
         return view("admin.property_room.index", $this->v);
     }
 
     public function add()
     {
+        
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadListWithPager();
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Thêm thuộc tính phòng';
+        $this->v['title'] = '12 Zodiac - Thêm mới';
         return view('admin.property_room.add', $this->v);
     }
 
@@ -52,7 +53,7 @@ class PropertyRoomController extends Controller
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadListWithPager();
         $this->v['property_rooms'] = Propertyroom::find($id);
-        $this->v['title'] = '12 Zodiac - Sửa thuộc tính phòng';
+        $this->v['title'] = '12 Zodiac - Sửa ';
         return view('admin.property_room.edit', $this->v);
     }
 
