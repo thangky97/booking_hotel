@@ -24,7 +24,10 @@ class CategoryRooms extends Model
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1)->orderBy('id', 'asc');
+            ->select($this->fillable)
+            ->where('status', 1)
+            ->orderBy('id', 'asc')
+            ;
         $list = $query->paginate(10);
         return $list;
     }
