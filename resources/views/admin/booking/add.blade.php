@@ -137,9 +137,6 @@
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
-                                                    @error('checkin_date')
-                                                    <div><p class="text-danger">{{ $message }}</p></div>
-                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -158,9 +155,6 @@
                                                     <div class="invalid-feedback">
                                                         Please select a one.
                                                     </div>
-                                                    @error('people')
-                                                    <div><p class="text-danger">{{ $message }}</p></div>
-                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -176,9 +170,6 @@
                                                     <div class="invalid-feedback">
                                                         Please select a one.
                                                     </div>
-                                                    @error('status_pay')
-                                                    <div><p class="text-danger">{{ $message }}</p></div>
-                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -193,9 +184,6 @@
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
-                                                    @error('checkout_date')
-                                                    <div><p class="text-danger">{{ $message }}</p></div>
-                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -212,9 +200,6 @@
                                                     <div class="invalid-feedback">
                                                         Please select a one.
                                                     </div>
-                                                    @error('staff_id')
-                                                    <div><p class="text-danger">{{ $message }}</p></div>
-                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -256,7 +241,7 @@
                                                                         <tr>
                                                                             <td class="text-center">
                                                                                 <div class="form-check style-1">
-                                                                                    <input class="form-check-input" type="checkbox" value="">
+                                                                                    <input class="form-check-input" type="checkbox" name="room_id[]" value="{{$item->id}}">
                                                                                 </div>
                                                                             </td>
                                                                             <td class="text-center">{{$i++}}</td>

@@ -18,7 +18,7 @@ class CategoryRooms extends Model
         'price',
         'status',
 //        'gallery_id',
-//        'sort'
+        'sort'
     ];
 
     public function loadListWithPager($param = [])
