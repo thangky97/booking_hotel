@@ -95,10 +95,13 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <p>
+                                                        <?php $cate_room_ids = explode(',', $item->cate_room_id); ?>
                                                         @foreach ($listCaterooms as $cate)
-                                                                <?php if($item->cate_room_id==$cate->id){
-                                                                echo $cate->name;
-                                                            }?>
+                                                            @foreach($cate_room_ids as $inx => $cr_id)
+                                                                @if($cr_id==$cate->id)
+                                                                    {{$cate->name}}
+                                                                @endif
+                                                            @endforeach
                                                         @endforeach
                                                     </p>
                                                 </td>
