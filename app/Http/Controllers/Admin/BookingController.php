@@ -53,6 +53,12 @@ class BookingController extends Controller
 
     public function createuser(UserRequest $request)
     {
+        $today = date("Y/m/d", strtotime("now"));
+        if (strtotime($request->date) >= strtotime($today)){
+            $this->v['error'] = 'Ngày sinh không hợp lệ phải nhỏ hơn hiện tại';
+            $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
+            return view('admin.booking.adduser', $this->v);
+        }
         $user = Users::create($request->all());
         $userID = $user->id;
         $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
@@ -79,12 +85,14 @@ class BookingController extends Controller
             'staff_id' => $request->staff_id,
         ]);
         $idBooking = (string)$booking->id;
-        $bookings_detail = new Bookingdetail();
-        $bookings_detail->booking_id = $idBooking;
-        $bookings_detail->room_id = implode(',' ,$request->room_id);
-        $bookings_detail->status = 1;
+        foreach ($request->room_id as $ro_id) {
+            $bookings_detail = new Bookingdetail();
+            $bookings_detail->booking_id = $idBooking;
+            $bookings_detail->room_id = $ro_id;
+            $bookings_detail->status = 1;
 
-        $bookings_detail->save();
+            $bookings_detail->save();
+        }
 
         $usernew = Users::find($id);
         $usernew->name = $request->name;
@@ -103,7 +111,7 @@ class BookingController extends Controller
     public function bookings_detail($id)
     {
         $Bookingdetail = new Bookingdetail();
-        $this->v['bookingDetail'] = $Bookingdetail->loadIdBooking($id);
+        $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
         $booking = Booking::find($id);

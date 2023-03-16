@@ -44,7 +44,7 @@ class Bookingdetail extends Model
     {
         $query = DB::table($this->table)
             ->where('booking_id', '=', $id);
-        $obj = $query->first();
+        $obj = $query->get();
         return $obj;
     }
 }

@@ -80,14 +80,12 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <div  style="width: 100px">
-                                                        <h6>{{$item->checkin_date}}</h6>
-                                                        <span class="fs-14">08:29 AM</span>
+                                                        <h6>{{$format = date("d-m-Y",strtotime($item->checkin_date))}}</h6>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div  style="width: 100px">
-                                                        <h6>{{$item->checkout_date}}</h6>
-                                                        <span class="fs-14">08:29 AM</span>
+                                                        <h6>{{$format = date("d-m-Y",strtotime($item->checkout_date))}}</h6>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
