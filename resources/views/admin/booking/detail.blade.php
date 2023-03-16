@@ -15,7 +15,7 @@
                             <div class="card-header border-0 pb-0">
                                 <div class="me-5 mb-sm-0 mb-3">
                                     <p class="mb-2"><i class="far fa-calendar-minus scale3 me-3"></i>Thời gian sử dụng phòng</p>
-                                    <h4 class="mb-0 card-title">{{$booking->checkin_date}} - {{$booking->checkout_date}}</h4>
+                                    <h4 class="mb-0 card-title">{{$format = date("d/m/Y",strtotime($booking->checkin_date))}} - {{$format = date("d/m/Y",strtotime($booking->checkout_date))}}</h4>
                                 </div>
                             </div>
                             <hr style="margin-left: 15px; margin-right: 15px">
