@@ -177,7 +177,8 @@
 
                             <div class="nd_booking_section nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
 
-                              <form action="{{route('route_FontEnd_BookingSearch')}}" method="post">
+                              <form action="{{route('route_FontEnd_BookingSearch_Search')}}" method="post">
+                              @csrf 
                                 <div id="nd_booking_search_main_bg" class="nd_booking_section nd_booking_bg_greydark nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
 
 
@@ -306,7 +307,7 @@
                                         <div class="nd_booking_section nd_booking_height_15"></div>
                                         <div class="nd_booking_display_inline_flex ">
                                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                                            <h1 id="nd_booking_date_number_from_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="check-in">12</h1>
+                                            <h1 id="nd_booking_date_number_from_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="">12</h1>
                                           </div>
                                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
                                             <h6 id="nd_booking_date_month_from_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12">Mar</h6>
@@ -319,7 +320,7 @@
 
                                     <input type="hidden" id="nd_booking_date_month_from" class="nd_booking_section nd_booking_margin_top_20">
                                     <input type="hidden" id="nd_booking_date_number_from" class="nd_booking_section nd_booking_margin_top_20">
-                                    <input placeholder="Check In" class="nd_booking_section nd_booking_margin_top_30 nd_booking_margin_0_responsive nd_booking_border_width_0_important nd_booking_padding_0_important nd_booking_height_0_important" type="text" name="nd_booking_archive_form_date_range_from" id="nd_booking_archive_form_date_range_from" value="" />
+                                    <input placeholder="Check In" class="nd_booking_section nd_booking_margin_top_30 nd_booking_margin_0_responsive nd_booking_border_width_0_important nd_booking_padding_0_important nd_booking_height_0_important" type="text" name="check_in" id="nd_booking_archive_form_date_range_from" value="" />
                                   </div>
                                   <div id="nd_booking_search_cpt_1_form_checkout" class="nd_booking_width_50_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_padding_bottom_0 nd_booking_box_sizing_border_box">
 
@@ -329,7 +330,7 @@
                                         <div class="nd_booking_section nd_booking_height_15"></div>
                                         <div class="nd_booking_display_inline_flex ">
                                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="check-out">13</h1>
+                                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="check_out">13</h1>
                                           </div>
                                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
                                             <h6 id="nd_booking_date_month_to_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12">Mar</h6>
@@ -342,7 +343,7 @@
 
                                     <input type="hidden" id="nd_booking_date_month_to" class="nd_booking_section nd_booking_margin_top_20">
                                     <input type="hidden" id="nd_booking_date_number_to" class="nd_booking_section nd_booking_margin_top_20">
-                                    <input placeholder="Check Out" class="nd_booking_section nd_booking_margin_top_30 nd_booking_margin_0_responsive nd_booking_border_width_0_important nd_booking_padding_0_important nd_booking_height_0_important" type="text" name="nd_booking_archive_form_date_range_to" id="nd_booking_archive_form_date_range_to" value="" />
+                                    <input placeholder="Check Out" class="nd_booking_section nd_booking_margin_top_30 nd_booking_margin_0_responsive nd_booking_border_width_0_important nd_booking_padding_0_important nd_booking_height_0_important" type="text" name="check_out" id="nd_booking_archive_form_date_range_to" value="" />
 
                                   </div>
 
@@ -482,7 +483,7 @@
                                       </div>
                                     </div>
                                     <label class="nd_booking_display_none" for="nd_booking_archive_form_guests">Guests :</label>
-                                    <input placeholder="Guests" onchange="nd_booking_sorting(1)" class="nd_booking_section nd_booking_display_none" type="number" name="nd_booking_archive_form_guests" id="nd_booking_archive_form_guests" min="1" value="1" />
+                                    <input placeholder="Guests" onchange="nd_booking_sorting(1)" class="nd_booking_section nd_booking_display_none" type="number" name="so_nguoi" id="nd_booking_archive_form_guests" min="1" value="1" />
                                   </div>
                                   <script type="text/javascript">
                                     //<![CDATA[
@@ -538,6 +539,7 @@
                                   <!--night info-->
 
                                   <div class="">
+                                    <!--submit button-->
                                     <input style=" border:2px solid #6b6978; color:#6b6978;" class=" nd_booking_float_left nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_background_color_transparent_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2 " type="submit" value="Tìm Kiếm">
                                   </div>
                                 </div>
