@@ -124,7 +124,11 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">
-                                                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                                                    <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
+                                                                class="fa fa-paper-plane"></i></span>Thêm mới</button>
+                                                    <div class="btn btn-danger light btn-sl-sm"><span class="me-2"><i
+                                                                class="fa fa-times"></i></span><a
+                                                            href="{{ route('route_BackEnd_Users_List') }}">Quay Lại</a></div>
                                                 </div>
                                             </div>
                                         </div>

@@ -12,17 +12,22 @@
 							<div class="card-header border-0 pb-0">
 								<h2 <?= $booking->status_pay==1?'class="text-success"':'class="text-danger"'?>>Đơn đặt phòng ID:#{{$booking->id}}</h2>
 							</div>
-                            @foreach($listRooms as $room)
-                                <?php $room_ids = explode(',', $bookingDetail->room_id); ?>
-                                @foreach($room_ids as $room_id)
-                                    @if($room->id==$room_id)
+                            <div class="card-header border-0 pb-0">
+                                <div class="me-5 mb-sm-0 mb-3">
+                                    <p class="mb-2"><i class="far fa-calendar-minus scale3 me-3"></i>Thời gian sử dụng phòng</p>
+                                    <h4 class="mb-0 card-title">{{$format = date("d/m/Y",strtotime($booking->checkin_date))}} - {{$format = date("d/m/Y",strtotime($booking->checkout_date))}}</h4>
+                                </div>
+                            </div>
+                            <hr style="margin-left: 15px; margin-right: 15px">
+                            @foreach($bookingDetails as $bookingDetail)
+                                @foreach($listRooms as $room)
+                                    @if($bookingDetail->room_id==$room->id)
                                         @foreach($listCaterooms as $cateRoom)
-                                            @if($cateRoom->id==$room->cate_room)
-                                               <div class="card-body d-flex pt-0 align-items-center flex-wrap">
-                                                    <div class="d-flex align-items-center me-5 pe-4 mb-xxl-0 mb-2">
+                                            @if($room->cate_room==$cateRoom->id)
+                                                <div class="card-body d-flex pt-0 align-items-center flex-wrap">
+                                                    <div class="d-flex align-items-center me-5 pe-4 mb-xxl-0 mb-2" style="width: 100%">
                                                         <div>
-                                                            <h3 class="card-title mb-0">{{$room->name}}</h3>
-                                                            <p class="mb-2">{{$cateRoom->name}}</p>
+                                                            <h2 class="card-title mb-0">{{$room->name}}</h2>
                                                         </div>
                                                     </div>
                                                     <div class="d-sm-flex d-block align-items-center flex-wrap">
@@ -35,14 +40,10 @@
                                                             <h4 class="mb-0 card-title">{{$cateRoom->price}}$</h4>
                                                         </div>
                                                         <div class="me-5 mb-sm-0 mb-3">
-                                                            <p class="mb-2"><i class="far fa-calendar-minus scale3 me-3"></i>Thời gian sử dụng phòng</p>
-                                                            <h4 class="mb-0 card-title">{{$booking->checkin_date}} - {{$booking->checkout_date}}</h4>
-                                                        </div>
-                                                        <div class="me-5 mb-sm-0 mb-3 mt-5">
                                                             <p class="mb-2"><i class="fas fa-bed scale3 me-3"></i>Số giường</p>
                                                             <h4 class="mb-0 card-title">{{$room->bed}}</h4>
                                                         </div>
-                                                        <div class="me-5 mb-sm-0 mb-3 mt-5">
+                                                        <div class="me-5 mb-sm-0 mb-3">
                                                             <p class="mb-2"><i class="far fa-user scale3 me-3"></i>Số người</p>
                                                             <h4 class="mb-0 card-title">{{$room->adult}}</h4>
                                                         </div>
