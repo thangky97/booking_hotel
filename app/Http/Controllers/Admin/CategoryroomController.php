@@ -13,14 +13,11 @@ class CategoryRoomController extends Controller
 {
     public function index()
     {
-        $categoryRoom = new CategoryRooms();
-        $this->v['categoryRoom'] = $categoryRoom->loadListWithPager();
-//
+        $this->v['categoryRoom'] = CategoryRooms::where('status', 1)
+            ->orderBy('id', 'asc')
+            ->with('gallery')
+            ->paginate(10);
         $this->v['title'] = '12 Zodiac - Danh mục phòng';
-        foreach ($this->v['categoryRoom'] as $a){
-            $this->v['gallery'] = CategoryRooms::find($a->id)->gallery;
-        }
-
         return view('admin.cate_room.index', $this->v);
     }
 
@@ -49,14 +46,7 @@ class CategoryRoomController extends Controller
             $imgData->save();
         };
 
-        // $saveCate->gallery_id = $request->gallery_id;
-        //  var_dump($saveCate);die();
-//        if ($request->hasFile('image')) {
-//            $newFileName = uniqid() . '-' . $request->image->extension();
-//            $path = $request->image->storeAs('category_rooms', $newFileName, 'public');
-//            $saveCate->image = $path;
-//        }
-        // luu
+
 
 
         return redirect()->route('route_BackEnd_Categoryrooms_List')

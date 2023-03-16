@@ -30,7 +30,7 @@ class PropertyRoomController extends Controller
 
     public function add()
     {
-        
+
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadListWithPager();
         $Properties = new Properties();
@@ -41,7 +41,12 @@ class PropertyRoomController extends Controller
 
     public function create(PropertyRoomRequest $request)
     {
-        Propertyroom::create($request->all());
+        $property_ids = implode(',' ,$request->properties_id);
+        Propertyroom::create([
+            'room_id' => $request->room_id,
+            'properties_id' => $property_ids,
+            'status' => $request->status
+        ]);
         $this->v['title'] = '12 Zodiac - Thêm thuộc tính';
         return redirect()->route('route_BackEnd_PropertyRoom_list');
     }

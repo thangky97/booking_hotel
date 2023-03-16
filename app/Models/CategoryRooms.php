@@ -18,13 +18,16 @@ class CategoryRooms extends Model
         'price',
         'status',
 //        'gallery_id',
-//        'sort'
+        'sort'
     ];
 
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1)->orderBy('id', 'asc');
+            ->select($this->fillable)
+            ->where('status', 1)
+            ->orderBy('id', 'asc')
+            ;
         $list = $query->paginate(10);
         return $list;
     }

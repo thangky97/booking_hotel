@@ -120,9 +120,9 @@
 
                                                 <td class="text-center">{{ $item->status == 1 ? 'kích hoạt' : 'khóa' }}</td>
                                                 <td class="text-center">
-                                                    @foreach($gallery as $a)
-                                                        <img src="{{ asset(Storage::url($a->images)) }}" alt="" width="100px">
-                                                        {{--														<img src="asset($a->images) ? '' . Storage::url($a->images) : ($a->name)" alt="">--}}
+                                                    @foreach($item->gallery as $gallery)
+                                                        <img src="{{ asset(Storage::url($gallery->images)) }}" alt="" width="100px">
+
                                                     @endforeach
                                                 </td>
                                                 <td>

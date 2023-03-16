@@ -59,13 +59,29 @@ class BookingController extends Controller
         return redirect()->route('route_BackEnd_Bookings_Add',$userID);
     }
 
-    public function create($id,BookingRequest $request)
+    public function create($id, Request $request)
     {
-        $booking = Booking::create($request->all());
+        $arrCateRooms = array();
+        foreach ($request->room_id as $index => $item){
+            $room=Rooms::find($item);
+            $arrCateRoom = array($index => $room->cate_room);
+            $arrCateRooms = $arrCateRooms + $arrCateRoom;
+        }
+        $cate_room_ids = implode(',' ,$arrCateRooms);
+        $booking = Booking::create([
+            'user_id' => $request->user_id,
+            'checkin_date' => $request->checkin_date,
+            'checkout_date' => $request->checkout_date,
+            'people' => $request->people,
+            'cate_room_id' => $cate_room_ids,
+            'status_booking' => $request->status_booking,
+            'status_pay' => $request->status_pay,
+            'staff_id' => $request->staff_id,
+        ]);
         $idBooking = (string)$booking->id;
         $bookings_detail = new Bookingdetail();
         $bookings_detail->booking_id = $idBooking;
-        $bookings_detail->room_id = $request->room_id;
+        $bookings_detail->room_id = implode(',' ,$request->room_id);
         $bookings_detail->status = 1;
 
         $bookings_detail->save();
@@ -77,12 +93,8 @@ class BookingController extends Controller
         $usernew->address = $request->address;
         $usernew->cccd = $request->cccd;
         $usernew->date = $request->date;
-        $usernew->room_id = $request->room_id;
+        $usernew->room_id = implode(',' ,$request->room_id);
         $usernew->save();
-
-        $room = Rooms::find($request->room_id);
-        $room->status = 0;
-        $room->save();
 
         $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
         return redirect()->route('route_BackEnd_Bookings_List');
@@ -91,14 +103,14 @@ class BookingController extends Controller
     public function bookings_detail($id)
     {
         $Bookingdetail = new Bookingdetail();
-        $this->v['bookingDetail'] = $Bookingdetail->loadOne($id);
-        $room = Rooms::find($Bookingdetail->loadOne($id)->room_id);
-        $this->v['room']=$room;
-        $room_cate_id = $room->cate_room;
+        $this->v['bookingDetail'] = $Bookingdetail->loadIdBooking($id);
+        $Rooms = new Rooms();
+        $this->v['listRooms'] = $Rooms->loadAll();
         $booking = Booking::find($id);
         $this->v['booking']=$booking;
         $this->v['user'] = Users::find($booking->user_id);
-        $this->v['categoryRoom'] = Categoryrooms::find($room_cate_id);
+        $Cate_rooms = new Categoryrooms();
+        $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         $this->v['title'] = '12 Zodiac - Chi tiết đơn';
         return view('admin.booking.detail', $this->v);
     }
