@@ -30,11 +30,22 @@ class PropertyRoomController extends Controller
 
     public function add()
     {
-
+        $Property_rooms = new Propertyroom();
         $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadListWithPager();
+        $this->v['listRooms'] = $Rooms->loadAll();
+        $arrProperty_rooms = array();
+        foreach ($Property_rooms->loadAll() as $index => $property_room){
+            $arrProperty_room= array($index => $property_room->room_id);
+            $arrProperty_rooms = $arrProperty_room + $arrProperty_rooms;
+        }
+        $arrRoomIds = array();
+        foreach ($Rooms->loadAll() as $inx =>$room){
+            $arrRooms= array($inx => $room->id);
+            $arrRoomIds = $arrRooms + $arrRoomIds;
+        }
+        $this->v['list'] = array_diff($arrRoomIds, $arrProperty_rooms);
         $Properties = new Properties();
-        $this->v['listProperties'] = $Properties->loadListWithPager();
+        $this->v['listProperties'] = $Properties->loadAll();
         $this->v['title'] = '12 Zodiac - Thêm mới';
         return view('admin.property_room.add', $this->v);
     }
@@ -54,9 +65,9 @@ class PropertyRoomController extends Controller
     public function edit($id, Request $request)
     {
         $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadListWithPager();
+        $this->v['listRooms'] = $Rooms->loadAll();
         $Properties = new Properties();
-        $this->v['listProperties'] = $Properties->loadListWithPager();
+        $this->v['listProperties'] = $Properties->loadAll();
         $this->v['property_rooms'] = Propertyroom::find($id);
         $this->v['title'] = '12 Zodiac - Sửa ';
         return view('admin.property_room.edit', $this->v);
