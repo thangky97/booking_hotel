@@ -259,6 +259,7 @@
                                                 @endforeach
                                             </div>
                                         </div>
+                                        <input name="status_booking" value="1" hidden>
                                         <button type="submit" class="btn btn-primary"><span class="me-2"><i
                                                     class="fa fa-paper-plane"></i></span>Thêm mới</button>
                                     </div>
