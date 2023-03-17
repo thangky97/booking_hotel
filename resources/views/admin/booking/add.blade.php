@@ -137,6 +137,11 @@
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
+                                                    @if(isset($error))
+                                                        <div class="error1">
+                                                            <p>{{$error}}</p>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -184,6 +189,11 @@
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
+                                                    @if(isset($error))
+                                                        <div class="error">
+                                                            <p>{{$error}}</p>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
