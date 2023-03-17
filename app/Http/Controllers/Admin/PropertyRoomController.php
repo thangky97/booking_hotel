@@ -38,12 +38,7 @@ class PropertyRoomController extends Controller
             $arrProperty_room= array($index => $property_room->room_id);
             $arrProperty_rooms = $arrProperty_room + $arrProperty_rooms;
         }
-        $arrRoomIds = array();
-        foreach ($Rooms->loadAll() as $inx =>$room){
-            $arrRooms= array($inx => $room->id);
-            $arrRoomIds = $arrRooms + $arrRoomIds;
-        }
-        $this->v['list'] = array_diff($arrRoomIds, $arrProperty_rooms);
+        $this->v['list'] = $arrProperty_rooms;
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
         $this->v['title'] = '12 Zodiac - Thêm mới';
@@ -66,13 +61,7 @@ class PropertyRoomController extends Controller
     {
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
-        $arrPropertyIds = array();
-        foreach ($Properties->loadAll() as $index => $item){
-            $arrPropertyId = array($index => $item->id);
-            $arrPropertyIds = $arrPropertyId + $arrPropertyIds;
-        }
-        $property_ids = explode(',', Propertyroom::find($id)->properties_id);
-        $this->v['idNotChecked']=array_diff($arrPropertyIds,$property_ids);
+        $this->v['idNotChecked'] = explode(',', Propertyroom::find($id)->properties_id);
         $this->v['property_rooms'] = Propertyroom::find($id);
         $this->v['room'] = Rooms::find(Propertyroom::find($id)->room_id);
         $this->v['title'] = '12 Zodiac - Sửa ';
