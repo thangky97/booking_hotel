@@ -67,6 +67,19 @@ class BookingController extends Controller
 
     public function create($id, Request $request)
     {
+        $today = date("Y/m/d", strtotime("now"));
+        if (strtotime($request->checkin_date) < strtotime($today) || strtotime($request->checkout_date) < strtotime($today) || strtotime($request->checkin_date)>=strtotime($request->checkout_date)){
+            $Employees = new Admin();
+            $this->v['listEmployees'] = $Employees->loadAll();
+            $Rooms = new Rooms();
+            $this->v['listRooms'] = $Rooms->loadAll();
+            $Cate_rooms = new Categoryrooms();
+            $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+            $this->v['usernew'] = Users::find($id);
+            $this->v['error'] = 'Ngày đặt không hợp lệ';
+            $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
+            return view('admin.booking.add', $this->v);
+        }
         $arrCateRooms = array();
         foreach ($request->room_id as $index => $item){
             $room=Rooms::find($item);

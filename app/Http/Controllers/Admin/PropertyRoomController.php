@@ -64,18 +64,27 @@ class PropertyRoomController extends Controller
 
     public function edit($id, Request $request)
     {
-        $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadAll();
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
+        $arrPropertyIds = array();
+        foreach ($Properties->loadAll() as $index => $item){
+            $arrPropertyId = array($index => $item->id);
+            $arrPropertyIds = $arrPropertyId + $arrPropertyIds;
+        }
+        $property_ids = explode(',', Propertyroom::find($id)->properties_id);
+        $this->v['idNotChecked']=array_diff($arrPropertyIds,$property_ids);
         $this->v['property_rooms'] = Propertyroom::find($id);
+        $this->v['room'] = Rooms::find(Propertyroom::find($id)->room_id);
         $this->v['title'] = '12 Zodiac - Sửa ';
         return view('admin.property_room.edit', $this->v);
     }
 
     public function update($id, Request $request)
     {
-        Propertyroom::find($id)->update($request->all());
+        $property_ids = implode(',' ,$request->properties_id);
+        Propertyroom::find($id)->update([
+                'properties_id' => $property_ids,
+        ]);
         $this->v['title'] = '12 Zodiac - Thuộc tính phòng';
         return redirect()->route('route_BackEnd_PropertyRoom_list');
     }
