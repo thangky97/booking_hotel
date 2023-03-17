@@ -27,7 +27,7 @@ class PropertyRoom extends Model
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable);
+            ->select($this->fillable)->orderBy('room_id', 'asc');
         $list = $query->paginate(10);
         return $list;
     }

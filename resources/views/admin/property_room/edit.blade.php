@@ -20,7 +20,7 @@
                 <label for="date" class="col-5 col-form-label">Tên thuộc tính</label>
                 <div class="col-0 form-check" style="margin-left: 30px">
                     @foreach($listProperties as $index => $property)
-                        <input class="form-check-input" type="checkbox" name="properties_id[]" value="{{$property->id}}" {{empty(in_array($property->id,$idNotChecked))?'checked':''}}>
+                        <input class="form-check-input" type="checkbox" name="properties_id[]" value="{{$property->id}}" {{!empty(in_array($property->id,$idNotChecked))?'checked':''}}>
                         <label class="form-check-label">{{$property->name}}</label><br>
                     @endforeach
                 </div>
