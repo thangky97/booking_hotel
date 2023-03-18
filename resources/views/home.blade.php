@@ -957,7 +957,7 @@
                             <h4 class="elementor-heading-title elementor-size-default">Bao Gồm Tất Cả</h4>
                         </div>
                     </div>
-                    @foreach ($categories as $cate)
+                    {{-- @foreach ($categories as $cate) --}}
                     <div class="elementor-element elementor-element-1c5f5a4 elementor-widget elementor-widget-list"
                         data-id="1c5f5a4" data-element_type="widget" data-widget_type="list.default">
                         <div class="elementor-widget-container">
@@ -967,20 +967,21 @@
                                 <div class="nd_elements_section nd_elements_position_relative">
 
                                     <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="{{asset("storage/category_rooms". $cate->image)}}">
-
+                                        src="">
+                                        {{-- src="{{asset("storage/category_rooms". $cate->image)}}"> --}}
                                     <div
                                         class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
 
                                         
                                         <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
                                             style="width:75%;">
-                                            <h4><span class="nd_elements_list_component_title">{{ $cate->name }}</span></h4>
+                                            <h4><span class="nd_elements_list_component_title">e</span></h4>
                                         </div>
 
                                         <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
                                             style="width:25%;">
-                                            <p class="nd_elements_list_component_label">{{ number_format($cate->price, 0, ',', '.') }} vnd</p>
+                                            <p class="nd_elements_list_component_label"> 3vnd</p> 
+                                            {{-- {{ number_format($cate->price, 0, ',', '.') }} --}}
                                         </div>
                                         
 
@@ -1011,7 +1012,7 @@
                             
                         </div>
                     </div>
-                    @endforeach
+                    {{-- @endforeach --}}
                     <div class="elementor-element elementor-element-b37957d elementor-widget elementor-widget-heading"
                         data-id="b37957d" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">

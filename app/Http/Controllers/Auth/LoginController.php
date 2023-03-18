@@ -70,32 +70,32 @@ class LoginController extends Controller
         //dd($googleUser);
         if($googleUser){
             // 1. xem xem user này đã tồn tại trong DB chưa
-            $user = Users::where('email', $googleUser->email)->first();
+            $user = Admin::where('email', $googleUser->email)->first();
            
             // 2. nếu tồn tại user rồi thì cho đăng nhập
             if($user){
                 Auth::login($user); //Không cần check password vẫn cho đăng nhập vào và lưu thông tin
-                return redirect()->route('route_FrontEnd_Home');
+                return redirect()->route('home');
             }
             // 3. nếu không có admin thì tạo 1 bản ghi mới từ thông tin google
-            $newUser = new Users();
+            $newUser = new Admin();
             $newUser->fill($googleUser->user);
             $newUser->name = $googleUser->name; 
             // $newUser->id = $googleUser->id;
             $newUser->email = $googleUser->email;
             $newUser->password = '123456';
-            $newUser->address = 'address';
-            $newUser->cccd = 'cmt';
+            // $newUser->address = 'address';
+            // $newUser->cccd = 'cmt';
             // $newUser->date = 'date';
-            $newUser->gender = 1;
-            // $newUser->role = 0;
+            // $newUser->gender = 1;
+            $newUser->role = 0;
             $newUser->status = 0;
             $newUser->phone = 'phone'; 
             //
-            // $newUser->avatar =  $googleUser->picture;  
+            $newUser->avatar =  'avatart';  
 
             $newUser->save(); 
-            return redirect()->back();
+            return redirect()->route('getLoginGoogle');
         }
     }
 
