@@ -137,6 +137,11 @@
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
+                                                    @if(isset($error))
+                                                        <div class="error1">
+                                                            <p>{{$error}}</p>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -184,6 +189,11 @@
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
                                                     </div>
+                                                    @if(isset($error))
+                                                        <div class="error">
+                                                            <p>{{$error}}</p>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -259,6 +269,7 @@
                                                 @endforeach
                                             </div>
                                         </div>
+                                        <input name="status_booking" value="1" hidden>
                                         <button type="submit" class="btn btn-primary"><span class="me-2"><i
                                                     class="fa fa-paper-plane"></i></span>Thêm mới</button>
                                     </div>
