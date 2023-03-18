@@ -38,6 +38,8 @@
     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
     {{-- toast --}}
     <link href="{{ asset('iziToast.min.css') }}" rel="stylesheet">
+    {{-- datepicker --}}
+    <link href="{{ asset('datepicker/jquery.datetimepicker.min.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 
@@ -137,6 +139,22 @@
     <script src="{{ asset('admin/vendor/owl-carousel/owl.carousel.js') }}"></script>
     {{-- Toast --}}
     <script src="{{ asset('iziToast.min.js') }}"></script>
+    {{-- datepicker --}}
+    <script src="{{ asset('datepicker/jquery.datetimepicker.full.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.picker').datetimepicker({
+                autoclose: true,
+                timepicker: false,
+                datetimepicker: true,
+                format: "d/m/Y",
+                weeks: true,
+            });
+            // $.datetimepicker.setLocale('vi');
+        });
+    </script>
+
     <script>
         $(function() {
             $('#datetimepicker').datetimepicker({
