@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CategoryRooms;
 use App\Models\Rooms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RoomController extends Controller
 {
@@ -16,19 +17,59 @@ class RoomController extends Controller
     public function index(Request $request)
     {
         $room = new Rooms();
-        $this->v['room']=$room->loadAllStatus();
+        $this->v['room'] = $room->loadAllStatus();
+        $cate_rooms = new CategoryRooms();
+        $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
+        $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
+        return view('templates.pages.booking_search', $this->v);
+    }
+    public function search(Request $request)
+    {
+        $check_in = strtotime($request->check_in);
+        $check_out = strtotime($request->check_out);
+        $cate_rooms = new CategoryRooms();
+        $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
+        $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
+        // $room = new Rooms();
+        // $this->v['room'] = $room->loadAllOrder()
+        //     ->where('status', '=', 1)
+        // ->where(function ($query) use ($check_in, $check_out) {
+        //     $query->where([$check_in, '<', 'checkin_date'], [$check_out, '<', 'checkout_date']);
+        //     $query->orWhere([$check_out, '>', 'checkin_date'], [$check_out, '>', 'checkout_date']);
+        // });
+        $room = DB::table('rooms')
+        ->leftjoin('bookings_detail','bookings_detail.id','=','rooms.id')
+        ->leftjoin('bookings','bookings.id','=','bookings_detail.booking_id')
+        ->select('rooms.*','bookings.checkin_date','bookings.checkout_date')
+        ->where('rooms.status','=',1)
+        ->where(function($query) use($check_in,$check_out){
+            $query->where('rooms.id', '<',$check_in );
+           $query->Where('rooms.id', '<', $check_out);
+        })
+        ->orWhere(function ($query) use($check_in,$check_out){
+            $query->where('rooms.id', '>', $check_in);
+           $query->Where('rooms.id', '>', $check_out);
+        })
+        ->get();
+        $this->v['room'] = $room;
+        
+dd($this->v);
+
+        return view('templates.pages.booking_search', $this->v);
+    }
+    public function loadfilter(Request $request)
+    {
+        $room = new Rooms();
+        $this->v['room'] = $room->loadAllStatus();
         $cate_rooms = new CategoryRooms();
         $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
 
-        return view('templates.pages.booking_search',$this->v);
+        return view('templates.pages.booking_search', $this->v);
     }
 
-    public function search(Request $request) {
-        $search = $request->all();
-        dd($search);
-        return view('templates.pages.booking_search');
-    }
+
+
 
     public function add()
     {
@@ -41,12 +82,12 @@ class RoomController extends Controller
         //lưu thêm
     }
 
-    public function edit( $user)
+    public function edit($user)
     {
         //sửa
     }
 
-    public function update() 
+    public function update()
     {
         //lưu sửa
     }

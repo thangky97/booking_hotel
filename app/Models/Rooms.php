@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -57,16 +58,11 @@ class Rooms extends Model
     }
     //Lọc phòng trừ đơn đã order
     public function loadAllOrder($param = []){
-        $now = date('d/m/Y'); //biến thời gian hiện tại
-        $query = DB::table($this->table) //truy vấn DB
-        ->select($this->fillable) // Hiển thị các cột
-        ->leftJoin('bookings_detail',$this->table.'id','=','bookings_detail.room_id')
-         //Nối bảng rooms với bookings_detail qua rooms.id , bookings_detail.room_id
-        ->leftJoin('bookings','bookings.id','=','bookings_detail.booking_id')
-        //Nối bảng bookings_detail với bookings qua boongkings_detail.bookings_id ,bookings.id
-        ->whereNotBetween($now,['checkin_date','checkout_date'])
-        //Điều kiện thời gian hiện tại không trùng thời gian các đơn đã đặt phòng
-        ->where('status','=',1);
+     //biến thời gian hiện tại
+        $query = DB::table($this->table)
+        ->select('bookings.checkin_date','bookings.checkout_date','rooms.id','rooms.name','rooms.cate_room','rooms.images','rooms.floor','rooms.description','rooms.adult','rooms.childrend','rooms.bed','rooms.status') //truy vấn DB
+        ->leftjoin('bookings_detail','bookings_detail.id','=','rooms.id')
+        ->leftjoin('bookings','bookings.id','=','bookings_detail.booking_id');
         //Điều kiện trạng thái phòng đang trống
         $list = $query->get();
         return $list;

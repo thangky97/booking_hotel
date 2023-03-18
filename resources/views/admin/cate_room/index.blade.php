@@ -1,5 +1,5 @@
 @extends('templates/admin.layoutadmin')
-
+@section('title', $title)
 @section('css')
 @endsection
 @section('content')
