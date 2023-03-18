@@ -422,13 +422,13 @@
                                                             <span class="d-block text-gray-1 fontsize-14">or</span>
                                                         </div>
                                                         <div class="d-flex mb-3">
-                                                            <a class="btn btn-block btn-sm btn-facebook transition-3d-hover" href="#">
+                                                            <a class="btn btn-block btn-sm btn-facebook transition-3d-hover" href="{{ route('getLoginGoogle') }}">
+                                                                <span class="fab fa-google mr-2"></span>
+                                                                Google
+                                                            </a>
+                                                            <a class="btn btn-block btn-sm btn-google transition-3d-hover ml-5 mt-0" href="#">
                                                                 <span class="fab fa-facebook-f mr-2"></span>
                                                                 Facebook
-                                                            </a>
-                                                            <a class="btn btn-block btn-sm btn-twitter transition-3d-hover ml-5 mt-0" href="#">
-                                                                <span class="fab fa-twitter mr-2"></span>
-                                                                Twitter
                                                             </a>
                                                         </div>
                                                     </div>

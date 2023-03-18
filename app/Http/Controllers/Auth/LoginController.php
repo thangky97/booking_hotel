@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -81,38 +82,28 @@ class LoginController extends Controller
             $newUser = new Admin();
             $newUser->fill($googleUser->user);
             $newUser->name = $googleUser->name; 
-            $newUser->google_id = $googleUser->id;
+            // $newUser->new_id = News::first()->google_id;
             $newUser->email = $googleUser->email;
-            $newUser->password = '123456';
-            $newUser->role = 0;
-            $newUser->status = 0;
+            $newUser->password = Hash::make('123456');
+            $newUser->role = 1;
+            $newUser->status = 1;
             $newUser->phone = 'phone'; 
             $newUser->avatar =  'avatar';  
 
             $newUser->save(); 
-            return redirect()->route('route_FrontEnd_Home');
+            return redirect()->route('getSignin');
         }
     }
 
 
-    // public function loginGoogleCallback()
-    // {
-    //     $googleUser = Socialite::driver('google')->user();
-    //     if ($googleUser) {
-            
-    //         $user = Users::where('email', $googleUser->email)->first();
-            
-    //         if ($user) {
-    //             Auth::login($user); 
-    //             return redirect()->route('route_FontEnd_BookingSearch');
-    //         }
-            
-    //         $newUser = new Users();
-    //         $newUser->fill($googleUser->user);
-    //         $newUser->name = '';
-    //         $newUser->phone = '';
-    //     }
-    // }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('getSignin');
+    }
 
     
 }
