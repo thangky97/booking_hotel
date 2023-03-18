@@ -25,8 +25,9 @@ class RoomController extends Controller
     }
     public function search(Request $request)
     {
-        $check_in = strtotime($request->check_in);
-        $check_out = strtotime($request->check_out);
+        $check_in = date("Y-m-d", strtotime($request->check_in));
+        $check_out= date("Y-m-d", strtotime($request->check_out));
+//        dd($check_in);
         $cate_rooms = new CategoryRooms();
         $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
@@ -38,22 +39,22 @@ class RoomController extends Controller
         //     $query->orWhere([$check_out, '>', 'checkin_date'], [$check_out, '>', 'checkout_date']);
         // });
         $room = DB::table('rooms')
-        ->leftjoin('bookings_detail','bookings_detail.id','=','rooms.id')
-        ->leftjoin('bookings','bookings.id','=','bookings_detail.booking_id')
+        ->join('bookings_detail','bookings_detail.id','=','rooms.id')
+        ->join('bookings','bookings.id','=','bookings_detail.booking_id')
         ->select('rooms.*','bookings.checkin_date','bookings.checkout_date')
         ->where('rooms.status','=',1)
         ->where(function($query) use($check_in,$check_out){
-            $query->where('rooms.id', '<',$check_in );
-           $query->Where('rooms.id', '<', $check_out);
+            $query->where('bookings.checkin_date', '<',$check_in );
+           $query->Where('bookings.checkout_date', '<', $check_out);
         })
         ->orWhere(function ($query) use($check_in,$check_out){
-            $query->where('rooms.id', '>', $check_in);
-           $query->Where('rooms.id', '>', $check_out);
+            $query->where('bookings.checkin_date', '>', $check_in);
+           $query->Where('bookings.checkout_date', '>', $check_out);
         })
         ->get();
         $this->v['room'] = $room;
-        
-dd($this->v);
+
+// dd($this->v);
 
         return view('templates.pages.booking_search', $this->v);
     }

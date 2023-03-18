@@ -1003,11 +1003,11 @@
 
                                     <div class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box">
 
-                                      <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
+        <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
+            
+            
 
-
-
-                                        <div class="nd_booking_section nd_booking_position_relative">
+        <div class="nd_booking_section nd_booking_position_relative">
 
 
 
@@ -1015,18 +1015,13 @@
 
                                           <img alt="" class="nd_booking_section" src="{{asset("storage/".$v_room->images)}}">
 
-                                          <div class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
-                                            <div class="nd_booking_position_absolute nd_booking_bottom_20">
-                                              <p class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">@foreach ($loai_phong as $cate)
-                                                @if($v_room->cate_room==$cate->id)
-                                                {{ $cate->name}}
-                                                @endif
-                                                @endforeach
-                                              </p><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg">
-                                            </div>
-                                          </div>
+            <div class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
+                <div class="nd_booking_position_absolute nd_booking_bottom_20">
+                    <p class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">Hotel Rome</p><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg">
+                </div>
+            </div>
 
-                                        </div>
+        </div>
 
 
 
