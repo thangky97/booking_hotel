@@ -12,39 +12,24 @@
                         <div class="card-body">
                             <div class="email-left-box px-0 mb-3">
                                 <div class="p-0">
-                                    <a href="" class="btn btn-primary btn-block">Thêm Mới Banner</a>
+                                    <a href="" class="btn btn-primary btn-block">Sửa Banner</a>
                                 </div>
 
                             </div>
                             <div class="email-right-box ms-0 ms-sm-2 ms-sm-0">
 
                                 <div class="compose-content">
-                                    <form action="{{ route('route_BackEnd_Service_Add') }}" method="post"
-                                        enctype="multipart/form-data">
+                                    <form class=""
+                                        action="{{ route('route_BackEnd_Banner_Update', ['id' => request()->route('id')]) }}"
+                                        method="post" enctype="multipart/form-data">
                                         @csrf
-
                                         <div class="form-group">
-                                            <div class="mb-3">
-                                                <div>Tên dịch vụ<span class="text-danger">(*)</span></div>
-                                                <input type="text" name="name" class="form-control bg-transparent"
-                                                    placeholder=" Tên dịch vụ"
-                                                    value="@isset($request['name']){{ $request['name'] }}@endisset">
-                                            </div>
-
-                                            <h5 class="mb-4"><i class="fa fa-paperclip"></i>Ảnh</h5>
+                                            <h5 class="mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
 
                                             <div class="fallback">
                                                 <input name="images" type="file" />
                                             </div>
 
-                                        </div>
-                                        <div class="form-group mt-3">
-                                            <div class="mb-3">
-                                                <div>Giá<span class="text-danger">(*)</span></div>
-                                                <input type="number" name="price" class="form-control bg-transparent"
-                                                    placeholder="Giá "
-                                                    value="@isset($request['price']){{ $request['price'] }}@endisset">
-                                            </div>
                                         </div>
 
                                         <div class="form-group">
@@ -61,15 +46,14 @@
                                                         hoạt</label>
                                                 </div>
                                             </div>
-
                                             <div class="text-start mt-4 mb-3">
 
                                                 <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span
-                                                        class="me-2"><i class="fa fa-paper-plane"></i></span>Thêm
-                                                    mới</button>
+                                                        class="me-2"><i class="fa fa-paper-plane"></i></span>Cập
+                                                    Nhật</button>
                                                 <button class="btn btn-danger light btn-sl-sm" type="button"><span
                                                         class="me-2"><i class="fa fa-times"></i></span><a
-                                                        href="{{ route('route_BackEnd_Service_List') }}">Quay
+                                                        href="{{ route('route_BackEnd_Banner_List') }}">Quay
                                                         Lại</a></button>
                                             </div>
                                         </div>
