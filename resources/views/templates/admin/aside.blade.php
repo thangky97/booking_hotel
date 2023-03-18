@@ -17,16 +17,16 @@
                 </a>
             </li>
             <li><a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                <i class="flaticon-025-dashboard"></i>
-                <span class="nav-text">Phòng</span>
-            </a>
-            <ul aria-expanded="false">
-                <li><a href="{{ route('route_BackEnd_Rooms_List') }}">Phòng</a></li>
-                <li><a href="{{ route('route_BackEnd_Categoryrooms_List') }}">Loại phòng</a></li>
-                <li><a href="{{ route('route_BackEnd_properties_List') }}">Thuộc tính</a></li>
-                <li><a href="{{ route('route_BackEnd_PropertyRoom_list') }}">Thuộc tính phòng</a></li>
-            </ul>
-        </li>
+                    <i class="flaticon-025-dashboard"></i>
+                    <span class="nav-text">Phòng</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('route_BackEnd_Rooms_List') }}">Phòng</a></li>
+                    <li><a href="{{ route('route_BackEnd_Categoryrooms_List') }}">Loại phòng</a></li>
+                    <li><a href="{{ route('route_BackEnd_properties_List') }}">Thuộc tính</a></li>
+                    <li><a href="{{ route('route_BackEnd_PropertyRoom_list') }}">Thuộc tính phòng</a></li>
+                </ul>
+            </li>
             <li><a class="has-arrow ai-icon" href="#" aria-expanded="false">
                     <i class="flaticon-025-dashboard"></i>
                     <span class="nav-text">Booking</span>
@@ -36,6 +36,16 @@
                     <li><a href="{{ route('route_BackEnd_Employees_List') }}">Nhân viên</a></li>
                     <li><a href="{{ route('route_BackEnd_Feedback_List') }}">Nhận xét</a></li>
                 </ul>
+            </li>
+            <li><a class="" href="{{ route('route_BackEnd_Banner_List') }}" aria-expanded="false">
+                    <i class="fa fa-users me-2"></i>
+                    <span class="nav-text">Banner</span>
+                </a>
+            </li>
+            <li><a class="" href="{{ route('route_BackEnd_Service_List') }}" aria-expanded="false">
+                    <i class="fa fa-users me-2"></i>
+                    <span class="nav-text">Dịch vụ</span>
+                </a>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-050-info"></i>
