@@ -307,10 +307,10 @@
                                         <div class="nd_booking_section nd_booking_height_15"></div>
                                         <div class="nd_booking_display_inline_flex ">
                                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                                            <h1 id="nd_booking_date_number_from_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="">12</h1>
+                                            <h1 id="nd_booking_date_number_from_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name=""><?php echo date('d') ?></h1>
                                           </div>
                                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
-                                            <h6 id="nd_booking_date_month_from_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12">Mar</h6>
+                                            <h6 id="nd_booking_date_month_from_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12"><?php echo date('M')?></h6>
                                             <div class="nd_booking_section nd_booking_height_5"></div>
                                             <img alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
                                           </div>
@@ -330,10 +330,10 @@
                                         <div class="nd_booking_section nd_booking_height_15"></div>
                                         <div class="nd_booking_display_inline_flex ">
                                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="check_out">13</h1>
+                                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="check_out"><?php echo date('d')+1 ?></h1>
                                           </div>
                                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
-                                            <h6 id="nd_booking_date_month_to_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12">Mar</h6>
+                                            <h6 id="nd_booking_date_month_to_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12"><?php echo date('M')?></h6>
                                             <div class="nd_booking_section nd_booking_height_5"></div>
                                             <img alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
                                           </div>
