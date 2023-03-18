@@ -38,12 +38,7 @@ class PropertyRoomController extends Controller
             $arrProperty_room= array($index => $property_room->room_id);
             $arrProperty_rooms = $arrProperty_room + $arrProperty_rooms;
         }
-        $arrRoomIds = array();
-        foreach ($Rooms->loadAll() as $inx =>$room){
-            $arrRooms= array($inx => $room->id);
-            $arrRoomIds = $arrRooms + $arrRoomIds;
-        }
-        $this->v['list'] = array_diff($arrRoomIds, $arrProperty_rooms);
+        $this->v['list'] = $arrProperty_rooms;
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
         $this->v['title'] = '12 Zodiac - Thêm mới';
@@ -64,18 +59,21 @@ class PropertyRoomController extends Controller
 
     public function edit($id, Request $request)
     {
-        $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadAll();
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
+        $this->v['idNotChecked'] = explode(',', Propertyroom::find($id)->properties_id);
         $this->v['property_rooms'] = Propertyroom::find($id);
+        $this->v['room'] = Rooms::find(Propertyroom::find($id)->room_id);
         $this->v['title'] = '12 Zodiac - Sửa ';
         return view('admin.property_room.edit', $this->v);
     }
 
     public function update($id, Request $request)
     {
-        Propertyroom::find($id)->update($request->all());
+        $property_ids = implode(',' ,$request->properties_id);
+        Propertyroom::find($id)->update([
+                'properties_id' => $property_ids,
+        ]);
         $this->v['title'] = '12 Zodiac - Thuộc tính phòng';
         return redirect()->route('route_BackEnd_PropertyRoom_list');
     }

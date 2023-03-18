@@ -8,29 +8,21 @@
             <form action="{{route('route_BackEnd_PropertyRoom_update',$property_rooms->id)}}" method="post" class="row">
                 @csrf
                 <h1>Thông tin thuộc tính phòng</h1>
-                <label for="date" class="col-5 col-form-label">Tên phòng</label>
                 <div class="col-0">
-                    <select name="room_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        @foreach($listRooms as $room)
-                            @if($property_rooms->room_id==$room->id)
-                                <option selected="selected" value="{{$property_rooms->room_id}}">{{$room->name}}</option>
-                            @else
-                                <option value="{{$room->id}}">{{$room->name}}</option>
-                            @endif
-                        @endforeach
-                    </select>
+                    <label class="col-lg-4 col-form-label">Tên phòng
+                        <span class="text-danger">*</span>
+                    </label>
+                    <div class="col-lg-6">
+                        <input type="text"  class="form-control"
+                               placeholder="Nhập tên..." value="{{$room->name}}" readonly>
+                    </div>
                 </div>
                 <label for="date" class="col-5 col-form-label">Tên thuộc tính</label>
-                <div class="col-0">
-                    <select name="properties_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        @foreach($listProperties as $property)
-                            @if($property_rooms->properties_id==$property->id)
-                                <option selected="selected" value="{{$property_rooms->properties_id}}">{{$property->name}}</option>
-                            @else
-                                <option value="{{$property->id}}">{{$property->name}}</option>
-                            @endif
-                        @endforeach
-                    </select>
+                <div class="col-0 form-check" style="margin-left: 30px">
+                    @foreach($listProperties as $index => $property)
+                        <input class="form-check-input" type="checkbox" name="properties_id[]" value="{{$property->id}}" {{!empty(in_array($property->id,$idNotChecked))?'checked':''}}>
+                        <label class="form-check-label">{{$property->name}}</label><br>
+                    @endforeach
                 </div>
                 <div class="text-start mt-4 mb-3">
                     <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i

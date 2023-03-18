@@ -20,11 +20,9 @@
                 <select name="room_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                     <option selected="selected" disabled>Chọn phòng</option>
                             @foreach($listRooms as $room)
-                                @foreach($list as $item)
-                                    @if($item==$room->id)
-                                        <option value="{{$room->id}}">{{$room->name}}</option>
-                                    @endif
-                                @endforeach
+                                @if(!in_array($room->id,$list))
+                                    <option value="{{$room->id}}">{{$room->name}}</option>
+                                @endif
                             @endforeach
                 </select>
                 @error('room_id')
