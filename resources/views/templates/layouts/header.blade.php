@@ -511,10 +511,19 @@
 
                                                         <div id="" style="background-color:#6B6978;"
                                                             class="  nd_options_display_table nd_options_float_right nd_options_padding_10_20 nd_options_margin_right_15">
-                                                            <a href="booking-account/index.html"><img alt=""
-                                                                    class="nd_options_margin_right_10 nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
-                                                                    width="30"
-                                                                    src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg"></a>
+                                                            @if (Auth::check())
+                                                                <a href="booking-account/index.html"><img
+                                                                        alt=""
+                                                                        class="nd_options_margin_right_10 nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
+                                                                        width="30"
+                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg"></a>
+                                                            @else
+                                                                <a href="#"><img
+                                                                        alt=""
+                                                                        class="nd_options_margin_right_10 nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
+                                                                        width="30"
+                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg"></a>
+                                                            @endif
                                                             <div
                                                                 class="nd_options_display_table_cell nd_options_vertical_align_middle">
                                                                 <p
@@ -524,10 +533,31 @@
                                                                 </p>
                                                                 <div class="nd_options_section nd_options_height_5">
                                                                 </div>
+                                                                {{--  --}}
+                                                                {{-- <div class="btn-group">
+                                                                    @if (Auth::check())
+                                                                        Xin chào: <a href="">{{Auth::user()->username}}  </a>
+                                                                    @else 
+                                                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a href="/auth/login"><button class="dropdown-item" type="button">Sign in</button></a>
+                                                                        <a href="/auth/register"><button class="dropdown-item" type="button">Sign up</button></a>
+                                                                    </div>
+                                                                    @endif
+                                                                </div>  --}}
+                                                                {{--  --}}
                                                                 <h6
                                                                     class="nd_options_font_size_10 nd_options_text_align_left nd_options_color_white nd_options_second_font">
-                                                                    <a class="nd_options_color_white"
-                                                                        href="booking-account/index.html">Đăng nhập</a>
+                                                                    @if (Auth::check())
+                                                                        <a class="nd_options_color_blue"
+                                                                            style="font-weight: 700"
+                                                                            href="">{{ Auth::user()->name }}
+                                                                        </a>
+                                                                    @else
+                                                                        <a class="nd_options_color_white"
+                                                                            href="booking-account/index.html">Đăng
+                                                                            nhập</a>
+                                                                    @endif
                                                                 </h6>
                                                             </div>
 
@@ -599,7 +629,7 @@
                                                     </li>
                                                     <li id="menu-item-6986"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6986">
-                                                        <a href="booking_search">Phòng</a>
+                                                        <a href="{{ route('route_FontEnd_BookingSearch') }}">Phòng</a>
                                                     </li>
                                                     <li id="menu-item-6992"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6992">
@@ -643,23 +673,28 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6981">
-                                                                <a href="home-1/index.html">Home 1</a></li>
+                                                                <a href="home-1/index.html">Home 1</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6980">
-                                                                <a href="home-2/index.html">Home 2</a></li>
+                                                                <a href="home-2/index.html">Home 2</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-263 current_page_item menu-item-6982">
                                                                 <a href="index.html" aria-current="page">Home 3</a>
                                                             </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6983">
-                                                                <a href="home-4/index.html">Home 4</a></li>
+                                                                <a href="home-4/index.html">Home 4</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6985">
-                                                                <a href="home-5/index.html">Home 5</a></li>
+                                                                <a href="home-5/index.html">Home 5</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_slide_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6984">
-                                                                <a href="home-6/index.html">Home 6</a></li>
+                                                                <a href="home-6/index.html">Home 6</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_demo_label menu-item menu-item-type-custom menu-item-object-custom menu-item-6971">
                                                                 <a target="_blank" rel="noopener"
@@ -682,15 +717,18 @@
                                                                     <li
                                                                         class="nd_options_best_label menu-item menu-item-type-post_type menu-item-object-nd_booking_cpt_1 menu-item-6974">
                                                                         <a href="rooms/small-room/index.html">Room
-                                                                            Gallery</a></li>
+                                                                            Gallery</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-nd_booking_cpt_1 menu-item-6973">
                                                                         <a href="rooms/apartment/index.html">Room
-                                                                            Video</a></li>
+                                                                            Video</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-nd_booking_cpt_1 menu-item-6972">
                                                                         <a href="rooms/room-with-view/index.html">Room
-                                                                            Default</a></li>
+                                                                            Default</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
@@ -700,7 +738,8 @@
                                                                     <li
                                                                         class="nd_options_hot_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6999">
                                                                         <a href="book-a-table/index.html">Book a
-                                                                            table</a></li>
+                                                                            table</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7032">
                                                                         <a href="open-table/index.html">Open Table</a>
@@ -713,16 +752,19 @@
                                                                 <ul class="sub-menu">
                                                                     <li
                                                                         class="nd_options_best_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6998">
-                                                                        <a href="rates-1/index.html">Rates 1</a></li>
+                                                                        <a href="rates-1/index.html">Rates 1</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6997">
-                                                                        <a href="rates-2/index.html">Rates 2</a></li>
+                                                                        <a href="rates-2/index.html">Rates 2</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-nd_booking_cpt_4 menu-item-7030">
                                                                 <a href="branches/hotel-london/index.html">Single
-                                                                    Branch</a></li>
+                                                                    Branch</a>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li
@@ -731,16 +773,20 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6995">
-                                                                <a href="about-us/index.html">About 1</a></li>
+                                                                <a href="about-us/index.html">About 1</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6994">
-                                                                <a href="about-2/index.html">About 2</a></li>
+                                                                <a href="about-2/index.html">About 2</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6993">
-                                                                <a href="about-3/index.html">About 3</a></li>
+                                                                <a href="about-3/index.html">About 3</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6996">
-                                                                <a href="hotel-staff/index.html">Hotel Staff</a></li>
+                                                                <a href="hotel-staff/index.html">Hotel Staff</a>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li
@@ -749,17 +795,21 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="nd_options_best_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7001">
-                                                                <a href="shop1/index.html">Shop 1</a></li>
+                                                                <a href="shop1/index.html">Shop 1</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7000">
-                                                                <a href="shop2/index.html">Shop 2</a></li>
+                                                                <a href="shop2/index.html">Shop 2</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7020">
-                                                                <a href="shop3/index.html">Shop 3</a></li>
+                                                                <a href="shop3/index.html">Shop 3</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-product menu-item-7003">
                                                                 <a href="product/mini-apt/index.html">Single
-                                                                    Product</a></li>
+                                                                    Product</a>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li
@@ -768,10 +818,12 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6991">
-                                                                <a href="prices/index.html">Prices</a></li>
+                                                                <a href="prices/index.html">Prices</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6989">
-                                                                <a href="gallery/index.html">Gallery</a></li>
+                                                                <a href="gallery/index.html">Gallery</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7036">
                                                                 <a href="services-1/index.html">Services</a>
@@ -788,39 +840,47 @@
                                                             </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7006">
-                                                                <a href="faq/index.html">Faq</a></li>
+                                                                <a href="faq/index.html">Faq</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7007">
                                                                 <a target="_blank" rel="noopener"
-                                                                    href="coming-soon/index.html">Coming Soon</a></li>
+                                                                    href="coming-soon/index.html">Coming Soon</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7008">
                                                                 <a href="about-us/index.html">About</a>
                                                                 <ul class="sub-menu">
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7011">
-                                                                        <a href="about-us/index.html">About 1</a></li>
+                                                                        <a href="about-us/index.html">About 1</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7010">
-                                                                        <a href="about-2/index.html">About 2</a></li>
+                                                                        <a href="about-2/index.html">About 2</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7009">
-                                                                        <a href="about-3/index.html">About 3</a></li>
+                                                                        <a href="about-3/index.html">About 3</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7035">
-                                                                <a href="hotel-staff/index.html">Hotel Staff</a></li>
+                                                                <a href="hotel-staff/index.html">Hotel Staff</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7014">
                                                                 <a href="rates-1/index.html">Room Rates</a>
                                                                 <ul class="sub-menu">
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7013">
-                                                                        <a href="rates-1/index.html">Rates 1</a></li>
+                                                                        <a href="rates-1/index.html">Rates 1</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7012">
-                                                                        <a href="rates-2/index.html">Rates 2</a></li>
+                                                                        <a href="rates-2/index.html">Rates 2</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
@@ -830,7 +890,8 @@
                                                                     <li
                                                                         class="nd_options_hot_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7015">
                                                                         <a href="book-a-table/index.html">Book a
-                                                                            table</a></li>
+                                                                            table</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7016">
                                                                         <a href="open-table/index.html">Open Table</a>
@@ -849,20 +910,24 @@
                                                                 <ul class="sub-menu">
                                                                     <li
                                                                         class="nd_options_best_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7029">
-                                                                        <a href="archive/index.html">Archive</a></li>
+                                                                        <a href="archive/index.html">Archive</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7027">
                                                                         <a href="archive-left/index.html">Archive
-                                                                            Left</a></li>
+                                                                            Left</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7028">
                                                                         <a href="archive-right/index.html">Archive
-                                                                            Right</a></li>
+                                                                            Right</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7017">
-                                                                <a href="news-page/index.html">News Page</a></li>
+                                                                <a href="news-page/index.html">News Page</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-7021">
                                                                 <a href="wellness/index.html">Single Post</a>
@@ -878,7 +943,8 @@
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-post menu-item-7023">
                                                                         <a href="lounge-bar/index.html">Left
-                                                                            Sidebar</a></li>
+                                                                            Sidebar</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -889,13 +955,16 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6978">
-                                                                <a href="contact-1/index.html">Contact 1</a></li>
+                                                                <a href="contact-1/index.html">Contact 1</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7018">
-                                                                <a href="contact-2/index.html">Contact 2</a></li>
+                                                                <a href="contact-2/index.html">Contact 2</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7019">
-                                                                <a href="contact-3/index.html">Contact 3</a></li>
+                                                                <a href="contact-3/index.html">Contact 3</a>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                 </ul>

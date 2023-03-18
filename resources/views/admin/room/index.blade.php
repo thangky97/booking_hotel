@@ -50,7 +50,6 @@
 										<th>Người lớn</th>
 										<th>Trẻ em</th>
 										<th>Giường</th>
-										<th>Mô tả</th>
 										<th>Trạng thái</th>
 										<th class="bg-none"></th>
 									</tr>
@@ -73,19 +72,11 @@
 											</div>
 										</td>
 										<td>
-											<div>
-												<span class="fs-16">
-													@if ($a->cate_room==1)
-													<p class="text-success">Single Bed</p>
-													@elseif($a->cate_room==2)
-													<p class="text-warning">Double Bed</p>
-													@elseif($a->cate_room==3)
-													<p class="text-primary">Queen Bed</p>
-													@else
-													<p class="text-primary">King Bed</p>
-													@endif
-												</span>
-											</div>
+											@foreach ($loai_phong as $lp)
+											@if ($a->cate_room == $lp->id)
+											<p class="text-black">{{$lp->name}}</p>				
+											@endif
+											@endforeach
 										</td>
 										<td>
 											<div>
@@ -135,12 +126,6 @@
 										<td>
 											<div>
 												<span class="fs-16">{{$a->bed}} Giường</span>
-											</div>
-										</td>
-										<td>
-											<div>
-
-												<span class="fs-16">{{$a->description}}</span>
 											</div>
 										</td>
 										<td>

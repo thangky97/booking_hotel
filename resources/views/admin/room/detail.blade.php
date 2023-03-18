@@ -68,10 +68,12 @@
                                         <div class="mb-3">
                                             <div>Loại Phòng<span class="text-danger">(*)</span></div>
                                             <select name="cate_room" id="" class="form-control bg-transparent">
-                                                <option value="1" <?php if ($objItem->cate_room == '1') echo 'selected'; ?>>Single Bed</option>
-                                                <option value="2" <?php if ($objItem->cate_room == '2') echo 'selected'; ?>>Double Bed</option>
-                                                <option value="3" <?php if ($objItem->cate_room == '3') echo 'selected'; ?>>Queen Bed</option>
-                                                <option value="4" <?php if ($objItem->cate_room == '4') echo 'selected'; ?>>King Bed</option>
+                                                @foreach ($cate_rooms as $cate)
+                                                <option value="{{$cate->id}}" <?php if ($cate->id == $objItem->cate_room) : ?>selected <?php endif ?>>
+                                                    {{$cate->name}}
+                                                </option>
+                                                @endforeach
+                                                
                                             </select>
                                         </div>
 

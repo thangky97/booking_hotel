@@ -14,17 +14,20 @@ class CategoryRooms extends Model
     protected $fillable = [
         'id',
         'name',
-        'image',
+//        'image',
         'price',
         'status',
-        'gallery_id',
+//        'gallery_id',
         'sort'
     ];
 
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1)->orderBy('id', 'asc');
+            ->select($this->fillable)
+            ->where('status', 1)
+            ->orderBy('id', 'asc')
+            ;
         $list = $query->paginate(10);
         return $list;
     }
@@ -35,5 +38,8 @@ class CategoryRooms extends Model
             ->select($this->fillable)->where('status', 1);
         $list = $query->get();
         return $list;
+    }
+    function gallery(){
+        return $this->hasMany(gallery::class,'cate_room_id');
     }
 }

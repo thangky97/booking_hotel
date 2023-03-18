@@ -21,7 +21,7 @@ class Properties extends Model
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1);
+            ->select($this->fillable);
         $list = $query->paginate(10);
         return $list;
     }
@@ -29,7 +29,7 @@ class Properties extends Model
     public function loadAll($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1);
+            ->select($this->fillable);
         $list = $query->get();
         return $list;
     }

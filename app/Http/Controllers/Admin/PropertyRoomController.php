@@ -24,41 +24,56 @@ class PropertyRoomController extends Controller
         $this->v['listRooms'] = $Rooms->loadListWithPager();
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Phòng';
+        $this->v['title'] = '12 Zodiac - Thuộc tính phòng';
         return view("admin.property_room.index", $this->v);
     }
 
     public function add()
     {
+        $Property_rooms = new Propertyroom();
         $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadListWithPager();
+        $this->v['listRooms'] = $Rooms->loadAll();
+        $arrProperty_rooms = array();
+        foreach ($Property_rooms->loadAll() as $index => $property_room){
+            $arrProperty_room= array($index => $property_room->room_id);
+            $arrProperty_rooms = $arrProperty_room + $arrProperty_rooms;
+        }
+        $this->v['list'] = $arrProperty_rooms;
         $Properties = new Properties();
-        $this->v['listProperties'] = $Properties->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Thêm thuộc tính phòng';
+        $this->v['listProperties'] = $Properties->loadAll();
+        $this->v['title'] = '12 Zodiac - Thêm mới';
         return view('admin.property_room.add', $this->v);
     }
 
     public function create(PropertyRoomRequest $request)
     {
-        Propertyroom::create($request->all());
+        $property_ids = implode(',' ,$request->properties_id);
+        Propertyroom::create([
+            'room_id' => $request->room_id,
+            'properties_id' => $property_ids,
+            'status' => $request->status
+        ]);
         $this->v['title'] = '12 Zodiac - Thêm thuộc tính';
         return redirect()->route('route_BackEnd_PropertyRoom_list');
     }
 
     public function edit($id, Request $request)
     {
-        $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadListWithPager();
         $Properties = new Properties();
-        $this->v['listProperties'] = $Properties->loadListWithPager();
+        $this->v['listProperties'] = $Properties->loadAll();
+        $this->v['idNotChecked'] = explode(',', Propertyroom::find($id)->properties_id);
         $this->v['property_rooms'] = Propertyroom::find($id);
-        $this->v['title'] = '12 Zodiac - Sửa thuộc tính phòng';
+        $this->v['room'] = Rooms::find(Propertyroom::find($id)->room_id);
+        $this->v['title'] = '12 Zodiac - Sửa ';
         return view('admin.property_room.edit', $this->v);
     }
 
     public function update($id, Request $request)
     {
-        Propertyroom::find($id)->update($request->all());
+        $property_ids = implode(',' ,$request->properties_id);
+        Propertyroom::find($id)->update([
+                'properties_id' => $property_ids,
+        ]);
         $this->v['title'] = '12 Zodiac - Thuộc tính phòng';
         return redirect()->route('route_BackEnd_PropertyRoom_list');
     }

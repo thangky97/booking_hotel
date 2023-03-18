@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Models\Admin;
 use App\Models\News;
+use App\Models\User;
+use App\Models\Users;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -46,40 +49,6 @@ class LoginController extends Controller
         return redirect()->route('getLogin');
     }
 
-
-    public function getLoginGoogle()
-    {
-        return Socialite::driver('google')->redirect();
-    }
-
-    public function loginGoogleCallback()
-    {
-        $googleAdmin = Socialite::driver('google')->admin();
-        if ($googleAdmin) {
-            // 1. Xem xem admin này đã tồn tại trong DB chưa
-            $admin = Admin::where('email', $googleAdmin->email)->first();
-            // 2. Nếu tồn tại rồi thì cho đăng nhập
-            if ($admin) {
-                Auth::login($admin); // không cần check password vẫn cho đăng nhập vào
-                return redirect()->route('route_BackEnd_Dashboard');
-            }
-            // 3. Nếu không có $admin thì tạo 1 bản ghi mới từ thông tin google
-            $newAdmin = new Admin();
-            $newAdmin->fill($googleAdmin->admin);
-            $newAdmin->new_id = News::first()->id;
-            $newAdmin->phone = '';
-        // 'password',
-
-        // 'username',
-        // 'birthday',
-        // 'phone',
-        // 'role',
-        // 'status',
-        // 'room_id',
-        // 'avatar'
-        }
-    }
-
     public function getLogout(Request $request)
     {
         Auth::logout();
@@ -90,61 +59,60 @@ class LoginController extends Controller
     }
 
 
-    // public function postRegister(RegisterRequest $request)
-    // {  
-    //     $User = new User(); 
-    //     $User->fill($request->all());  
-    //     // DB::table('users')->insert([
-    //         $User->password = Hash::make($request->password);
-    //     // ]);
+    public function getLoginGoogle(){
 
-    //     if($request->hasFile('avatar')) { 
-    //         $avatar = $request->avatar;
-    //         $avatarName = $avatar->hashName();
-    //         $avatarName = $request->productname . '_' . $avatarName; 
-    //         $User->avatar = $avatar->storeAs('images/users', $avatarName); 
-    //     } else {
-    //         $User->avatar = '';
-    //     } 
-    //     $User->save();  
-
-    //     return redirect()->route('auth.getLogin');  
-    // }
-
-
-    // public function getLoginGoogle(){
-    //     return Socialite::driver('google')->redirect(); 
+        return Socialite::driver('google')->stateless()->redirect();
         
-    // }
-    // public function LoginGoogle(){
-    //     $googleUser = Socialite::driver('google')->user(); 
-    //     // dd($googleUser);
-    //     if($googleUser){
-    //         // 1. xem xem user này đã tồn tại trong DB chưa
-    //         $user = User::where('email', $googleUser->email)->first();
-           
-    //         // 2. nếu tồn tại user rồi thì cho đăng nhập
-    //         if($user){
-    //             Auth::login($user); //Không cần check password vẫn cho đăng nhập vào và lưu thông tin
-    //             return redirect()->route('client.client');
-    //         }
-    //         // 3. nếu không có user thì tạo 1 bản ghi mới từ thông tin google
-    //         $newUser = new User();
-    //         $newUser->fill($googleUser->user);
-    //         $newUser->name = $googleUser->name; 
-    //         $newUser->username = $googleUser->email; 
-    //         $newUser->room_id = 0; 
-    //         $newUser->email = $googleUser->email;
-    //         $newUser->password = $googleUser->sub;
-    //         $newUser->birthday = '';
-    //         $newUser->role = 0;
-    //         $newUser->status = 0;
-    //         $newUser->phone = '';
-    //         $newUser->avatar =  $googleUser->picture;  
+    }
+    public function loginGoogleCallback(){
 
-    //         $newUser->save(); 
-    //         return redirect()->back();
+        $googleUser = Socialite::driver('google')->stateless()->user(); 
+        //dd($googleUser);
+        if($googleUser){
+            // 1. xem xem user này đã tồn tại trong DB chưa
+            $user = Admin::where('email', $googleUser->email)->first();
+           
+            // 2. nếu tồn tại user rồi thì cho đăng nhập
+            if($user){
+                Auth::login($user); //Không cần check password vẫn cho đăng nhập vào và lưu thông tin
+                return redirect()->route('route_FrontEnd_Home');
+            }
+            // 3. nếu không có admin thì tạo 1 bản ghi mới từ thông tin google
+            $newUser = new Admin();
+            $newUser->fill($googleUser->user);
+            $newUser->name = $googleUser->name; 
+            $newUser->google_id = $googleUser->id;
+            $newUser->email = $googleUser->email;
+            $newUser->password = '123456';
+            $newUser->role = 0;
+            $newUser->status = 0;
+            $newUser->phone = 'phone'; 
+            $newUser->avatar =  'avatar';  
+
+            $newUser->save(); 
+            return redirect()->route('route_FrontEnd_Home');
+        }
+    }
+
+
+    // public function loginGoogleCallback()
+    // {
+    //     $googleUser = Socialite::driver('google')->user();
+    //     if ($googleUser) {
+            
+    //         $user = Users::where('email', $googleUser->email)->first();
+            
+    //         if ($user) {
+    //             Auth::login($user); 
+    //             return redirect()->route('route_FontEnd_BookingSearch');
+    //         }
+            
+    //         $newUser = new Users();
+    //         $newUser->fill($googleUser->user);
+    //         $newUser->name = '';
+    //         $newUser->phone = '';
     //     }
     // }
 
+    
 }
