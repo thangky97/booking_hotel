@@ -13,21 +13,25 @@ class HomeController extends Controller
     {
         $name = $request->get('name');
         $categories = CategoryRooms::select('id', 'name', 'price', 'status')->where('status', '=', 1)->get(); 
-        if($name){
-            return view('home', 
+        // if($name){
+        //     return view('home', 
+        //         [    
+        //             'name' => $name,  
+        //         ]); 
+        // }else{ 
+        //     $rooms = Rooms::select('id', 'name', 'price', 'thumbnail_url', 'status', 'room_id')
+        //     ->where('status', '=', 1)
+        //     ->paginate(8); 
+        //     return view('home', 
+        //         [   'categories' => $categories,
+        //             'name' => $name,
+        //             'rooms' => $rooms 
+        //         ]);
+        // } 
+        return view('home', 
                 [    
-                    'name' => $name,  
+                    'categories' => $categories,  
                 ]); 
-        }else{ 
-            $rooms = Rooms::select('id', 'name', 'price', 'thumbnail_url', 'status', 'room_id')
-            ->where('status', '=', 1)
-            ->paginate(8); 
-            return view('home', 
-                [   'categories' => $categories,
-                    'name' => $name,
-                    'rooms' => $rooms 
-                ]);
-        } 
         
     }
 }

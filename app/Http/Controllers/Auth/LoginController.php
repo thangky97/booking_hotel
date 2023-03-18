@@ -75,27 +75,22 @@ class LoginController extends Controller
             // 2. nếu tồn tại user rồi thì cho đăng nhập
             if($user){
                 Auth::login($user); //Không cần check password vẫn cho đăng nhập vào và lưu thông tin
-                return redirect()->route('home');
+                return redirect()->route('route_FrontEnd_Home');
             }
             // 3. nếu không có admin thì tạo 1 bản ghi mới từ thông tin google
             $newUser = new Admin();
             $newUser->fill($googleUser->user);
             $newUser->name = $googleUser->name; 
-            // $newUser->id = $googleUser->id;
+            $newUser->google_id = $googleUser->id;
             $newUser->email = $googleUser->email;
             $newUser->password = '123456';
-            // $newUser->address = 'address';
-            // $newUser->cccd = 'cmt';
-            // $newUser->date = 'date';
-            // $newUser->gender = 1;
             $newUser->role = 0;
             $newUser->status = 0;
             $newUser->phone = 'phone'; 
-            //
-            $newUser->avatar =  'avatart';  
+            $newUser->avatar =  'avatar';  
 
             $newUser->save(); 
-            return redirect()->route('getLoginGoogle');
+            return redirect()->route('route_FrontEnd_Home');
         }
     }
 
