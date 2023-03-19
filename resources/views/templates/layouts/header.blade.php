@@ -512,11 +512,11 @@
                                                         <div id="" style="background-color:#6B6978;"
                                                             class="  nd_options_display_table nd_options_float_right nd_options_padding_10_20 nd_options_margin_right_15">
                                                             @if (Auth::check())
-                                                                <a href="booking-account/index.html"><img
+                                                                <a href="#"><img
                                                                         alt=""
                                                                         class="nd_options_margin_right_10 nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
                                                                         width="30"
-                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg"></a>
+                                                                        src="{{ asset(Auth::user()->avatar) ? '' . Storage::url(Auth::user()->avatar) : (Auth::user()->name) }}"></a>
                                                             @else
                                                                 <a href="#"><img
                                                                         alt=""
@@ -529,33 +529,20 @@
                                                                 <p
                                                                     class="nd_options_font_size_12 nd_options_text_align_left">
                                                                     <a class="nd_options_color_white nd_options_first_font"
-                                                                        href="booking-account/index.html">Tài khoản</a>
+                                                                        href="#">Tài khoản</a>
                                                                 </p>
                                                                 <div class="nd_options_section nd_options_height_5">
                                                                 </div>
-                                                                {{--  --}}
-                                                                {{-- <div class="btn-group">
-                                                                    @if (Auth::check())
-                                                                        Xin chào: <a href="">{{Auth::user()->username}}  </a>
-                                                                    @else 
-                                                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
-                                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                                        <a href="/auth/login"><button class="dropdown-item" type="button">Sign in</button></a>
-                                                                        <a href="/auth/register"><button class="dropdown-item" type="button">Sign up</button></a>
-                                                                    </div>
-                                                                    @endif
-                                                                </div>  --}}
-                                                                {{--  --}}
                                                                 <h6
                                                                     class="nd_options_font_size_10 nd_options_text_align_left nd_options_color_white nd_options_second_font">
                                                                     @if (Auth::check())
-                                                                        <a class="nd_options_color_blue"
+                                                                        <a class="nd_options_color_white"
                                                                             style="font-weight: 700"
-                                                                            href="">{{ Auth::user()->name }}
+                                                                            href="{{ route('logout') }}">{{ Auth::user()->name }}
                                                                         </a>
                                                                     @else
                                                                         <a class="nd_options_color_white"
-                                                                            href="booking-account/index.html">Đăng
+                                                                            href="{{ route('getSignin') }}">Đăng
                                                                             nhập</a>
                                                                     @endif
                                                                 </h6>

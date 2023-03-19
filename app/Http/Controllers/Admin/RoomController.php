@@ -27,12 +27,15 @@ class RoomController extends Controller
         return view("admin/room.index", $this->v);
     }
      //Thêm mới phòng
-     public function rooms_add(RoomsRequest $request)
+     public function rooms_add(RoomsRequest $request)           
     {
         $this->v['title'] = '12 Zodiac - Thêm mới phòng';
         $cate_rooms = new CategoryRooms();
         $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
         $method_route = 'route_BackEnd_Rooms_Add';
+        // $cate_rooms = new Rooms();
+        // $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
+        $method_route = 'route_BackEnd_Rooms_Add';  
 
         if ($request->isMethod('post')) {
             $params = [];
