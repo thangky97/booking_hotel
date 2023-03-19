@@ -136,7 +136,6 @@
                                 action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-search/"
                                 method="get">
 
-
                                 <!--START check in-->
                                 <div id="nd_booking_open_calendar_from"
                                     class="nd_booking_width_25_percentage nd_booking_padding_10_15 nd_booking_width_100_percentage_all_iphone nd_booking_width_50_all_ipad nd_booking_float_left nd_booking_box_sizing_border_box">
@@ -227,23 +226,16 @@
 
                                 </div>
                                 <!--guests-->
-
-
                                 <div
                                     class="nd_booking_width_25_percentage nd_booking_padding_10_15 nd_booking_width_100_percentage_all_iphone nd_booking_width_50_all_ipad nd_booking_float_left  nd_booking_box_sizing_border_box">
                                     <input
                                         class="nd_booking_width_100_percentage nd_booking_white_space_normal nd_booking_border_style_solid "
-                                        type="submit" value="SẴN SÀNG KIỂM TRA">
+                                        type="submit" value="TÌM KIẾM">
                                 </div>
-
-
                             </form>
                             <!--END FORM-->
 
                         </div>
-
-
-
 
                         <!--CHECKIN/OUT SCRIPT-->
                         <script type="text/javascript">
@@ -404,11 +396,6 @@
                             //]]&gt;
                         </script>
                         <!--END GUESTS SCRIPT-->
-
-
-
-
-
                     </div>
                 </div>
             </div>

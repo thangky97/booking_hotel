@@ -324,8 +324,7 @@
                                                         <li class="elementor-icon-list-item elementor-inline-item">
                                                             <a href="#">
 
-                                                                <span class="elementor-icon-list-text">Đặt phòng của
-                                                                    tôi</span>
+                                                                <span class="elementor-icon-list-text">Đặt phòng</span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -363,8 +362,6 @@
                                                                 <div style="background-color:#fff;"
                                                                     class="nd_options_box_sizing_border_box nd_options_padding_10 nd_options_section nd_options_text_align_left">
 
-
-
                                                                     <div
                                                                         class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
                                                                         <img alt=""
@@ -386,8 +383,6 @@
                                                                             </a>
                                                                         </div>
                                                                     </div>
-
-
 
                                                                     <div
                                                                         class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
@@ -411,8 +406,6 @@
                                                                         </div>
                                                                     </div>
 
-
-
                                                                     <div
                                                                         class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
                                                                         <img alt=""
@@ -434,9 +427,6 @@
                                                                             </a>
                                                                         </div>
                                                                     </div>
-
-
-
                                                                 </div>
                                                             </div>
 
@@ -501,55 +491,117 @@
                                         </div>
                                     </div>
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-cddffe5"
-                                        data-id="cddffe5" data-element_type="column">
+                                        data-id="cddffe5" data-element_type="column" style="width: 65%">
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-c003c9a elementor-widget elementor-widget-shortcode"
                                                 data-id="c003c9a" data-element_type="widget"
                                                 data-widget_type="shortcode.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-shortcode">
-
-                                                        <div id="" style="background-color:#6B6978;"
-                                                            class="  nd_options_display_table nd_options_float_right nd_options_padding_10_20 nd_options_margin_right_15">
+                                                        <div style="background-color: #6b6978" id="nd_options_alert_1"
+                                                            class="nd_options_display_table nd_options_position_relative nd_options_float_right nd_options_padding_10_20 nd_options_margin_right_15">
                                                             @if (Auth::check())
-                                                                <a href="#"><img
+                                                                <a href="booking-account/index.html"><img
                                                                         alt=""
-                                                                        class="nd_options_margin_right_10 nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
+                                                                        class="nd_options_margin_right_10 nd_options_position_relative nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
                                                                         width="30"
-                                                                        src="{{ asset(Auth::user()->avatar) ? '' . Storage::url(Auth::user()->avatar) : (Auth::user()->name) }}"></a>
-                                                            @else
-                                                                <a href="#"><img
-                                                                        alt=""
-                                                                        class="nd_options_margin_right_10 nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
-                                                                        width="30"
-                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg"></a>
-                                                            @endif
-                                                            <div
-                                                                class="nd_options_display_table_cell nd_options_vertical_align_middle">
-                                                                <p
-                                                                    class="nd_options_font_size_12 nd_options_text_align_left">
-                                                                    <a class="nd_options_color_white nd_options_first_font"
-                                                                        href="#">Tài khoản</a>
-                                                                </p>
-                                                                <div class="nd_options_section nd_options_height_5">
+                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg" /></a>
+                                                                <div
+                                                                    class="nd_options_display_table_cell nd_options_vertical_align_middle">
+                                                                    <p
+                                                                        class="nd_options_font_size_12 nd_options_text_align_left">
+                                                                        <a class="nd_options_color_white nd_options_first_font nd_options_position_relative"
+                                                                            href="booking-account/index.html">Tài
+                                                                            khoản</a>
+                                                                    </p>
+                                                                    <div
+                                                                        class="nd_options_section nd_options_height_5">
+                                                                    </div>
+                                                                    <h6
+                                                                        class="nd_options_font_size_10 nd_options_text_align_left nd_options_color_white nd_options_second_font">
+                                                                        <a class="nd_options_color_white nd_options_position_relative"
+                                                                            href="booking-account/index.html">{{ Auth::user()->name }}</a>
+                                                                    </h6>
                                                                 </div>
-                                                                <h6
-                                                                    class="nd_options_font_size_10 nd_options_text_align_left nd_options_color_white nd_options_second_font">
-                                                                    @if (Auth::check())
-                                                                        <a class="nd_options_color_white"
-                                                                            style="font-weight: 700"
-                                                                            href="{{ route('logout') }}">{{ Auth::user()->name }}
-                                                                        </a>
-                                                                    @else
-                                                                        <a class="nd_options_color_white"
-                                                                            href="{{ route('getSignin') }}">Đăng
-                                                                            nhập</a>
-                                                                    @endif
-                                                                </h6>
-                                                            </div>
 
+                                                                <div id="nd_options_alert_1_messages"
+                                                                    class="nd_options_display_none"
+                                                                    style="left: -15px; width: 180px;">
+                                                                    <div class="triangle-up"
+                                                                        style="margin-top: 15px;">
+                                                                    </div>
+
+                                                                    <div style="background-color: #fff"
+                                                                        class="nd_options_box_sizing_border_box nd_options_section nd_options_text_align_left nd_options_display_table_cell nd_options_vertical_align_middle">
+                                                                        <div class="nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70"
+                                                                            style="padding-top: 20px; padding-bottom: 20px">
+                                                                            <div
+                                                                                class="nd_options_section nd_options_padding_left_20 nd_options_box_sizing_border_box">
+                                                                                <a href="#">
+                                                                                    <h6>Đơn hàng của tôi</h6>
+                                                                                </a>
+                                                                                <div class="nd_options_section nd_options_height_10"
+                                                                                    style="height: 16px">
+                                                                                </div>
+                                                                                <a href="#">
+                                                                                    <h6>Cập nhật tài khoản</h6>
+                                                                                </a>
+                                                                                <div class="nd_options_section nd_options_height_10"
+                                                                                    style="height: 16px">
+                                                                                </div>
+                                                                                <a href="{{ route('logoutUser') }}">
+                                                                                    <h6>Đăng xuất</h6>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @else
+                                                                <a href="booking-account/index.html"><img
+                                                                        alt=""
+                                                                        class="nd_options_margin_right_10 nd_options_position_relative nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
+                                                                        width="30"
+                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg" /></a>
+                                                                <div
+                                                                    class="nd_options_display_table_cell nd_options_vertical_align_middle">
+                                                                    <p
+                                                                        class="nd_options_font_size_12 nd_options_text_align_left">
+                                                                        <a class="nd_options_color_white nd_options_first_font nd_options_position_relative"
+                                                                            href="booking-account/index.html">Tài
+                                                                            khoản</a>
+                                                                    </p>
+
+                                                                </div>
+
+                                                                <div id="nd_options_alert_1_messages"
+                                                                    class="nd_options_display_none"
+                                                                    style="left: -20px; width: 180px;">
+                                                                    <div class="triangle-up"
+                                                                        style="margin-top: 15px;">
+                                                                    </div>
+
+                                                                    <div style="background-color: #fff"
+                                                                        class="nd_options_box_sizing_border_box nd_options_section nd_options_text_align_left nd_options_display_table_cell nd_options_vertical_align_middle">
+                                                                        <div
+                                                                            class="nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_15 nd_options_min_height_70">
+                                                                            <div
+                                                                                class="nd_options_section nd_options_padding_left_20 nd_options_box_sizing_border_box">
+
+                                                                                <a href="{{ route('getSignin') }}">
+                                                                                    <h6>Đăng nhập</h6>
+                                                                                </a>
+                                                                                <div
+                                                                                    class="nd_options_section nd_options_height_15">
+                                                                                </div>
+                                                                                <a href="{{ route('getSignin') }}">
+                                                                                    <h6>Đăng ký</h6>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -975,7 +1027,7 @@
                                             class="elementor-button-link elementor-button elementor-size-sm"
                                             role="button">
                                             <span class="elementor-button-content-wrapper">
-                                                <span class="elementor-button-text">Đặt Bây Giờ</span>
+                                                <span class="elementor-button-text">Đặt Phòng</span>
                                             </span>
                                         </a>
                                     </div>
@@ -987,5 +1039,4 @@
             </section>
         </div>
     </div>
-
 </div>

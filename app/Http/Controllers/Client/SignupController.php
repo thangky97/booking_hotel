@@ -1,21 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class RegisterController extends Controller
+class SignupController extends Controller
 {
-    public function getRegister()
-    {
-        return view('auth.register');
-    }
-
     public function postRegister(Request $request) {
+
         $method_route = "getRegister";
+
         if ($request->isMethod('post')) {
             $params = [];
             $params['cols'] = $request->post();
@@ -25,7 +22,8 @@ class RegisterController extends Controller
             {
                 $params['cols']['avatar'] = $this->uploadFile($request->file('images'));
             }
-            $modelTes = new Admin();
+            
+            $modelTes = new Users();
             $res = $modelTes->saveNew($params);
             if ($res == null) {
                 return  redirect()->route($method_route);

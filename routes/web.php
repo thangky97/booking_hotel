@@ -46,15 +46,11 @@ Route::get('/checkout', function () { //thanh toán
 
 Route::get('/sign-in', 'Client\SigninController@getSignin')->name('getSignin');
 Route::post('/sign-in', 'Client\SigninController@postSignin')->name('postSignin');
-Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
 Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
 Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
 Route::post('/booking_search/{id}', 'RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
-
-//Chỉ dùng cho đăng nhập
-Route::get('/login1', ['as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
-Route::post('/login1', ['as' => 'login1', 'uses' => 'Auth\LoginController@postLogin']);
 
 Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
@@ -63,9 +59,8 @@ Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
     Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
 
-    // use Laravel\Socialite\Facades\Socialite;
-    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
-    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
+    Route::get('/login-google', 'Client\SigninController@getLoginGoogle')->name('getLoginGoogle');
+    Route::get('/google/callback', 'Client\SigninController@loginGoogleCallback')->name('loginGoogleCallback');
 });
 //Đăng xuất
 Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@getLogout'])->middleware('auth');
