@@ -19,9 +19,11 @@
             <div class="col-0">
                 <select name="room_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                     <option selected="selected" disabled>Chọn phòng</option>
-                    @foreach($listRooms as $room)
-                    <option value="{{$room->id}}">{{$room->name}}</option>
-                    @endforeach
+                            @foreach($listRooms as $room)
+                                @if(!in_array($room->id,$list))
+                                    <option value="{{$room->id}}">{{$room->name}}</option>
+                                @endif
+                            @endforeach
                 </select>
                 @error('room_id')
                 <div>
@@ -29,21 +31,12 @@
                 </div>
                 @enderror
             </div>
-            <label for="date" class="col-5 col-form-label">Tên thuộc tính</label>
-            <div class="col-0">
-                <select name="properties_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option selected="selected" disabled>Chọn thuộc tính</option>
-                    @foreach($listProperties as $property)
-                    <option value="<?php if ($property->status===1) {
-                        $property->id;
-                    }?>">{{$property->name}}</option>
-                    @endforeach
-                </select>
-                @error('properties_id')
-                <div>
-                    <p class="text-danger">{{ $message }}</p>
-                </div>
-                @enderror
+            <label for="date" class="col-5 col-form-label">Chọn thuộc tính</label>
+            <div class="col-0 form-check" style="margin-left: 30px">
+                @foreach($listProperties as $index => $property)
+                    <input class="form-check-input" type="checkbox" name="properties_id[]" value="{{$property->id}}">
+                    <label class="form-check-label">{{$property->name}}</label><br>
+                @endforeach
             </div>
             <input value="1" name="status" hidden>
             <div class="text-start mt-4 mb-3">

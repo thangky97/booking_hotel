@@ -67,10 +67,13 @@
                                             </td>
                                             <td class="text-center">
                                                 <p>
+                                                    <?php $property_ids = explode(',', $item->properties_id); ?>
                                                     @foreach ($listProperties as $property)
-                                                            <?php if($item->properties_id==$property->id){
-                                                            echo $property->name;
-                                                        }?>
+                                                        @foreach($property_ids as $inx => $pro_id)
+                                                           @if($pro_id==$property->id)
+                                                               {{$inx>0?', '.$property->name:$property->name}}
+                                                           @endif
+                                                        @endforeach
                                                     @endforeach
                                                 </p>
                                             </td>

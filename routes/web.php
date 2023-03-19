@@ -14,10 +14,10 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
+// Route::get('/', function () {
+//     return view('home');
+// });
 Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
@@ -43,12 +43,14 @@ Route::get('/checkout', function () { //thanh toán
     return view('templates/pages/checkout');
 });
 
-Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
-Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search');
 
-//Chỉ dùng cho đăng nhập
- Route::get('/login1', ['as'=>'login', 'uses'=>'Auth\LoginController@getLogin']) ;
- Route::post('/login1', ['as'=>'login1', 'uses'=>'Auth\LoginController@postLogin']);
+Route::get('/sign-in', 'Client\SigninController@getSignin')->name('getSignin');
+Route::post('/sign-in', 'Client\SigninController@postSignin')->name('postSignin');
+Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
+
+Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
+Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
+Route::post('/booking_search/{id}', 'RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
 
 Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
@@ -57,19 +59,18 @@ Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
     Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
 
-    // use Laravel\Socialite\Facades\Socialite;
-    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
-    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
+    Route::get('/login-google', 'Client\SigninController@getLoginGoogle')->name('getLoginGoogle');
+    Route::get('/google/callback', 'Client\SigninController@loginGoogleCallback')->name('loginGoogleCallback');
 });
 //Đăng xuất
-Route::get('/auth/logout', ['as'=>'logout', 'uses'=>'Auth\LoginController@getLogout'])->middleware('auth');
+Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@getLogout'])->middleware('auth');
 
 Route::get('404', 'ErrorController@error404')->name('404');
 Route::get('403', 'ErrorController@error403')->name('403');
 //ADMIN
 //viết middleware sau ở đây
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-//Route::prefix('admin')->group(function () {
+    //Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
 
@@ -101,7 +102,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::prefix('/rooms')->group(function () {
 
         Route::get('/', 'App\Http\Controllers\Admin\RoomController@rooms')->name('route_BackEnd_Rooms_List');
-        Route::match(['post','get'], '/add', 'App\Http\Controllers\Admin\RoomController@rooms_add')->name('route_BackEnd_Rooms_Add');
+        Route::match(['post', 'get'], '/add', 'App\Http\Controllers\Admin\RoomController@rooms_add')->name('route_BackEnd_Rooms_Add');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_detail')->name('route_BackEnd_Rooms_Detail');
         Route::post('/update/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_update')->name('route_BackEnd_Rooms_Update');
         Route::get('/remove/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_remove')->name('route_BackEnd_Rooms_Remove');
@@ -189,17 +190,12 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/services')->group(function () {
-        Route::get('/', 'ServiceController@index')->name('route_BackEnd_Service_index');
-        Route::get('/add', 'ServiceController@add')->name('route_BackEnd_Service_add');
-        Route::post('/store', function () {
-            return view('admin/services/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/services/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/services/update');
-        });
+
+        Route::get('/', 'App\Http\Controllers\Admin\ServiceController@service')->name('route_BackEnd_Service_List');
+        Route::match(['post','get'], '/add', 'App\Http\Controllers\Admin\ServiceController@service_add')->name('route_BackEnd_Service_Add');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\ServiceController@service_detail')->name('route_BackEnd_Service_Detail');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\ServiceController@service_update')->name('route_BackEnd_Service_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\ServiceController@service_remove')->name('route_BackEnd_Service_Remove');
     });
 
     Route::prefix('/feedback')->group(function () {
@@ -207,17 +203,12 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/banner')->group(function () {
-        Route::get('/', 'BannerController@index')->name('route_BackEnd_Banner_index');
-        Route::get('/add', 'BannerController@add')->name('route_BackEnd_Banner_add');
-        Route::post('/store', function () {
-            return view('admin/banner/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/banner/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/banner/update');
-        });
+
+        Route::get('/', 'App\Http\Controllers\Admin\BannerController@banner')->name('route_BackEnd_Banner_List');
+        Route::match(['post','get'], '/add', 'App\Http\Controllers\Admin\BannerController@banner_add')->name('route_BackEnd_Banner_Add');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BannerController@banner_detail')->name('route_BackEnd_Banner_Detail');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\BannerController@banner_update')->name('route_BackEnd_Banner_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\BannerController@banner_remove')->name('route_BackEnd_Banner_Remove');
     });
 
     Route::prefix('/contact')->group(function () {

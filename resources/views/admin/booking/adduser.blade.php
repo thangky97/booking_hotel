@@ -112,6 +112,11 @@
                                                     @error('date')
                                                     <div><p class="text-danger">{{ $message }}</p></div>
                                                     @enderror
+                                                    @if(isset($error))
+                                                        <div class="error">
+                                                            <p>{{$error}}</p>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -157,9 +162,9 @@
                                                 <div class="col-lg-8 ms-auto">
                                                     <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
                                                                 class="fa fa-paper-plane"></i></span>Thêm mới</button>
-                                                    <button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i
+                                                    <div class="btn btn-danger light btn-sl-sm"><span class="me-2"><i
                                                                 class="fa fa-times"></i></span><a
-                                                            href="{{ route('route_BackEnd_Bookings_List') }}">Quay Lại</a></button>
+                                                            href="{{ route('route_BackEnd_Bookings_List') }}">Quay Lại</a></div>
                                                 </div>
                                             </div>
                                         </div>

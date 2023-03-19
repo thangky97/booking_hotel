@@ -35,16 +35,16 @@ class Bookingdetail extends Model
     public function loadAll($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1);
+            ->select($this->fillable);
         $list = $query->get();
         return $list;
     }
 
-    public function loadOne($id, $param = [])
+    public function loadIdBooking($id, $param = [])
     {
         $query = DB::table($this->table)
-            ->where('id', '=', $id);
-        $obj = $query->first();
+            ->where('booking_id', '=', $id);
+        $obj = $query->get();
         return $obj;
     }
 }
