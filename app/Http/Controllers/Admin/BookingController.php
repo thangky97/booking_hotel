@@ -37,8 +37,7 @@ class BookingController extends Controller
 
     public function add($id)
     {
-        $Employees = new Admin();
-        $this->v['listEmployees'] = $Employees->loadAll();
+        $this->v['listEmployees'] = DB::table('admin')->get();
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
         $Cate_rooms = new Categoryrooms();
@@ -72,8 +71,7 @@ class BookingController extends Controller
     {
         $today = date("Y/m/d", strtotime("now"));
         if (strtotime($request->checkin_date) < strtotime($today)) {
-            $Employees = new Admin();
-            $this->v['listEmployees'] = $Employees->loadAll();
+            $this->v['listEmployees'] = DB::table('admin')->get();
             $Rooms = new Rooms();
             $this->v['listRooms'] = $Rooms->loadAll();
             $Cate_rooms = new Categoryrooms();
@@ -84,8 +82,7 @@ class BookingController extends Controller
             return view('admin.booking.add', $this->v);
         }
         if (strtotime($request->checkout_date) < strtotime($today)) {
-            $Employees = new Admin();
-            $this->v['listEmployees'] = $Employees->loadAll();
+            $this->v['listEmployees'] = DB::table('admin')->get();
             $Rooms = new Rooms();
             $this->v['listRooms'] = $Rooms->loadAll();
             $Cate_rooms = new Categoryrooms();
@@ -96,8 +93,7 @@ class BookingController extends Controller
             return view('admin.booking.add', $this->v);
         }
         if (strtotime($request->checkin_date) >= strtotime($request->checkout_date)) {
-            $Employees = new Admin();
-            $this->v['listEmployees'] = $Employees->loadAll();
+            $this->v['listEmployees'] = DB::table('admin')->get();
             $Rooms = new Rooms();
             $this->v['listRooms'] = $Rooms->loadAll();
             $Cate_rooms = new Categoryrooms();
@@ -108,8 +104,7 @@ class BookingController extends Controller
             return view('admin.booking.add', $this->v);
         }
         if (empty($request->room_id)) {
-            $Employees = new Admin();
-            $this->v['listEmployees'] = $Employees->loadAll();
+            $this->v['listEmployees'] = DB::table('admin')->get();
             $Cate_rooms = new Categoryrooms();
             $this->v['listCaterooms'] = $Cate_rooms->loadAll();
             $this->v['usernew'] = Users::find($id);
