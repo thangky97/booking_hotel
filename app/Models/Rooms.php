@@ -13,7 +13,7 @@ class Rooms extends Model
 {
     use HasFactory;
     protected $table = "rooms";
-                        
+    protected $fillable = ['id','name','cate_room','images','floor','description','adult','childrend','bed','status','created_at','updated_at'];
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
@@ -104,5 +104,5 @@ class Rooms extends Model
         return $res;
     }
 
-   
+
 }
