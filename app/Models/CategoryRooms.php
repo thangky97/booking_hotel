@@ -14,7 +14,7 @@ class CategoryRooms extends Model
     protected $fillable = [
         'id',
         'name',
-//        'image',
+        'image',
         'price',
         'status',
 //        'gallery_id',
