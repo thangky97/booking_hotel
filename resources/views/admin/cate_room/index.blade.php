@@ -92,6 +92,7 @@
                                             <th class="text-center">Giá</th>
                                             <th class="text-center">Trạng thái</th>
                                             <th class="text-center">Image</th>
+                                            <th class="text-center">gallerry</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                         </thead>
@@ -120,8 +121,14 @@
 
                                                 <td class="text-center">{{ $item->status == 1 ? 'kích hoạt' : 'khóa' }}</td>
                                                 <td class="text-center">
+
+                                                        <img src="{{ asset(url("image/".$item->image)) }}" alt="" width="100px">
+
+
+                                                </td>
+                                                <td class="text-center">
                                                     @foreach($item->gallery as $gallery)
-                                                        <img src="{{ asset(Storage::url($gallery->images)) }}" alt="" width="100px">
+                                                        <img src="{{ asset(url("images/".$gallery->images)) }}" alt="" width="50px" height="50px">
 
                                                     @endforeach
                                                 </td>

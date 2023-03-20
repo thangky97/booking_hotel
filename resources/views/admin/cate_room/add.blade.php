@@ -54,10 +54,18 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <h5 class="mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
+                                                <h5 class="mb-4"><i class="fa fa-paperclip"></i>Ảnh đại diện</h5>
 
                                                 <div class="fallback">
-                                                    <input type="file" multiple name="imgs[]"/>
+                                                    <input type="file"  name="image"/>
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <h5 class="mb-4"><i class="fa fa-paperclip"></i> Ảnh liên quan</h5>
+
+                                                <div class="fallback">
+                                                    <input type="file" multiple name="images[]"/>
                                                 </div>
 
                                             </div>
