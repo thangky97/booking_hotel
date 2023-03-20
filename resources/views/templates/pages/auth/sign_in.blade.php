@@ -103,7 +103,7 @@
 
                                                     <div class="card-footer__bottom p-4 text-center font-size-14">
                                                         <span class="text-gray-1">Chưa có tài khoản?</span>
-                                                        <a class="js-animation-link font-weight-bold" href="javascript:;" data-target="#signup" data-link-group="idForm" data-animation-in="fadeIn">Đăng ký</a>
+                                                        <a class="font-weight-bold" href="{{ route('getSignup')}}" data-target="#signup" data-link-group="idForm" data-animation-in="fadeIn">Đăng ký</a>
                                                     </div>
                                                 </div>
                                         </form>

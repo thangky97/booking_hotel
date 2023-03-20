@@ -46,6 +46,8 @@ Route::get('/checkout', function () { //thanh toán
 
 Route::get('/sign-in', 'Client\SigninController@getSignin')->name('getSignin');
 Route::post('/sign-in', 'Client\SigninController@postSignin')->name('postSignin');
+Route::get('/sign-up', 'Client\SignupController@getSignup')->name('getSignup');
+Route::post('/sign-up', 'Client\SignupController@postSignup')->name('postSignup');
 Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
 Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng

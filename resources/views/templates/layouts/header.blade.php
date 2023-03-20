@@ -593,7 +593,7 @@
                                                                                 <div
                                                                                     class="nd_options_section nd_options_height_15">
                                                                                 </div>
-                                                                                <a href="{{ route('getSignin') }}">
+                                                                                <a href="{{ route('getSignup') }}">
                                                                                     <h6>Đăng ký</h6>
                                                                                 </a>
                                                                             </div>
