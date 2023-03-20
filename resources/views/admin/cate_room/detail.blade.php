@@ -22,6 +22,7 @@
                             <div class="compose-content">
                                 <form action="{{ route('route_BackEnd_Categoryrooms_Detail', $id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
+                                    @method("put")
                                     <div class="form-group">
                                         <label for="" class="col-md-3 col-sm-4 control-label">Tên Phòng<span
                                                 class="text-danger">(*)</span></label>
@@ -52,16 +53,33 @@
                                     </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <h5 class="mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
+                                        <div class="form-group">
+                                            <h5 class="mb-4"><i class="fa fa-paperclip"></i>Ảnh đại diện</h5>
 
                                             <div class="fallback">
-                                                <input name="image" type="file"/>
+                                                <input type="file"  name="image"/>
+                                            </div>
+{{--                                            <form action="{{ route('route_BackEnd_Categoryrooms_DeleteImg',$id)}}" method="post">--}}
+{{--                                                <button class="btn text-danger">X</button>--}}
+{{--                                                @csrf--}}
+{{--                                                @method('delete')--}}
+{{--                                            </form>--}}
+                                            <img src="{{ asset(url("image/".$editCate->image)) }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+                                            <br>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <h5 class="mb-4"><i class="fa fa-paperclip"></i> Ảnh liên quan</h5>
+
+                                            <div class="fallback">
+                                                <input type="file" multiple name="images[]"/>
                                             </div>
 
-                                    </div>
+                                        </div>
 
-                                    <div class="text-start mt-4 mb-3">
+
+
+                                        <div class="text-start mt-4 mb-3">
 
                                         <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
                                             class="fa fa-paper-plane"></i></span>Cập Nhật</button>
@@ -72,7 +90,18 @@
                             </div>
                                 </form>
 
+                                @if (count($editCate->gallery)>0)
+                                    <p>Cac anh lien quan:</p>
+                                    @foreach ($editCate->gallery as $img)
+                                        <form action="{{ route('route_BackEnd_Categoryrooms_DeleteImgs',$img->id)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn text-danger">X</button>
 
+                                        </form>
+                                        <img src="{{ asset(url("images/".$img->images)) }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+                                    @endforeach
+                                @endif
                         </div>
 
                     </div>

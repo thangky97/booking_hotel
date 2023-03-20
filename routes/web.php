@@ -115,8 +115,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/addForm', 'App\Http\Controllers\Admin\CategoryroomController@addForm')->name('route_BackEnd_Categoryrooms_Add');
         Route::post('/saveAddForm', 'App\Http\Controllers\Admin\CategoryroomController@saveAdd')->name('route_BackEnd_Categoryrooms_saveAdd');
         Route::get('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@editForm')->name('route_BackEnd_Categoryrooms_Detail');
-        Route::post('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@saveEdit')->name('route_BackEnd_Categoryrooms_Update');
+        Route::put('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@saveEdit')->name('route_BackEnd_Categoryrooms_Update');
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\CategoryroomController@destroy')->name('route_BackEnd_Categoryrooms_Delete');
+        Route::delete('/deleteimages/{id}',[\App\Http\Controllers\Admin\CategoryRoomController::class,'deleteimages'])->name('route_BackEnd_Categoryrooms_DeleteImgs');
+
+
     });
 
     Route::prefix('/property_room')->group(function () {
