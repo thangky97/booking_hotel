@@ -57,7 +57,7 @@
                                                         </td>
                                                         <td class="text-center">
                                                             <div class="concierge-bx">
-                                                                <img class="me-3 rounded" src="{{$item->avatar}}" alt="">
+                                                                <img class="me-3 rounded" src="{{asset("storage/".$item->avatar)}}" alt="">
                                                                 <div>
                                                                     <span class="text-primary">#{{$item->id}}</span>
                                                                     <h4 class="mt-1"><a class="text-black" href="guest-detail.html">{{$item->name}}</a></h4>
