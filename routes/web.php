@@ -49,7 +49,7 @@ Route::post('/sign-in', 'Client\SigninController@postSignin')->name('postSignin'
 
 Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
 Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
-Route::post('/booking_search/{id}', 'RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
+Route::get('/booking_search/{id}', 'RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
 
 //Chỉ dùng cho đăng nhập
 Route::get('/login1', ['as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
@@ -149,6 +149,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
+        Route::get('/bill/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_bill')->name('route_BackEnd_Bookings_Bill');
     });
 
     Route::prefix('/booking_detail')->group(function () {

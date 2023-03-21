@@ -4,9 +4,6 @@
 
 @section('content')
 
-
-
-
 <!--start nd_options_container-->
 <div class="nd_options_container nd_options_clearfix">
   <div class="">
@@ -48,41 +45,24 @@
                       <div class="nd_booking_section">
                         <script type="text/javascript">
                           //<![CDATA[
-
                           jQuery(document).ready(function() {
-
-
                             jQuery(function($) {
-
                               $("#nd_booking_search_filter_options a").on("click", function() {
-
                                 $("#nd_booking_search_filter_options a").removeClass("nd_booking_search_filter_options_active");
                                 $(this).addClass("nd_booking_search_filter_options_active");
-
                                 nd_booking_sorting(1);
-
                               });
-
                               $("#nd_booking_search_filter_layout a").on("click", function() {
-
                                 $("#nd_booking_search_filter_layout a").removeClass("nd_booking_search_filter_layout_active");
                                 $(this).addClass("nd_booking_search_filter_layout_active");
-
                                 nd_booking_sorting();
-
                               });
-
-
                               $("#nd_booking_search_filter_options li").on("click", function() {
                                 $("#nd_booking_search_filter_options li").removeClass("nd_booking_search_filter_options_active_parent");
                                 $(this).addClass("nd_booking_search_filter_options_active_parent");
                               });
-
                             });
-
-
                           });
-
                           //]]&gt;
                         </script>
 
@@ -127,13 +107,13 @@
                               <ul id="nd_booking_search_filter_options" class="nd_booking_list_style_none nd_booking_display_inline_block nd_booking_padding_0 nd_booking_margin_0">
 
 
-
                                 <li id="nd_booking_el_order_size" class="nd_booking_display_inline_block nd_booking_position_relative nd_booking_padding_20 nd_booking_padding_bottom_15 nd_booking_margin_0 nd_booking_float_left">
-                                  <p class="nd_booking_font_size_12 nd_booking_padding_bottom_5 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_float_left nd_options_color_white">Loại Phòng</p>
+                                  <p class="nd_booking_font_size_12 nd_booking_padding_bottom_5 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_float_left nd_options_color_white">
+                                    Loại Phòng</p>
                                   <img alt="" class="nd_booking_margin_left_10 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/elementor/order/layout/../img/icon-down-arrow-white.svg">
                                   <ul class="nd_booking_padding_top_12 nd_booking_z_index_99 nd_booking_width_160 nd_booking_list_style_none nd_booking_search_filter_options_child nd_booking_position_absolute nd_booking_left_0 nd_booking_top_50 nd_booking_display_none nd_booking_padding_0 nd_booking_margin_0 nd_booking_width_100_percentage">
-                                    @foreach ($loai_phong as $cate)
-                                    <li class="nd_booking_text_align_left nd_booking_bg_greydark_2 nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_15_20"><a data-meta-key="nd_booking_meta_box_room_size" data-order="DESC" class="nd_booking_cursor_pointer nd_options_color_white"> <span class="nd_booking_sorting_label_1">{{$cate->name}}</span></a></li>
+                                    @foreach ($listCaterooms as $cate)
+                                    <li class="nd_booking_text_align_left nd_booking_bg_greydark_2 nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_15_20"><a href="{{route('route_FontEnd_BookingSearch_SearchCate',$cate->id)}}" data-meta-key="nd_booking_meta_box_room_size" data-order="DESC" class="nd_booking_cursor_pointer nd_options_color_white"> <span class="nd_booking_sorting_label_1">{{$cate->name}}</span></a></li>
                                     @endforeach
                                   </ul>
                                 </li>
@@ -165,11 +145,9 @@
                       <div class="elementor-shortcode">
 
 
-
                         <div class="nd_booking_section">
 
                           <div id="nd_booking_search_cpt_1_sidebar" class="nd_booking_float_left nd_booking_width_33_percentage nd_booking_box_sizing_border_box nd_booking_width_100_percentage_responsive">
-
 
 
                             <!--START FORM-->
@@ -178,7 +156,7 @@
                             <div class="nd_booking_section nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
 
                               <form action="{{route('route_FontEnd_BookingSearch_Search')}}" method="post">
-                              @csrf 
+                                @csrf
                                 <div id="nd_booking_search_main_bg" class="nd_booking_section nd_booking_bg_greydark nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
 
 
@@ -188,7 +166,8 @@
                                     <ul class="nd_booking_branch_ul_1 nd_booking_bg_greydark_2">
 
                                       <li class="nd_booking_branch_select_active">
-                                        <h3 class="nd_options_color_white">Lựa Chọn Của Bạn</h3>
+                                        <h3 class="nd_options_color_white">
+                                          Lựa Chọn Của Bạn</h3>
                                         <img class="nd_booking_branch_ul_1_arrow" alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
                                       </li>
 
@@ -254,39 +233,28 @@
                                     <script type="text/javascript">
                                       //<![CDATA[
                                       jQuery(document).ready(function() {
-
                                         jQuery(function($) {
-
                                           $("  .nd_booking_branch_select_sub_menu li ").click(function() {
-
                                             $("  .nd_booking_branch_ul_1 li").removeClass("nd_booking_branch_select_active");
                                             var nd_booking_select_data_position_first = $(this).attr("data-position");
                                             var nd_booking_select_data_branch_id = $(this).attr("data-id");
                                             var nd_booking_select_data_position = parseInt(nd_booking_select_data_position_first) + 1;
                                             $("  .nd_booking_branch_ul_1 > li:nth-child(" + nd_booking_select_data_position + ")").addClass("nd_booking_branch_select_active");
-
                                             $("  .nd_booking_branch_select_sub_menu").removeClass("nd_booking_display_block_important");
-
                                             $("#nd_booking_archive_form_branches").val(nd_booking_select_data_branch_id);
                                             nd_booking_sorting(1);
-
                                           });
-
                                           $("  .nd_booking_branch_ul_1 li.nd_booking_branch_select_active").click(function() {
                                             $("  .nd_booking_branch_select_sub_menu").addClass("nd_booking_display_block_important");
                                           });
-
                                           $("  .nd_booking_branch_ul_1")
-
                                             .mouseenter(function() {
                                               $("  .nd_booking_branch_select_sub_menu").addClass("nd_booking_display_block_important");
                                             })
                                             .mouseleave(function() {
                                               $("  .nd_booking_branch_select_sub_menu").removeClass("nd_booking_display_block_important");
                                             });
-
                                         });
-
                                       });
                                       //]]&gt;
                                     </script>
@@ -296,21 +264,21 @@
                                   <!--branches-->
 
 
-
                                   <!--check in/out-->
                                   <div id="nd_booking_search_cpt_1_form_checkin" class="nd_booking_width_50_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_padding_bottom_0 nd_booking_box_sizing_border_box">
 
 
                                     <div id="nd_booking_open_calendar_from" class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center nd_booking_cursor_pointer">
                                       <div class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                                        <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">Ngày Đến</h6>
+                                        <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">
+                                          Ngày Đến</h6>
                                         <div class="nd_booking_section nd_booking_height_15"></div>
                                         <div class="nd_booking_display_inline_flex ">
                                           <div class="nd_booking_float_left nd_booking_text_align_right">
                                             <h1 id="nd_booking_date_number_from_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name=""><?php echo date('d') ?></h1>
                                           </div>
                                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
-                                            <h6 id="nd_booking_date_month_from_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12"><?php echo date('M')?></h6>
+                                            <h6 id="nd_booking_date_month_from_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12"><?php echo date('M') ?></h6>
                                             <div class="nd_booking_section nd_booking_height_5"></div>
                                             <img alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
                                           </div>
@@ -326,14 +294,15 @@
 
                                     <div id="nd_booking_open_calendar_to" class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center nd_booking_cursor_pointer">
                                       <div class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                                        <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">Ngày Đi</h6>
+                                        <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">
+                                          Ngày Đi</h6>
                                         <div class="nd_booking_section nd_booking_height_15"></div>
                                         <div class="nd_booking_display_inline_flex ">
                                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="check_out"><?php echo date('d')+1 ?></h1>
+                                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_font_size_50 nd_booking_color_yellow_important" name="check_out"><?php echo date('d') + 1 ?></h1>
                                           </div>
                                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
-                                            <h6 id="nd_booking_date_month_to_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12"><?php echo date('M')?></h6>
+                                            <h6 id="nd_booking_date_month_to_front" class="nd_booking_color_yellow_important  nd_booking_margin_top_7 nd_booking_font_size_12"><?php echo date('M') ?></h6>
                                             <div class="nd_booking_section nd_booking_height_5"></div>
                                             <img alt="" width="12" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
                                           </div>
@@ -350,9 +319,7 @@
                                   <script type="text/javascript">
                                     //<![CDATA[
                                     jQuery(document).ready(function() {
-
                                       jQuery(function($) {
-
                                         $("#nd_booking_archive_form_date_range_from").datepicker({
                                           defaultDate: "+1w",
                                           minDate: 0,
@@ -371,29 +338,22 @@
                                             var minDate = $(this).datepicker("getDate");
                                             var newMin = new Date(minDate.setDate(minDate.getDate() + 1));
                                             $("#nd_booking_archive_form_date_range_to").datepicker("option", "minDate", newMin);
-
                                             var nd_booking_input_date_from = $("#nd_booking_archive_form_date_range_from").val();
                                             var nd_booking_date_number_from = nd_booking_input_date_from.substring(3, 5);
                                             $("#nd_booking_date_number_from").val(nd_booking_date_number_from);
                                             var nd_booking_input_date_to = $("#nd_booking_archive_form_date_range_to").val();
                                             var nd_booking_date_number_to = nd_booking_input_date_to.substring(3, 5);
                                             $("#nd_booking_date_number_to").val(nd_booking_date_number_to);
-
                                             $("#nd_booking_date_number_from_front").text(nd_booking_date_number_from);
                                             var nd_booking_date_month_from = $("#nd_booking_date_month_from").val();
                                             $("#nd_booking_date_month_from_front").text(nd_booking_date_month_from);
-
                                             $("#nd_booking_date_number_to_front").text(nd_booking_date_number_to);
                                             var nd_booking_date_month_to = $("#nd_booking_date_month_to").val();
                                             $("#nd_booking_date_month_to_front").text(nd_booking_date_month_to);
-
                                             nd_booking_get_nights();
                                             nd_booking_sorting(1);
-
                                           }
                                         });
-
-
                                         $("#nd_booking_archive_form_date_range_to").datepicker({
                                           defaultDate: "+1w",
                                           altField: "#nd_booking_date_month_to",
@@ -409,28 +369,22 @@
                                           dateFormat: "mm/dd/yy",
                                           numberOfMonths: 1,
                                           onClose: function() {
-
                                             var nd_booking_input_date_from = $("#nd_booking_archive_form_date_range_from").val();
                                             var nd_booking_date_number_from = nd_booking_input_date_from.substring(3, 5);
                                             $("#nd_booking_date_number_from").val(nd_booking_date_number_from);
                                             var nd_booking_input_date_to = $("#nd_booking_archive_form_date_range_to").val();
                                             var nd_booking_date_number_to = nd_booking_input_date_to.substring(3, 5);
                                             $("#nd_booking_date_number_to").val(nd_booking_date_number_to);
-
                                             $("#nd_booking_date_number_from_front").text(nd_booking_date_number_from);
                                             var nd_booking_date_month_from = $("#nd_booking_date_month_from").val();
                                             $("#nd_booking_date_month_from_front").text(nd_booking_date_month_from);
-
                                             $("#nd_booking_date_number_to_front").text(nd_booking_date_number_to);
                                             var nd_booking_date_month_to = $("#nd_booking_date_month_to").val();
                                             $("#nd_booking_date_month_to_front").text(nd_booking_date_month_to);
-
                                             nd_booking_get_nights();
                                             nd_booking_sorting(1);
-
                                           }
                                         });
-
                                         $("#nd_booking_archive_form_date_range_from").datepicker("setDate", "+0");
                                         $("#nd_booking_archive_form_date_range_to").datepicker("setDate", "+1");
 
@@ -442,32 +396,30 @@
                                           var nd_booking_nights_number = Math.round((nd_booking_end - nd_booking_start) / 1000 / 60 / 60 / 24);
                                           $(".nd_booking_nights_number").text(nd_booking_nights_number);
                                         }
-
                                         $("#nd_booking_open_calendar_from").click(function() {
                                           $("#nd_booking_archive_form_date_range_from").datepicker("show");
                                         });
                                         $("#nd_booking_open_calendar_to").click(function() {
                                           $("#nd_booking_archive_form_date_range_to").datepicker("show");
                                         });
-
                                       });
-
                                     });
                                     //]]&gt;
                                   </script>
                                   <!--check in/out-->
 
 
-
                                   <!--guests-->
                                   <div id="nd_booking_search_cpt_1_form_guests" class="nd_booking_width_50_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_padding_top_0 nd_booking_box_sizing_border_box">
                                     <div id="nd_booking_search_guests_bg" class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
                                       <div class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                                        <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">Số Người</h6>
+                                        <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">
+                                          Số Người</h6>
                                         <div class="nd_booking_section nd_booking_height_15"></div>
                                         <div class="nd_booking_display_inline_flex ">
                                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                                            <h1 class="nd_booking_font_size_50 nd_booking_color_yellow_important nd_booking_guests_number">1</h1>
+                                            <h1 class="nd_booking_font_size_50 nd_booking_color_yellow_important nd_booking_guests_number">
+                                              1</h1>
                                           </div>
                                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
                                             <div class="nd_booking_section nd_booking_height_7"></div>
@@ -482,15 +434,14 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <label class="nd_booking_display_none" for="nd_booking_archive_form_guests">Guests :</label>
+                                    <label class="nd_booking_display_none" for="nd_booking_archive_form_guests">Guests
+                                      :</label>
                                     <input placeholder="Guests" onchange="nd_booking_sorting(1)" class="nd_booking_section nd_booking_display_none" type="number" name="so_nguoi" id="nd_booking_archive_form_guests" min="1" value="1" />
                                   </div>
                                   <script type="text/javascript">
                                     //<![CDATA[
                                     jQuery(document).ready(function() {
-
                                       jQuery(function($) {
-
                                         $(".nd_booking_guests_increase").click(function() {
                                           var value = $(".nd_booking_guests_number").text();
                                           value++;
@@ -498,39 +449,33 @@
                                           $("#nd_booking_archive_form_guests").val(value);
                                           nd_booking_sorting(1);
                                         });
-
                                         $(".nd_booking_guests_decrease").click(function() {
                                           var value = $(".nd_booking_guests_number").text();
-
                                           if (value > 1) {
                                             value--;
                                             $(".nd_booking_guests_number").text(value);
                                             $("#nd_booking_archive_form_guests").val(value);
                                             nd_booking_sorting(1);
                                           }
-
                                         });
-
                                       });
-
                                     });
                                     //]]&gt;
                                   </script>
                                   <!--guests-->
 
 
-
-
-
                                   <!--night info-->
                                   <div id="nd_booking_search_cpt_1_form_nights" class="nd_booking_width_50_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_padding_top_0 nd_booking_box_sizing_border_box">
                                     <div id="nd_booking_search_nights_bg" class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
                                       <div class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                                        <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">Số ngày</h6>
+                                        <h6 class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">
+                                          Số ngày</h6>
                                         <div class="nd_booking_section nd_booking_height_15"></div>
                                         <div class="nd_booking_display_inline_flex ">
                                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                                            <h1 class="nd_booking_font_size_50 nd_booking_color_yellow_important nd_booking_nights_number">1</h1>
+                                            <h1 class="nd_booking_font_size_50 nd_booking_color_yellow_important nd_booking_nights_number">
+                                              1</h1>
                                           </div>
                                         </div>
                                       </div>
@@ -549,10 +494,6 @@
                             </div>
 
 
-
-
-
-
                             <!--max night range-->
                             <div id="nd_booking_search_cpt_1_form_night_range" class="  nd_booking_width_100_percentage nd_booking_float_left nd_booking_padding_0_15 nd_booking_box_sizing_border_box">
 
@@ -562,7 +503,8 @@
                               <div class="nd_booking_section nd_booking_position_relative nd_booking_padding_30 nd_booking_padding_30_15_all_iphone nd_booking_box_sizing_border_box">
 
                                 <div class="nd_booking_section">
-                                  <h3 class="nd_booking_float_left">Max Night Price :</h3>
+                                  <h3 class="nd_booking_float_left">Max Night
+                                    Price :</h3>
                                   <span class="nd_booking_float_right nd_options_first_font nd_options_color_greydark nd_booking_line_height_25 nd_booking_font_size_20">$</span>
                                   <input class="nd_booking_float_right nd_options_first_font nd_booking_margin_right_5 nd_booking_border_width_0_important" type="text" id="nd_booking_archive_form_max_price_for_day" name="nd_booking_archive_form_max_price_for_day" readonly>
                                 </div>
@@ -581,9 +523,7 @@
                             <script type="text/javascript">
                               //<![CDATA[
                               jQuery(document).ready(function() {
-
                                 jQuery(function($) {
-
                                   $("#nd_booking_slider_range").slider({
                                     range: "min",
                                     value: 300,
@@ -597,9 +537,7 @@
                                     }
                                   });
                                   $("#nd_booking_archive_form_max_price_for_day").val("" + $("#nd_booking_slider_range").slider("value"));
-
                                 });
-
                               });
                               //]]&gt;
                             </script>
@@ -635,10 +573,6 @@
                               }
                             </style>
                             <!--max night range-->
-
-
-
-
 
 
                             <!--normal service-->
@@ -688,34 +622,21 @@
                               <script type="text/javascript">
                                 //<![CDATA[
                                 jQuery(document).ready(function() {
-
                                   jQuery(function($) {
-
                                     $(".nd_booking_checkbox_service").change(function() {
-
                                       if ($(this).is(":checked")) {
-
                                         var nd_booking_service_value = $(this).val();
                                         var nd_booking_service_previous_value = $("#nd_booking_archive_form_services").val();
                                         $("#nd_booking_archive_form_services").val(nd_booking_service_value + nd_booking_service_previous_value);
-
                                         nd_booking_sorting(1);
-
                                       } else {
-
                                         var nd_booking_service_value = $(this).val();
                                         var nd_booking_service_previous_value = $("#nd_booking_archive_form_services").val();
                                         var nd_booking_archive_form_services = nd_booking_service_previous_value.replace(nd_booking_service_value, "");
-
                                         $("#nd_booking_archive_form_services").val(nd_booking_archive_form_services);
-
                                         nd_booking_sorting(1);
                                       }
-
-
                                     });
-
-
                                     //toogle
                                     $(".nd_booking_toogle_services_open_content").click(function() {
                                       $(".nd_booking_toogle_services_content").slideToggle("slow", function() {
@@ -729,24 +650,14 @@
                                         $(".nd_booking_toogle_services_open_content").css("display", "block");
                                       });
                                     });
-
-
                                   });
-
                                 });
                                 //]]&gt;
                               </script>
 
 
-
                             </div>
                             <!--normal service-->
-
-
-
-
-
-
 
 
                             <!--additional service-->
@@ -796,34 +707,21 @@
                               <script type="text/javascript">
                                 //<![CDATA[
                                 jQuery(document).ready(function() {
-
                                   jQuery(function($) {
-
                                     $(".nd_booking_checkbox_additional_service").change(function() {
-
                                       if ($(this).is(":checked")) {
-
                                         var nd_booking_additional_service_value = $(this).val();
                                         var nd_booking_additional_service_previous_value = $("#nd_booking_archive_form_additional_services").val();
                                         $("#nd_booking_archive_form_additional_services").val(nd_booking_additional_service_value + nd_booking_additional_service_previous_value);
-
                                         nd_booking_sorting(1);
-
                                       } else {
-
                                         var nd_booking_additional_service_value = $(this).val();
                                         var nd_booking_additional_service_previous_value = $("#nd_booking_archive_form_additional_services").val();
                                         var nd_booking_archive_form_additional_services = nd_booking_additional_service_previous_value.replace(nd_booking_additional_service_value, "");
-
                                         $("#nd_booking_archive_form_additional_services").val(nd_booking_archive_form_additional_services);
-
                                         nd_booking_sorting(1);
                                       }
-
-
                                     });
-
-
                                     //toogle
                                     $(".nd_booking_toogle_additional_services_open_content").click(function() {
                                       $(".nd_booking_toogle_additional_services_content").slideToggle("slow", function() {
@@ -837,28 +735,14 @@
                                         $(".nd_booking_toogle_additional_services_open_content").css("display", "block");
                                       });
                                     });
-
-
                                   });
-
                                 });
                                 //]]&gt;
                               </script>
 
 
-
                             </div>
                             <!--additional service-->
-
-
-
-
-
-
-
-
-
-
 
 
                             <!--stars-->
@@ -917,34 +801,21 @@
                               <script type="text/javascript">
                                 //<![CDATA[
                                 jQuery(document).ready(function() {
-
                                   jQuery(function($) {
-
                                     $(".nd_booking_checkbox_branch_stars").change(function() {
-
                                       if ($(this).is(":checked")) {
-
                                         var nd_booking_branch_stars_value = $(this).val();
                                         var nd_booking_branch_stars_previous_value = $("#nd_booking_archive_form_branch_stars").val();
                                         $("#nd_booking_archive_form_branch_stars").val(nd_booking_branch_stars_value + nd_booking_branch_stars_previous_value);
-
                                         nd_booking_sorting(1);
-
                                       } else {
-
                                         var nd_booking_branch_stars_value = $(this).val();
                                         var nd_booking_branch_stars_previous_value = $("#nd_booking_archive_form_branch_stars").val();
                                         var nd_booking_archive_form_branch_stars = nd_booking_branch_stars_previous_value.replace(nd_booking_branch_stars_value, "");
-
                                         $("#nd_booking_archive_form_branch_stars").val(nd_booking_archive_form_branch_stars);
-
                                         nd_booking_sorting(1);
                                       }
-
-
                                     });
-
-
                                     //toogle
                                     $(".nd_booking_toogle_branch_stars_open_content").click(function() {
                                       $(".nd_booking_toogle_branch_stars_content").slideToggle("slow", function() {
@@ -958,29 +829,18 @@
                                         $(".nd_booking_toogle_branch_stars_open_content").css("display", "block");
                                       });
                                     });
-
-
                                   });
-
                                 });
                                 //]]&gt;
                               </script>
-
 
 
                             </div>
                             <!--stars-->
 
 
-
-
-
-
                             </form>
                             <!--END FORM-->
-
-
-
 
 
                           </div>
@@ -988,61 +848,62 @@
                           <div id="nd_booking_search_cpt_1_content" class="nd_booking_float_left nd_booking_width_66_percentage nd_booking_box_sizing_border_box nd_booking_width_100_percentage_responsive">
 
 
-
                             <div id="nd_booking_archive_search_masonry_container" class="nd_booking_section nd_booking_position_relative">
-                              
+
                               <div id="nd_booking_content_result" class="nd_booking_section">
 
                                 <!--<h3>Results Founded : 6</h3>-->
-                               
+
                                 <div class="nd_booking_section nd_booking_masonry_content">
-
-
-                                @foreach ($room as $v_room)
+                                  @foreach ($listRooms as $room)
+                                  @if(isset($listRoomwork))
+                                  @if(empty(in_array($room->id,$listRoomwork)))
                                   <div id="nd_booking_archive_cpt_1_single_5649" class="nd_booking_masonry_item nd_booking_width_50_percentage nd_booking_width_100_percentage_responsive">
 
                                     <div class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box">
 
-        <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
-            
-            
-
-        <div class="nd_booking_section nd_booking_position_relative">
+                                      <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
 
 
-
-                                          <span class="nd_options_color_white nd_booking_font_size_10 nd_booking_line_height_10 nd_booking_letter_spacing_2 nd_booking_padding_3_5 nd_booking_padding_top_5 nd_booking_top_10 nd_booking_position_absolute nd_booking_right_10 nd_booking_bg_color_3">Tầng {{$v_room->floor}}</span>
-
-                                          <img alt="" class="nd_booking_section" src="{{asset("storage/".$v_room->images)}}">
-
-            <div class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
-                <div class="nd_booking_position_absolute nd_booking_bottom_20">
-                    <p class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">Hotel Rome</p><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg">
-                </div>
-            </div>
-
-        </div>
+                                        <div class="nd_booking_section nd_booking_position_relative">
 
 
+                                          <span class="nd_options_color_white nd_booking_font_size_10 nd_booking_line_height_10 nd_booking_letter_spacing_2 nd_booking_padding_3_5 nd_booking_padding_top_5 nd_booking_top_10 nd_booking_position_absolute nd_booking_right_10 nd_booking_bg_color_3">Tầng {{$room->floor}}</span>
+
+                                          <img alt="" class="nd_booking_section" src="{{asset("storage/".$room->images)}}">
+
+                                          <div class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
+                                            <div class="nd_booking_position_absolute nd_booking_bottom_20">
+                                              @foreach ($listCaterooms as $lp)
+                                              @if ($room->cate_room == $lp->id)
+                                              <p class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">{{$lp->name}}</p><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg">
+                                              @endif
+                                              @endforeach
+                                            </div>
+                                          </div>
+
+                                        </div>
 
 
                                         <div class="nd_booking_section nd_booking_padding_30 nd_booking_box_sizing_border_box">
                                           <a href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/small-room/">
-                                            <h1>{{$v_room->name}}</h1>
+                                            <h1>{{$room->name}}</h1>
                                           </a>
                                           <div class="nd_booking_section nd_booking_height_10"></div>
 
                                           <div class="nd_booking_section">
                                             <div class="nd_booking_display_table nd_booking_float_left">
                                               <img alt="" class="nd_booking_margin_right_10 nd_booking_display_table_cell nd_booking_vertical_align_middle" width="23" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-user-grey.svg">
-                                              <p class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">{{$v_room->adult+$v_room->childrend}} Người</p>
+                                              <p class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">{{$room->adult+$room->childrend}}
+                                                Người</p>
                                               <img alt="" class="nd_booking_margin_right_10 nd_booking_margin_left_20 nd_booking_display_table_cell nd_booking_vertical_align_middle" width="20" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-plan-grey.svg">
-                                              <p class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">{{$v_room->bed}} Giường</p>
+                                              <p class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">{{$room->bed}}
+                                                Giường</p>
                                             </div>
                                           </div>
 
                                           <div class="nd_booking_section nd_booking_height_20"></div>
-                                          <p>{{$v_room->description}}</p>
+                                          <p>{{$room->description}}</p>
                                           <div class="nd_booking_section nd_booking_height_20"></div>
                                           <form id="nd_booking_book_room_5649" method="post" action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-page/">
 
@@ -1143,25 +1004,38 @@
                                                 <table>
 
                                                   <tr class="nd_booking_info_table_first nd_booking_bg_greydark_2">
-                                                    <td>Ngày</td>
-                                                    <td>Giá</td>
-                                                    <td>Số người</td>
-                                                    <td>Tổng</td>
+                                                    <td>
+                                                      Ngày
+                                                    </td>
+                                                    <td>
+                                                      Giá
+                                                    </td>
+                                                    <td>
+                                                      Số
+                                                      người
+                                                    </td>
+                                                    <td>
+                                                      Tổng
+                                                    </td>
                                                   </tr>
 
                                                   <tr class="nd_booking_info_table_middle">
-                                                    <td>1</td>
                                                     <td>
-                                                      @foreach ($loai_phong as $cate)
-                                                      @if($v_room->cate_room==$cate->id)
-                                                      {{ $cate->price}}$
+                                                      1
+                                                    </td>
+                                                    <td>
+                                                      @foreach ($listCaterooms as $cate)
+                                                      @if($room->cate_room==$cate->id)
+                                                      {{ $cate->price}}
+                                                      $
                                                       @endif
                                                       @endforeach
                                                     </td>
-                                                    <td>{{$v_room->adult+$v_room->childrend}}</td>
-                                                    <td>@foreach ($loai_phong as $cate)
-                                                      @if($v_room->cate_room==$cate->id)
-                                                      {{ $cate->price}}$
+                                                    <td>{{$room->adult+$room->childrend}}</td>
+                                                    <td>@foreach ($listCaterooms as $cate)
+                                                      @if($room->cate_room==$cate->id)
+                                                      {{ $cate->price}}
+                                                      $
                                                       @endif
                                                       @endforeach
                                                     </td>
@@ -1172,9 +1046,10 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td>@foreach ($loai_phong as $cate)
-                                                      @if($v_room->cate_room==$cate->id)
-                                                      {{ $cate->price*1}}$
+                                                    <td>@foreach ($listCaterooms as $cate)
+                                                      @if($room->cate_room==$cate->id)
+                                                      {{ $cate->price*1}}
+                                                      $
                                                       @endif
                                                       @endforeach
                                                     </td>
@@ -1211,18 +1086,244 @@
                                     </div>
 
                                   </div>
+                                  @endif
+                                  @else
+                                  <div id="nd_booking_archive_cpt_1_single_5649" class="nd_booking_masonry_item nd_booking_width_50_percentage nd_booking_width_100_percentage_responsive">
+
+                                    <div class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box">
+
+                                      <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
+
+
+                                        <div class="nd_booking_section nd_booking_position_relative">
+
+
+                                          <span class="nd_options_color_white nd_booking_font_size_10 nd_booking_line_height_10 nd_booking_letter_spacing_2 nd_booking_padding_3_5 nd_booking_padding_top_5 nd_booking_top_10 nd_booking_position_absolute nd_booking_right_10 nd_booking_bg_color_3">Tầng {{$room->floor}}</span>
+
+                                          <img alt="" class="nd_booking_section" src="{{asset("storage/".$room->images)}}">
+
+                                          <div class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
+                                            <div class="nd_booking_position_absolute nd_booking_bottom_20">
+                                              <p class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">
+                                                Hotel
+                                                Rome</p><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img alt="" class="nd_booking_margin_right_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg">
+                                            </div>
+                                          </div>
+
+                                        </div>
+
+
+                                        <div class="nd_booking_section nd_booking_padding_30 nd_booking_box_sizing_border_box">
+                                          <a href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/small-room/">
+                                            <h1>{{$room->name}}</h1>
+                                          </a>
+                                          <div class="nd_booking_section nd_booking_height_10"></div>
+
+                                          <div class="nd_booking_section">
+                                            <div class="nd_booking_display_table nd_booking_float_left">
+                                              <img alt="" class="nd_booking_margin_right_10 nd_booking_display_table_cell nd_booking_vertical_align_middle" width="23" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-user-grey.svg">
+                                              <p class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">{{$room->adult+$room->childrend}}
+                                                Người</p>
+                                              <img alt="" class="nd_booking_margin_right_10 nd_booking_margin_left_20 nd_booking_display_table_cell nd_booking_vertical_align_middle" width="20" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-plan-grey.svg">
+                                              <p class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">{{$room->bed}}
+                                                Giường</p>
+                                            </div>
+                                          </div>
+
+                                          <div class="nd_booking_section nd_booking_height_20"></div>
+                                          <p>{{$room->description}}</p>
+                                          <div class="nd_booking_section nd_booking_height_20"></div>
+                                          <form id="nd_booking_book_room_5649" method="post" action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-page/">
+
+                                            <input type="hidden" name="nd_booking_form_booking_id" value="5649-5649">
+                                            <input type="hidden" name="nd_booking_form_booking_date_from" value="03/12/2023">
+                                            <input type="hidden" name="nd_booking_form_booking_date_to" value="2023-03-13">
+                                            <input type="hidden" name="nd_booking_form_booking_guests" value="1">
+                                            <input type="hidden" name="nd_booking_form_booking_arrive_advs" value="1">
+
+                                            <input style=" border:2px solid #6b6978; color:#6b6978;" class=" nd_booking_float_left nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_background_color_transparent_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2  " type="submit" value="Đặt phòng ngay  $">
+                                          </form>
+                                          <!--START all info-->
+                                          <style>
+                                            .nd_booking_info_btn {
+                                              width: 45px;
+                                              height: 45px;
+                                              float: left;
+                                              position: relative;
+                                            }
+
+                                            .nd_booking_info_btn_image {
+                                              width: 12px;
+                                              position: absolute;
+                                              left: 15px;
+                                              top: 15px;
+                                            }
+
+                                            .nd_booking_info_btn:hover .nd_booking_info_content {
+                                              display: block;
+                                            }
+
+                                            .nd_booking_info_content {
+                                              display: none;
+                                              width: 250px;
+                                              position: absolute;
+                                              bottom: 45px;
+                                              z-index: 9;
+                                              margin-left: -104px;
+                                              padding-bottom: 20px;
+                                            }
+
+                                            .nd_booking_info_table {
+                                              width: 100%;
+                                              float: left;
+                                              padding: 0px;
+                                            }
+
+                                            .nd_booking_info_table table {
+                                              width: 100%;
+                                              float: left;
+                                              text-align: center;
+                                              font-size: 10px;
+                                              letter-spacing: 2px;
+                                              color: #fff;
+                                            }
+
+                                            .nd_booking_info_table tr td {
+                                              padding: 5px;
+                                            }
+
+                                            .nd_booking_info_table_triangle {
+                                              width: 100%;
+                                              overflow: hidden;
+                                              box-sizing: border-box;
+                                              text-align: center;
+                                              line-height: 10px;
+                                              margin-bottom: -10px;
+                                            }
+
+                                            .nd_booking_info_table_triangle:after {
+                                              content: "";
+                                              display: inline-block;
+                                              width: 0px;
+                                              height: 0px;
+                                              border-left: 10px solid transparent;
+                                              border-right: 10px solid transparent;
+                                              border-top: 10px solid #444444;
+                                              line-height: 10px;
+                                            }
+
+                                            .nd_booking_info_table table tr.nd_booking_info_table_first {
+                                              font-weight: bolder;
+                                            }
+
+                                            .nd_booking_info_table table tr.nd_booking_info_table_last td:last-child {
+                                              border-top: double;
+                                            }
+                                          </style>
+
+                                          <div style="background-color:#6b6978" class="nd_booking_info_btn  nd_booking_display_none_responsive">
+
+                                            <img class="nd_booking_info_btn_image" alt="" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-info.png">
+
+                                            <!--START popup-->
+                                            <div class="nd_booking_info_content">
+                                              <div class="nd_booking_info_table nd_booking_bg_greydark">
+
+                                                <table>
+
+                                                  <tr class="nd_booking_info_table_first nd_booking_bg_greydark_2">
+                                                    <td>
+                                                      Ngày
+                                                    </td>
+                                                    <td>
+                                                      Giá
+                                                    </td>
+                                                    <td>
+                                                      Số
+                                                      người
+                                                    </td>
+                                                    <td>
+                                                      Tổng
+                                                    </td>
+                                                  </tr>
+
+                                                  <tr class="nd_booking_info_table_middle">
+                                                    <td>
+                                                      1
+                                                    </td>
+                                                    <td>
+                                                      @foreach ($listCaterooms as $cate)
+                                                      @if($room->cate_room==$cate->id)
+                                                      {{ $cate->price}}
+                                                      $
+                                                      @endif
+                                                      @endforeach
+                                                    </td>
+                                                    <td>{{$room->adult+$room->childrend}}</td>
+                                                    <td>@foreach ($listCaterooms as $cate)
+                                                      @if($room->cate_room==$cate->id)
+                                                      {{ $cate->price}}
+                                                      $
+                                                      @endif
+                                                      @endforeach
+                                                    </td>
+                                                  </tr>
+
+
+                                                  <tr class="nd_booking_info_table_last">
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>@foreach ($listCaterooms as $cate)
+                                                      @if($room->cate_room==$cate->id)
+                                                      {{ $cate->price*1}}
+                                                      $
+                                                      @endif
+                                                      @endforeach
+                                                    </td>
+                                                  </tr>
+
+                                                </table>
+
+                                                <div class="nd_booking_info_table_triangle"></div>
+
+                                              </div>
+                                            </div>
+                                            <!--END popup-->
+
+                                          </div>
+                                          <!--END all info-->
+                                          <div class="nd_booking_section nd_booking_height_20"></div>
+                                          <div class="nd_booking_section nd_booking_height_1 nd_booking_border_bottom_1_solid_grey"></div>
+                                          <div class="nd_booking_section nd_booking_height_20"></div>
+                                          <a title="Swimming Pool" class="nd_booking_tooltip_jquery nd_booking_float_left"><img loading="lazy" alt="Swimming Pool" class="nd_booking_margin_right_15 nd_booking_float_left" width="23" height="23" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/swmming-pool.png"></a>
+
+                                          <a title="Television" class="nd_booking_tooltip_jquery nd_booking_float_left"><img loading="lazy" alt="Television" class="nd_booking_margin_right_15 nd_booking_float_left" width="23" height="23" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/television.png"></a>
+
+                                          <a title="No Smoking" class="nd_booking_tooltip_jquery nd_booking_float_left"><img loading="lazy" alt="No Smoking" class="nd_booking_margin_right_15 nd_booking_float_left" width="23" height="23" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/no-smoking.png"></a>
+
+                                          <a title="Private Bathroom" class="nd_booking_tooltip_jquery nd_booking_float_left"><img loading="lazy" alt="Private Bathroom" class="nd_booking_margin_right_15 nd_booking_float_left" width="23" height="23" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/private-bathroom.png"></a>
+
+                                          <a href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/small-room/" class="nd_booking_margin_top_7 nd_booking_margin_top_20_all_iphone nd_booking_width_100_percentage_all_iphone nd_booking_float_right nd_booking_float_left_all_iphone nd_booking_display_inline_block nd_booking_text_align_center nd_booking_box_sizing_border_box nd_booking_font_size_12">
+                                            <span class="nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2">Thông Tin Phòng</span>
+                                            <img alt="" class="nd_booking_margin_left_5 nd_booking_float_left" width="10" src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-right-arrow-grey.svg">
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+                                  @endif
                                   @endforeach
                                 </div>
 
 
                                 <script type="text/javascript">
                                   //<![CDATA[
-
                                   jQuery(document).ready(function() {
-
                                     //START masonry
                                     jQuery(function($) {
-
                                       //Masonry
                                       var $nd_booking_masonry_content = $(".nd_booking_masonry_content").imagesLoaded(function() {
                                         // init Masonry after all images have loaded
@@ -1230,8 +1331,6 @@
                                           itemSelector: ".nd_booking_masonry_item"
                                         });
                                       });
-
-
                                       //tooltip
                                       $(".nd_booking_tooltip_jquery").tooltip({
                                         tooltipClass: "nd_booking_tooltip_jquery_content",
@@ -1240,16 +1339,12 @@
                                           at: "center-7 top-33",
                                         }
                                       });
-
-
                                     });
                                     //END masonry
-
                                   });
-
                                   //]]&gt;
                                 </script>
-                               
+
                                 <div id="nd_booking_btn_pagination_content" class="nd_booking_section nd_booking_margin_top_20">
 
                                   <div id="nd_booking_btn_pagination" class="nd_booking_section nd_booking_text_align_center">
@@ -1293,3 +1388,4 @@
 
   </div>
   @endsection
+ 
