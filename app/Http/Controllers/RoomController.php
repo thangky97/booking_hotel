@@ -67,10 +67,10 @@ class RoomController extends Controller
     public function search_cate($id)
     {
         $cate_rooms = new CategoryRooms();
-        $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
+        $this->v['listCaterooms'] = $cate_rooms->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
         $room = new Rooms();
-        $this->v['room'] = $room->loadAllstatus()
+        $this->v['listRooms'] = $room->loadAllstatus()
             ->where('cate_room', '=', $id);
         //     ->where('status', '=', 1)
         // ->where(function ($query) use ($check_in, $check_out) {

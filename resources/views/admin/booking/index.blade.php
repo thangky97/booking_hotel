@@ -16,7 +16,7 @@
                                     </li>
 									<li class="nav-item">
 										<a class="nav-link active" data-bs-toggle="tab" href="#Active" role="tab">Còn hạn</a>
-									</li>loai_phong
+									</li>
 									<li class="nav-item">
 										<a class="nav-link" data-bs-toggle="tab" href="#Canceled" role="tab">Hết hạn</a>
 									</li>
@@ -145,7 +145,7 @@
                                                         </a>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
-                                                            <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Bill',$item->id)}}">Tạo Bill</a>
+                                                            <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Tạo Bill</a>
                                                         </div>
                                                     </div>
                                                 </td>

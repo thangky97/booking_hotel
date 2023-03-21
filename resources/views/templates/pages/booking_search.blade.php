@@ -156,15 +156,9 @@
                                                                              width="10"
                                                                              src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/elementor/order/layout/../img/icon-down-arrow-white.svg">
                                                                         <ul class="nd_booking_padding_top_12 nd_booking_z_index_99 nd_booking_width_160 nd_booking_list_style_none nd_booking_search_filter_options_child nd_booking_position_absolute nd_booking_left_0 nd_booking_top_50 nd_booking_display_none nd_booking_padding_0 nd_booking_margin_0 nd_booking_width_100_percentage">
-                                                                            @foreach ($listCaterooms as $cate)
-                                                                                <li class="nd_booking_text_align_left nd_booking_bg_greydark_2 nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_15_20">
-                                                                                    <a data-meta-key="nd_booking_meta_box_room_size"
-                                                                                       data-order="DESC"
-                                                                                       class="nd_booking_cursor_pointer nd_options_color_white">
-                                                                                        <span
-                                                                                            class="nd_booking_sorting_label_1">{{$cate->name}}</span></a>
-                                                                                </li>
-                                                                            @endforeach
+                                                                        @foreach ($listCaterooms as $cate)
+                                                                        <li class="nd_booking_text_align_left nd_booking_bg_greydark_2 nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_15_20"><a href="{{route('route_FontEnd_BookingSearch_SearchCate',$cate->id)}}" data-meta-key="nd_booking_meta_box_room_size" data-order="DESC" class="nd_booking_cursor_pointer nd_options_color_white"> <span class="nd_booking_sorting_label_1">{{$cate->name}}</span></a></li>
+                                                                        @endforeach
                                                                         </ul>
                                                                     </li>
 
