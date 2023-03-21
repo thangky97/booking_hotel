@@ -11,9 +11,12 @@ class Gallery extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
+//        'id',
         'cate_room_id',
         'images',
     ];
+    public function cateRoom(){
+        return $this->belongsTo(CategoryRooms::class);
+    }
 }
 

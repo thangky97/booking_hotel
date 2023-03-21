@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\DB;
 class RoomController extends Controller
 {
     private $v;
+
     public function __construct()
     {
         $this->v = [];
     }
+
     public function index(Request $request)
     {
         $room = new Rooms();
@@ -24,6 +26,7 @@ class RoomController extends Controller
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
         return view('templates.pages.booking_search', $this->v);
     }
+
     public function search(Request $request)
     {
         $check_in = strtotime($request->check_in);
@@ -60,6 +63,7 @@ class RoomController extends Controller
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
         return view('templates.pages.booking_search', $this->v);
     }
+
     public function search_cate($id)
     {
         $cate_rooms = new CategoryRooms();
@@ -76,6 +80,7 @@ class RoomController extends Controller
 
         return view('templates.pages.booking_search', $this->v);
     }
+
     public function loadfilter(Request $request)
     {
         $room = new Rooms();
@@ -86,8 +91,6 @@ class RoomController extends Controller
 
         return view('templates.pages.booking_search', $this->v);
     }
-
-
 
 
     public function add()

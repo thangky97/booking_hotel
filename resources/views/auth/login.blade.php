@@ -89,13 +89,6 @@
                                                     href="{{ route('getRegister') }}">Đăng ký</a>
                                             </p>
                                         </div>
-                                        <div>
-                                            <button class="btn btn-phoenix-secondary w-100 mb-3"><span
-                                                    class="fab fa-google text-danger me-2 fs--1"></span>Đăng nhập với
-                                                Google</button><button class="btn btn-phoenix-secondary w-100"><span
-                                                    class="fab fa-facebook text-primary me-2 fs--1"></span>Đăng nhập với
-                                                Facebook</button>
-                                        </div>
                                     </form>
 
                                     <?php //Hiển thị thông báo thành công

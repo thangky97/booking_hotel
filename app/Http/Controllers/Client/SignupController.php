@@ -1,37 +1,40 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class RegisterController extends Controller
+class SignupController extends Controller
 {
-    public function getRegister()
+    public function getSignup()
     {
-        return view('auth.register');
+        return view('templates.pages.auth.sign_up');
     }
 
-    public function postRegister(Request $request) {
-        $method_route = "getRegister";
+    public function postSignup(Request $request) {
+
+        $method_route = "getSignup";
+
         if ($request->isMethod('post')) {
             $params = [];
             $params['cols'] = $request->post();
             unset( $params['cols']['_token']);
          
-            if ($request->hasFile('images') && $request->file('images')->isValid())
-            {
-                $params['cols']['avatar'] = $this->uploadFile($request->file('images'));
-            }
+            // if ($request->hasFile('images') && $request->file('images')->isValid())
+            // {
+            //     $params['cols']['avatar'] = $this->uploadFile($request->file('images'));
+            // }
+            
             $modelTes = new Admin();
             $res = $modelTes->saveNew($params);
             if ($res == null) {
                 return  redirect()->route($method_route);
             } elseif ($res > 0) {
                 Session::flash('success','Đăng ký');
-                return redirect()->route('getLogin');
+                return redirect()->route($method_route);
             } else {
                 Session::flash('error','Lỗi đăng ký tài khoản ');
                 return redirect()->route($method_route);
@@ -40,8 +43,8 @@ class RegisterController extends Controller
         return view('getLogin');
     }
 
-    public function uploadFile($file) {
-        $fileName = time().'_'.$file->getClientOriginalName();
-        return $file->storeAs('register',$fileName,'public');
-    }
+    // public function uploadFile($file) {
+    //     $fileName = time().'_'.$file->getClientOriginalName();
+    //     return $file->storeAs('register',$fileName,'public');
+    // }
 }

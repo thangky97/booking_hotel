@@ -15,7 +15,6 @@ class Admin extends Authenticatable
 
     protected $table = 'admin';
     protected $fillable = [
-        'id',
         'name',
         'email',
         'phone',
@@ -35,21 +34,8 @@ class Admin extends Authenticatable
         $res = DB::table($this->table)->insertGetId($data);
         return $res;
     }
-    public function loadListWithPager($param = [])
-    {
-        $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1);
-        $list = $query->paginate(10);
-        return $list;
-    }
+    
 
-    public function loadAll($param = [])
-    {
-        $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1);
-        $list = $query->get();
-        return $list;
-    }
      //load ra chi tiết người dùng
      public function loadOne($id, $params = []) {
         $query = DB::table($this->table)->where('id', '=', $id);
