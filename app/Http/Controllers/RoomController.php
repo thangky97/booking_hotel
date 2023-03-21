@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoryRooms;
 use App\Models\Rooms;
+use Faker\Core\Number;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +22,7 @@ class RoomController extends Controller
         $room = new Rooms();
         $this->v['listRooms'] = $room->loadAllStatus();
         $cate_rooms = new CategoryRooms();
-        $this->v['listCaterooms'] = $cate_rooms->loadAll();
+        $this->v['listCaterooms'] = $cate_rooms->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
         return view('templates.pages.booking_search', $this->v);
     }
@@ -66,17 +67,16 @@ class RoomController extends Controller
     public function search_cate($id)
     {
         $cate_rooms = new CategoryRooms();
-        $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
+        $this->v['listCaterooms'] = $cate_rooms->loadListWithPager();
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
         $room = new Rooms();
-        $this->v['room'] = $room->loadAllstatus()
+        $this->v['listRooms'] = $room->loadAllstatus()
             ->where('cate_room', '=', $id);
         //     ->where('status', '=', 1)
         // ->where(function ($query) use ($check_in, $check_out) {
         //     $query->where([$check_in, '<', 'checkin_date'], [$check_out, '<', 'checkout_date']);
         //     $query->orWhere([$check_out, '>', 'checkin_date'], [$check_out, '>', 'checkout_date']);
         // });
-        $this->v['room'] = $room;
 
         return view('templates.pages.booking_search', $this->v);
     }

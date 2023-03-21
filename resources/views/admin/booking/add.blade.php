@@ -255,7 +255,7 @@
                                                                                                 value="{{$item->id}}">
                                                                                         </div>
                                                                                     </td>
-                                                                                    <script>
+                                                                                    <!-- <script>
                                                                                         const checkbox{{$item->id}} = document.getElementById("checkbox-{{$item->id}}");
                                                                                         checkbox{{$item->id}}.addEventListener(
                                                                                             "click", function () {
@@ -267,7 +267,7 @@
                                                                                                 let x = localStorage.getItem('people');
                                                                                             }
                                                                                         )
-                                                                                    </script>
+                                                                                    </script> -->
                                                                                     <td class="">{{$i++}}</td>
                                                                                     <td class="text-center">
                                                                                         <div class="guest-bx ">

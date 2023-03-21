@@ -138,9 +138,8 @@
                                     <div
                                         class="nd_booking_section nd_booking_section_box_search_field nd_booking_border_style_solid nd_booking_padding_10_20 nd_booking_position_relative">
                                         <p id="nd_booking_date_number_from_front"
-                                            class="nd_booking_field_search nd_booking_display_inline_block ">16</p>
-                                        <p id="nd_booking_date_month_from_front"
-                                            class="nd_booking_field_search nd_booking_display_inline_block ">Feb</p>
+                                            class="nd_booking_field_search nd_booking_display_inline_block "><?php echo date('d') ?></p>
+                                        
                                         <img class="nd_booking_position_absolute nd_booking_right_20 nd_booking_top_50_percentage nd_booking_margin_top_6_negative"
                                             alt="" width="12"
                                             src="../hotel/wp-content/uploads/sites/2/2022/03/icon-down-arrow-white.png">
@@ -169,9 +168,8 @@
                                     <div
                                         class="nd_booking_section nd_booking_section_box_search_field nd_booking_border_style_solid nd_booking_padding_10_20 nd_booking_position_relative">
                                         <p id="nd_booking_date_number_to_front"
-                                            class="nd_booking_field_search nd_booking_display_inline_block ">17</p>
-                                        <p id="nd_booking_date_month_to_front"
-                                            class="nd_booking_field_search nd_booking_display_inline_block ">Feb</p>
+                                            class="nd_booking_field_search nd_booking_display_inline_block "><?php echo date('d')+1?></p>
+                                        
                                         <img class="nd_booking_position_absolute nd_booking_right_20 nd_booking_top_50_percentage nd_booking_margin_top_6_negative"
                                             alt="" width="12"
                                             src="../hotel/wp-content/uploads/sites/2/2022/03/icon-down-arrow-white.png">

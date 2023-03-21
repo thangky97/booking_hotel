@@ -145,7 +145,7 @@
                                                         </a>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
-                                                            <a class="dropdown-item" href="">Sửa</a>
+                                                            <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Tạo Bill</a>
                                                         </div>
                                                     </div>
                                                 </td>
