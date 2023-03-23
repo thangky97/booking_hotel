@@ -30,7 +30,7 @@ class BillDetailController extends Controller
         $this->v['service'] = $Service->loadAll();
         $Cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-        $this->v['title'] = '12 Zodiac - Dịch vụ đi kèm';
+        $this->v['title'] = ' Dịch vụ đi kèm';
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
         $Rooms = new Rooms();

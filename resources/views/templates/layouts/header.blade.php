@@ -642,9 +642,9 @@
                                             vertical-align: middle;
                                             display: inline-block
                                         }
-                                    </style> <a href="index.html">
-                                        <img width="281" height="91"
-                                            src="wp-content/uploads/sites/4/2022/05/apartment-logo.png"
+                                    </style> <a href="/">
+                                        <img width="281" height="21"
+                                            src="image/Zdiac_client1.png"
                                             class="attachment-large size-large" alt="" loading="lazy" /> </a>
                                 </div>
                             </div>

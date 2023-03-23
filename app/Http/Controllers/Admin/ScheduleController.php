@@ -16,7 +16,7 @@ class ScheduleController extends Controller
     {
         // $jobs = new Employer();
         // $this->v['list'] = $jobs->loadListWithPager();    
-        $this->v['title'] = '12 Zodiac - Lịch trình';
+        $this->v['title'] = ' Lịch trình';
         return view("admin/schedule.index",$this->v);
     }
 }

@@ -25,7 +25,7 @@
                                     <h2 class="card-title mb-0">Tổng số phòng sử dụng : {{$count}} Phòng</h2>
                                 </div>
                             </div>
-                            <table class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
+                            <table class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
                                 <thead>
                                     <tr>
                                         <th>Tên phòng</th>
