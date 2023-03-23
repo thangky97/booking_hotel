@@ -222,7 +222,7 @@
                                                             <div class="table-responsive">
                                                                 <table
                                                                     class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl "
-                                                                    id="guestTable-all">
+                                                                    >
                                                                     <thead>
                                                                     <tr>
                                                                         <th class="bg-none text-center">

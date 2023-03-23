@@ -12,19 +12,26 @@ use Illuminate\Support\Facades\File;
 
 class CategoryRoomController extends Controller
 {
+    private $v;
+
+    public function __construct()
+    {
+        $this->v = [];
+    }
+
     public function index()
     {
         $this->v['categoryRoom'] = CategoryRooms::where('status', 1)
             ->orderBy('id', 'asc')
             ->with('gallery')
             ->paginate(10);
-        $this->v['title'] = '12 Zodiac - Danh mục phòng';
+        $this->v['title'] = ' Danh mục phòng';
         return view('admin.cate_room.index', $this->v);
     }
 
     public function addForm()
     {
-        $this->v['title'] = '12 Zodiac - Thêm danh mục phòng';
+        $this->v['title'] = ' Thêm danh mục phòng';
         /// $gallery = DB::table('gallery')->get();
         return view('admin.cate_room.add', $this->v);
     }
@@ -87,7 +94,7 @@ class CategoryRoomController extends Controller
         $this->v['id'] = $id;
         $this->v['editCate'] = CategoryRooms::with('gallery')->find($id);
 
-        $this->v['title'] = '12 Zodiac - Sửa danh mục phòng';
+        $this->v['title'] = ' Sửa danh mục phòng';
         return view('admin.cate_room.detail', $this->v);
     }
 

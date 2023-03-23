@@ -29,7 +29,7 @@
                         <div class="tab-pane active show" id="All">
                             <div class="table-responsive">
                                 <table
-                                    class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg "
+                                    class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg "
                                     id="guestTable-all">
                                     <thead>
                                         <tr>
