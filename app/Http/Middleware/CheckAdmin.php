@@ -32,7 +32,7 @@ class CheckAdmin
         if ($user->role !== 1) {
             // Nếu không đáp ứng đk thì tự quay về route error.404
             return redirect()->route('403');
-        } 
+        }
         // else ($user->role !==2  ) {
         //     return redirect()->route();
         // }

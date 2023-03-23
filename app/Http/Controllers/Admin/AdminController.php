@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function admin()
     {
         // $jobs = new Employer();
-        // $this->v['list'] = $jobs->loadListWithPager();    
+        // $this->v['list'] = $jobs->loadListWithPager();
         $this->v['title'] = ' Dashboard';
         return view("admin/dashboard", $this->v);
     }
@@ -29,7 +29,7 @@ class AdminController extends Controller
         $name = $request->get('name');
         if ($name) {
             $admin = Admin::where('name', 'like', '%' . $name . '%')
-                // ->where('id', '>', 3) 
+                // ->where('id', '>', 3)
                 ->with('new')
                 ->paginate(5);
         } else {
@@ -37,7 +37,7 @@ class AdminController extends Controller
                 // ->get();
                 // ->where('id', '>', 3)
                 // (tên trường, toán tử điều kiện, giá trị)
-                ->with('new') // truy vấn thêm quan hệ trước khi truy vấn 
+                ->with('new') // truy vấn thêm quan hệ trước khi truy vấn
                 // ->where('id', '<=', 7)
                 ->paginate(5);
             // ->cursorPaginate(5); truy vấn where id > 5 limit 5
@@ -120,10 +120,10 @@ class AdminController extends Controller
 
     // public function changeStatus(Request $request)
 
-    // { 
-    //     $User = User::find($request->id); 
-    //     $User->status = $request->status; 
-    //     $User->save(); 
-    //     return response()->json(['success'=>'Status change successfully.']); 
+    // {
+    //     $User = User::find($request->id);
+    //     $User->status = $request->status;
+    //     $User->save();
+    //     return response()->json(['success'=>'Status change successfully.']);
     // }
 }

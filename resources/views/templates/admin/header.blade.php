@@ -1,7 +1,7 @@
 <div class="nav-header">
     <a href="{{ route('route_BackEnd_Dashboard') }}" class="brand-logo">
        <img src="/image/12logo.png" class="logo-abbr"   alt="">
-        
+
         <img style="margin-left: -5px;" class="brand-title " src="/image/Zdiac_text1.png" alt="" width="120">
     </a>
     <div class="nav-control">

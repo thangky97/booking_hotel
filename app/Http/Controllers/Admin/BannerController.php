@@ -20,7 +20,7 @@ class BannerController extends Controller
     {
         $banner = new Banner();
         $this->v['list'] = $banner->loadListWithPager();
-      
+
         $this->v['title'] = ' Banner';
         return view("admin.banner.index", $this->v);
     }
@@ -96,5 +96,5 @@ class BannerController extends Controller
         return $file->storeAs('banner', $fileName, 'public');
     }
 
-    
+
 }

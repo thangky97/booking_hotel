@@ -104,10 +104,10 @@
                                                         <span class="badge light badge-warning">Khóa</span>
                                                     @endif
                                                 </td>
-                                                
+
                                                 <td>
                                                     <div class="d-flex">
-                                                        
+
                                                         <a href="{{ route('route_BackEnd_Admin_Edit', ['id' => $admin->id]) }}"
                                                             class="btn btn-primary shadow btn-xs sharp me-1"><i
                                                                 class="fa fa-pencil-alt"></i></a>

@@ -40,7 +40,7 @@ class BillController extends Controller
         $this->v['use_date'] = $use_date;
         return view('admin.bill.add', $this->v);
     }
-    
+
 
     public function store()
     {
@@ -52,7 +52,7 @@ class BillController extends Controller
         //sửa
     }
 
-    public function update() 
+    public function update()
     {
         //lưu sửa
     }
