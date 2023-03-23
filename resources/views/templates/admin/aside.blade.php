@@ -16,6 +16,7 @@
                     <li><a href="{{ route('route_BackEnd_Employees_List') }}">Nhân viên</a></li>
                     <li><a href="{{ route('route_BackEnd_Rooms_List') }}">Phòng</a></li>
                     <li><a href="{{ route('route_BackEnd_Categoryrooms_List') }}">Loại phòng</a></li>
+                    <li><a href="{{ route('route_BackEnd_Category_New_index') }}">Category_new</a></li>
                     <li><a href="{{ route('route_BackEnd_properties_List') }}">Thuộc tính phòng</a></li>
                     <li><a href="{{ route('route_BackEnd_Users_List') }}">Người dùng</a></li>
                     <li><a href="{{ route('route_BackEnd_Feedback_List') }}">Nhận xét</a></li>
@@ -48,6 +49,16 @@
                     <span class="nav-text">Trang</span>
                 </a>
             </li>
+            <li><a class="has-arrow ai-icon" href="{{ route('route_BackEnd_Banner_index') }}" aria-expanded="false">
+                <i class="bi bi-award-fill"></i>
+                <span class="nav-text">Banner</span>
+            </a>
+        </li>
+        <li><a class="has-arrow ai-icon" href="{{ route('route_BackEnd_News_List') }}" aria-expanded="false">
+            <i class="bi bi-newspaper"></i>
+            <span class="nav-text">Tin Tức</span>
+        </a>
+    </li>
         </ul>
         <div class="copyright">
             <p><strong>12 Zodiac Admin</strong> © 2023 All Rights Reserved</p>

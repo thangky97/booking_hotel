@@ -18,7 +18,7 @@
 								</div>
 							</div>
 							<div>
-								<a href="{{route('route_BackEnd_Banner_Add')}}" class="btn btn-info mb-xxl-0 mb-4"><i
+								<a href="{{route('route_BackEnd_News_Add')}}" class="btn btn-info mb-xxl-0 mb-4"><i
 									class="fa fa-bed me-2"></i>Thêm mới</a>
 								<a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
 										class="far fa-file-word me-2"></i>Tạo báo cáo</a>
@@ -88,24 +88,59 @@
 															id="checkAll">
 													</div>
 												</th>
-
+												<th class="text-center">Tên loại phòng</th>
+												<th class="text-center">Miêu tả</th>
+                                                <th class="text-center">Tiêu đề</th>
+                                                <th class="text-center">Ngày</th>
+                                                <th class="text-center">cate_id</th>
                                                 <th class="text-center">Trạng thái</th>
-                                                <th class="text-center">Image</th>
+                                                <th class="text-center">Ảnh</th>
 												<th class="text-center">Action</th>
 											</tr>
 										</thead>
 										<tbody>
-                                            @foreach ($banner as $b)
+                                            @foreach ($news as $n)
 											<tr>
 												<td>
 													<div class="form-check style-1">
 														<input class="form-check-input" type="checkbox" value="">
 													</div>
 												</td>
+                                                <td>
+													<div class="text-center">
 
-                                                <td class="text-center">{{ $b->status == 1 ? 'kích hoạt' : 'khóa' }}</td>
+														<span>{{ $n->name }}</span>
+													</div>
+												</td>
 
-                                                <td class="text-center"><img src="{{ asset('storage/'. $b->images) }}" alt="" width="100px"></td>
+												<td>
+													<div class="text-center">
+
+														<span>{{ $n->description}}</span>
+													</div>
+												</td>
+                                                <td>
+													<div class="text-center">
+
+														<span>{{ $n->title}}</span>
+													</div>
+												</td>
+                                                <td>
+													<div class="text-center">
+
+														<span>{{ $n->date}}</span>
+													</div>
+												</td>
+                                                <td>
+													<div class="text-center">
+
+														<span>{{ $n->cate_id}}</span>
+													</div>
+												</td>
+
+                                                <td class="text-center">{{ $n->status == 1 ? 'kích hoạt' : 'khóa' }}</td>
+
+                                                <td class="text-center"><img src="{{ asset('storage/'. $n->images) }}" alt="" width="100px"></td>
 												<td>
 													<div class="dropdown dropstart">
 														<a href="javascript:void(0);" class="btn-link"
@@ -127,9 +162,9 @@
 															</svg>
 														</a>
 														<div class="dropdown-menu">
-															<a class="dropdown-item" href="{{route('route_BackEnd_Banner_Detail', $b->id)}}">Edit</a>
+															<a class="dropdown-item" href="{{route('route_BackEnd_News_Detail',$n->id)}}">Edit</a>
 															<a onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="dropdown-item"
-																href="{{route('route_BackEnd_Banner_Delete', $b->id)}}">Delete</a>
+																href="{{route('route_BackEnd_News_Remove', $n->id)}}">Delete</a>
 														</div>
 													</div>
 												</td>
@@ -147,7 +182,7 @@
 
         <br>
         <div class="text-center">
-            {{$banner->links()}}
+            {{$news->links()}}
         </div>
         <index-cs ref="index_cs"></index-cs>
     </section>
