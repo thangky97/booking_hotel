@@ -181,6 +181,33 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @if(isset($people))
+                                                    <div class="mb-3 row">
+                                                        <label class="col-lg-4 col-form-label">Nhập số người
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="col-lg-6">
+                                                            <input type="text" name="people" class="form-control"
+                                                                   placeholder="Nhập số người" value="{{$people}}">
+                                                            <div class="invalid-feedback">
+                                                                Please enter a password.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                    <div class="mb-3 row">
+                                                        <label class="col-lg-4 col-form-label">Nhập số người
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="col-lg-6">
+                                                            <input type="number" name="people" class="form-control"
+                                                                   placeholder="Nhập số người">
+                                                            <div class="invalid-feedback">
+                                                                Please enter a password.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="mb-3 row">
@@ -202,13 +229,28 @@
                                                 </div>
                                             </div>
                                             <div>
+                                                @if(isset($errorpeople))
+                                                    <div class="error2">
+                                                        <p>{{$errorpeople}}</p>
+                                                    </div>
+                                                @endif
                                                 <div class="card-tabs mt-3 mb-xxl-0 mb-4">
                                                     <ul class="nav nav-tabs" role="tablist">
                                                         @foreach($listCaterooms as $cate_room)
                                                             <li class="nav-item <?= $cate_room->id == 1 ? 'active' : '' ?>">
                                                                 <a class="nav-link" data-bs-toggle="tab"
                                                                    href="#{{$cate_room->sort}}"
-                                                                   role="tab">{{$cate_room->name}}</a>
+                                                                   role="tab">{{$cate_room->name}}
+                                                                        <?php $i=0?>
+                                                                    @foreach($listRooms as $index => $item)
+                                                                        @if($cate_room->id==$item->cate_room)
+                                                                            @if(empty(in_array($item->id,$listRoomwork)))
+                                                                                    <?php $i++?>
+                                                                            @endif
+                                                                        @endif
+                                                                    @endforeach
+                                                                    {{'('.$i.')'}}
+                                                                </a>
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -222,7 +264,7 @@
                                                             <div class="table-responsive">
                                                                 <table
                                                                     class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl "
-                                                                    >
+                                                                    id="guestTable-all">
                                                                     <thead>
                                                                     <tr>
                                                                         <th class="bg-none text-center">
@@ -255,19 +297,6 @@
                                                                                                 value="{{$item->id}}">
                                                                                         </div>
                                                                                     </td>
-                                                                                    <!-- <script>
-                                                                                        const checkbox{{$item->id}} = document.getElementById("checkbox-{{$item->id}}");
-                                                                                        checkbox{{$item->id}}.addEventListener(
-                                                                                            "click", function () {
-                                                                                                if (this.checked) {
-                                                                                                    localStorage.setItem('people', Number(localStorage.getItem('people')) + {{$item->adult}});
-                                                                                                } else {
-                                                                                                    localStorage.setItem('people', Number(localStorage.getItem('people')) - {{$item->adult}});
-                                                                                                }
-                                                                                                let x = localStorage.getItem('people');
-                                                                                            }
-                                                                                        )
-                                                                                    </script> -->
                                                                                     <td class="">{{$i++}}</td>
                                                                                     <td class="text-center">
                                                                                         <div class="guest-bx ">
@@ -317,6 +346,18 @@
                                                                 <p>{{$errorin}}</p>
                                                             </div>
                                                         @endif
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 row">
+                                                    <label class="col-lg-4 col-form-label">Nhập số người
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="number" name="people" class="form-control"
+                                                               placeholder="Nhập số người">
+                                                        <div class="invalid-feedback">
+                                                            Please enter a password.
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

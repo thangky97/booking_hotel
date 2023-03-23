@@ -31,7 +31,7 @@ class BookingController extends Controller
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         $Bookings = new Booking();
         $this->v['listBookings'] = $Bookings->loadListWithPager();
-        $this->v['title'] = ' Đơn đặt phòng';
+        $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
         return view('admin.booking.index', $this->v);
     }
 
@@ -43,13 +43,13 @@ class BookingController extends Controller
         $Cate_rooms = new Categoryrooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         $this->v['usernew'] = Users::find($id);
-        $this->v['title'] = ' Đơn đặt phòng';
+        $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
         return view('admin.booking.add', $this->v);
     }
 
     public function adduser()
     {
-        $this->v['title'] = ' Đơn đặt phòng';
+        $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
         return view('admin.booking.adduser', $this->v);
     }
 
@@ -58,12 +58,12 @@ class BookingController extends Controller
         $today = date("Y/m/d", strtotime("now"));
         if (strtotime($request->date) >= strtotime($today)) {
             $this->v['error'] = 'Ngày sinh không hợp lệ phải nhỏ hơn hiện tại';
-            $this->v['title'] = ' Đơn đặt phòng';
+            $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
             return view('admin.booking.adduser', $this->v);
         }
         $user = Users::create($request->all());
         $userID = $user->id;
-        $this->v['title'] = ' Đơn đặt phòng';
+        $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
         return redirect()->route('route_BackEnd_Bookings_Add', $userID);
     }
 
@@ -78,7 +78,7 @@ class BookingController extends Controller
             $this->v['listCaterooms'] = $Cate_rooms->loadAll();
             $this->v['usernew'] = Users::find($id);
             $this->v['errorin'] = 'Ngày đặt không nhỏ hơn ngày hiện tại';
-            $this->v['title'] = ' Đơn đặt phòng';
+            $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
             return view('admin.booking.add', $this->v);
         }
         if (strtotime($request->checkout_date) < strtotime($today)) {
@@ -89,7 +89,7 @@ class BookingController extends Controller
             $this->v['listCaterooms'] = $Cate_rooms->loadAll();
             $this->v['usernew'] = Users::find($id);
             $this->v['errorout'] = 'Ngày trả không nhỏ hơn ngày hiện tại';
-            $this->v['title'] = ' Đơn đặt phòng';
+            $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
             return view('admin.booking.add', $this->v);
         }
         if (strtotime($request->checkin_date) >= strtotime($request->checkout_date)) {
@@ -100,7 +100,7 @@ class BookingController extends Controller
             $this->v['listCaterooms'] = $Cate_rooms->loadAll();
             $this->v['usernew'] = Users::find($id);
             $this->v['errorout'] = 'Ngày trả không nhỏ hơn hoặc bằng ngày đặt';
-            $this->v['title'] = ' Đơn đặt phòng';
+            $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
             return view('admin.booking.add', $this->v);
         }
         if (empty($request->room_id)) {
@@ -108,7 +108,7 @@ class BookingController extends Controller
             $Cate_rooms = new Categoryrooms();
             $this->v['listCaterooms'] = $Cate_rooms->loadAll();
             $this->v['usernew'] = Users::find($id);
-            $this->v['title'] = ' Đơn đặt phòng';
+            $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
             $this->v['checkin'] = $request->checkin_date;
             $this->v['checkout'] = $request->checkout_date;
             $check_in = strtotime($request->checkin_date);
@@ -140,22 +140,68 @@ class BookingController extends Controller
             $this->v['listRoomwork'] = array_unique($arrRoomworks);
             $Rooms = new Rooms();
             $this->v['listRooms'] = $Rooms->loadAll();
+            $this->v['people'] = $request->people;
             return view('admin.booking.add', $this->v);
         } else {
+            $people=0;
+            foreach ($request->room_id as $ro_id) {
+                $room = Rooms::find($ro_id);
+                $people = $room->adult + $people;
+            }
+            if ($people<$request->people){
+                $this->v['listEmployees'] = DB::table('admin')->get();
+                $Cate_rooms = new Categoryrooms();
+                $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+                $this->v['usernew'] = Users::find($id);
+                $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
+                $this->v['checkin'] = $request->checkin_date;
+                $this->v['checkout'] = $request->checkout_date;
+                $check_in = strtotime($request->checkin_date);
+                $check_out = strtotime($request->checkout_date);
+                $rooms = DB::table('rooms')
+                    ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
+                    ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
+                    ->select('rooms.id', 'bookings.checkin_date', 'bookings.checkout_date')
+                    ->get();
+                $arrRoomworks = array();
+                foreach ($rooms as $index => $room) {
+                    if (strtotime($room->checkin_date) <= $check_in && strtotime($room->checkout_date) >= $check_out) {
+                        $arrRoom = array($index => $room->id);
+                        $arrRoomworks = $arrRoom+ $arrRoomworks;
+                    }
+                    if (strtotime($room->checkin_date) > $check_in && strtotime($room->checkout_date) < $check_out) {
+                        $arrRoom = array($index => $room->id);
+                        $arrRoomworks = $arrRoom + $arrRoomworks;
+                    }
+                    if (strtotime($room->checkin_date) > $check_in && strtotime($room->checkin_date) <= $check_out) {
+                        $arrRoom = array($index => $room->id);
+                        $arrRoomworks = $arrRoom + $arrRoomworks;
+                    }
+                    if (strtotime($room->checkout_date) >= $check_in && strtotime($room->checkout_date) < $check_out) {
+                        $arrRoom = array($index => $room->id);
+                        $arrRoomworks = $arrRoom + $arrRoomworks;
+                    }
+                }
+                $this->v['listRoomwork'] = array_unique($arrRoomworks);
+                $Rooms = new Rooms();
+                $this->v['listRooms'] = $Rooms->loadAll();
+                $this->v['errorpeople'] = 'Số người trong phòng không đủ. Xin hãy chọn thêm phòng!';
+                $this->v['people'] = $request->people;
+
+                return view('admin.booking.add', $this->v);
+            }
             $booking = Booking::create([
                 'user_id' => $request->user_id,
                 'checkin_date' => $request->checkin_date,
                 'checkout_date' => $request->checkout_date,
-                'people' => 0,
+                'people' => $people,
                 'status_booking' => $request->status_booking,
                 'status_pay' => $request->status_pay,
                 'staff_id' => $request->staff_id,
             ]);
             $idBooking = (string)$booking->id;
-            $people = 0;
             foreach ($request->room_id as $ro_id) {
                 $room = Rooms::find($ro_id);
-                $people = $room->adult + $people;
                 $bookings_detail = new Bookingdetail();
                 $bookings_detail->booking_id = $idBooking;
                 $bookings_detail->room_id = $ro_id;
@@ -163,9 +209,6 @@ class BookingController extends Controller
 
                 $bookings_detail->save();
             }
-            Booking::find($idBooking)->update([
-                'people' => $people,
-            ]);
             $usernew = Users::find($id);
             $usernew->name = $request->name;
             $usernew->phone = $request->phone;
@@ -176,7 +219,7 @@ class BookingController extends Controller
             $usernew->room_id = implode(',', $request->room_id);
             $usernew->save();
 
-            $this->v['title'] = ' Đơn đặt phòng';
+            $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
             return redirect()->route('route_BackEnd_Bookings_List');
         }
     }
@@ -192,7 +235,7 @@ class BookingController extends Controller
         $this->v['user'] = Users::find($booking->user_id);
         $Cate_rooms = new Categoryrooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-        $this->v['title'] = ' Chi tiết đơn';
+        $this->v['title'] = '12 Zodiac - Chi tiết đơn';
         return view('admin.booking.detail', $this->v);
     }
 
