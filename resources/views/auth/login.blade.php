@@ -51,17 +51,19 @@
                                     <div class="text-center mb-3">
                                         <a href="index.html"><img src="images/logo-full.png" alt=""></a>
                                     </div>
-                                    <h4 class="text-center mb-4">Đăng nhập vào Zodiac</h4>
-                                    <form action="{{ route('auth.postLogin') }}" method="post">
+                                    <h4 class="text-center mb-4">Đăng nhập vào 12 Zodiac</h4>
+                                    <form action="{{ route('postLogin') }}" method="post">
                                         @csrf
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Email</strong></label>
+                                            <label class="mb-1"><strong>Email</strong>
+                                                <span class="text-danger">*</span></label>
                                             <input type="text" name="email" class="form-control"
                                                 placeholder="hello@example.com">
                                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Mật khẩu</strong></label>
+                                            <label class="mb-1"><strong>Mật khẩu</strong>
+                                                <span class="text-danger">*</span></label>
                                             <input type="password" name="password" class="form-control"
                                                 placeholder="Nhập mật khẩu...">
                                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -81,57 +83,54 @@
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
                                         </div>
-                                        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                                        <div>
-                                            <button class="btn btn-phoenix-secondary w-100 mb-3"><span
-                                                class="fab fa-google text-danger me-2 fs--1"></span>Sign in with
-                                            google</button><button class="btn btn-phoenix-secondary w-100"><span
-                                                class="fab fa-facebook text-primary me-2 fs--1"></span>Sign in with
-                                            facebook</button>
+                                        {{-- <input type="hidden" name="_token" value="{!! csrf_token() !!}"> --}}
+                                        <div class="new-account mt-3">
+                                            <p>Bạn chưa có tài khoản? <a class="text-primary"
+                                                    href="{{ route('getRegister') }}">Đăng ký</a>
+                                            </p>
                                         </div>
                                     </form>
 
-                                <?php //Hiển thị thông báo thành công
-                                ?>
-                                @if (Session::has('success'))
-                                    <div class="alert alert-success alert-dismissible" role="alert">
-                                        <strong>{{ Session::get('success') }}</strong>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                            <span class="sr-only">Close</span>
-                                        </button>
-                                    </div>
-                                @endif
-                                <?php //Hiển thị thông báo lỗi
-                                ?>
-                                {{-- Hiển thị 1 lỗi --}}
-                                @if (Session::has('error'))
-                                    <div class="alert alert-danger alert-dismissible" role="alert">
-                                        <strong>{{ Session::get('error') }}</strong>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                            <span class="sr-only">Close</span>
-                                        </button>
-                                    </div>
-                                @endif
-                                {{-- Hiển thị nhiều lỗi --}}
-                                @if ($errors->any())
-                                    <div class="alert alert-danger alert-dismissible" role="alert">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                        <button type="button" class="close" data-dismiss="alert"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                            <span class="sr-only">Close</span>
-                                        </button>
-                                    </div>
-                                @endif
-                                <div class="new-account mt-3">
-                                    <p>Bạn chưa có tài khoản? <a class="text-primary" href="">Đăng ký</a>
-                                    </p>
+                                    <?php //Hiển thị thông báo thành công
+                                    ?>
+                                    @if (Session::has('success'))
+                                        <div class="alert alert-success alert-dismissible" role="alert">
+                                            <strong>{{ Session::get('success') }}</strong>
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                <span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                    @endif
+                                    <?php //Hiển thị thông báo lỗi
+                                    ?>
+                                    {{-- Hiển thị 1 lỗi --}}
+                                    @if (Session::has('error'))
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <strong>{{ Session::get('error') }}</strong>
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                <span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                    @endif
+                                    {{-- Hiển thị nhiều lỗi --}}
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                <span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -139,7 +138,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 

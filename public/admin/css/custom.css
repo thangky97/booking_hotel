@@ -1,0 +1,22 @@
+/*Thêm style ở đây*/
+#more1 {display: none;}
+#more2 {display: none;}
+.ct-bt{
+    border: none;
+    background-color: #ffffff;
+    color: #8c8989;
+}
+.w180{
+    width: 180px;
+}
+.ml10{
+    margin-left: 10px;
+}
+.error{
+    margin-left: 5px;
+    color: red;
+}
+.error1{
+    margin-left: 5px;
+    color: red;
+}

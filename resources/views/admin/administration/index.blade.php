@@ -58,10 +58,10 @@
                         </div>
                         <div class="card-body">
                             <a href="{{ route('route_BackEnd_Admin_Add')}}" class="btn btn-rounded btn-success mb-xxl-0 mb-4"><span
-                                class="btn-icon-start text-success"><i class="fa fa-plus color-info"></i>
-                            </span>Thêm mới</a>
+                                class="btn-icon-start text-success"><i class="fa fa-user color-info"></i>
+                            </span>Thêm</a>
                             <div class="table-responsive">
-                                <table id="example3" class="table table-striped table-responsive-sm"
+                                <table id="example3" class="table table-striped default-table table-responsive-sm"
                                     style="min-width: 845px">
                                     <thead>
                                         <tr>
@@ -78,7 +78,7 @@
                                     <tbody>
                                         @foreach ($admin_list as $index => $admin)
                                             <tr>
-                                                <td>{{ $index + 1 }}</td>
+                                                <td class="text-primary">{{ $index + 1 }}</td>
                                                 <td><img class="rounded-circle" width="35"
                                                         src="{{ asset($admin->avatar) ? '' . Storage::url($admin->avatar) : ($admin->name) }}" alt=""></td>
                                                 <td>{{ $admin->name }}</td>
@@ -104,8 +104,10 @@
                                                         <span class="badge light badge-warning">Khóa</span>
                                                     @endif
                                                 </td>
+
                                                 <td>
                                                     <div class="d-flex">
+
                                                         <a href="{{ route('route_BackEnd_Admin_Edit', ['id' => $admin->id]) }}"
                                                             class="btn btn-primary shadow btn-xs sharp me-1"><i
                                                                 class="fa fa-pencil-alt"></i></a>
@@ -118,6 +120,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            {{ $admin_list->links() }}
                         </div>
                     </div>
                 </div>

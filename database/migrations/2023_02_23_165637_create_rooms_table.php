@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('cate_room')->comment("Dnah mục phòng");
             $table->string('images');
-            $table->string('title');
+            $table->string('floor')->comment("số tầng");
             $table->string('description');
             $table->integer('adult')->comment("Người lớn");
             $table->integer('childrend');

@@ -124,8 +124,8 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">
-                                                    <button type="submit" class="btn btn-primary">Cập nhật</button>
-                                                    <button type="submit" class="btn btn-info">Quay lại</button>
+                                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                                    <a href="{{ route('route_BackEnd_Admin_List') }}" class="btn btn-info">Hủy</a>
                                                 </div>
                                             </div>
                                         </div>

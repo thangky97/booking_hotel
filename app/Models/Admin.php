@@ -14,13 +14,12 @@ class Admin extends Authenticatable
     use HasFactory;
 
     protected $table = 'admin';
-    protected $fillable = [
-        'id', 
-        'name', 
+    protected $fillable = ['id',
+        'name',
         'email',
         'phone',
         'password',
-        'avatar', 
+        'avatar',
         'role',
         //'new_id',
         'status'
@@ -36,11 +35,19 @@ class Admin extends Authenticatable
         return $res;
     }
 
+
      //load ra chi tiết người dùng
      public function loadOne($id, $params = []) {
         $query = DB::table($this->table)->where('id', '=', $id);
         $obj = $query->first();
         return $obj;
+    }
+    public function loadListWithPager($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable);
+        $list = $query->paginate(10);
+        return $list;
     }
 
     //Sửa
@@ -62,5 +69,5 @@ class Admin extends Authenticatable
 
     public function new(){
         return $this->belongsTo(News::class, 'new_id', 'id');
-    } 
+    }
 }

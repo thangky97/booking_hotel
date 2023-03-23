@@ -18,6 +18,10 @@ return [
         'passwords' => 'users',
     ],
 
+    // Cấu hình để khi gọi thư viện Socialite không cần gọi driver('google')
+    // 'socialite' => [
+    //     'drivers' => ['google']
+    // ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -71,7 +75,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Admin::class,
         ],
 
         'admin' => [

@@ -1,4 +1,5 @@
 @extends('templates/admin.layoutadmin')
+@section('title', $title)
 @section('css')
 @endsection
 @section('content')
@@ -35,10 +36,10 @@
                                         <div class="form-group">
                                             <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span class="text-danger">(*)</span></label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="status" value = "2">
+                                            <input class="form-check-input" type="radio" name="status" value = "2" {{(isset($editProperties) && $editProperties->status === 2) ? 'checked' : ''}}>
                                             <label class="form-check-label" for="flexRadioDefault1" >Khóa</label>
                                             <div>
-                                            <input class="form-check-input" type="radio" name="status" value = "1">
+                                            <input class="form-check-input" type="radio" name="status" value = "1" {{(isset($editProperties) && $editProperties->status === 1) ? 'checked' : ''}}>
                                             <label class="form-check-label" for="flexRadioDefault2">Kích hoạt</label>
                                         </div>
                                         </div>

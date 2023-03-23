@@ -324,8 +324,7 @@
                                                         <li class="elementor-icon-list-item elementor-inline-item">
                                                             <a href="#">
 
-                                                                <span class="elementor-icon-list-text">Đặt phòng của
-                                                                    tôi</span>
+                                                                <span class="elementor-icon-list-text">Đặt phòng</span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -363,8 +362,6 @@
                                                                 <div style="background-color:#fff;"
                                                                     class="nd_options_box_sizing_border_box nd_options_padding_10 nd_options_section nd_options_text_align_left">
 
-
-
                                                                     <div
                                                                         class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
                                                                         <img alt=""
@@ -386,8 +383,6 @@
                                                                             </a>
                                                                         </div>
                                                                     </div>
-
-
 
                                                                     <div
                                                                         class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
@@ -411,8 +406,6 @@
                                                                         </div>
                                                                     </div>
 
-
-
                                                                     <div
                                                                         class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
                                                                         <img alt=""
@@ -434,9 +427,6 @@
                                                                             </a>
                                                                         </div>
                                                                     </div>
-
-
-
                                                                 </div>
                                                             </div>
 
@@ -501,38 +491,117 @@
                                         </div>
                                     </div>
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-cddffe5"
-                                        data-id="cddffe5" data-element_type="column">
+                                        data-id="cddffe5" data-element_type="column" style="width: 65%">
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-c003c9a elementor-widget elementor-widget-shortcode"
                                                 data-id="c003c9a" data-element_type="widget"
                                                 data-widget_type="shortcode.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-shortcode">
-
-                                                        <div id="" style="background-color:#6B6978;"
-                                                            class="  nd_options_display_table nd_options_float_right nd_options_padding_10_20 nd_options_margin_right_15">
-                                                            <a href="booking-account/index.html"><img alt=""
-                                                                    class="nd_options_margin_right_10 nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
-                                                                    width="30"
-                                                                    src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg"></a>
-                                                            <div
-                                                                class="nd_options_display_table_cell nd_options_vertical_align_middle">
-                                                                <p
-                                                                    class="nd_options_font_size_12 nd_options_text_align_left">
-                                                                    <a class="nd_options_color_white nd_options_first_font"
-                                                                        href="booking-account/index.html">Tài khoản</a>
-                                                                </p>
-                                                                <div class="nd_options_section nd_options_height_5">
+                                                        <div style="background-color: #6b6978" id="nd_options_alert_1"
+                                                            class="nd_options_display_table nd_options_position_relative nd_options_float_right nd_options_padding_10_20 nd_options_margin_right_15">
+                                                            @if (Auth::check())
+                                                                <a href="booking-account/index.html"><img
+                                                                        alt=""
+                                                                        class="nd_options_margin_right_10 nd_options_position_relative nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
+                                                                        width="30"
+                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg" /></a>
+                                                                <div
+                                                                    class="nd_options_display_table_cell nd_options_vertical_align_middle">
+                                                                    <p
+                                                                        class="nd_options_font_size_12 nd_options_text_align_left">
+                                                                        <a class="nd_options_color_white nd_options_first_font nd_options_position_relative"
+                                                                            href="booking-account/index.html">Tài
+                                                                            khoản</a>
+                                                                    </p>
+                                                                    <div
+                                                                        class="nd_options_section nd_options_height_5">
+                                                                    </div>
+                                                                    <h6
+                                                                        class="nd_options_font_size_10 nd_options_text_align_left nd_options_color_white nd_options_second_font">
+                                                                        <a class="nd_options_color_white nd_options_position_relative"
+                                                                            href="booking-account/index.html">{{ Auth::user()->name }}</a>
+                                                                    </h6>
                                                                 </div>
-                                                                <h6
-                                                                    class="nd_options_font_size_10 nd_options_text_align_left nd_options_color_white nd_options_second_font">
-                                                                    <a class="nd_options_color_white"
-                                                                        href="booking-account/index.html">Đăng nhập</a>
-                                                                </h6>
-                                                            </div>
 
+                                                                <div id="nd_options_alert_1_messages"
+                                                                    class="nd_options_display_none"
+                                                                    style="left: -15px; width: 180px;">
+                                                                    <div class="triangle-up"
+                                                                        style="margin-top: 15px;">
+                                                                    </div>
+
+                                                                    <div style="background-color: #fff"
+                                                                        class="nd_options_box_sizing_border_box nd_options_section nd_options_text_align_left nd_options_display_table_cell nd_options_vertical_align_middle">
+                                                                        <div class="nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70"
+                                                                            style="padding-top: 20px; padding-bottom: 20px">
+                                                                            <div
+                                                                                class="nd_options_section nd_options_padding_left_20 nd_options_box_sizing_border_box">
+                                                                                <a href="#">
+                                                                                    <h6>Đơn hàng của tôi</h6>
+                                                                                </a>
+                                                                                <div class="nd_options_section nd_options_height_10"
+                                                                                    style="height: 16px">
+                                                                                </div>
+                                                                                <a href="#">
+                                                                                    <h6>Cập nhật tài khoản</h6>
+                                                                                </a>
+                                                                                <div class="nd_options_section nd_options_height_10"
+                                                                                    style="height: 16px">
+                                                                                </div>
+                                                                                <a href="{{ route('logoutUser') }}">
+                                                                                    <h6>Đăng xuất</h6>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @else
+                                                                <a href="booking-account/index.html"><img
+                                                                        alt=""
+                                                                        class="nd_options_margin_right_10 nd_options_position_relative nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
+                                                                        width="30"
+                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg" /></a>
+                                                                <div
+                                                                    class="nd_options_display_table_cell nd_options_vertical_align_middle">
+                                                                    <p
+                                                                        class="nd_options_font_size_12 nd_options_text_align_left">
+                                                                        <a class="nd_options_color_white nd_options_first_font nd_options_position_relative"
+                                                                            href="booking-account/index.html">Tài
+                                                                            khoản</a>
+                                                                    </p>
+
+                                                                </div>
+
+                                                                <div id="nd_options_alert_1_messages"
+                                                                    class="nd_options_display_none"
+                                                                    style="left: -20px; width: 180px;">
+                                                                    <div class="triangle-up"
+                                                                        style="margin-top: 15px;">
+                                                                    </div>
+
+                                                                    <div style="background-color: #fff"
+                                                                        class="nd_options_box_sizing_border_box nd_options_section nd_options_text_align_left nd_options_display_table_cell nd_options_vertical_align_middle">
+                                                                        <div
+                                                                            class="nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_15 nd_options_min_height_70">
+                                                                            <div
+                                                                                class="nd_options_section nd_options_padding_left_20 nd_options_box_sizing_border_box">
+
+                                                                                <a href="{{ route('getSignin') }}">
+                                                                                    <h6>Đăng nhập</h6>
+                                                                                </a>
+                                                                                <div
+                                                                                    class="nd_options_section nd_options_height_15">
+                                                                                </div>
+                                                                                <a href="{{ route('getSignup') }}">
+                                                                                    <h6>Đăng ký</h6>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -573,9 +642,9 @@
                                             vertical-align: middle;
                                             display: inline-block
                                         }
-                                    </style> <a href="index.html">
-                                        <img width="281" height="91"
-                                            src="wp-content/uploads/sites/4/2022/05/apartment-logo.png"
+                                    </style> <a href="/">
+                                        <img width="281" height="21"
+                                            src="image/Zdiac_client1.png"
                                             class="attachment-large size-large" alt="" loading="lazy" /> </a>
                                 </div>
                             </div>
@@ -599,7 +668,7 @@
                                                     </li>
                                                     <li id="menu-item-6986"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6986">
-                                                        <a href="booking_search">Phòng</a>
+                                                        <a href="{{ route('route_FontEnd_BookingSearch') }}">Phòng</a>
                                                     </li>
                                                     <li id="menu-item-6992"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6992">
@@ -643,23 +712,28 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6981">
-                                                                <a href="home-1/index.html">Home 1</a></li>
+                                                                <a href="home-1/index.html">Home 1</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6980">
-                                                                <a href="home-2/index.html">Home 2</a></li>
+                                                                <a href="home-2/index.html">Home 2</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-263 current_page_item menu-item-6982">
                                                                 <a href="index.html" aria-current="page">Home 3</a>
                                                             </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6983">
-                                                                <a href="home-4/index.html">Home 4</a></li>
+                                                                <a href="home-4/index.html">Home 4</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6985">
-                                                                <a href="home-5/index.html">Home 5</a></li>
+                                                                <a href="home-5/index.html">Home 5</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_slide_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6984">
-                                                                <a href="home-6/index.html">Home 6</a></li>
+                                                                <a href="home-6/index.html">Home 6</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_demo_label menu-item menu-item-type-custom menu-item-object-custom menu-item-6971">
                                                                 <a target="_blank" rel="noopener"
@@ -682,15 +756,18 @@
                                                                     <li
                                                                         class="nd_options_best_label menu-item menu-item-type-post_type menu-item-object-nd_booking_cpt_1 menu-item-6974">
                                                                         <a href="rooms/small-room/index.html">Room
-                                                                            Gallery</a></li>
+                                                                            Gallery</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-nd_booking_cpt_1 menu-item-6973">
                                                                         <a href="rooms/apartment/index.html">Room
-                                                                            Video</a></li>
+                                                                            Video</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-nd_booking_cpt_1 menu-item-6972">
                                                                         <a href="rooms/room-with-view/index.html">Room
-                                                                            Default</a></li>
+                                                                            Default</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
@@ -700,7 +777,8 @@
                                                                     <li
                                                                         class="nd_options_hot_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6999">
                                                                         <a href="book-a-table/index.html">Book a
-                                                                            table</a></li>
+                                                                            table</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7032">
                                                                         <a href="open-table/index.html">Open Table</a>
@@ -713,16 +791,19 @@
                                                                 <ul class="sub-menu">
                                                                     <li
                                                                         class="nd_options_best_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6998">
-                                                                        <a href="rates-1/index.html">Rates 1</a></li>
+                                                                        <a href="rates-1/index.html">Rates 1</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6997">
-                                                                        <a href="rates-2/index.html">Rates 2</a></li>
+                                                                        <a href="rates-2/index.html">Rates 2</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-nd_booking_cpt_4 menu-item-7030">
                                                                 <a href="branches/hotel-london/index.html">Single
-                                                                    Branch</a></li>
+                                                                    Branch</a>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li
@@ -731,16 +812,20 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6995">
-                                                                <a href="about-us/index.html">About 1</a></li>
+                                                                <a href="about-us/index.html">About 1</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6994">
-                                                                <a href="about-2/index.html">About 2</a></li>
+                                                                <a href="about-2/index.html">About 2</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6993">
-                                                                <a href="about-3/index.html">About 3</a></li>
+                                                                <a href="about-3/index.html">About 3</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6996">
-                                                                <a href="hotel-staff/index.html">Hotel Staff</a></li>
+                                                                <a href="hotel-staff/index.html">Hotel Staff</a>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li
@@ -749,17 +834,21 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="nd_options_best_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7001">
-                                                                <a href="shop1/index.html">Shop 1</a></li>
+                                                                <a href="shop1/index.html">Shop 1</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7000">
-                                                                <a href="shop2/index.html">Shop 2</a></li>
+                                                                <a href="shop2/index.html">Shop 2</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7020">
-                                                                <a href="shop3/index.html">Shop 3</a></li>
+                                                                <a href="shop3/index.html">Shop 3</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-product menu-item-7003">
                                                                 <a href="product/mini-apt/index.html">Single
-                                                                    Product</a></li>
+                                                                    Product</a>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li
@@ -768,10 +857,12 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6991">
-                                                                <a href="prices/index.html">Prices</a></li>
+                                                                <a href="prices/index.html">Prices</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-6989">
-                                                                <a href="gallery/index.html">Gallery</a></li>
+                                                                <a href="gallery/index.html">Gallery</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7036">
                                                                 <a href="services-1/index.html">Services</a>
@@ -788,39 +879,47 @@
                                                             </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7006">
-                                                                <a href="faq/index.html">Faq</a></li>
+                                                                <a href="faq/index.html">Faq</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7007">
                                                                 <a target="_blank" rel="noopener"
-                                                                    href="coming-soon/index.html">Coming Soon</a></li>
+                                                                    href="coming-soon/index.html">Coming Soon</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7008">
                                                                 <a href="about-us/index.html">About</a>
                                                                 <ul class="sub-menu">
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7011">
-                                                                        <a href="about-us/index.html">About 1</a></li>
+                                                                        <a href="about-us/index.html">About 1</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7010">
-                                                                        <a href="about-2/index.html">About 2</a></li>
+                                                                        <a href="about-2/index.html">About 2</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7009">
-                                                                        <a href="about-3/index.html">About 3</a></li>
+                                                                        <a href="about-3/index.html">About 3</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7035">
-                                                                <a href="hotel-staff/index.html">Hotel Staff</a></li>
+                                                                <a href="hotel-staff/index.html">Hotel Staff</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7014">
                                                                 <a href="rates-1/index.html">Room Rates</a>
                                                                 <ul class="sub-menu">
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7013">
-                                                                        <a href="rates-1/index.html">Rates 1</a></li>
+                                                                        <a href="rates-1/index.html">Rates 1</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7012">
-                                                                        <a href="rates-2/index.html">Rates 2</a></li>
+                                                                        <a href="rates-2/index.html">Rates 2</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
@@ -830,7 +929,8 @@
                                                                     <li
                                                                         class="nd_options_hot_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7015">
                                                                         <a href="book-a-table/index.html">Book a
-                                                                            table</a></li>
+                                                                            table</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7016">
                                                                         <a href="open-table/index.html">Open Table</a>
@@ -849,20 +949,24 @@
                                                                 <ul class="sub-menu">
                                                                     <li
                                                                         class="nd_options_best_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7029">
-                                                                        <a href="archive/index.html">Archive</a></li>
+                                                                        <a href="archive/index.html">Archive</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7027">
                                                                         <a href="archive-left/index.html">Archive
-                                                                            Left</a></li>
+                                                                            Left</a>
+                                                                    </li>
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7028">
                                                                         <a href="archive-right/index.html">Archive
-                                                                            Right</a></li>
+                                                                            Right</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7017">
-                                                                <a href="news-page/index.html">News Page</a></li>
+                                                                <a href="news-page/index.html">News Page</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-7021">
                                                                 <a href="wellness/index.html">Single Post</a>
@@ -878,7 +982,8 @@
                                                                     <li
                                                                         class="menu-item menu-item-type-post_type menu-item-object-post menu-item-7023">
                                                                         <a href="lounge-bar/index.html">Left
-                                                                            Sidebar</a></li>
+                                                                            Sidebar</a>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -889,13 +994,16 @@
                                                         <ul class="sub-menu">
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6978">
-                                                                <a href="contact-1/index.html">Contact 1</a></li>
+                                                                <a href="contact-1/index.html">Contact 1</a>
+                                                            </li>
                                                             <li
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7018">
-                                                                <a href="contact-2/index.html">Contact 2</a></li>
+                                                                <a href="contact-2/index.html">Contact 2</a>
+                                                            </li>
                                                             <li
                                                                 class="nd_options_new_label menu-item menu-item-type-post_type menu-item-object-page menu-item-7019">
-                                                                <a href="contact-3/index.html">Contact 3</a></li>
+                                                                <a href="contact-3/index.html">Contact 3</a>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -919,7 +1027,7 @@
                                             class="elementor-button-link elementor-button elementor-size-sm"
                                             role="button">
                                             <span class="elementor-button-content-wrapper">
-                                                <span class="elementor-button-text">Đặt Bây Giờ</span>
+                                                <span class="elementor-button-text">Đặt Phòng</span>
                                             </span>
                                         </a>
                                     </div>
@@ -931,5 +1039,4 @@
             </section>
         </div>
     </div>
-
 </div>

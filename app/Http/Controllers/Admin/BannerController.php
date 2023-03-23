@@ -1,67 +1,100 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Models\Banner;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Banner;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Termwind\Components\Raw;
+
 class BannerController extends Controller
 {
-
-    public function index()
+    private $v;
+    public function __construct()
     {
-        $banner = DB::table('banner')->orderBy('desc');//phan trang , toi da 5 ban ghi
-        return view('admin.banner.index', compact('banner'));
+        $this->v = [];
+    }
+    public function banner()
+    {
+        $banner = new Banner();
+        $this->v['list'] = $banner->loadListWithPager();
+
+        $this->v['title'] = ' Banner';
+        return view("admin.banner.index", $this->v);
     }
 
-    public function addForm()
+
+    public function banner_add(Request $request)
     {
-        // $gallery = DB::table('gallery')->get();
-        return view('admin.banner.add');
-    }
+        $this->v['title'] = ' Thêm mới Banner';
+        // $cate_rooms = new Rooms();
+        // $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
+        $method_route = 'route_BackEnd_Banner_Add';
 
-    public function saveAdd(Request $request)
-    {
-        //khoi tao doi tuong
-        $saveBanner = new Banner();
-        $saveBanner->status = $request->status;
+        if ($request->isMethod('post')) {
+            $params = [];
+            $params['cols'] = $request->post();
 
-        if ($request->hasFile('images')) {
-            $newFileName = uniqid() . '-' . $request->images->extension();
-            $path = $request->images->storeAs('banner', $newFileName,'public');
-            $saveBanner->images = $path;
-        }
-        // luu
-
-        $saveBanner->save();
-        return redirect()->route('route_BackEnd_Banner_index')
-            ->with('success', 'Thêm thành công');
-    }
-        public function editForm($id)
-        {   //lay du lieu theo id
-            $editBanner = Banner::find($id);//lay du lieu tu db
-            return view('admin.banner.edit',compact('editBanner','id',));// truyen du lieu de hien thi sang file view de admin nhin thay
-        }
-        public function saveEdit(Request $request, $id){
-            $createEdit =  Banner::find($id);
-            $createEdit->status = $request->status;
-            if ($request->hasFile('images')) {
-                $newFileName = uniqid() . '-' . $request->images->extension(); //duoi file anh /- unuqid (ten anh va ko trung)
-                $path = $request->images->storeAs('banner', $newFileName,'public'); //luu vao thu muc storage public
-                $createEdit->images = $path;
+            unset($params['cols']['_token']);
+            if ($request->hasFile('images') && $request->file('images')->isValid()) {
+                $params['cols']['images'] = $this->uploadFile($request->file('images'));
             }
-            // luu
-            $createEdit->save();
-            return redirect()->route('route_BackEnd_Banner_index')
-            ->with('success', 'Sửa thành công');
-        }
-        public function destroy($id)
-        {
-            $delete = Banner::destroy($id);
-            if(!$delete){
-                return redirect()->back();
+
+            $modelTest = new Banner();
+            $res = $modelTest->saveNew($params);
+            if ($res == null) {
+                return redirect()->route($method_route);
+            } elseif ($res > 0) {
+                Session::flash('success', 'Thêm mới thành công');
+            } else {
+                Session::flash('error', 'Lỗi thêm mới');
+                return redirect()->route($method_route);
             }
-            return redirect()->route('route_BackEnd_Banner_index')
-            ->with('success', 'Xóa thành công');
         }
+        return view('admin/banner.add', $this->v);
+    }
+
+    public function banner_detail($id)
+    {
+        // $lbds = new CategoryLands();
+        // $this->v['list_lbds'] = $lbds->loadListWithPager();
+        $this->v['title'] = ' Chi tiết Banner';
+        $banner = new Banner();
+        $objItem = $banner->loadOne($id);
+        $this->v['objItem'] = $objItem;
+        return view('admin/banner.detail', $this->v);
+    }
+    public function banner_update($id,Request $request)
+    {
+        $method_route = "route_BackEnd_Banner_Detail";
+        $params = [];
+        $params['cols'] = $request->post();
+        unset($params['cols']['_token']);
+        if ($request->hasFile('images') && $request->file('images')->isValid()) {
+            $params['cols']['images'] = $this->uploadFile($request->file('images'));
+        }
+        $banner = new Banner();
+        $objItem = $banner->loadOne($id);
+        $params['cols']['id'] = $id;
+        $res = $banner->saveUpdate($params);
+        if ($res == null) {
+            return redirect()->route($method_route, ['id' => $id]);
+        } elseif ($res == 1) {
+            Session::flash('success', 'Cập nhật thông tin mã #000' . $objItem->id . ' thành công !');
+            return redirect()->route($method_route, ['id' => $id]);
+        } else {
+            Session::flash('error', 'Lỗi cập nhật thông tin mã #000' . $objItem->id);
+            return redirect()->route($method_route, ['id' => $id]);
+        }
+    }
+
+    public function uploadFile($file)
+    {
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        return $file->storeAs('banner', $fileName, 'public');
+    }
+
+
 }

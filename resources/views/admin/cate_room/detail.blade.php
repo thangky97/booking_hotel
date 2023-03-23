@@ -19,67 +19,35 @@
                         </div>
                         <div class="email-right-box ms-0 ms-sm-2 ms-sm-0">
 
-                            <div class="compose-content">
-                                <form action="{{ route('route_BackEnd_Categoryrooms_Detail', $id) }}" method="post" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="" class="col-md-3 col-sm-4 control-label">Tên Phòng<span
-                                                class="text-danger">(*)</span></label>
+                                    <div class="compose-content">
+                                        <form action="#">
 
-                                        <div class="col-md-9 col-sm-8">
-                                            <input type="text" name="name" id="name" class="form-control"
-                                            value="{{old('name',  $editCate->name)}}">
-                                            <span id="mes_sdt"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-md-3 col-sm-4 control-label">Giá Phòng<span
-                                                class="text-danger">(*)</span></label>
-
-                                        <div class="col-md-9 col-sm-8">
-                                            <input type="text" name="price" id="price" class="form-control" value="{{old('price',  $editCate->price)}}">
-                                            <span id="mes_sdt"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span class="text-danger">(*)</span></label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="status" value = "2">
-                                        <label class="form-check-label" for="flexRadioDefault1" >Khóa</label>
-                                        <div>
-                                        <input class="form-check-input" type="radio" name="status" value = "1">
-                                        <label class="form-check-label" for="flexRadioDefault2">Kích hoạt</label>
-                                    </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <h5 class="mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
-
-                                            <div class="fallback">
-                                                <input name="image" type="file"/>
+                                            <div class="mb-3">
+                                                <div>Tên loại phòng</div>
+                                                <input type="text" name="username" class="form-control bg-transparent"
+                                                    placeholder=" Tên loại phòng">
                                             </div>
 
-                                    </div>
+                                            <div class="mb-3">
+                                                <div>Số lượng</div>
+                                                <input type="text" name="username" class="form-control bg-transparent"
+                                                    placeholder=" Số lượng phòng">
+                                            </div>
 
+                                        </form>
+
+                                    </div>
                                     <div class="text-start mt-4 mb-3">
-
-                                        <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
-                                            class="fa fa-paper-plane"></i></span>Cập Nhật</button>
-                                                <button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i
-                                                            class="fa fa-times"></i></span><a
-                                                        href="{{ route('route_BackEnd_Categoryrooms_List') }}">Quay Lại</a></button>
-                                            </div>
+                                        <button class="btn btn-primary btn-sl-sm me-2" type="button"><span
+                                                class="me-2"><i class="fa fa-paper-plane"></i></span>Cập nhật</button>
+                                        <button class="btn btn-danger light btn-sl-sm" type="button"><span
+                                                class="me-2"><i class="fa fa-times"></i></span>Làm mới</button>
+                                    </div>
+                                </div>
                             </div>
-                                </form>
-
-
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
-</div>
-
