@@ -16,7 +16,7 @@ class FeedbackController extends Controller
     {
         // $jobs = new Employer();
         // $this->v['list'] = $jobs->loadListWithPager();    
-        $this->v['title'] = '12 Zodiac - Đánh giá';
+        $this->v['title'] = ' Đánh giá';
         return view("admin/feedback.index",$this->v);
     }
 }

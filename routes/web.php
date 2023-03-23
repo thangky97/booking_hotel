@@ -46,11 +46,13 @@ Route::get('/checkout', function () { //thanh toán
 
 Route::get('/sign-in', 'Client\SigninController@getSignin')->name('getSignin');
 Route::post('/sign-in', 'Client\SigninController@postSignin')->name('postSignin');
+Route::get('/sign-up', 'Client\SignupController@getSignup')->name('getSignup');
+Route::post('/sign-up', 'Client\SignupController@postSignup')->name('postSignup');
 Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
 Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
 Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
-Route::post('/booking_search/{id}', 'RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
+Route::get('/booking_search/{id}', 'RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
 
 Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
@@ -148,6 +150,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
+        
     });
 
     Route::prefix('/booking_detail')->group(function () {
@@ -165,31 +168,12 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/bills')->group(function () {
-        Route::get('/', 'BillController@index')->name('route_BackEnd_Bill_index');
-        Route::get('/add', 'BillController@add')->name('route_BackEnd_Bill_add');
-        Route::post('/store', function () {
-            return view('admin/bills/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/bills/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/bills/update');
-        });
+        Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bill')->name('route_BackEnd_Bill');
+        
     });
 
     Route::prefix('/bill_detail')->group(function () {
-        Route::get('/', 'BillDetailController@index')->name('route_BackEnd_Bill_Detail_index');
-        Route::get('/add', 'BillDetailController@add')->name('route_BackEnd_Bill_Detail_add');
-        Route::post('/store', function () {
-            return view('admin/bill_detail/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/bill_detail/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/bill_detail/update');
-        });
+        Route::get('/{id}', 'App\Http\Controllers\Admin\BillDetailController@bill_detail')->name('route_BackEnd_BillDetail');
     });
 
     Route::prefix('/services')->group(function () {

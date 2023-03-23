@@ -1,7 +1,7 @@
 <div class="deznav">
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
-            <li><a class="" href="dashboard" aria-expanded="true">
+            <li><a class="" href="{{ route('route_BackEnd_Dashboard') }}" aria-expanded="true">
                     <i class="flaticon-022-copy"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>

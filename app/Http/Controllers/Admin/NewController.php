@@ -16,12 +16,12 @@ class NewController extends Controller
     {
         // $jobs = new Employer();
         // $this->v['list'] = $jobs->loadListWithPager();    
-        $this->v['title'] = '12 Zodiac - Bài đăng';
+        $this->v['title'] = ' Bài đăng';
         return view("admin/new.index",$this->v);
     }
     public function news_add()
     {
-        $this->v['title'] = '12 Zodiac - Thêm bài đăng';
+        $this->v['title'] = ' Thêm bài đăng';
         // $lbds = new CategoryLands();
         // $this->v['list_lbds'] = $lbds->loadListWithPager();
         // $method_route = 'route_BackEnd_Lands_Add';
@@ -50,7 +50,7 @@ class NewController extends Controller
     {
         // $lbds = new CategoryLands();
         // $this->v['list_lbds'] = $lbds->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Chi tiết bài đăng';
+        $this->v['title'] = ' Chi tiết bài đăng';
         // $lands = new Lands();
         // $objItem = $lands->loadOne($id);
         // $this->v['objItem'] = $objItem;

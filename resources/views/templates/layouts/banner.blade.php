@@ -29,8 +29,7 @@
                                                 data-video="w:100%;h:100%;nse:false;l:loopandnoslidestop;ptimer:false;vfc:true;"
                                                 data-mp4="//www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/video-home-6.mp4">
                                             </rs-bgvideo>
-                                            <!--
-        -->
+                                           
                                             <rs-layer id="slider-12-slide-29-layer-1" class="tp-shape tp-shapewrapper"
                                                 data-type="shape" data-xy="x:c;y:m;" data-text="fw:900;"
                                                 data-dim="w:100%;h:100%;" data-basealign="slide" data-rsp_o="off"
@@ -38,9 +37,7 @@
                                                 data-frame_999="o:0;e:nothing;st:w;sp:1000;sR:8000;"
                                                 style="z-index:5;background-color:rgba(0,0,0,0.35);">
                                             </rs-layer>
-                                            <!--
-
-        -->
+                                            
                                             <rs-layer id="slider-12-slide-29-layer-2" class="rs-pxl-2" data-type="text"
                                                 data-color="rgba(255, 255, 255, 1)" data-rsp_ch="on"
                                                 data-xy="x:c;y:m;yo:0,-1px,0,-1px;"
@@ -51,10 +48,8 @@
                                                 data-frame_999_reverse="x:true;"
                                                 style="z-index:7;font-family:'Roboto';">KHÁCH SẠN LUXYRY
                                             </rs-layer>
-                                            <!--
-
-        -->
-                                            <rs-layer id="slider-12-slide-29-layer-4" class="rs-pxl-2" data-type="text"
+                                            
+                                            {{-- <rs-layer id="slider-12-slide-29-layer-4" class="rs-pxl-2" data-type="text"
                                                 data-rsp_ch="on" data-xy="x:c;y:m;yo:-76px,-65px,-57px,-54px;"
                                                 data-text="s:15,14,12,12;l:20,14,12,12;ls:4px,2px,2px,2px;fw:300;"
                                                 data-padding="b:10;" data-frame_0="sX:0.9;sY:0.9;"
@@ -62,10 +57,8 @@
                                                 data-frame_999="x:left;e:power3.in;st:w;sp:1000;sR:6000;"
                                                 data-frame_999_reverse="x:true;"
                                                 style="z-index:6;font-family:'Roboto';">HOTEL WORDPRESS THEME
-                                            </rs-layer>
-                                            <!--
-
-        -->
+                                            </rs-layer> --}}
+                                            
                                             <rs-layer id="slider-12-slide-29-layer-12" class="rs-pxl-2" data-type="text"
                                                 data-color="rgba(255, 255, 255, 1)"
                                                 data-xy="x:c;yo:518px,470px,557px,426px;"
@@ -78,10 +71,9 @@
                                                 data-loop_0="y:10;"
                                                 data-loop_999="sp:2000;e:power1.inOut;yym:t;yys:t;yyf:t;"
                                                 style="z-index:9;background-color:#6b6978;font-family:'Roboto';">ĐẶT
-                                                PHÒNG NGAY BÂY GIỜ
+                                                PHÒNG NGAY
                                             </rs-layer>
-                                            <!--
--->
+                                           
                                         </rs-slide>
                                     </rs-slides>
                                 </rs-module>
@@ -146,9 +138,8 @@
                                     <div
                                         class="nd_booking_section nd_booking_section_box_search_field nd_booking_border_style_solid nd_booking_padding_10_20 nd_booking_position_relative">
                                         <p id="nd_booking_date_number_from_front"
-                                            class="nd_booking_field_search nd_booking_display_inline_block ">16</p>
-                                        <p id="nd_booking_date_month_from_front"
-                                            class="nd_booking_field_search nd_booking_display_inline_block ">Feb</p>
+                                            class="nd_booking_field_search nd_booking_display_inline_block "><?php echo date('d') ?></p>
+                                        
                                         <img class="nd_booking_position_absolute nd_booking_right_20 nd_booking_top_50_percentage nd_booking_margin_top_6_negative"
                                             alt="" width="12"
                                             src="../hotel/wp-content/uploads/sites/2/2022/03/icon-down-arrow-white.png">
@@ -177,9 +168,8 @@
                                     <div
                                         class="nd_booking_section nd_booking_section_box_search_field nd_booking_border_style_solid nd_booking_padding_10_20 nd_booking_position_relative">
                                         <p id="nd_booking_date_number_to_front"
-                                            class="nd_booking_field_search nd_booking_display_inline_block ">17</p>
-                                        <p id="nd_booking_date_month_to_front"
-                                            class="nd_booking_field_search nd_booking_display_inline_block ">Feb</p>
+                                            class="nd_booking_field_search nd_booking_display_inline_block "><?php echo date('d')+1?></p>
+                                        
                                         <img class="nd_booking_position_absolute nd_booking_right_20 nd_booking_top_50_percentage nd_booking_margin_top_6_negative"
                                             alt="" width="12"
                                             src="../hotel/wp-content/uploads/sites/2/2022/03/icon-down-arrow-white.png">

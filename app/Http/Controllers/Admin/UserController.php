@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $title = '12 Zodiac - Danh sách user';
+        $title = ' Danh sách user';
         $name = $request->get('name');
         if($name){
             $users = Users::where('name','like','%'.$name.'%')
@@ -41,7 +41,7 @@ class UserController extends Controller
     }
 
     public function add(Request $request) {
-        $this->v['title'] = '12 Zodiac - Thêm mới user';
+        $this->v['title'] = ' Thêm mới user';
         $method_route = "route_BackEnd_Users_Add";
 
         if ($request->isMethod('post')) {
@@ -70,7 +70,7 @@ class UserController extends Controller
     public function edit($id, Request $request) {
         $modelUser = new Users();
         $users = $modelUser->loadOne($id);
-        $this->v['title'] = '12 Zodiac - Sửa user';
+        $this->v['title'] = ' Sửa user';
         $this->v['users'] = $users;
         return view('admin.user.edit', $this->v);
     }

@@ -61,7 +61,7 @@
                                 class="btn-icon-start text-success"><i class="fa fa-user color-info"></i>
                             </span>Thêm</a>
                             <div class="table-responsive">
-                                <table id="example3" class="table table-striped table-responsive-sm"
+                                <table id="example3" class="table table-striped default-table table-responsive-sm"
                                     style="min-width: 845px">
                                     <thead>
                                         <tr>
@@ -104,8 +104,10 @@
                                                         <span class="badge light badge-warning">Khóa</span>
                                                     @endif
                                                 </td>
+                                                
                                                 <td>
                                                     <div class="d-flex">
+                                                        
                                                         <a href="{{ route('route_BackEnd_Admin_Edit', ['id' => $admin->id]) }}"
                                                             class="btn btn-primary shadow btn-xs sharp me-1"><i
                                                                 class="fa fa-pencil-alt"></i></a>
