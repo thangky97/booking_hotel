@@ -18,16 +18,16 @@ class ServiceController extends Controller
     {
         $service = new Service();
         $this->v['list'] = $service->loadListWithPager();
-      
-        $this->v['title'] = '12 Zodiac - Dịch Vụ';
+
+        $this->v['title'] = ' Dịch Vụ';
         return view("admin.service.index", $this->v);
     }
 
-    
+
 
     public function service_add(Request $request)
     {
-        $this->v['title'] = '12 Zodiac - Thêm mới dịch vụ';
+        $this->v['title'] = ' Thêm mới dịch vụ';
         // $cate_rooms = new Rooms();
         // $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
         $method_route = 'route_BackEnd_Service_Add';
@@ -60,7 +60,7 @@ class ServiceController extends Controller
     {
         // $lbds = new CategoryLands();
         // $this->v['list_lbds'] = $lbds->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Chi tiết dịch vụ';
+        $this->v['title'] = ' Chi tiết dịch vụ';
         $service = new Service();
         $objItem = $service->loadOne($id);
         $this->v['objItem'] = $objItem;

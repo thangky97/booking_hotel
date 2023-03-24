@@ -23,13 +23,13 @@ class RoomController extends Controller
         $this->v['list'] = $rooms->loadListWithPager();
         $cate_rooms = new CategoryRooms();
         $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Phòng';
+        $this->v['title'] = ' Phòng';
         return view("admin/room.index", $this->v);
     }
      //Thêm mới phòng
      public function rooms_add(RoomsRequest $request)           
     {
-        $this->v['title'] = '12 Zodiac - Thêm mới phòng';
+        $this->v['title'] = ' Thêm mới phòng';
         $cate_rooms = new CategoryRooms();
         $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
         $method_route = 'route_BackEnd_Rooms_Add';
@@ -64,7 +64,7 @@ class RoomController extends Controller
     {
         $cate_rooms = new CategoryRooms();
         $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Chi tiết phòng';
+        $this->v['title'] = ' Chi tiết phòng';
         $rooms = new Rooms();
         $objItem = $rooms->loadOne($id);
         $this->v['objItem'] = $objItem;

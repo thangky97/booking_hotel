@@ -34,7 +34,7 @@ class Admin extends Authenticatable
         $res = DB::table($this->table)->insertGetId($data);
         return $res;
     }
-    
+
 
      //load ra chi tiết người dùng
      public function loadOne($id, $params = []) {

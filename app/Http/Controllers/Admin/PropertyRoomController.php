@@ -24,7 +24,7 @@ class PropertyRoomController extends Controller
         $this->v['listRooms'] = $Rooms->loadListWithPager();
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Thuộc tính phòng';
+        $this->v['title'] = ' Thuộc tính phòng';
         return view("admin.property_room.index", $this->v);
     }
 
@@ -41,7 +41,7 @@ class PropertyRoomController extends Controller
         $this->v['list'] = $arrProperty_rooms;
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
-        $this->v['title'] = '12 Zodiac - Thêm mới';
+        $this->v['title'] = ' Thêm mới';
         return view('admin.property_room.add', $this->v);
     }
 
@@ -53,7 +53,7 @@ class PropertyRoomController extends Controller
             'properties_id' => $property_ids,
             'status' => $request->status
         ]);
-        $this->v['title'] = '12 Zodiac - Thêm thuộc tính';
+        $this->v['title'] = ' Thêm thuộc tính';
         return redirect()->route('route_BackEnd_PropertyRoom_list');
     }
 
@@ -64,7 +64,7 @@ class PropertyRoomController extends Controller
         $this->v['idNotChecked'] = explode(',', Propertyroom::find($id)->properties_id);
         $this->v['property_rooms'] = Propertyroom::find($id);
         $this->v['room'] = Rooms::find(Propertyroom::find($id)->room_id);
-        $this->v['title'] = '12 Zodiac - Sửa ';
+        $this->v['title'] = ' Sửa ';
         return view('admin.property_room.edit', $this->v);
     }
 
@@ -74,7 +74,7 @@ class PropertyRoomController extends Controller
         Propertyroom::find($id)->update([
                 'properties_id' => $property_ids,
         ]);
-        $this->v['title'] = '12 Zodiac - Thuộc tính phòng';
+        $this->v['title'] = ' Thuộc tính phòng';
         return redirect()->route('route_BackEnd_PropertyRoom_list');
     }
 }

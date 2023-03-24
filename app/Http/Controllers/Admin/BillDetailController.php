@@ -30,7 +30,7 @@ class BillDetailController extends Controller
         $this->v['service'] = $Service->loadAll();
         $Cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-        $this->v['title'] = '12 Zodiac - Dịch vụ đi kèm';
+        $this->v['title'] = ' Dịch vụ đi kèm';
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
         $Rooms = new Rooms();
@@ -41,7 +41,7 @@ class BillDetailController extends Controller
         $this->v['use_date'] = $use_date;
         $this->v['user'] = Users::find($booking->user_id);
         $this->v['count'] = count($this->v['bookingDetails']);
-        
+
 
         return view('admin.bill_detail.detail', $this->v);
     }

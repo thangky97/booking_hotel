@@ -31,14 +31,21 @@ class Rooms extends Model
         return $list;
     }
 
+    public function loadOrderByPeople($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable)->orderBy('adult', 'desc');
+        $list = $query->get();
+        return $list;
+    }
 
     //Lọc phòng theo loại phòng
     public function loadListWithCategory($param = [],$cate=[])
     {   if(isset($_GET['category_room'])){
         $category_room = $_GET['category_room'];
-        }else{
+    }else{
         $category_room = $cate;
-        }
+    }
         $query = DB::table($this->table)
             ->select($this->fillable)
             ->where('cate_room_id','=',$category_room);
@@ -57,11 +64,11 @@ class Rooms extends Model
     }
     //Lọc phòng trừ đơn đã order
     public function loadAllOrder($param = []){
-     //biến thời gian hiện tại
+        //biến thời gian hiện tại
         $query = DB::table($this->table)
-        ->select('bookings.checkin_date','bookings.checkout_date','rooms.id','rooms.name','rooms.cate_room','rooms.images','rooms.floor','rooms.description','rooms.adult','rooms.childrend','rooms.bed','rooms.status') //truy vấn DB
-        ->leftjoin('bookings_detail','bookings_detail.id','=','rooms.id')
-        ->leftjoin('bookings','bookings.id','=','bookings_detail.booking_id');
+            ->select('bookings.checkin_date','bookings.checkout_date','rooms.id','rooms.name','rooms.cate_room','rooms.images','rooms.floor','rooms.description','rooms.adult','rooms.childrend','rooms.bed','rooms.status') //truy vấn DB
+            ->leftjoin('bookings_detail','bookings_detail.id','=','rooms.id')
+            ->leftjoin('bookings','bookings.id','=','bookings_detail.booking_id');
         //Điều kiện trạng thái phòng đang trống
         $list = $query->get();
         return $list;

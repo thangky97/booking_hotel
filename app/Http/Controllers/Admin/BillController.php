@@ -35,12 +35,12 @@ class BillController extends Controller
         $this->v['user'] = Users::find($booking->user_id);
         $Cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-        $this->v['title'] = '12 Zodiac - Bill thanh toán';
+        $this->v['title'] = ' Bill thanh toán';
         $this->v['count']= count($this->v['bookingDetails']);
         $this->v['use_date'] = $use_date;
         return view('admin.bill.add', $this->v);
     }
-    
+
 
     public function store()
     {
@@ -52,7 +52,7 @@ class BillController extends Controller
         //sửa
     }
 
-    public function update() 
+    public function update()
     {
         //lưu sửa
     }

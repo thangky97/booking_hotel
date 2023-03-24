@@ -1,158 +1,310 @@
 @extends('templates/admin.layoutadmin')
-@section('title', $title)
+
 @section('css')
 @endsection
 @section('content')
-    <div class="content-body">
-        <!-- row -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+<div class="content-body">
+			<!-- row -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
 
-                        <div class="table-search">
-                            <div class="input-group search-area mb-xxl-0 mb-4">
-                                <input type="text" class="form-control" placeholder="Tìm kiếm">
-                                <span class="input-group-text"><a href="javascript:void(0)"><i
-                                                class="flaticon-381-search-2"></i></a></span>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="{{route('route_BackEnd_Categoryrooms_Add')}}" class="btn btn-info mb-xxl-0 mb-4"><i
-                                        class="fa fa-bed me-2"></i>Thêm mới</a>
-                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                        class="far fa-file-word me-2"></i>Tạo báo cáo</a>
-                        </div>
+							<div class="table-search">
+								<div class="input-group search-area mb-xxl-0 mb-4">
+									<input type="text" class="form-control" placeholder="Tìm kiếm">
+									<span class="input-group-text"><a href="javascript:void(0)"><i
+												class="flaticon-381-search-2"></i></a></span>
+								</div>
+							</div>
+							<div>
+								<a href="{{route('route_BackEnd_Categoryrooms_Add')}}" class="btn btn-info mb-xxl-0 mb-4"><i
+									class="fa fa-bed me-2"></i>Thêm mới</a>
+								<a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
+										class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+							</div>
 
-                    </div>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane active show" id="All">
+								<div class="table-responsive">
+									<table
+										class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg "
+										id="guestTable-all">
+										<thead>
+											<tr>
+												<th class="bg-none">
+													<div class="form-check style-1">
+														<input class="form-check-input" type="checkbox" value=""
+															id="checkAll">
+													</div>
+												</th>
+												<th>Tên loại phòng</th>
+												<th>Số lượng</th>
+												<th class="bg-none"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<div class="form-check style-1">
+														<input class="form-check-input" type="checkbox" value="">
+													</div>
+												</td>
+												<td>
+													<div class="guest-bx">
+														<div>
+															<span class="text-primary">#01</span>
+															<h4 class="mb-0 mt-1"><a class="text-black"
+																	href="guest-detail.html">Phòng thường</a></h4>
+														</div>
+													</div>
+												</td>
 
+												<td>
+													<div>
 
-                    {{--  thong bao  --}}
-                    <section class="content booking Hotel">
-                        <div id="msg-box">
-                            <?php //Hiển thị thông báo thành công
-                            ?>
-                            @if (Session::has('success'))
-                                <div class="alert alert-success alert-dismissible" role="alert">
-                                    <strong>{{ Session::get('success') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                        <span class="sr-only">Close</span>
-                                    </button>
-                                </div>
-                            @endif
-                            <?php //Hiển thị thông báo lỗi
-                            ?>
-                            @if (Session::has('error'))
-                                <div class="alert alert-danger alert-dismissible" role="alert">
-                                    <strong>{{ Session::get('errors') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                        <span class="sr-only">Close</span>
-                                    </button>
-                                </div>
-                            @endif
-                            @if ($errors->any())
-                                <div class="alert alert-danger alert-dismissible" role="alert">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        <span class="sr-only">Close</span>
-                                    </button>
-                                </div>
-                            @endif
-                        </div>
-                        {{-- @if (count($list) <= 0)
-                            <p class="alert alert-warning">
-                                Không có dữ liệu phù hợp
-                            </p>
-                        @endif --}}
+														<span class="fs-16">25</span>
+													</div>
+												</td>
+												<td>
+													<div class="dropdown dropstart">
+														<a href="javascript:void(0);" class="btn-link"
+															data-bs-toggle="dropdown" aria-expanded="false">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+															</svg>
+														</a>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="{{route('route_BackEnd_Categoryrooms_Detail')}}">Edit</a>
+															<a class="dropdown-item"
+																href="">Delete</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="form-check style-1">
+														<input class="form-check-input" type="checkbox" value="">
+													</div>
+												</td>
+												<td>
+													<div class="guest-bx">
+														<div>
+															<span class="text-primary">#02</span>
+															<h4 class="mb-0 mt-1"><a class="text-black"
+																	href="guest-detail.html">Phòng cao cấp</a></h4>
+														</div>
+													</div>
+												</td>
 
-                        {{--  end thong bao  --}}
+												<td>
+													<div>
 
-                        <div class="tab-content">
-                            <div class="tab-pane active show" id="All">
-                                <div class="table-responsive">
-                                    <table
-                                            class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg "
-                                            id="guestTable-all">
-                                        <thead>
-                                        <tr>
-                                            <th class="bg-none">
-                                                <div class="form-check style-1">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                           id="checkAll">
-                                                </div>
-                                            </th>
-                                            <th class="text-center">Tên loại phòng</th>
-                                            <th class="text-center">Giá</th>
-                                            <th class="text-center">Trạng thái</th>
-                                            <th class="text-center">Image</th>
-                                            <th class="text-center">gallerry</th>
-                                            <th class="text-center">Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @foreach ($categoryRoom as $item)
-                                            <tr>
-                                                <td>
-                                                    <div class="form-check style-1">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="text-center">
+														<span class="fs-16">20</span>
+													</div>
+												</td>
 
-                                                        <span>{{ $item->name }}</span>
-                                                    </div>
-                                                </td>
+												<td>
+													<div class="dropdown dropstart">
+														<a href="javascript:void(0);" class="btn-link"
+															data-bs-toggle="dropdown" aria-expanded="false">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+															</svg>
+														</a>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="room-type-edit.html">Edit</a>
+															<a class="dropdown-item"
+																href="javascript:void(0);">Delete</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="form-check style-1">
+														<input class="form-check-input" type="checkbox" value="">
+													</div>
+												</td>
+												<td>
+													<div class="guest-bx">
+														<div>
+															<span class="text-primary">#03</span>
+															<h4 class="mb-0 mt-1"><a class="text-black"
+																	href="guest-detail.html">Phòng Vip</a></h4>
+														</div>
+													</div>
+												</td>
 
-                                                <td>
-                                                    <div class="text-center">
+												<td>
+													<div>
 
-                                                        <span>{{ $item->price }}</span>
-                                                    </div>
-                                                </td>
+														<span class="fs-16">25</span>
+													</div>
+												</td>
 
+												<td>
+													<div class="dropdown dropstart">
+														<a href="javascript:void(0);" class="btn-link"
+															data-bs-toggle="dropdown" aria-expanded="false">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+															</svg>
+														</a>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="room-type-edit.html">Edit</a>
+															<a class="dropdown-item"
+																href="javascript:void(0);">Delete</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="form-check style-1">
+														<input class="form-check-input" type="checkbox" value="">
+													</div>
+												</td>
+												<td>
+													<div class="guest-bx">
+														<div>
+															<span class="text-primary">#04</span>
+															<h4 class="mb-0 mt-1"><a class="text-black"
+																	href="guest-detail.html">Phòng thương gia</a></h4>
+														</div>
+													</div>
+												</td>
 
-                                                <td class="text-center">{{ $item->status == 1 ? 'kích hoạt' : 'khóa' }}</td>
-                                                <td class="text-center">
+												<td>
+													<div>
 
-                                                        <img src="{{ asset(url("image/".$item->image)) }}" alt="" width="100px">
+														<span class="fs-16">25</span>
+													</div>
+												</td>
 
+												<td>
+													<div class="dropdown dropstart">
+														<a href="javascript:void(0);" class="btn-link"
+															data-bs-toggle="dropdown" aria-expanded="false">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+															</svg>
+														</a>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="room-type-edit.html">Edit</a>
+															<a class="dropdown-item"
+																href="javascript:void(0);">Delete</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="form-check style-1">
+														<input class="form-check-input" type="checkbox" value="">
+													</div>
+												</td>
+												<td>
+													<div class="guest-bx">
+														<div>
+															<span class="text-primary">#05</span>
+															<h4 class="mb-0 mt-1"><a class="text-black"
+																	href="guest-detail.html">Phòng dịch vụ</a></h4>
+														</div>
+													</div>
+												</td>
 
-                                                </td>
-                                                <td class="text-center">
-                                                    @foreach($item->gallery as $gallery)
-                                                        <img src="{{ asset(url("images/".$gallery->images)) }}" alt="" width="50px" height="50px">
+												<td>
+													<div>
 
-                                                    @endforeach
-                                                </td>
-                                                <td>
-                                                    <a href="{{route('route_BackEnd_Categoryrooms_Detail', $item->id)}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
+														<span class="fs-16">25</span>
+													</div>
+												</td>
 
-    <br>
-    <div class="text-center">
-        {{$categoryRoom->links()}}
-    </div>
-    <index-cs ref="index_cs"></index-cs>
-    </section>
-
-@endsection
+												<td>
+													<div class="dropdown dropstart">
+														<a href="javascript:void(0);" class="btn-link"
+															data-bs-toggle="dropdown" aria-expanded="false">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+																<path
+																	d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+																	stroke="#262626" stroke-width="2"
+																	stroke-linecap="round" stroke-linejoin="round" />
+															</svg>
+														</a>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="room-type-edit.html">Edit</a>
+															<a class="dropdown-item"
+																href="javascript:void(0);">Delete</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
