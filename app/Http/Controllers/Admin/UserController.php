@@ -22,19 +22,10 @@ class UserController extends Controller
         $name = $request->get('name');
         if($name){
             $users = Users::where('name','like','%'.$name.'%')
-        // ->where('id', '>', 3) 
-        ->with('new') 
         ->paginate(5);
         }else{
             $users = Users::select('id', 'name', 'email', 'phone', 'address', 'cccd', 'date', 'gender', 'status')
-            // ->get();
-        // ->where('id', '>', 3)
-        // (tên trường, toán tử điều kiện, giá trị)
-        //->with('new') // truy vấn thêm quan hệ trước khi truy vấn 
-        // ->where('id', '<=', 7)
         ->paginate(5);
-        // ->cursorPaginate(5); truy vấn where id > 5 limit 5
-        // dd($users);
         }   
 
         return view('admin.user.index', compact('users','name','title'));

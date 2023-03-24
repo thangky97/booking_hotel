@@ -27,12 +27,19 @@ class AdminController extends Controller
     {
         $title = ' Danh sách admin';
         $name = $request->get('name');
+        $phone = $request->get('phone');
+        $email = $request->get('email');
         if ($name) {
             $admin = Admin::where('name', 'like', '%' . $name . '%')
-                // ->where('id', '>', 3)
-                ->with('new')
-                ->paginate(5);
-        } else {
+                ->paginate(20);
+        } elseif ($phone) {
+            $admin = Admin::where('phone', 'like', '%' . $phone . '%')
+                ->paginate(20);
+        } elseif ($email) {
+            $admin = Admin::where('email', 'like', '%' . $email . '%')
+                ->paginate(20);
+        }
+        else {
             $admin = Admin::select('id', 'name', 'email', 'phone', 'password', 'avatar', 'status', 'role')
                 // ->get();
                 // ->where('id', '>', 3)
@@ -44,7 +51,7 @@ class AdminController extends Controller
             // dd($users);
         }
 
-        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'title' => $title]);
+        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title]);
     }
 
     public function add(Request $request)
