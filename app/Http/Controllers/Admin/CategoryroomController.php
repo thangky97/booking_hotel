@@ -16,8 +16,7 @@ class CategoryRoomController extends Controller
 
     public function __construct()
     {
-        $category = DB::table('category_rooms')->orderBy('name','desc')->paginate(100);//phan trang , toi da 5 ban ghi
-        return view('admin.cate_room.index', compact('category'));
+        $this->v = [];
     }
 
     public function index()
@@ -92,20 +91,82 @@ class CategoryRoomController extends Controller
 
     public function editForm($id)
     {
-        // $jobs = new Employer();
-        // $this->v['list'] = $jobs->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Loại phòng';
-        return view("admin/cate_room.index",$this->v);
+        $this->v['id'] = $id;
+        $this->v['editCate'] = CategoryRooms::with('gallery')->find($id);
+
+        $this->v['title'] = ' Sửa danh mục phòng';
+        return view('admin.cate_room.detail', $this->v);
     }
 
     public function saveEdit(Request $request, $id)
     {
-        // $lbds = new CategoryLands();
-        // $this->v['list_lbds'] = $lbds->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Chi tiết loại phòng';
-        // $lands = new Lands();
-        // $objItem = $lands->loadOne($id);
-        // $this->v['objItem'] = $objItem;
-        return view('admin/cate_room.detail', $this->v);
+
+
+//        $createEdit = CategoryRooms::find($id);
+//        $createEdit->name = $request->name;
+//        $createEdit->price = $request->price;
+//        $createEdit->status = $request->status;
+//
+//        if ($request->hasFile('image')) {
+//            $newFileName = uniqid() . '-' . $request->image->extension(); //duoi file anh /- unuqid (ten anh va ko trung)
+//            $path = $request->image->storeAs('category_rooms', $newFileName, 'public'); //luu vao thu muc storage public
+//            $createEdit->image = $path;
+//        }
+//
+//        // luu
+//        $createEdit->save();
+        $createEdit = CategoryRooms::find($id);
+        if($request->hasFile("image")){
+            if (File::exists("image/".$createEdit->cover)) {
+                File::delete("image/".$createEdit->cover);
+            }
+            $file=$request->file("image");
+            $createEdit->image=time()."_".$file->getClientOriginalName();
+            $file->move(\public_path("/image"),$createEdit->image);
+            $request['image']=$createEdit->image;
+        }
+
+        $createEdit->update([
+            "name" =>$request->name,
+            "price"=>$request->price,
+            "status"=>$request->status,
+            "image"=>$createEdit->image,
+        ]);
+        if($request->hasFile("images")){
+            $files=$request->file("images");
+            foreach($files as $file){
+                $imageName=time().'_'.$file->getClientOriginalName();
+                $imgData = new gallery;
+                $imgData->images= $imageName;
+                $imgData->cate_room_id= $id;
+
+                $file->move(\public_path("/images"),$imageName);
+                $imgData->save();
+
+            }
+        }
+
+        return redirect()->route('route_BackEnd_Categoryrooms_List')
+            ->with('success', 'Sửa thành công');
+    }
+
+
+    public function deleteimages($id){
+        $img=gallery::findOrFail($id);
+
+        if (File::exists("images/".$img->images)) {
+            File::delete("images/".$img->images);
+        }
+
+        Gallery::find($id)->delete();
+        return back();
+    }
+
+    public function deleteimage($id){
+        $img=CategoryRooms::findOrFail($id)->image;
+        if (File::exists("image/".$img)) {
+            File::delete("image/".$img);
+        }
+        return back();
     }
 }
