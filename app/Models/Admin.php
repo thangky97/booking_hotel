@@ -14,7 +14,7 @@ class Admin extends Authenticatable
     use HasFactory;
 
     protected $table = 'admin';
-    protected $fillable = [
+    protected $fillable = ['id',
         'name',
         'email',
         'phone',
@@ -41,6 +41,13 @@ class Admin extends Authenticatable
         $query = DB::table($this->table)->where('id', '=', $id);
         $obj = $query->first();
         return $obj;
+    }
+    public function loadListWithPager($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable);
+        $list = $query->paginate(10);
+        return $list;
     }
 
     //Sửa
