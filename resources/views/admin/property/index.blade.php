@@ -74,7 +74,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active show" id="All">
                             <div class="table-responsive">
-                                <table class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
+                                <table class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
                                     <thead>
                                         <tr>
                                             <th class="bg-none text-center">
@@ -83,7 +83,6 @@
                                                 </div>
                                             </th>
                                             <th class="text-center">Tên Thuộc tính</th>
-                                            <th class="text-center">Hình ảnh</th>
                                             <th class="text-center">Trạng thái</th>
                                             <th class="text-center">Hành động</th>
                                         </tr>
@@ -97,11 +96,17 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <div class="text-center">
-                                                    <span>{{ $p->name }}</span>
+
+                                                <div class="guest-bx">
+                                                    <img class="me-3" src="{{asset("storage/".$p->image)}}" alt="">
+
+                                                    <div>
+                                                        <span class="text-primary">#000{{$p->id}}</span>
+                                                        <h4 class="mb-0 mt-1"><a class="text-black" href="">{{$p->name}}</a></h4>
+                                                    </div>
                                                 </div>
                                             </td>
-                                            <td class="text-center"><img src="{{ asset('storage/'. $p->image) }}" alt="" width="100px"></td>
+
                                             <td class="text-center">
                                                 <div>
                                                     <span class="text-danger d-block">

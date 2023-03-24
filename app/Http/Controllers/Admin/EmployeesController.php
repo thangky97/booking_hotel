@@ -17,7 +17,7 @@ class EmployeesController extends Controller
     {
          $Employees = new Admin();
          $this->v['listEmployees'] = $Employees->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Nhân viên';
+        $this->v['title'] = ' Nhân viên';
         return view("admin/employees.index",$this->v);
     }
 }

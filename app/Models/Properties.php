@@ -16,6 +16,7 @@ class Properties extends Model
         'name',
         'image',
         'status',
+        'description',
     ];
 
     public function loadListWithPager($param = [])

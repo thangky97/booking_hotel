@@ -18,38 +18,45 @@ class AdminController extends Controller
     public function admin()
     {
         // $jobs = new Employer();
-        // $this->v['list'] = $jobs->loadListWithPager();    
-        $this->v['title'] = '12 Zodiac - Dashboard';
+        // $this->v['list'] = $jobs->loadListWithPager();
+        $this->v['title'] = ' Dashboard';
         return view("admin/dashboard", $this->v);
     }
 
     public function index(Request $request)
     {
-        $title = '12 Zodiac - Danh sách admin';
+        $title = ' Danh sách admin';
         $name = $request->get('name');
+        $phone = $request->get('phone');
+        $email = $request->get('email');
         if ($name) {
             $admin = Admin::where('name', 'like', '%' . $name . '%')
-                // ->where('id', '>', 3) 
-                ->with('new')
-                ->paginate(5);
-        } else {
+                ->paginate(20);
+        } elseif ($phone) {
+            $admin = Admin::where('phone', 'like', '%' . $phone . '%')
+                ->paginate(20);
+        } elseif ($email) {
+            $admin = Admin::where('email', 'like', '%' . $email . '%')
+                ->paginate(20);
+        }
+        else {
             $admin = Admin::select('id', 'name', 'email', 'phone', 'password', 'avatar', 'status', 'role')
                 // ->get();
                 // ->where('id', '>', 3)
                 // (tên trường, toán tử điều kiện, giá trị)
-                ->with('new') // truy vấn thêm quan hệ trước khi truy vấn 
+                ->with('new') // truy vấn thêm quan hệ trước khi truy vấn
                 // ->where('id', '<=', 7)
                 ->paginate(5);
             // ->cursorPaginate(5); truy vấn where id > 5 limit 5
             // dd($users);
         }
 
-        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'title' => $title]);
+        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title]);
     }
 
     public function add(Request $request)
     {
-        $this->v['title'] = '12 Zodiac - Thêm mới admin';
+        $this->v['title'] = ' Thêm mới admin';
         $method_route = "route_BackEnd_Admin_Add";
 
         if ($request->isMethod('post')) {
@@ -78,7 +85,7 @@ class AdminController extends Controller
     public function edit($id, Request $request) {
         $modelAdmin = new Admin();
         $admin = $modelAdmin->loadOne($id);
-        $this->v['title'] = '12 Zodiac - Sửa admin';
+        $this->v['title'] = ' Sửa admin';
         $this->v['admin'] = $admin;
         return view('admin.administration.edit', $this->v);
     }
@@ -120,10 +127,10 @@ class AdminController extends Controller
 
     // public function changeStatus(Request $request)
 
-    // { 
-    //     $User = User::find($request->id); 
-    //     $User->status = $request->status; 
-    //     $User->save(); 
-    //     return response()->json(['success'=>'Status change successfully.']); 
+    // {
+    //     $User = User::find($request->id);
+    //     $User->status = $request->status;
+    //     $User->save();
+    //     return response()->json(['success'=>'Status change successfully.']);
     // }
 }

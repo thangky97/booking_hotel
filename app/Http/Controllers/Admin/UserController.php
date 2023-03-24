@@ -18,30 +18,21 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $title = '12 Zodiac - Danh sách user';
+        $title = ' Danh sách user';
         $name = $request->get('name');
         if($name){
             $users = Users::where('name','like','%'.$name.'%')
-        // ->where('id', '>', 3) 
-        ->with('new') 
         ->paginate(5);
         }else{
             $users = Users::select('id', 'name', 'email', 'phone', 'address', 'cccd', 'date', 'gender', 'status')
-            // ->get();
-        // ->where('id', '>', 3)
-        // (tên trường, toán tử điều kiện, giá trị)
-        //->with('new') // truy vấn thêm quan hệ trước khi truy vấn 
-        // ->where('id', '<=', 7)
         ->paginate(5);
-        // ->cursorPaginate(5); truy vấn where id > 5 limit 5
-        // dd($users);
         }   
 
         return view('admin.user.index', compact('users','name','title'));
     }
 
     public function add(Request $request) {
-        $this->v['title'] = '12 Zodiac - Thêm mới user';
+        $this->v['title'] = ' Thêm mới user';
         $method_route = "route_BackEnd_Users_Add";
 
         if ($request->isMethod('post')) {
@@ -70,7 +61,7 @@ class UserController extends Controller
     public function edit($id, Request $request) {
         $modelUser = new Users();
         $users = $modelUser->loadOne($id);
-        $this->v['title'] = '12 Zodiac - Sửa user';
+        $this->v['title'] = ' Sửa user';
         $this->v['users'] = $users;
         return view('admin.user.edit', $this->v);
     }

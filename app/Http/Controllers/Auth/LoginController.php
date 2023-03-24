@@ -28,12 +28,12 @@ class LoginController extends Controller
         $data = $request->all();
         $email = $data['email'];
         $password = $data['password'];
-       
+
         if (Auth::attempt(['email' => $email ,'password' => $password])) {
-            
+
             return redirect()->route('route_BackEnd_Dashboard');
         }
-        
+
         return redirect()->route('getLogin');
     }
 

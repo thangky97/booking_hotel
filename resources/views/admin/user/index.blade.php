@@ -12,9 +12,15 @@
 
                         <div class="table-search">
                             <div class="input-group search-area mb-xxl-0 mb-4">
-                                <input type="text" class="form-control" placeholder="Tìm kiếm">
-                                <span class="input-group-text"><a href="javascript:void(0)"><i
-                                            class="flaticon-381-search-2"></i></a></span>
+                                <caption>
+                                    <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
+                                        @csrf
+                                        <input type="search" name="name" value="{{ $name }}" class="form-control"
+                                            placeholder="Tìm kiếm">
+                                    </form>
+                                </caption>
+                                {{-- <span class="input-group-text"><a href="javascript:void(0)"><i
+                                            class="flaticon-381-search-2"></i></a></span> --}}
                             </div>
                         </div>
                         <div>
@@ -29,7 +35,7 @@
                         <div class="tab-pane active show" id="All">
                             <div class="table-responsive">
                                 <table
-                                    class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg "
+                                    class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg "
                                     id="guestTable-all">
                                     <thead>
                                         <tr>

@@ -50,9 +50,9 @@ Route::get('/sign-up', 'Client\SignupController@getSignup')->name('getSignup');
 Route::post('/sign-up', 'Client\SignupController@postSignup')->name('postSignup');
 Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
-Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
-Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
-Route::get('/booking_search/{id}', 'RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
+Route::get('/booking_search', 'Client\RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
+Route::post('/booking_search', 'Client\RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
+Route::post('/booking_search/{id}', 'Client\RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
 
 Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
@@ -67,8 +67,6 @@ Route::middleware('guest')->prefix('/auth')->group(function () {
 //Đăng xuất
 Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@getLogout'])->middleware('auth');
 
-Route::get('404', 'ErrorController@error404')->name('404');
-Route::get('403', 'ErrorController@error403')->name('403');
 //ADMIN
 //viết middleware sau ở đây
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
@@ -195,7 +193,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::match(['post','get'], '/add', 'App\Http\Controllers\Admin\BannerController@banner_add')->name('route_BackEnd_Banner_Add');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BannerController@banner_detail')->name('route_BackEnd_Banner_Detail');
         Route::post('/update/{id}', 'App\Http\Controllers\Admin\BannerController@banner_update')->name('route_BackEnd_Banner_Update');
-        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\BannerController@banner_remove')->name('route_BackEnd_Banner_Remove');
     });
 
     Route::prefix('/contact')->group(function () {

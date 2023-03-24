@@ -20,15 +20,15 @@ class BannerController extends Controller
     {
         $banner = new Banner();
         $this->v['list'] = $banner->loadListWithPager();
-      
-        $this->v['title'] = '12 Zodiac - Banner';
+
+        $this->v['title'] = ' Banner';
         return view("admin.banner.index", $this->v);
     }
 
 
     public function banner_add(Request $request)
     {
-        $this->v['title'] = '12 Zodiac - Thêm mới Banner';
+        $this->v['title'] = ' Thêm mới Banner';
         // $cate_rooms = new Rooms();
         // $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
         $method_route = 'route_BackEnd_Banner_Add';
@@ -60,7 +60,7 @@ class BannerController extends Controller
     {
         // $lbds = new CategoryLands();
         // $this->v['list_lbds'] = $lbds->loadListWithPager();
-        $this->v['title'] = '12 Zodiac - Chi tiết Banner';
+        $this->v['title'] = ' Chi tiết Banner';
         $banner = new Banner();
         $objItem = $banner->loadOne($id);
         $this->v['objItem'] = $objItem;
@@ -96,5 +96,5 @@ class BannerController extends Controller
         return $file->storeAs('banner', $fileName, 'public');
     }
 
-    
+
 }
