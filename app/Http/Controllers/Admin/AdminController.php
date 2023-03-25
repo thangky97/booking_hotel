@@ -18,46 +18,46 @@ class AdminController extends Controller
     public function admin()
     {
         // $jobs = new Employer();
-        // $this->v['list'] = $jobs->loadListWithPager();    
-        $this->v['title'] = '12 Zodiac - Dashboard';
-        return view("admin/dashboard",$this->v);
+        // $this->v['list'] = $jobs->loadListWithPager();
+        $this->v['title'] = ' Dashboard';
+        return view("admin/dashboard", $this->v);
     }
 
     public function index(Request $request)
     {
-        $title = '12 Zodiac - Danh sách admin';
+        $title = ' Danh sách admin';
         $name = $request->get('name');
-        if($name){
-            $admin = Admin::where('name','like','%'.$name.'%')
-        // ->where('id', '>', 3) 
-        ->with('new') 
-        ->paginate(5);
-        }else{
+        if ($name) {
+            $admin = Admin::where('name', 'like', '%' . $name . '%')
+                // ->where('id', '>', 3)
+                ->with('new')
+                ->paginate(5);
+        } else {
             $admin = Admin::select('id', 'name', 'email', 'phone', 'password', 'avatar', 'status', 'role')
-            // ->get();
-        // ->where('id', '>', 3)
-        // (tên trường, toán tử điều kiện, giá trị)
-        ->with('new') // truy vấn thêm quan hệ trước khi truy vấn 
-        // ->where('id', '<=', 7)
-        ->paginate(5);
-        // ->cursorPaginate(5); truy vấn where id > 5 limit 5
-        // dd($users);
-        }   
+                // ->get();
+                // ->where('id', '>', 3)
+                // (tên trường, toán tử điều kiện, giá trị)
+                ->with('new') // truy vấn thêm quan hệ trước khi truy vấn
+                // ->where('id', '<=', 7)
+                ->paginate(5);
+            // ->cursorPaginate(5); truy vấn where id > 5 limit 5
+            // dd($users);
+        }
 
         return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'title' => $title]);
     }
 
-    public function add(Request $request) {
-        $this->v['title'] = '12 Zodiac - Thêm mới admin';
+    public function add(Request $request)
+    {
+        $this->v['title'] = ' Thêm mới admin';
         $method_route = "route_BackEnd_Admin_Add";
 
         if ($request->isMethod('post')) {
             $params = [];
             $params['cols'] = $request->post();
-            unset( $params['cols']['_token']);
-         //   dd($params['cols']);
-            if ($request->hasFile('images') && $request->file('images')->isValid())
-            {
+            unset($params['cols']['_token']);
+            //   dd($params['cols']);
+            if ($request->hasFile('images') && $request->file('images')->isValid()) {
                 $params['cols']['avatar'] = $this->uploadFile($request->file('images'));
             }
             $modelTes = new Admin();
@@ -65,10 +65,10 @@ class AdminController extends Controller
             if ($res == null) {
                 return  redirect()->route($method_route);
             } elseif ($res > 0) {
-                Session::flash('success','Thêm mới thành công Admin');
+                Session::flash('success', 'Thêm mới thành công Admin');
                 return redirect()->route('route_BackEnd_Admin_List');
             } else {
-                Session::flash('error','Lỗi thêm mới user ');
+                Session::flash('error', 'Lỗi thêm mới user ');
                 return redirect()->route($method_route);
             }
         }
@@ -78,7 +78,7 @@ class AdminController extends Controller
     public function edit($id, Request $request) {
         $modelAdmin = new Admin();
         $admin = $modelAdmin->loadOne($id);
-        $this->v['title'] = '12 Zodiac - Sửa admin';
+        $this->v['title'] = ' Sửa admin';
         $this->v['admin'] = $admin;
         return view('admin.administration.edit', $this->v);
     }
@@ -111,17 +111,19 @@ class AdminController extends Controller
         }
     }
 
-    public function uploadFile($file) {
-        $fileName = time().'_'.$file->getClientOriginalName();
-        return $file->storeAs('admin',$fileName,'public');
+
+    public function uploadFile($file)
+    {
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        return $file->storeAs('admin', $fileName, 'public');
     }
 
     // public function changeStatus(Request $request)
 
-    // { 
-    //     $User = User::find($request->id); 
-    //     $User->status = $request->status; 
-    //     $User->save(); 
-    //     return response()->json(['success'=>'Status change successfully.']); 
+    // {
+    //     $User = User::find($request->id);
+    //     $User->status = $request->status;
+    //     $User->save();
+    //     return response()->json(['success'=>'Status change successfully.']);
     // }
 }

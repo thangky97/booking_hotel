@@ -20,7 +20,7 @@ class RegisterController extends Controller
             $params = [];
             $params['cols'] = $request->post();
             unset( $params['cols']['_token']);
-         //   dd($params['cols']);
+         
             if ($request->hasFile('images') && $request->file('images')->isValid())
             {
                 $params['cols']['avatar'] = $this->uploadFile($request->file('images'));

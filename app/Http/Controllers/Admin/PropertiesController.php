@@ -10,14 +10,14 @@ class PropertiesController extends Controller
 {
     public function index()
     {
-        $title = '12 Zodiac - Thuộc tính phòng';
+        $title = ' Thuộc tính phòng';
         $properties = DB::table('properties')->orderBy('name', 'desc')->paginate(100);//phan trang , toi da 5 ban ghi
         return view('admin.property.index', compact('properties', 'title'));
     }
 
     public function addForm()
     {
-        $title = '12 Zodiac - Thêm thuộc tính phòng';
+        $title = ' Thêm mới';
         return view('admin.property.addForm', compact('title'));
     }
 
@@ -35,11 +35,11 @@ class PropertiesController extends Controller
         // luu
         $saveProperties->save();
         return redirect()->route('route_BackEnd_properties_List')
-            ->with('success', 'Them thanh cong');
+            ->with('success', 'Thêm mới thành công');
     }
         public function editForm($id)
         {   //lay du lieu theo id
-            $title = '12 Zodiac - Sửa thuộc tính phòng';
+            $title = ' Sửa thuộc tính phòng';
             $editProperties = Properties::find($id);//lay du lieu tu db
             return view('admin.property.editForm',compact('editProperties','id', 'title'));// truyen du lieu de hien thi sang file view de admin nhin thay
         }
@@ -55,6 +55,6 @@ class PropertiesController extends Controller
             // luu
             $createEdit->save();
             return redirect()->route('route_BackEnd_properties_List')
-            ->with('success', 'sua thanh cong');
+            ->with('success', 'Sửa thông tin thành công');
         }
 }

@@ -1,4 +1,5 @@
 @extends('templates/admin.layoutadmin')
+@section('title', $title)
 @section('css')
 @endsection
 @section('content')
@@ -56,9 +57,9 @@
 
                                             <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
                                                 class="fa fa-paper-plane"></i></span>Thêm mới</button>
-                                                    <button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i
+                                                    <div class="btn btn-danger light btn-sl-sm"><span class="me-2"><i
                                                                 class="fa fa-times"></i></span><a
-                                                            href="{{ route('route_BackEnd_properties_List') }}">Quay Lại</a></button>
+                                                            href="{{ route('route_BackEnd_Admin_List') }}">Quay Lại</a></div>
                                                 </div>
                                 </div>
                                     </form>

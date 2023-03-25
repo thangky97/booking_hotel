@@ -30,7 +30,7 @@
 						<div class="tab-content">
 							<div class="tab-pane active show" id="All">
 								<div class="table-responsive">
-									<table class="table card-table display mb-4 dataTablesCard table-responsive-lg" id="guestTable-all">
+									<table class="table card-table default-table display mb-4 dataTablesCard table-responsive-lg" id="guestTable-all">
 										<thead>
 											<tr>
 												<th class="bg-none h5 text-center">
@@ -57,7 +57,7 @@
                                                         </td>
                                                         <td class="text-center">
                                                             <div class="concierge-bx">
-                                                                <img class="me-3 rounded" src="{{$item->avatar}}" alt="">
+                                                                <img class="me-3 rounded" src="{{asset("storage/".$item->avatar)}}" alt="">
                                                                 <div>
                                                                     <span class="text-primary">#{{$item->id}}</span>
                                                                     <h4 class="mt-1"><a class="text-black" href="guest-detail.html">{{$item->name}}</a></h4>

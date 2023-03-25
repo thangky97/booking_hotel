@@ -19,7 +19,6 @@ class Users extends Model
      */
     protected $table = "users";
     protected $fillable = [
-        'id',
         'name',
         'phone',
         'email',
@@ -28,6 +27,7 @@ class Users extends Model
         'date',
         'gender',
         'room_id',
+        'status',
     ];
 
     public function saveNew($params)

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@yield('title') &#8211; Hotel WordPress Theme</title>
+    <title>@yield('title')</title>
     <meta name='robots' content='max-image-preview:large' />
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />
@@ -4916,7 +4915,5 @@
     <script type='text/javascript' src='http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' id='elementor-waypoints-js'></script>
 
 </body>
-
-<!-- Mirrored from www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Feb 2023 16:22:02 GMT -->
 
 </html>

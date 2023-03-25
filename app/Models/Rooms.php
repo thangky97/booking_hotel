@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +14,6 @@ class Rooms extends Model
     use HasFactory;
     protected $table = "rooms";
     protected $fillable = ['id','name','cate_room','images','floor','description','adult','childrend','bed','status','created_at','updated_at'];
-
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
@@ -30,18 +31,46 @@ class Rooms extends Model
         return $list;
     }
 
+    public function loadOrderByPeople($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable)->orderBy('adult', 'desc');
+        $list = $query->get();
+        return $list;
+    }
 
     //Lọc phòng theo loại phòng
     public function loadListWithCategory($param = [],$cate=[])
     {   if(isset($_GET['category_room'])){
         $category_room = $_GET['category_room'];
-        }else{
+    }else{
         $category_room = $cate;
-        }
+    }
         $query = DB::table($this->table)
             ->select($this->fillable)
             ->where('cate_room_id','=',$category_room);
         $list = $query->paginate(10);
+        return $list;
+    }
+
+    //Lọc phòng theo trạng thái
+    public function loadAllStatus($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable)
+            ->where('status','=',1);
+        $list = $query->get();
+        return $list;
+    }
+    //Lọc phòng trừ đơn đã order
+    public function loadAllOrder($param = []){
+        //biến thời gian hiện tại
+        $query = DB::table($this->table)
+            ->select('bookings.checkin_date','bookings.checkout_date','rooms.id','rooms.name','rooms.cate_room','rooms.images','rooms.floor','rooms.description','rooms.adult','rooms.childrend','rooms.bed','rooms.status') //truy vấn DB
+            ->leftjoin('bookings_detail','bookings_detail.id','=','rooms.id')
+            ->leftjoin('bookings','bookings.id','=','bookings_detail.booking_id');
+        //Điều kiện trạng thái phòng đang trống
+        $list = $query->get();
         return $list;
     }
 
@@ -81,4 +110,6 @@ class Rooms extends Model
             ->update($dataUpdate);
         return $res;
     }
+
+
 }

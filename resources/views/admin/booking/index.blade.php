@@ -80,14 +80,12 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <div  style="width: 100px">
-                                                        <h6>{{$item->checkin_date}}</h6>
-                                                        <span class="fs-14">08:29 AM</span>
+                                                        <h6>{{$format = date("d-m-Y",strtotime($item->checkin_date))}}</h6>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div  style="width: 100px">
-                                                        <h6>{{$item->checkout_date}}</h6>
-                                                        <span class="fs-14">08:29 AM</span>
+                                                        <h6>{{$format = date("d-m-Y",strtotime($item->checkout_date))}}</h6>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
@@ -95,10 +93,13 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <p>
+                                                        <?php $cate_room_ids = explode(',', $item->cate_room_id); ?>
                                                         @foreach ($listCaterooms as $cate)
-                                                                <?php if($item->cate_room_id==$cate->id){
-                                                                echo $cate->name;
-                                                            }?>
+                                                            @foreach($cate_room_ids as $inx => $cr_id)
+                                                                @if($cr_id==$cate->id)
+                                                                    {{$cate->name}}
+                                                                @endif
+                                                            @endforeach
                                                         @endforeach
                                                     </p>
                                                 </td>
@@ -109,8 +110,7 @@
                                                             <input name="status_pay" value="1" hidden>
                                                             <button type="submit" class="btn btn-danger w180">Chưa thanh toán</button>
                                                         @else
-                                                            <input name="status_pay" value="0" hidden>
-                                                            <button type="submit" class="btn btn-success w180">Đã thanh toán</button>
+                                                            <div class="btn btn-success w180">Đã thanh toán</div>
                                                         @endif
                                                     </form>
                                                 </td>
@@ -145,7 +145,7 @@
                                                         </a>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
-                                                            <a class="dropdown-item" href="">Sửa</a>
+                                                            <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Tạo Bill</a>
                                                         </div>
                                                     </div>
                                                 </td>

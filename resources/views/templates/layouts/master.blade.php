@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@yield('title') &#8211; Hotel WordPress Theme</title>
+    <title>@yield('title') &#8211; Hotel 12Zodiac</title>
     <meta name='robots' content='max-image-preview:large' />
     <link rel="alternate" type="application/rss+xml" title="Apartments DEMO &raquo; Feed"
         href="{{ asset('feed/index.html') }}" />
@@ -25,7 +23,7 @@
                 "concatemoji": "http:\/\/www.nicdarkthemes.com\/themes\/hotel-booking\/wp\/demo\/apartments\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.2"
             }
         };
-        /*! This file is auto-generated */
+        
         ! function(e, a, t) {
             var n, r, o, i = a.createElement("canvas"),
                 p = i.getContext && i.getContext("2d");
@@ -427,7 +425,6 @@
     <meta name="generator" content="WooCommerce 6.3.1" />
     <link rel="alternate" type="application/json+oembed" href="{{ asset('wp-json/oembed/1.0/embed54e8.json') }}" />
     <link rel="alternate" type="text/xml+oembed" href="{{ asset('wp-json/oembed/1.0/embed621b&amp;format=xl') }}" />
-
 
     <style type="text/css">
         /*color_dark_1*/
@@ -2640,52 +2637,29 @@
 <body id="start_nicdark_framework"
     class="home page-template-default page page-id-263 theme-hotelbooking nd_options_customizer_fonts nd_options_customizer_forms woocommerce-no-js elementor-default elementor-kit-5 elementor-page elementor-page-263">
 
-    <!--START theme-->
     <div class="nicdark_site nicdark_bg_white nicdark_front_page ">
 
-
-
-        <!--START header 6-->
         <div id="nd_options_header_6" class="nd_options_section">
-
-            <!--start nd_options_container-->
+            
             @include('templates.layouts.header')
-            <!--end container-->
 
         </div>
-        <!--END header 6-->
 
-
-        <!--start nd_options_container-->
         <div class="nd_options_container nd_options_clearfix">
-
-
-            <!--START all content-->
             <div class="">
                 <div style="float:left; width:100%;" id="post-263"
                     class="post-263 page type-page status-publish hentry">
-                    <!--start content-->
                     <div data-elementor-type="wp-page" data-elementor-id="263" class="elementor elementor-263"
                         data-elementor-settings="[]">
                         <div class="elementor-section-wrap">
 
-                            <!--content-->
-
                             @yield('content')
 
-                            <!--end content-->
                         </div>
                     </div>
                 </div>
             </div>
-            <!--END all content-->
-
-
-
         </div>
-        <!--end container-->
-
-
 
         <style>
             .nd_booking_alert_msg {
@@ -2726,23 +2700,13 @@
             //]]>
         </script>
 
-
-
-        <!--START footer-->
         <div id="nd_options_footer_6" class="nd_options_section">
 
-            <!--start nd_options_container-->
             @include('templates.layouts.footer')
-            <!--end container-->
-
+            
         </div>
-        <!--END footer-->
-
-
 
     </div>
-    <!--END theme-->
-
 
     <script type="text/javascript">
         window.RS_MODULES = window.RS_MODULES || {};
@@ -3164,7 +3128,5 @@
 
 
 </body>
-
-<!-- Mirrored from www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Feb 2023 16:22:02 GMT -->
 
 </html>

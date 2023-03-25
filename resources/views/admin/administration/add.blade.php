@@ -24,7 +24,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" name="name" class="form-control" id="validationCustom01"
-                                                        placeholder="Nhập tên..." required
+                                                        placeholder="Nhập tên.." required
                                                         value="@isset($request['name']){{ $request['name'] }}@endisset">
                                                     <div class="invalid-feedback">
                                                         Please enter a username.
@@ -37,7 +37,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" name="email" class="form-control" id="validationCustom02"
-                                                        placeholder="Nhập email..." required
+                                                        placeholder="Nhập email.." required
                                                         value="@isset($request['email']){{ $request['email'] }}@endisset">
                                                     <div class="invalid-feedback">
                                                         Please enter a Email.
@@ -50,7 +50,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="password" name="password" class="form-control" id="validationCustom03"
-                                                        placeholder="Nhập mật khẩu..." required
+                                                        placeholder="Nhập mật khẩu.." required
                                                         value="@isset($request['password']){{ $request['password'] }}@endisset">
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
@@ -81,7 +81,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" name="phone" class="form-control" id="validationCustom08"
-                                                        placeholder="Nhập số điện thoại..." required
+                                                        placeholder="212-999-0000" required
                                                         value="@isset($request['phone']){{ $request['phone'] }}@endisset">
                                                     <div class="invalid-feedback">
                                                         Please enter a phone no.
@@ -95,7 +95,7 @@
                                                 <div class="col-lg-6">
                                                     <select name="role" class="default-select wide form-control"
                                                         id="validationCustom05">
-                                                        <option data-display="Chọn vai trò">Vai trò</option>
+                                                        <option data-display="Select">-- Chọn quyền --</option>
                                                         <option value="1">Admin</option>
                                                         <option value="2">Nhân viên</option>
                                                         <option value="0">Người dùng</option>
@@ -112,7 +112,7 @@
                                                 <div class="col-lg-6">
                                                     <select name="status" class="default-select wide form-control"
                                                         id="validationCustom05">
-                                                        <option data-display="Chọn trạng thái">Trạng thái</option>
+                                                        <option data-display="Select">Please select</option>
                                                         <option value="1">Hoạt động</option>
                                                         <option value="2">Không hoạt động</option>
                                                         <option value="0">Khóa</option>

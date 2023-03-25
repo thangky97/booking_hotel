@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,16 +11,15 @@ use Laravel\Socialite\Facades\Socialite;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
-
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
+// Route::get('/', function () {
+//     return view('home');
+// });
 Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
-
 
 Route::get('/room_detail', function () {
     return view('templates/pages/room_detail');
@@ -43,14 +41,15 @@ Route::get('/checkout', function () { //thanh toán
     return view('templates/pages/checkout');
 });
 
-Route::get('/booking_search', function () { //Tìm kếm rooms
-    return view('templates/pages/booking_search');
-});
+Route::get('/sign-in', 'Client\SigninController@getSignin')->name('getSignin');
+Route::post('/sign-in', 'Client\SigninController@postSignin')->name('postSignin');
+Route::get('/sign-up', 'Client\SignupController@getSignup')->name('getSignup');
+Route::post('/sign-up', 'Client\SignupController@postSignup')->name('postSignup');
+Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
-
-//Chỉ dùng cho đăng nhập
- Route::get('/login1', ['as'=>'login', 'uses'=>'Auth\LoginController@getLogin']) ;
- Route::post('/login1', ['as'=>'login1', 'uses'=>'Auth\LoginController@postLogin']);
+Route::get('/booking_search', 'RoomController@index')->name('route_FontEnd_BookingSearch'); //tìm kiếm phòng
+Route::post('/booking_search', 'RoomController@search')->name('route_FontEnd_BookingSearch_Search'); //Tìm kiếm phòng theo order booking
+Route::get('/booking_search/{id}', 'RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate'); //Tìm kiếm phòng theo loại phòng
 
 Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
@@ -59,20 +58,18 @@ Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/register', 'Auth\RegisterController@getRegister')->name('getRegister');
     Route::post('/register', 'Auth\RegisterController@postRegister')->name('postRegister');
 
-    // use Laravel\Socialite\Facades\Socialite;
-    Route::get('/login-google', 'Auth\LoginController@getLoginGoogle')->name('getLoginGoogle');
-    Route::get('/google/callback', 'Auth\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
+    Route::get('/login-google', 'Client\SigninController@getLoginGoogle')->name('getLoginGoogle');
+    Route::get('/google/callback', 'Client\SigninController@loginGoogleCallback')->name('loginGoogleCallback');
 });
 //Đăng xuất
-Route::get('/auth/logout', ['as'=>'logout', 'uses'=>'Auth\LoginController@getLogout'])->middleware('auth');
+Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@getLogout'])->middleware('auth');
 
 Route::get('404', 'ErrorController@error404')->name('404');
 Route::get('403', 'ErrorController@error403')->name('403');
 //ADMIN
 //viết middleware sau ở đây
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-//Route::prefix('admin')->group(function () {
-
+    //Route::prefix('admin')->group(function () {
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
 
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
@@ -103,7 +100,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::prefix('/rooms')->group(function () {
 
         Route::get('/', 'App\Http\Controllers\Admin\RoomController@rooms')->name('route_BackEnd_Rooms_List');
-        Route::match(['post','get'], '/add', 'App\Http\Controllers\Admin\RoomController@rooms_add')->name('route_BackEnd_Rooms_Add');
+        Route::match(['post', 'get'], '/add', 'App\Http\Controllers\Admin\RoomController@rooms_add')->name('route_BackEnd_Rooms_Add');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_detail')->name('route_BackEnd_Rooms_Detail');
         Route::post('/update/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_update')->name('route_BackEnd_Rooms_Update');
         Route::get('/remove/{id}', 'App\Http\Controllers\Admin\RoomController@rooms_remove')->name('route_BackEnd_Rooms_Remove');
@@ -114,8 +111,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/addForm', 'App\Http\Controllers\Admin\CategoryroomController@addForm')->name('route_BackEnd_Categoryrooms_Add');
         Route::post('/saveAddForm', 'App\Http\Controllers\Admin\CategoryroomController@saveAdd')->name('route_BackEnd_Categoryrooms_saveAdd');
         Route::get('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@editForm')->name('route_BackEnd_Categoryrooms_Detail');
-        Route::post('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@saveEdit')->name('route_BackEnd_Categoryrooms_Update');
+        Route::put('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@saveEdit')->name('route_BackEnd_Categoryrooms_Update');
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\CategoryroomController@destroy')->name('route_BackEnd_Categoryrooms_Delete');
+        Route::delete('/deleteimages/{id}', [\App\Http\Controllers\Admin\CategoryRoomController::class, 'deleteimages'])->name('route_BackEnd_Categoryrooms_DeleteImgs');
+
     });
 
     Route::prefix('/property_room')->group(function () {
@@ -137,7 +136,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\PropertiesController@destroy')->name('route_BackEnd_properties_Delete');
     });
 
-
     Route::prefix('/bookings')->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\BookingController@bookings')->name('route_BackEnd_Bookings_List');
         Route::get('/add/{id}', 'App\Http\Controllers\Admin\BookingController@add')->name('route_BackEnd_Bookings_Add');
@@ -146,6 +144,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
+
     });
 
     Route::prefix('/booking_detail')->group(function () {
@@ -163,45 +162,21 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/bills')->group(function () {
-        Route::get('/', 'BillController@index')->name('route_BackEnd_Bill_index');
-        Route::get('/add', 'BillController@add')->name('route_BackEnd_Bill_add');
-        Route::post('/store', function () {
-            return view('admin/bills/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/bills/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/bills/update');
-        });
+        Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bill')->name('route_BackEnd_Bill');
+
     });
 
     Route::prefix('/bill_detail')->group(function () {
-        Route::get('/', 'BillDetailController@index')->name('route_BackEnd_Bill_Detail_index');
-        Route::get('/add', 'BillDetailController@add')->name('route_BackEnd_Bill_Detail_add');
-        Route::post('/store', function () {
-            return view('admin/bill_detail/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/bill_detail/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/bill_detail/update');
-        });
+        Route::get('/{id}', 'App\Http\Controllers\Admin\BillDetailController@bill_detail')->name('route_BackEnd_BillDetail');
     });
 
     Route::prefix('/services')->group(function () {
-        Route::get('/', 'ServiceController@index')->name('route_BackEnd_Service_index');
-        Route::get('/add', 'ServiceController@add')->name('route_BackEnd_Service_add');
-        Route::post('/store', function () {
-            return view('admin/services/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/services/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/services/update');
-        });
+
+        Route::get('/', 'App\Http\Controllers\Admin\ServiceController@service')->name('route_BackEnd_Service_List');
+        Route::match(['post', 'get'], '/add', 'App\Http\Controllers\Admin\ServiceController@service_add')->name('route_BackEnd_Service_Add');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\ServiceController@service_detail')->name('route_BackEnd_Service_Detail');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\ServiceController@service_update')->name('route_BackEnd_Service_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\ServiceController@service_remove')->name('route_BackEnd_Service_Remove');
     });
 
     Route::prefix('/feedback')->group(function () {
@@ -209,17 +184,12 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/banner')->group(function () {
-        Route::get('/', 'BannerController@index')->name('route_BackEnd_Banner_index');
-        Route::get('/add', 'BannerController@add')->name('route_BackEnd_Banner_add');
-        Route::post('/store', function () {
-            return view('admin/banner/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/banner/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/banner/update');
-        });
+
+        Route::get('/', 'App\Http\Controllers\Admin\BannerController@banner')->name('route_BackEnd_Banner_List');
+        Route::match(['post', 'get'], '/add', 'App\Http\Controllers\Admin\BannerController@banner_add')->name('route_BackEnd_Banner_Add');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BannerController@banner_detail')->name('route_BackEnd_Banner_Detail');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\BannerController@banner_update')->name('route_BackEnd_Banner_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\BannerController@banner_remove')->name('route_BackEnd_Banner_Remove');
     });
 
     Route::prefix('/contact')->group(function () {
