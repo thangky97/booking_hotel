@@ -38,8 +38,7 @@ class AdminController extends Controller
         } elseif ($email) {
             $admin = Admin::where('email', 'like', '%' . $email . '%')
                 ->paginate(20);
-        }
-        else {
+        } else {
             $admin = Admin::select('id', 'name', 'email', 'phone', 'password', 'avatar', 'status', 'role')
                 // ->get();
                 // ->where('id', '>', 3)
