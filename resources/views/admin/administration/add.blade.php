@@ -63,7 +63,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <div class="form-file">
-                                                        <input type="file" name="images"
+                                                        <input type="file" name="cccd"
                                                             class="form-file-input form-control">
                                                         @if (isset($admin) && $admin->avatar)
                                                             <img src="{{ asset($admin->avatar) }}" alt="{{ $admin->name }}"
