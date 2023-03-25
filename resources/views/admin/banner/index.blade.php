@@ -1,5 +1,5 @@
 @extends('templates/admin.layoutadmin')
-
+@section('title', $title)
 @section('css')
 @endsection
 @section('content')
@@ -95,7 +95,7 @@
 											</tr>
 										</thead>
 										<tbody>
-                                            @foreach ($banner as $b)
+                                            @foreach ($list as $b)
 											<tr>
 												<td>
 													<div class="form-check style-1">
@@ -129,7 +129,7 @@
 														<div class="dropdown-menu">
 															<a class="dropdown-item" href="{{route('route_BackEnd_Banner_Detail', $b->id)}}">Edit</a>
 															<a onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="dropdown-item"
-																href="{{route('route_BackEnd_Banner_Delete', $b->id)}}">Delete</a>
+																href="#">Delete</a>
 														</div>
 													</div>
 												</td>
@@ -147,7 +147,7 @@
 
         <br>
         <div class="text-center">
-            {{$banner->links()}}
+            {{$list->links()}}
         </div>
         <index-cs ref="index_cs"></index-cs>
     </section>
