@@ -8,30 +8,35 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-9 col-xxl-8">
-                    <div class="card">
-                        <div class="card-header border-0 pb-0">
-                            <h2 <?= $booking->status_pay == 1 ? 'class="text-success"' : 'class="text-danger"' ?>>Bill thanh toán phòng ID:#{{$booking->id}}</h2>
+
+                <div class="card">
+                    <div class="card-header border-0 pb-0">
+                        <h2 <?= $booking->status_pay == 1 ? 'class="text-success"' : 'class="text-danger"' ?>>Bill thanh toán phòng ID:#{{$booking->id}}</h2>
+                    </div>
+                    <div class="card-header border-0 pb-0">
+                        <div class="me-5 mb-sm-0 mb-3">
+                            <p class="mb-2"><i class="far fa-calendar-minus scale3 me-3"></i>Thời gian sử dụng phòng</p>
+                            <h4 class="mb-0 card-title">{{$format = date("d/m/Y",strtotime($booking->checkin_date))}} - {{$format = date("d/m/Y",strtotime($booking->checkout_date))}}</h4>
                         </div>
-                        <div class="card-header border-0 pb-0">
-                            <div class="me-5 mb-sm-0 mb-3">
-                                <p class="mb-2"><i class="far fa-calendar-minus scale3 me-3"></i>Thời gian sử dụng phòng</p>
-                                <h4 class="mb-0 card-title">{{$format = date("d/m/Y",strtotime($booking->checkin_date))}} - {{$format = date("d/m/Y",strtotime($booking->checkout_date))}}</h4>
+                    </div>
+                    <hr style="margin-left: 15px; margin-right: 15px">
+                    <div class="card-body d-flex pt-0 align-items-center flex-wrap">
+                        <div class="d-flex align-items-center me-5 pe-4 mb-xxl-0 mb-2" style="width: 100%">
+                            <div>
+                                <h2 class="card-title mb-0">Tổng số phòng sử dụng : {{$count}} Phòng</h2>
                             </div>
                         </div>
-                        <hr style="margin-left: 15px; margin-right: 15px">
-                        <div class="card-body d-flex pt-0 align-items-center flex-wrap">
-                            <div class="d-flex align-items-center me-5 pe-4 mb-xxl-0 mb-2" style="width: 100%">
-                                <div>
-                                    <h2 class="card-title mb-0">Tổng số phòng sử dụng : {{$count}} Phòng</h2>
-                                </div>
-                            </div>
-                            <table class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
+
+
+                    </div>
+                    <div>                     
+                            <table class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-mg " id="guestTable-all">
                                 <thead>
                                     <tr>
                                         <th>Tên phòng</th>
                                         <th>Loại phòng</th>
-                                        <th>Đơn Giá</th>
-                                        <th class="bg-none">Tổng tiền</th>
+                                        <th>Đơn giá</th>
+                                        <th class="bg-none">Tổng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,24 +56,25 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <span>
+                                            <span class="guest-bx">
                                                 {{$cateRoom->name}}
                                             </span>
                                         </td>
                                         <td>
-                                            <span class="text-primary d-block">
+                                            <span class="text-primary d-block guest-bx">
                                                 {{$cateRoom->price}}$
                                             </span>
                                         </td>
                                         <td>
                                             <div>
-                                                <span class="text-danger d-block">
+                                                <span class="text-danger d-block guest-bx">
                                                     {{($cateRoom->price)*$use_date}}$
                                                 </span>
                                             </div>
                                         </td>
                                         <td>
                                         </td>
+                                        
                                     </tr>
                                     @endif
                                     @endforeach
@@ -84,22 +90,26 @@
                                                 <div class="me-10 mb-sm-0 mb-3">
                                                     <h3 class="mb-2">Tổng</h3>
                                                     <hr style="margin-left: 15px; margin-right: 15px">
-                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>1000 </var></b>$</h3>
+                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>{{$total_money_room}}$</var></b></h3>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <hr style="margin-left: 15px; margin-right: 15px">
-                        <br>
-                        <div class="" style="text-align: center;">
-                            <div class="me-10 mb-sm-0 mb-3">
-                                <a href="{{route('route_BackEnd_BillDetail',$booking->id)}}"  class="btn btn-info mb-xxl-0 mb-4 btn-submit"><i class="flaticon-022-copy"></i>Tiếp Tục</a>
+                            <hr style="margin-left: 15px; margin-right: 15px">
+                            <br>
+                            <div class="" style="text-align: center;">
+                                <div class="me-10 mb-sm-0 mb-3">
+                                    <a href="{{route('route_BackEnd_Bill_Service',$booking->id)}}"  class="btn btn-info mb-xxl-0 mb-4 btn-submit"><i class="flaticon-022-copy"></i>Tiếp Tục</a>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
+
+
+                </div>
+
 
             </div>
             <div class="col-xl-3 col-xxl-4">

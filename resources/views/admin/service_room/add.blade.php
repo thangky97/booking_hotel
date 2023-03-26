@@ -82,39 +82,47 @@
     }
 </style>
 <div class="content-body">
-<div class="email-left-box px-0 mb-3">
+    <div class="email-left-box px-0 mb-3">
         <div class="p-0">
-            <a href="" class="btn btn-primary btn-block">Thuộc tính phòng</a>
+            <a href="" class="btn btn-primary btn-block">Dịch vụ phòng</a>
         </div>
 
 
     </div>
     <section class="container">
-        <form action="{{route('route_BackEnd_PropertyRoom_update',$property_rooms->id)}}" method="post" class="row">
+        <form action="{{route('route_BackEnd_ServiceRoom_create')}}" method="post" class="row">
             @csrf
-            <h1>Thông tin thuộc tính phòng</h1>
+            <h1>Thông tin dịch vụ phòng</h1>
+            <label for="date" class="col-5 col-form-label">Tên phòng</label>
             <div class="col-0">
-                <label class="col-lg-4 col-form-label">Tên phòng
-                    <span class="text-danger">*</span>
-                </label>
-                <div class="col-lg-6">
-                    <input type="text" class="form-control" placeholder="Nhập tên..." value="{{$room->name}}" readonly>
+                <select name="room_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected="selected" disabled>Chọn phòng</option>
+                    @foreach($listRooms as $room)
+                    @if(!in_array($room->id,$list))
+                    <option value="{{$room->id}}">{{$room->name}}</option>
+                    @endif
+                    @endforeach
+                </select>
+                @error('room_id')
+                <div>
+                    <p class="text-danger">{{ $message }}</p>
                 </div>
+                @enderror
             </div>
-            <label for="date" class="col-5 col-form-label">Tên thuộc tính</label>
+            <label for="date" class="col-5 col-form-label">Chọn dịch vụ</label>
             <div class="col-0 form-check" style="margin-left: 30px">
                 <div class="container">
                     <ul class="ks-cboxtags">
-                        @foreach($listProperties as $index => $property)
-                        <li><input type="checkbox" id="{{$property->id}}" name="properties_id[]" value="{{$property->id}}" {{!empty(in_array($property->id,$idNotChecked))?'checked':''}}><label for="{{$property->id}}">{{$property->name}}</label></li>
+                        @foreach($listServices as $index => $service)
+                        <li><input type="checkbox" id="{{$service->id}}" name="service_id[]" value="{{$service->id}}"><label for="{{$service->id}}">{{$service->name}}</label></li>
                         @endforeach
                     </ul>
                 </div>
             </div>
-           
+            <input value="1" name="status" hidden>
             <div class="text-start mt-4 mb-3">
-                <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i class="fa fa-paper-plane"></i></span>Cập nhập</button>
-                <a href="{{route('route_BackEnd_PropertyRoom_list')}}" class="btn btn-danger light btn-sl-sm"><span class="me-2"><i class="fa fa-times"></i></span>Quay lại</a>
+                <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i class="fa fa-paper-plane"></i></span>Thêm mới</button>
+                <a href="{{route('route_BackEnd_ServiceRoom_list')}}" class="btn btn-danger light btn-sl-sm"><span class="me-2"><i class="fa fa-times"></i></span>Hủy thêm mới</a>
             </div>
         </form>
     </section>
