@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\BookingRequest;
 use App\Models\Admin;
+use App\Models\Bills;
 use App\Models\Bookingdetail;
 use App\Models\Rooms;
 use App\Models\Users;
@@ -31,6 +32,13 @@ class BookingController extends Controller
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         $Bookings = new Booking();
         $this->v['listBookings'] = $Bookings->loadListWithPager();
+        $bills = new Bills();
+        $arrBills = array();
+        foreach ($bills->loadAll() as $index => $bill_bk){
+            $arrBill_bk= array($index => $bill_bk->booking_id);
+            $arrBills = $arrBill_bk + $arrBills;
+        }
+        $this->v['list'] = $arrBills;
         $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
         return view('admin.booking.index', $this->v);
     }

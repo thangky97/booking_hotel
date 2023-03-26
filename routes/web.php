@@ -163,17 +163,20 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
             return view('admin/booking_detail/edit');
         });
         Route::post('/update', function () {
-            return view('admin/booking_detail/update');
+            return view('admin/booking_detail/update'); 
         });
     });
 
     Route::prefix('/bills')->group(function () {
-        Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bill')->name('route_BackEnd_Bill');
-
+        Route::get('/', 'App\Http\Controllers\Admin\BillController@index')->name('route_BackEnd_Bill_List');
+        Route::get('/rooms/{id}', 'App\Http\Controllers\Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
+        Route::get('/services/{id}', 'App\Http\Controllers\Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
+        Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
+        
     });
 
     Route::prefix('/bill_detail')->group(function () {
-        Route::get('/{id}', 'App\Http\Controllers\Admin\BillDetailController@bill_detail')->name('route_BackEnd_BillDetail');
+        // Route::get('/{id}', 'App\Http\Controllers\Admin\BillDetailController@bill_detail')->name('route_BackEnd_BillDetail');
     });
 
     Route::prefix('/services')->group(function () {
@@ -183,6 +186,14 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\ServiceController@service_detail')->name('route_BackEnd_Service_Detail');
         Route::post('/update/{id}', 'App\Http\Controllers\Admin\ServiceController@service_update')->name('route_BackEnd_Service_Update');
         Route::get('/remove/{id}', 'App\Http\Controllers\Admin\ServiceController@service_remove')->name('route_BackEnd_Service_Remove');
+    });
+
+    Route::prefix('/service_room')->group(function () {
+        Route::get('/', 'App\Http\Controllers\Admin\ServiceRoomController@service_rooms')->name('route_BackEnd_ServiceRoom_list');
+        Route::get('/add', 'App\Http\Controllers\Admin\ServiceRoomController@add')->name('route_BackEnd_ServiceRoom_add');
+        Route::post('/create', 'App\Http\Controllers\Admin\ServiceRoomController@create')->name('route_BackEnd_ServiceRoom_create');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Admin\ServiceRoomController@edit')->name('route_BackEnd_ServiceRoom_edit');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\ServiceRoomController@update')->name('route_BackEnd_ServiceRoom_update');
     });
 
     Route::prefix('/feedback')->group(function () {
