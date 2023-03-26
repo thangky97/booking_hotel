@@ -129,7 +129,6 @@ class BillController extends Controller
     }
 
 
-    public function store()
     public function bills($id)
     {
         $Service = new Service();
