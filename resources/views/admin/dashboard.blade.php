@@ -29,7 +29,7 @@
                     <div class="card gradient-1 card-bx">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-auto text-white">
-                                <h2 class="text-white">872</h2>
+                                <h2 class="text-white">{{ $totals->total }}</h2>
                                 <span class="fs-18">Số phòng</span>
                             </div>
                             <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
@@ -45,7 +45,7 @@
                     <div class="card gradient-2 card-bx">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-auto text-white">
-                                <h2 class="text-white">285</h2>
+                                <h2 class="text-white">{{ $totals->active }}</h2>
                                 <span class="fs-18">Phòng đã sử dụng</span>
                             </div>
                             <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
@@ -62,7 +62,7 @@
                     <div class="card gradient-3 card-bx">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-auto text-white">
-                                <h2 class="text-white">53</h2>
+                                <h2 class="text-white">{{ $totals->checkin }}</h2>
                                 <span class="fs-18">Nhận phòng</span>
                             </div>
                             <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
@@ -79,7 +79,7 @@
                     <div class="card gradient-4 card-bx">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-auto text-white">
-                                <h2 class="text-white">78</h2>
+                                <h2 class="text-white">{{ $totals->checkout }}</h2>
                                 <span class="fs-18">Trả phòng</span>
                             </div>
                             <svg width="57" height="46" viewBox="0 0 57 46" fill="none"
@@ -102,7 +102,7 @@
                             <div class="card text-center">
                                 <div class="card-body">
                                     <div id="radialChart" class="radialChart"></div>
-                                    <h2>785</h2>
+                                    <h2>{{ $totals->noActive }}</h2>
                                     <span class="fs-16 text-black">Số phòng trống hôm nay</span>
                                 </div>
                             </div>
@@ -169,11 +169,11 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex me-5">
-                                    <h3 class="mb-0 me-2">549</h3>
+                                    <h3 class="mb-0 me-2">{{ $totals->checkin }}</h3>
                                     <span>Nhận Phòng</span>
                                 </div>
                                 <div class="d-flex me-3">
-                                    <h3 class="mb-0 me-2">327</h3>
+                                    <h3 class="mb-0 me-2">{{ $totals->checkout }}</h3>
                                     <span>Trả Phòng</span>
                                 </div>
                                 <div class="dropdown">

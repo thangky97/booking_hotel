@@ -29,8 +29,6 @@ class BannerController extends Controller
     public function banner_add(Request $request)
     {
         $this->v['title'] = ' Thêm mới Banner';
-        // $cate_rooms = new Rooms();
-        // $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
         $method_route = 'route_BackEnd_Banner_Add';
 
         if ($request->isMethod('post')) {
@@ -58,8 +56,6 @@ class BannerController extends Controller
 
     public function banner_detail($id)
     {
-        // $lbds = new CategoryLands();
-        // $this->v['list_lbds'] = $lbds->loadListWithPager();
         $this->v['title'] = ' Chi tiết Banner';
         $banner = new Banner();
         $objItem = $banner->loadOne($id);
@@ -95,6 +91,5 @@ class BannerController extends Controller
         $fileName = time() . '_' . $file->getClientOriginalName();
         return $file->storeAs('banner', $fileName, 'public');
     }
-
 
 }
