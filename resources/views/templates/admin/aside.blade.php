@@ -42,6 +42,11 @@
                     <span class="nav-text">Banner</span>
                 </a>
             </li>
+            <li><a class="" href="{{ route('route_BackEnd_Voucher_index') }}" aria-expanded="false">
+                    <i class="fa fa-users me-2"></i>
+                    <span class="nav-text">Voucher</span>
+                </a>
+            </li>
             <li><a class="" href="{{ route('route_BackEnd_Service_List') }}" aria-expanded="false">
                     <i class="fa fa-users me-2"></i>
                     <span class="nav-text">Dịch vụ</span>

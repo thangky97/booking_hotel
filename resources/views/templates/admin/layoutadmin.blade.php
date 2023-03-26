@@ -2,6 +2,7 @@
     $admin = \Illuminate\Support\Facades\Auth::user()->admin();
 
 @endphp --}}
+
 <!DOCTYPE html>
 <html lang="en">
 

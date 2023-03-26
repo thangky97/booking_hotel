@@ -1,16 +1,21 @@
+
 @extends('templates/admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
         <div class="row">
+
+
+
             <div class="col-xl-9 col-xxl-8">
                     <div class="card">
                         <div class="card-header border-0 pb-0">
-                            <h2 <?= $booking->status_pay == 1 ? 'class="text-success"' : 'class="text-danger"' ?>>Bill thanh toán phòng ID:#{{$booking->id}}</h2>
+                            <h2 {{$booking->status_pay == 1 ? 'class="text-success"' : 'class="text-danger"' }}>Bill thanh toán phòng ID:#{{$booking->id}}</h2>
                         </div>
                         <div class="card-header border-0 pb-0">
                             <div class="me-5 mb-sm-0 mb-3">
@@ -86,11 +91,34 @@
                                                     <hr style="margin-left: 15px; margin-right: 15px">
                                                     <h3 class="mb-0 card-title" style="color: blue;"><b><var>1000 </var></b>$</h3>
                                                 </div>
+
+                                                <div class="me-10 mb-sm-0 mb-3">
+
+                                                </div>
                                             </div>
                                         </td>
+
                                     </tr>
                                 </tbody>
                             </table>
+                            <td>
+
+                                <form action="{{route("route_BackEnd_Voucher_check")}}" method="post">
+                                    @csrf
+                                    <label for="">Nhap ma giam gia</label>
+                                    <input type="text" name="voucher" id="" class="">
+                                    <button type="submit">ok</button>
+                                </form>
+                                @if (Session::has('success'))
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <strong>{{ Session::get('success') }}</strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true"></span>
+                                            <span class="sr-only">Close</span>
+                                        </button>
+                                    </div>
+                                @endif
+                            </td>
                         </div>
                         <hr style="margin-left: 15px; margin-right: 15px">
                         <br>
