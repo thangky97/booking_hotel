@@ -36,7 +36,7 @@
                                                     class="text-danger">(*)</span></label>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    value="2">
+                                                    value="0">
                                                 <label class="form-check-label" for="flexRadioDefault1">Khóa</label>
                                                 <div>
                                                     <input class="form-check-input" type="radio" name="status"
