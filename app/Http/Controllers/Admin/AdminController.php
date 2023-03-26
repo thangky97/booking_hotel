@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -17,9 +18,17 @@ class AdminController extends Controller
     }
     public function admin()
     {
-        // $jobs = new Employer();
-        // $this->v['list'] = $jobs->loadListWithPager();    
         $this->v['title'] = ' Dashboard';
+
+        $this->v['totals'] = DB::table('bookings')
+            ->selectRaw('count(*) as total')
+            ->selectRaw("count(case when status_booking = '2' then 1 end) as active") //đã sử dụng
+            ->selectRaw("count(case when status_booking = '1' then 1 end) as noActive") //Phòng trống
+            ->selectRaw("count(case when status_booking = '3' then 1 end) as maintenance") //bảo trì
+            ->selectRaw("count(checkin_date) as checkin")
+            ->selectRaw("count(checkout_date) as checkout")
+            ->first();
+
         return view("admin/dashboard", $this->v);
     }
 
@@ -27,24 +36,24 @@ class AdminController extends Controller
     {
         $title = ' Danh sách admin';
         $name = $request->get('name');
+        $phone = $request->get('phone');
+        $email = $request->get('email');
         if ($name) {
             $admin = Admin::where('name', 'like', '%' . $name . '%')
-                // ->where('id', '>', 3) 
-                ->with('new')
-                ->paginate(5);
+                ->paginate(20);
+        } elseif ($phone) {
+            $admin = Admin::where('phone', 'like', '%' . $phone . '%')
+                ->paginate(20);
+        } elseif ($email) {
+            $admin = Admin::where('email', 'like', '%' . $email . '%')
+                ->paginate(20);
         } else {
             $admin = Admin::select('id', 'name', 'email', 'phone', 'password', 'avatar', 'status', 'role')
-                // ->get();
-                // ->where('id', '>', 3)
-                // (tên trường, toán tử điều kiện, giá trị)
-                ->with('new') // truy vấn thêm quan hệ trước khi truy vấn 
-                // ->where('id', '<=', 7)
+                ->with('new')
                 ->paginate(5);
-            // ->cursorPaginate(5); truy vấn where id > 5 limit 5
-            // dd($users);
         }
 
-        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'title' => $title]);
+        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title]);
     }
 
     public function add(Request $request)
@@ -75,7 +84,8 @@ class AdminController extends Controller
         return view('admin.administration.add', $this->v);
     }
 
-    public function edit($id, Request $request) {
+    public function edit($id, Request $request)
+    {
         $modelAdmin = new Admin();
         $admin = $modelAdmin->loadOne($id);
         $this->v['title'] = ' Sửa admin';
@@ -83,31 +93,31 @@ class AdminController extends Controller
         return view('admin.administration.edit', $this->v);
     }
 
-    public function update($id, Request $request) {
+    public function update($id, Request $request)
+    {
 
         $method_route = 'route_BackEnd_Admin_Edit';
         $params = [];
 
         $params['cols'] = $request->post();
 
-        if ($request->hasFile('images') && $request->file('images')->isValid())
-            {
-                $params['cols']['avatar'] = $this->uploadFile($request->file('images'));
-            }
+        if ($request->hasFile('images') && $request->file('images')->isValid()) {
+            $params['cols']['avatar'] = $this->uploadFile($request->file('images'));
+        }
 
-        unset( $params['cols']['_token']);
+        unset($params['cols']['_token']);
         $params['cols']['id'] = $id;
 
         $modelAdmin = new Admin();
         $res = $modelAdmin->saveUpdate($params);
         if ($res == null) {
-            return redirect()->route($method_route,['id'=>$id]);
+            return redirect()->route($method_route, ['id' => $id]);
         } elseif ($res == 1) {
             //Session::flash('success','Cập nhât bản ghi' . $id . " ".  "Thành công");
             return redirect()->route('route_BackEnd_Admin_List')->with('sucess', 'Cập nhật admin thành công');
         } else {
-            Session::flash('error','Lỗi cập nhât bản ghi'.$id);
-            return redirect()->route($method_route,['id'=>$id]);
+            Session::flash('error', 'Lỗi cập nhât bản ghi' . $id);
+            return redirect()->route($method_route, ['id' => $id]);
         }
     }
 
@@ -117,13 +127,5 @@ class AdminController extends Controller
         $fileName = time() . '_' . $file->getClientOriginalName();
         return $file->storeAs('admin', $fileName, 'public');
     }
-
-    // public function changeStatus(Request $request)
-
-    // { 
-    //     $User = User::find($request->id); 
-    //     $User->status = $request->status; 
-    //     $User->save(); 
-    //     return response()->json(['success'=>'Status change successfully.']); 
-    // }
+    
 }

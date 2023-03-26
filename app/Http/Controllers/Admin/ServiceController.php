@@ -18,12 +18,12 @@ class ServiceController extends Controller
     {
         $service = new Service();
         $this->v['list'] = $service->loadListWithPager();
-      
+
         $this->v['title'] = ' Dịch Vụ';
         return view("admin.service.index", $this->v);
     }
 
-    
+
 
     public function service_add(Request $request)
     {

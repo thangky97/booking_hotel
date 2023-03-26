@@ -30,7 +30,7 @@ class CategoryNewController extends Controller
         //sửa
     }
 
-    public function update() 
+    public function update()
     {
         //lưu sửa
     }

@@ -1,7 +1,3 @@
-{{-- @php
-    $admin = \Illuminate\Support\Facades\Auth::user()->admin();
-
-@endphp --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,50 +42,21 @@
         margin: 0;
         padding: 0;
     }
-
     body {
-
         background: #FFEFBA;
         /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
         /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #FFFFFF, #FFEFBA);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
     }
     </style>
 </head>
 
 <body>
-    <div id="preloader">
-        <div class="waviy">
-            <span style="--i:1">1</span>
-            <span style="--i:2">2</span>
-            <span style="--i:3"> </span>
-            <span style="--i:4">Z</span>
-            <span style="--i:5">o</span>
-            <span style="--i:6">d</span>
-            <span style="--i:7">i</span>
-            <span style="--i:8">a</span>
-            <span style="--i:9">c</span>
-            <span style="--i:10">.</span>
-            <span style="--i:11">.</span>
-            <span style="--i:12">.</span>
-        </div>
-    </div>
-   
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
+    
     <div id="main-wrapper">
-         
-
-        <!--**********************************
-            Nav header start
-        ***********************************-->
         
-
         <!--Header-->
         @include('templates.admin.header')
 
@@ -162,7 +129,6 @@
                 inline: true,
             });
         });
-
         $(document).ready(function() {
             $(".booking-calender .fa.fa-clock-o").removeClass(this);
             $(".booking-calender .fa.fa-clock-o").addClass('fa-clock');

@@ -71,6 +71,16 @@ class BookingController extends Controller
         }
         $user = Users::create($request->all());
         $userID = $user->id;
+
+        if($request->hasFile('cccd')) {
+            $cccd = $request->cccd;
+            $cccdName = $cccd->hashName();
+            $cccdName = $request->username . '_' . $cccdName;
+            $user->cccd = $cccd->storeAs('public/cccd', $cccdName);
+        } else {
+            $user->cccd = '';
+        }
+
         $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
         return redirect()->route('route_BackEnd_Bookings_Add', $userID);
     }
@@ -130,7 +140,7 @@ class BookingController extends Controller
             foreach ($rooms as $index => $room) {
                 if (strtotime($room->checkin_date) <= $check_in && strtotime($room->checkout_date) >= $check_out) {
                     $arrRoom = array($index => $room->id);
-                    $arrRoomworks = $arrRoom+ $arrRoomworks;
+                    $arrRoomworks = $arrRoom + $arrRoomworks;
                 }
                 if (strtotime($room->checkin_date) > $check_in && strtotime($room->checkout_date) < $check_out) {
                     $arrRoom = array($index => $room->id);
@@ -151,12 +161,12 @@ class BookingController extends Controller
             $this->v['people'] = $request->people;
             return view('admin.booking.add', $this->v);
         } else {
-            $people=0;
+            $people = 0;
             foreach ($request->room_id as $ro_id) {
                 $room = Rooms::find($ro_id);
                 $people = $room->adult + $people;
             }
-            if ($people<$request->people){
+            if ($people < $request->people) {
                 $this->v['listEmployees'] = DB::table('admin')->get();
                 $Cate_rooms = new Categoryrooms();
                 $this->v['listCaterooms'] = $Cate_rooms->loadAll();
@@ -175,7 +185,7 @@ class BookingController extends Controller
                 foreach ($rooms as $index => $room) {
                     if (strtotime($room->checkin_date) <= $check_in && strtotime($room->checkout_date) >= $check_out) {
                         $arrRoom = array($index => $room->id);
-                        $arrRoomworks = $arrRoom+ $arrRoomworks;
+                        $arrRoomworks = $arrRoom + $arrRoomworks;
                     }
                     if (strtotime($room->checkin_date) > $check_in && strtotime($room->checkout_date) < $check_out) {
                         $arrRoom = array($index => $room->id);
@@ -222,7 +232,8 @@ class BookingController extends Controller
             $usernew->phone = $request->phone;
             $usernew->email = $request->email;
             $usernew->address = $request->address;
-            $usernew->cccd = $request->cccd;
+            // $usernew->cccd = $request->cccd;
+
             $usernew->date = $request->date;
             $usernew->room_id = implode(',', $request->room_id);
             $usernew->save();
@@ -254,4 +265,5 @@ class BookingController extends Controller
         $Booking->save();
         return redirect()->route('route_BackEnd_Bookings_List');
     }
+
 }

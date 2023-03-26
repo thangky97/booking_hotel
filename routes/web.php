@@ -15,16 +15,9 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
-// Route::get('/', function () {
-//     return view('home');
-// });
+
 Route::get('/rooms', function () {
     return view('templates/pages/room');
-});
-
-
-Route::get('/room_detail', function () {
-    return view('templates/pages/room_detail');
 });
 
 Route::get('/news', function () {
@@ -67,8 +60,6 @@ Route::middleware('guest')->prefix('/auth')->group(function () {
 //Đăng xuất
 Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@getLogout'])->middleware('auth');
 
-Route::get('404', 'ErrorController@error404')->name('404');
-Route::get('403', 'ErrorController@error403')->name('403');
 //ADMIN
 //viết middleware sau ở đây
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
@@ -150,7 +141,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
-
+        
     });
 
     Route::prefix('/booking_detail')->group(function () {
@@ -206,7 +197,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::match(['post','get'], '/add', 'App\Http\Controllers\Admin\BannerController@banner_add')->name('route_BackEnd_Banner_Add');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BannerController@banner_detail')->name('route_BackEnd_Banner_Detail');
         Route::post('/update/{id}', 'App\Http\Controllers\Admin\BannerController@banner_update')->name('route_BackEnd_Banner_Update');
-        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\BannerController@banner_remove')->name('route_BackEnd_Banner_Remove');
     });
 
     Route::prefix('/contact')->group(function () {

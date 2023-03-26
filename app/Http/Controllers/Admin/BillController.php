@@ -127,6 +127,9 @@ class BillController extends Controller
 
         return view('admin.bill.billservice', $this->v);
     }
+
+
+    public function store()
     public function bills($id)
     {
         $Service = new Service();

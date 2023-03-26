@@ -11,12 +11,12 @@ class Banner extends Model
 {
     use HasFactory;
     protected $table = "banner";
-    protected $fillable = ['id','images','status','created_at','updated_at'];
+    protected $fillable = ['id','images','status'];
 
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1);
+            ->select($this->fillable);
         $list = $query->paginate(10);
         return $list;
     }
@@ -24,14 +24,14 @@ class Banner extends Model
     public function loadAll($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->where('status', 1);
+            ->select($this->fillable);
         $list = $query->get();
         return $list;
     }
 
     public function saveNew($params)
     {
-        $data = array_merge($params['cols']);// array_merge để nối 2 hay nhiều mảng lại thành 1 mảng
+        $data = array_merge($params['cols']);
         $res = DB::table($this->table)->insertGetId($data);
         return $res;
     }
@@ -43,7 +43,7 @@ class Banner extends Model
         $obj = $query->first();
         return $obj;
     }
-    //phương thức update
+    
     public function saveUpdate($params)
     {
         if (empty($params['cols']['id'])) {

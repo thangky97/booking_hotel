@@ -41,7 +41,7 @@ class BillDetailController extends Controller
         $this->v['use_date'] = $use_date;
         $this->v['user'] = Users::find($booking->user_id);
         $this->v['count'] = count($this->v['bookingDetails']);
-        
+
 
         return view('admin.bill_detail.detail', $this->v);
     }
