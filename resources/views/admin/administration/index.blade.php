@@ -4,36 +4,49 @@
 @endsection
 @section('content')
 
+
+
     <div class="content-body">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
-
-                        <div class="table-search">
-                            <div class="input-group search-area mb-xxl-0 mb-4">
-                                <caption>
-                                    <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
-                                        @csrf
-                                        <input type="search" name="name" value="{{ $name }}" class="form-control"
-                                            placeholder="Tên">
-                                    </form>
-                                    <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
-                                        @csrf
-                                            <input type="search" name="phone" value="{{ $phone }}" class="form-control"
-                                            placeholder="Số điện thoại">
-                                    </form>
-                                    <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
-                                        @csrf
-                                            <input type="search" name="email" value="{{ $email }}" class="form-control"
-                                            placeholder="Email">
-                                    </form>
-                                </caption>
-                                {{-- <span class="input-group-text"><a href="javascript:void(0)"><i
-                                            class="flaticon-381-search-2"></i></a></span> --}}
-                            </div>
+                    <div style="font-size: 23px; font-weight: 600; color:#000 ; margin-bottom: 20px; margin-left: 2px;">Lọc
+                    </div>
+                    <div class="d-flex mb-4 flex-wrap">
+                        <div style="margin-right: 50px">
+                            <caption>
+                                <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
+                                    @csrf
+                                    <input type="search" name="name" value="{{ $name }}" class="form-control"
+                                        style="width: 25rem" placeholder="Tên">
+                                </form>
+                            </caption>
+                            {{-- <span class="input-group-text"><a href="javascript:void(0)"><i
+                                        class="flaticon-381-search-2"></i></a></span> --}}
                         </div>
+                        <div style="margin-right: 50px">
+                            <caption>
+                                <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
+                                    @csrf
+                                    <input type="search" name="phone" value="{{ $phone }}" class="form-control"
+                                        style="width: 25rem" placeholder="Số điện thoại">
+                                </form>
+                            </caption>
+                        </div>
+
+                        <div class="">
+                            <caption>
+                                <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
+                                    @csrf
+                                    <input type="search" name="email" value="{{ $email }}" class="form-control"
+                                        style="width: 25rem" placeholder="Email">
+                                </form>
+                            </caption>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+                        <div></div>
+
                         <div>
                             <a href="{{ route('route_BackEnd_Users_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
                                     class="fa fa-users me-2"></i>Thêm mới</a>
@@ -45,9 +58,10 @@
                     <div class="tab-content">
                         <div class="tab-pane active show" id="All">
                             <div class="table-responsive">
-                                <table  class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg "
-                                id="guestTable-all">>
-                                   
+                                <table
+                                    class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg "
+                                    id="guestTable-all">
+
                                     <thead>
                                         <tr>
                                             <th class="h5 text-center">STT</th>
@@ -68,9 +82,11 @@
                                                         src="{{ asset($admin->avatar) ? '' . Storage::url($admin->avatar) : $admin->name }}"
                                                         alt=""></td>
                                                 <td class="text-center">{{ $admin->name }}</td>
-                                                <td class="text-center"><a href="javascript:void(0);"><strong>{{ $admin->email }}</strong></a>
+                                                <td class="text-center"><a
+                                                        href="javascript:void(0);"><strong>{{ $admin->email }}</strong></a>
                                                 </td>
-                                                <td class="text-center"><a href="javascript:void(0);"><strong>{{ $admin->phone }}</strong></a>
+                                                <td class="text-center"><a
+                                                        href="javascript:void(0);"><strong>{{ $admin->phone }}</strong></a>
                                                 </td>
                                                 <td class="text-center">
                                                     @if ($admin->role === 1)

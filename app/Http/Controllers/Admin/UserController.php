@@ -20,15 +20,23 @@ class UserController extends Controller
     {
         $title = ' Danh sách user';
         $name = $request->get('name');
+        $phone = $request->get('phone');
+        $email = $request->get('email');
         if($name){
             $users = Users::where('name','like','%'.$name.'%')
         ->paginate(5);
-        }else{
+        } elseif ($phone){
+            $users = Users::where('phone','like','%'.$phone.'%')
+        ->paginate(5);
+        } elseif ($email){
+            $users = Users::where('email','like','%'.$email.'%')
+        ->paginate(5);
+        } else{
             $users = Users::select('id', 'name', 'email', 'phone', 'address', 'cccd', 'date', 'gender', 'status')
         ->paginate(5);
         }   
 
-        return view('admin.user.index', compact('users','name','title'));
+        return view('admin.user.index', compact('users','name', 'email', 'phone', 'title'));
     }
 
     public function add(Request $request) {
