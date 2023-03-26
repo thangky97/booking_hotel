@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\CategoryRooms;
 use App\Models\Properties;
 use App\Models\Rooms;
@@ -20,6 +21,11 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $name = $request->get('name');
+        $this->v['banners'] = Banner::select('images', 'status')
+            ->where('status', '=', 1)
+            ->get();
+            // dd($this->v['banners']);
+
         $property_rooms = DB::table('property_room')
             ->leftjoin('rooms', 'rooms.id', '=', 'property_room.room_id')
             ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')

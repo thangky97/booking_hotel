@@ -20,11 +20,6 @@ Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
 
-
-Route::get('/room_detail', function () {
-    return view('templates/pages/room_detail');
-});
-
 Route::get('/news', function () {
     return view('templates/pages/new');
 });

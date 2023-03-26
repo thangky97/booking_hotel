@@ -3126,6 +3126,169 @@
         };
     </script>
 
+<script type="text/javascript" id="rs-initialisation-scripts">
+    var	tpj = jQuery;
+
+    var	revapi2;
+
+    if(window.RS_MODULES === undefined) window.RS_MODULES = {};
+    if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+    RS_MODULES.modules["revslider21"] = {init:function() {
+        window.revapi2 = window.revapi2===undefined || window.revapi2===null || window.revapi2.length===0  ? document.getElementById("rev_slider_2_1") : window.revapi2;
+        if(window.revapi2 === null || window.revapi2 === undefined || window.revapi2.length==0) { window.revapi2initTry = window.revapi2initTry ===undefined ? 0 : window.revapi2initTry+1; if (window.revapi2initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider21"].init()}); return;}
+        window.revapi2 = jQuery(window.revapi2);
+        if(window.revapi2.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_2_1"); return;}
+        revapi2.revolutionInit({
+                revapi:"revapi2",
+                sliderType:"carousel",
+                DPR:"dpr",
+                sliderLayout:"fullwidth",
+                visibilityLevels:"1240,1024,778,480",
+                gridwidth:"1200,1024,778,480",
+                gridheight:"850,700,600,500",
+                lazyType:"smart",
+                perspective:600,
+                perspectiveType:"local",
+                editorheight:"849.996,700,600,500",
+                responsiveLevels:"1240,1024,778,480",
+                carousel: {
+                    infinity:true
+                },
+                progressBar:{disableProgressBar:true},
+                navigation: {
+                    onHoverStop:false
+                },
+                fanim: {
+                    in:{"o":0},
+                    out:{"a":false},
+                    speed:500
+                },
+                viewPort: {
+                    global:true,
+                    globalDist:"-200px",
+                    enable:false,
+                    visible_area:"20%"
+                },
+                fallbacks: {
+                    allowHTML5AutoPlayOnAndroid:true
+                },
+        });
+        
+    }} // End of RevInitScript
+
+    if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
+</script>
+
+<script type="text/javascript" id="rs-initialisation-scripts">
+    var	tpj = jQuery;
+
+    var	revapi14,revapi15;
+
+    if(window.RS_MODULES === undefined) window.RS_MODULES = {};
+    if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+    RS_MODULES.modules["revslider141"] = {init:function() {
+        window.revapi14 = window.revapi14===undefined || window.revapi14===null || window.revapi14.length===0  ? document.getElementById("rev_slider_14_1") : window.revapi14;
+        if(window.revapi14 === null || window.revapi14 === undefined || window.revapi14.length==0) { window.revapi14initTry = window.revapi14initTry ===undefined ? 0 : window.revapi14initTry+1; if (window.revapi14initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider141"].init()}); return;}
+        window.revapi14 = jQuery(window.revapi14);
+        if(window.revapi14.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_14_1"); return;}
+        revapi14.revolutionInit({
+                revapi:"revapi14",
+                DPR:"dpr",
+                sliderLayout:"fullscreen",
+                visibilityLevels:"1240,1024,778,480",
+                gridwidth:"1240,1024,778,480",
+                gridheight:"800,768,960,720",
+                minHeight:"600px",
+                lazyType:"smart",
+                spinner:"spinner3",
+                perspective:600,
+                perspectiveType:"local",
+                editorheight:"800,768,960,720",
+                responsiveLevels:"1240,1024,778,480",
+                fullScreenOffset:"128px",
+                progressBar:{disableProgressBar:true},
+                navigation: {
+                    mouseScrollNavigation:false,
+                    wheelCallDelay:1000,
+                    onHoverStop:false,
+                    bullets: {
+                        enable:true,
+                        tmp:"",
+                        style:"hermes",
+                        v_offset:30
+                    }
+                },
+                parallax: {
+                    levels:[5,10,15,20,25,30,35,40,45,46,47,48,49,50,51,55],
+                    type:"scroll",
+                    origo:"slidercenter"
+                },
+                viewPort: {
+                    global:true,
+                    globalDist:"-200px",
+                    enable:false,
+                    visible_area:"20%"
+                },
+                fallbacks: {
+                    allowHTML5AutoPlayOnAndroid:true
+                },
+        });
+                        var ua = window.navigator.userAgent;
+var msie = ua.indexOf("MSIE ");
+
+if(msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./) || ('CSS' in window && 'supports' in window.CSS && !window.CSS.supports('mix-blend-mode', 'screen'))) {
+
+var bgColor = 'rgba(245, 245, 245, 0.5)';
+//jQuery('.rev_slider .rs-layer[data-blendmode]').removeAttr('data-blendmode').css('background', bgColor);
+jQuery('.rev_slider .rs-layer[data-blendmode]').remove();
+}
+        
+    }} // End of RevInitScript
+
+    if(window.RS_MODULES === undefined) window.RS_MODULES = {};
+    if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+    RS_MODULES.modules["revslider152"] = {init:function() {
+        window.revapi15 = window.revapi15===undefined || window.revapi15===null || window.revapi15.length===0  ? document.getElementById("rev_slider_15_2") : window.revapi15;
+        if(window.revapi15 === null || window.revapi15 === undefined || window.revapi15.length==0) { window.revapi15initTry = window.revapi15initTry ===undefined ? 0 : window.revapi15initTry+1; if (window.revapi15initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider152"].init()}); return;}
+        window.revapi15 = jQuery(window.revapi15);
+        if(window.revapi15.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_15_2"); return;}
+        revapi15.revolutionInit({
+                revapi:"revapi15",
+                sliderType:"carousel",
+                DPR:"dpr",
+                sliderLayout:"fullwidth",
+                visibilityLevels:"1240,1024,778,480",
+                gridwidth:1200,
+                gridheight:600,
+                lazyType:"smart",
+                spinner:"spinner2",
+                perspective:600,
+                perspectiveType:"global",
+                editorheight:"600,768,960,720",
+                responsiveLevels:"1240,1024,778,480",
+                carousel: {
+                    showLayersAllTime:"all",
+                    infinity:true
+                },
+                progressBar:{disableProgressBar:true},
+                navigation: {
+                    onHoverStop:false
+                },
+                viewPort: {
+                    global:true,
+                    globalDist:"-200px",
+                    enable:false
+                },
+                fallbacks: {
+                    allowHTML5AutoPlayOnAndroid:true
+                },
+        });
+        
+    }} // End of RevInitScript
+
+    if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
+</script>
+
 
 </body>
 
