@@ -49,10 +49,9 @@
                                         <th class="h5 text-center">Ngày đặt</th>
                                         <th class="h5 text-center">Ngày trả</th>
                                         <th class="h5 text-center">Người</th>
-                                        <th class="h5 text-center">Loại phòng</th>
                                         <th class="h5 text-center w180">Thanh toán</th>
                                         <th class="h5 text-center">Nhân viên</th>
-                                        <th></th>
+                                        <th class="h5 text-center">Hành động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -91,18 +90,6 @@
                                             <p>{{$item->people}}</p>
                                         </td>
                                         <td class="text-center">
-                                            <p>
-                                                <?php $cate_room_ids = explode(',', $item->cate_room_id); ?>
-                                                @foreach ($listCaterooms as $cate)
-                                                @foreach($cate_room_ids as $inx => $cr_id)
-                                                @if($cr_id==$cate->id)
-                                                {{$cate->name}}
-                                                @endif
-                                                @endforeach
-                                                @endforeach
-                                            </p>
-                                        </td>
-                                        <td class="text-center">
                                             <form action="{{route('route_BackEnd_Bookings_Updatepay',$item->id)}}" method="post">
                                                 @csrf
                                                 @if($item->status_pay==0)
@@ -134,13 +121,13 @@
                                                     </svg>
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>                                                                                                  
+                                                    <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
                                                     @if(in_array($item->id,$list))
-                                                    <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Xem Bill</a>                        
+                                                    <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Xem Bill</a>
                                                     @else
                                                     <a class="dropdown-item" href="{{route('route_BackEnd_Bill_Room',$item->id)}}">Tạo Bill</a>
                                                     @endif
-                                                                                                 
+
                                                 </div>
                                             </div>
                                         </td>
