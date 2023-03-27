@@ -137,11 +137,13 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\BookingController@bookings')->name('route_BackEnd_Bookings_List');
         Route::get('/add/{id}', 'App\Http\Controllers\Admin\BookingController@add')->name('route_BackEnd_Bookings_Add');
         Route::get('/adduser', 'App\Http\Controllers\Admin\BookingController@adduser')->name('route_BackEnd_Bookings_Adduser');
+        Route::get('/addservice/{id}', 'App\Http\Controllers\Admin\BookingController@addservice')->name('route_BackEnd_Bookings_Addservice');
         Route::post('/create/{id}', 'App\Http\Controllers\Admin\BookingController@create')->name('route_BackEnd_Bookings_Create');
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
+        Route::post('/createservice/{id}', 'App\Http\Controllers\Admin\BookingController@createservice')->name('route_BackEnd_Bookings_Createservice');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
-        
+
     });
 
     Route::prefix('/booking_detail')->group(function () {
@@ -154,7 +156,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
             return view('admin/booking_detail/edit');
         });
         Route::post('/update', function () {
-            return view('admin/booking_detail/update'); 
+            return view('admin/booking_detail/update');
         });
     });
 
@@ -163,7 +165,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/rooms/{id}', 'App\Http\Controllers\Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
         Route::get('/services/{id}', 'App\Http\Controllers\Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
         Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
-        
+
     });
 
     Route::prefix('/bill_detail')->group(function () {
