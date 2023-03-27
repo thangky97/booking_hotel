@@ -160,8 +160,9 @@
                                                         </a>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item"
-                                                                href="{{ route('route_BackEnd_Users_Edit', ['id' => $user->id]) }}">Sửa</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">Xóa</a>
+                                                               href="{{ route('route_BackEnd_Bookings_Add', ['id' => $user->id]) }}">Đặt phòng</a>
+                                                            <a class="dropdown-item"
+                                                               href="{{ route('route_BackEnd_Users_Edit', ['id' => $user->id]) }}">Sửa</a>
                                                         </div>
                                                     </div>
                                                 </td>

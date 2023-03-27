@@ -9,6 +9,8 @@ use App\Models\Admin;
 use App\Models\Bills;
 use App\Models\Bookingdetail;
 use App\Models\Rooms;
+use App\Models\Service;
+use App\Models\Serviceroom;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use App\Models\Booking;
@@ -26,8 +28,7 @@ class BookingController extends Controller
 
     public function bookings()
     {
-        $Users = new Users();
-        $this->v['listUsers'] = $Users->loadAll();
+        $this->v['listUsers'] = DB::table('users')->get();
         $Cate_rooms = new Categoryrooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         $Bookings = new Booking();
@@ -239,7 +240,7 @@ class BookingController extends Controller
             $usernew->save();
 
             $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
-            return redirect()->route('route_BackEnd_Bookings_List');
+            return redirect()->route('route_BackEnd_Bookings_Addservice', $idBooking);
         }
     }
 
@@ -247,13 +248,25 @@ class BookingController extends Controller
     {
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
-        $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadAll();
+        $rooms = DB::table('rooms')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
+            ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
+            ->select('rooms.*','category_rooms.price', 'service_room.service_id', 'service_room.booking_id')->where('service_room.booking_id','=',$id)
+            ->get();
+        $price = 0;
+        foreach ($rooms as $item){
+            $price = $item->price + $price;
+        }
+        $this->v['listRooms'] = $rooms;
+        $this->v['price'] = $price;
         $booking = Booking::find($id);
         $this->v['booking'] = $booking;
         $this->v['user'] = Users::find($booking->user_id);
         $Cate_rooms = new Categoryrooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        $Service = new Service();
+        $this->v['listServices'] = $Service->loadAll();
         $this->v['title'] = '12 Zodiac - Chi tiết đơn';
         return view('admin.booking.detail', $this->v);
     }
@@ -263,6 +276,157 @@ class BookingController extends Controller
         $Booking = Booking::find($id);
         $Booking->status_pay = $request->status_pay;
         $Booking->save();
+        return redirect()->route('route_BackEnd_Bookings_List');
+    }
+
+    public function addservice($id, Request $request)
+    {
+        $rooms = DB::table('rooms')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
+            ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
+            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'bookings_detail.id', 'bookings_detail.room_id', 'bookings_detail.booking_id', 'bookings.checkin_date', 'bookings.checkout_date', 'category_rooms.price')
+            ->where('bookings.id','=',$id)
+            ->get();
+        $this->v['listRooms'] = $rooms;
+        $Services = new Service();
+        $this->v['listSevice'] = $Services->loadAll();
+        $this->v['id'] = (int)$id;
+        $this->v['title'] = 'Chọn dịch vụ';
+        return view('admin.booking.addservice', $this->v);
+    }
+
+    public function createservice($id, Request $request)
+    {
+        $rooms = DB::table('rooms')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
+            ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
+            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'bookings_detail.id', 'bookings_detail.room_id', 'bookings_detail.booking_id', 'bookings.checkin_date', 'bookings.checkout_date', 'category_rooms.price')->where('bookings.id','=',$id)
+            ->get();
+        foreach ($rooms as $index => $room){
+            $service = new Serviceroom();
+            $booking_id = $room->booking_id;
+            if ($index==0){
+                if ($request->service_id_0){
+                    $service_id = implode(',' ,$request->service_id_0);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==1){
+                if ($request->service_id_1){
+                    $service_id = implode(',' ,$request->service_id_1);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==2){
+                if ($request->service_id_2){
+                    $service_id = implode(',' ,$request->service_id_2);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==3){
+                if ($request->service_id_3){
+                    $service_id = implode(',' ,$request->service_id_3);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==4){
+                if ($request->service_id_4){
+                    $service_id = implode(',' ,$request->service_id_4);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==5){
+                if ($request->service_id_5){
+                    $service_id = implode(',' ,$request->service_id_5);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==6){
+                if ($request->service_id_6){
+                    $service_id = implode(',' ,$request->service_id_6);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==7){
+                if ($request->service_id_7){
+                    $service_id = implode(',' ,$request->service_id_7);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==8){
+                if ($request->service_id_8){
+                    $service_id = implode(',' ,$request->service_id_8);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==9){
+                if ($request->service_id_9){
+                    $service_id = implode(',' ,$request->service_id_9);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==10){
+                if ($request->service_id_10){
+                    $service_id = implode(',' ,$request->service_id_10);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==11){
+                if ($request->service_id_11){
+                    $service_id = implode(',' ,$request->service_id_11);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==12){
+                if ($request->service_id_12){
+                    $service_id = implode(',' ,$request->service_id_12);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==13){
+                if ($request->service_id_13){
+                    $service_id = implode(',' ,$request->service_id_13);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==14){
+                if ($request->service_id_14){
+                    $service_id = implode(',' ,$request->service_id_14);
+                }else{
+                    $service_id = null;
+                }
+            }
+            if ($index==15){
+                if ($request->service_id_15){
+                    $service_id = implode(',' ,$request->service_id_15);
+                }else{
+                    $service_id = null;
+                }
+            }
+            $room_id = $room->room_id;
+            $service->create([
+                'booking_id'=>$booking_id,
+                'room_id'=>$room_id,
+                'service_id'=>$service_id,
+                'status'=>1
+            ]);
+        }
         return redirect()->route('route_BackEnd_Bookings_List');
     }
 
