@@ -42,7 +42,6 @@ class PropertyRoomController extends Controller
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
         $this->v['title'] = ' Thêm mới';
-        dd($this->v);
         return view('admin.property_room.add', $this->v);
     }
 
