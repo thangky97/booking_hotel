@@ -44,7 +44,11 @@
                     <span class="nav-text">Banner</span>
                 </a>
             </li>
-            
+            <li><a class="" href="{{ route('route_BackEnd_Voucher_index') }}" aria-expanded="false">
+                    <i class="fa fa-users me-2"></i>
+                    <span class="nav-text">Voucher</span>
+                </a>
+            </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-050-info"></i>
                     <span class="nav-text">Bài đăng</span>
