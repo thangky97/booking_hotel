@@ -450,7 +450,11 @@ class BookingController extends Controller
 
     public function updateservice($id, Request $request)
     {
-        $service_id = implode(',' ,$request->service_id);
+        if ($request->service_id){
+            $service_id = implode(',' ,$request->service_id);
+        }else{
+            $service_id=null;
+        }
         Serviceroom::find($id)->update([
             'service_id' => $service_id,
         ]);
