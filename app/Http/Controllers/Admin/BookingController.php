@@ -252,7 +252,7 @@ class BookingController extends Controller
             ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
             ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
             ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
-            ->select('rooms.*','category_rooms.price', 'service_room.service_id', 'service_room.booking_id')->where('service_room.booking_id','=',$id)
+            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')->where('service_room.booking_id','=',$id)
             ->get();
         $price = 0;
         foreach ($rooms as $item){
@@ -267,7 +267,7 @@ class BookingController extends Controller
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         $Service = new Service();
         $this->v['listServices'] = $Service->loadAll();
-        $this->v['title'] = '12 Zodiac - Chi tiết đơn';
+        $this->v['title'] = 'Chi tiết đơn';
         return view('admin.booking.detail', $this->v);
     }
 
@@ -430,4 +430,31 @@ class BookingController extends Controller
         return redirect()->route('route_BackEnd_Bookings_List');
     }
 
+    public function editservice($id)
+    {
+        $room = DB::table('rooms')
+            ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
+            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'service_room.id', 'service_room.booking_id', 'service_room.room_id', 'bookings.checkin_date', 'bookings.checkout_date', 'category_rooms.price', 'service_room.service_id')
+            ->where('service_room.id','=',$id)
+            ->get()->first();
+        $this->v['room'] = $room;
+        $this->v['services'] = explode(",", $room->service_id);
+        $Service = new Service();
+        $this->v['listService'] = $Service->loadAll();
+        $this->v['id'] = $id;
+        $this->v['title'] = '12 Zodiac - Chi tiết đơn';
+        return view('admin.booking.editservice', $this->v);
+    }
+
+    public function updateservice($id, Request $request)
+    {
+        $service_id = implode(',' ,$request->service_id);
+        Serviceroom::find($id)->update([
+            'service_id' => $service_id,
+        ]);
+        $serviceroom = Serviceroom::find($id);
+        return redirect()->route('route_BackEnd_Bookings_Detail',$serviceroom->booking_id);
+    }
 }

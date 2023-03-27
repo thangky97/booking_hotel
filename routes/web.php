@@ -138,11 +138,13 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/add/{id}', 'App\Http\Controllers\Admin\BookingController@add')->name('route_BackEnd_Bookings_Add');
         Route::get('/adduser', 'App\Http\Controllers\Admin\BookingController@adduser')->name('route_BackEnd_Bookings_Adduser');
         Route::get('/addservice/{id}', 'App\Http\Controllers\Admin\BookingController@addservice')->name('route_BackEnd_Bookings_Addservice');
+        Route::get('/editservice/{id}', 'App\Http\Controllers\Admin\BookingController@editservice')->name('route_BackEnd_Bookings_Editservice');
         Route::post('/create/{id}', 'App\Http\Controllers\Admin\BookingController@create')->name('route_BackEnd_Bookings_Create');
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
         Route::post('/createservice/{id}', 'App\Http\Controllers\Admin\BookingController@createservice')->name('route_BackEnd_Bookings_Createservice');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
+        Route::post('/updateservice/{id}', 'App\Http\Controllers\Admin\BookingController@updateservice')->name('route_BackEnd_Bookings_Updateservice');
 
     });
 

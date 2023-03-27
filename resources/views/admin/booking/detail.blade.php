@@ -75,9 +75,9 @@
                                                         </td>
                                                         <td class="text-center">
                                                             @if($item->service_id)
-                                                                <a href="{{route('route_BackEnd_PropertyRoom_edit',$item->id)}}"><button class="btn btn-primary">Sửa</button></a>
+                                                                <a href="{{route('route_BackEnd_Bookings_Editservice',$item->id)}}"><button class="btn btn-primary">Sửa</button></a>
                                                             @else
-                                                                <a href="{{route('route_BackEnd_PropertyRoom_edit',$item->id)}}"><button class="btn btn-success">Thêm</button></a>
+                                                                <a href="{{route('route_BackEnd_Bookings_Editservice',$item->id)}}"><button class="btn btn-success">Thêm</button></a>
                                                             @endif
                                                         </td>
                                                     </tr>
