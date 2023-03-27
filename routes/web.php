@@ -236,16 +236,18 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/vouchers')->group(function () {
-        Route::get('/', 'VoucherController@index')->name('route_BackEnd_Voucher_index');
-        Route::get('/add', 'VoucherController@add')->name('route_BackEnd_Voucher_add');
-        Route::post('/store', function () {
-            return view('admin/vouchers/store');
-        });
+        Route::get('/', 'App\Http\Controllers\Admin\VoucherController@index')->name('route_BackEnd_Voucher_index');
+        Route::get('/add', 'App\Http\Controllers\Admin\VoucherController@add')->name('route_BackEnd_Voucher_add');
+        Route::post('/add', 'App\Http\Controllers\Admin\VoucherController@store')->name('route_BackEnd_Voucher_store');
+
         Route::get('/edit', function () {
             return view('admin/vouchers/edit');
         });
         Route::post('/update', function () {
             return view('admin/vouchers/update');
         });
+
+        Route::post('/check', 'App\Http\Controllers\Admin\VoucherController@check_voucher')->name('route_BackEnd_Voucher_check');
+        Route::get('/unset', 'App\Http\Controllers\Admin\VoucherController@unset')->name('route_BackEnd_Voucher_unset');
     });
 });
