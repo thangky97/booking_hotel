@@ -24,6 +24,34 @@ Route::get('/news', function () {
     return view('templates/pages/new');
 });
 
+Route::get('/contact', function () {
+    return view('templates/pages/contact');
+});
+
+Route::get('/about', function () {
+    return view('templates/pages/about');
+});
+
+Route::get('/services', function () {
+    return view('templates/pages/service');
+});
+
+Route::get('/page', function () {
+    return view('templates/pages/page');
+});
+
+Route::get('/page1', function () {
+    return view('templates/pages/page1');
+});
+
+Route::get('/page2', function () {
+    return view('templates/pages/page2');
+});
+
+Route::get('/page3', function () {
+    return view('templates/pages/page3');
+});
+
 Route::get('/new_detail', function () {
     return view('templates/pages/new_detail');
 });
@@ -204,8 +232,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/contact')->group(function () {
-        Route::get('/', 'ContactController@index')->name('route_BackEnd_Contact_index');
-        Route::get('/add', 'ContactController@add')->name('route_BackEnd_Contact_add');
+        Route::get('/', 'Admin\ContactController@index')->name('route_BackEnd_Contact_index');
+        Route::get('/add', 'Admin\ContactController@add')->name('route_BackEnd_Contact_add');
         Route::post('/store', function () {
             return view('admin/contact/store');
         });
