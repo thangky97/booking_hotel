@@ -37,6 +37,7 @@ Route::get('/checkout', function () { //thanh toán
 });
 
 
+
 Route::get('/sign-in', 'Client\SigninController@getSignin')->name('getSignin');
 Route::post('/sign-in', 'Client\SigninController@postSignin')->name('postSignin');
 Route::get('/sign-up', 'Client\SignupController@getSignup')->name('getSignup');
@@ -163,6 +164,9 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/rooms/{id}', 'App\Http\Controllers\Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
         Route::get('/services/{id}', 'App\Http\Controllers\Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
         Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
+
+        //print_order
+        Route::get('/print_order/{id}', 'App\Http\Controllers\Admin\BillController@print_order')->name('printOrder');
         
     });
 

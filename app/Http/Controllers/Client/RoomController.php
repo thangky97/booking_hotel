@@ -102,6 +102,7 @@ class RoomController extends Controller
         $people = $request->people;
         $Rooms = new Rooms();
         $listRoomwork = array_unique($arrRoomworks);
+        
 //        dd($people);
         $r=0;
         $filterRoom = array();
@@ -122,7 +123,7 @@ class RoomController extends Controller
                 }
             }
         }
-        dd($filterRoom);
+        
         $cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $cate_rooms->loadAll();
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
