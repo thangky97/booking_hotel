@@ -148,7 +148,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
-        
+
     });
 
     Route::prefix('/booking_detail')->group(function () {
@@ -167,7 +167,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::prefix('/bills')->group(function () {
         Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bill')->name('route_BackEnd_Bill');
-        
+
     });
 
     Route::prefix('/bill_detail')->group(function () {
@@ -210,11 +210,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/news')->group(function () {
-        Route::get('/', 'App\Http\Controllers\Admin\NewController@news')->name('route_BackEnd_News_List');
-        Route::match(['get', 'post'], '/add', 'App\Http\Controllers\Admin\NewController@news_add')->name('route_BackEnd_News_Add');
-        Route::get('/detail', 'App\Http\Controllers\Admin\NewController@news_detail')->name('route_BackEnd_News_Detail');
-        Route::post('/update/{id}', 'App\Http\Controllers\Admin\NewController@news_update')->name('route_BackEnd_News_Update');
-        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\NewController@news_remove')->name('route_BackEnd_News_Remove');
+        Route::get('/', 'App\Http\Controllers\Admin\NewsController@news')->name('route_BackEnd_News_List');
+        Route::match(['get', 'post'], '/add', 'App\Http\Controllers\Admin\NewsController@news_add')->name('route_BackEnd_News_Add');
+        Route::get('/detail', 'App\Http\Controllers\Admin\NewsController@news_detail')->name('route_BackEnd_News_Detail');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\NewsController@news_update')->name('route_BackEnd_News_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\NewsController@news_remove')->name('route_BackEnd_News_Remove');
     });
 
     Route::prefix('/category_new')->group(function () {
