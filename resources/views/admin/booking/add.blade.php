@@ -188,7 +188,7 @@
                                                         </label>
                                                         <div class="col-lg-6">
                                                             <input type="text" name="people" class="form-control"
-                                                                   placeholder="Nhập số người" value="{{$people}}">
+                                                                   placeholder="Nhập số người" value="{{$people}}" readonly>
                                                             <div class="invalid-feedback">
                                                                 Please enter a password.
                                                             </div>
@@ -228,12 +228,13 @@
                                                             class="me-2"><i class="fa fa-times"></i></span>Thay đổi</a>
                                                 </div>
                                             </div>
+                                            <script>
+                                                localStorage.setItem('people', 0)
+                                            </script>
                                             <div>
-                                                @if(isset($errorpeople))
-                                                    <div class="error2">
-                                                        <p>{{$errorpeople}}</p>
-                                                    </div>
-                                                @endif
+                                                <p id="showpeople"></p>
+                                            </div>
+                                            <div>
                                                 <div class="card-tabs mt-3 mb-xxl-0 mb-4">
                                                     <ul class="nav nav-tabs" role="tablist">
                                                         @foreach($listCaterooms as $cate_room)
@@ -261,6 +262,7 @@
                                                             class="tab-pane <?= $cate_room->id == 1 ? 'active show' : 'fade' ?>"
                                                             id="{{$cate_room->sort}}">
                                                             <h3>Giá phòng: {{$cate_room->price}}$</h3>
+                                                            <p>Mô tả: {{$cate_room->description}}</p>
                                                             <div class="table-responsive">
                                                                 <table
                                                                     class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl "
@@ -276,8 +278,8 @@
                                                                         </th>
                                                                         <th class="h5 text-center">STT</th>
                                                                         <th class="h5 text-center">Tên phòng</th>
+                                                                        <th class="h5 text-center">Tầng</th>
                                                                         <th class="h5 text-center">Số người</th>
-                                                                        <th class="h5 text-center">Mô tả</th>
                                                                         <th class="h5 text-center">Số giường</th>
                                                                     </tr>
                                                                     </thead>
@@ -291,10 +293,23 @@
                                                                                         <div class="form-check style-1">
                                                                                             <input
                                                                                                 class="form-check-input"
+                                                                                                onclick="addroom()"
                                                                                                 type="checkbox"
-                                                                                                id="checkbox-{{$item->id}}"
+                                                                                                id="checkbox_{{$item->id}}"
                                                                                                 name="room_id[]"
                                                                                                 value="{{$item->id}}">
+                                                                                                <script>
+                                                                                                    var checkbok_{{$item->id}}= document.getElementById('checkbox_{{$item->id}}')
+                                                                                                    checkbok_{{$item->id}}.onclick = function (){
+                                                                                                        if (this.checked){
+                                                                                                            localStorage.setItem('people',Number(localStorage.getItem('people')) + Number({{$item->adult}}));
+                                                                                                        }
+                                                                                                        else{
+                                                                                                            localStorage.setItem('people',Number(localStorage.getItem('people')) - Number({{$item->adult}}));
+                                                                                                        }
+                                                                                                        showpeople();
+                                                                                                    }
+                                                                                                </script>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="">{{$i++}}</td>
@@ -311,8 +326,8 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td class="text-center">{{$item->adult}}</td>
-                                                                                    <td class="text-center">{{$item->description}}</td>
+                                                                                    <td class="text-center"><span>{{$item->floor}}</span></td>
+                                                                                    <td class="text-center"><span>{{$item->adult}}</span></td>
                                                                                     <td class="text-center">{{$item->bed}}</td>
                                                                                 </tr>
                                                                             @endif
@@ -326,9 +341,9 @@
                                                 </div>
                                             </div>
                                             <input name="status_booking" value="1" hidden>
-                                            <button type="submit" class="btn btn-primary"><span class="me-2"><i
-                                                        class="fa fa-paper-plane"></i></span>Thêm mới
-                                            </button>
+                                            <div id="showbutton">
+
+                                            </div>
                                         @else
                                             <div class="col-xl-6">
                                                 <div class="mb-3 row">
@@ -395,3 +410,17 @@
             </div>
         </div>
     </div>
+@if(isset($people))
+    <script>
+        function showpeople() {
+            document.getElementById('showpeople').innerHTML = 'Số người: ' + localStorage.getItem('people') + '/' + {{$people}};
+            if (Number(localStorage.getItem('people')) < Number({{$people}})) {
+                document.getElementById("showpeople").style.color = 'red';
+                document.getElementById('showbutton').innerHTML = '<div class="btn btn-danger" style="width: 100%">' + '<span class="me-2">' + '<i class="fa fa-paper-plane">' + '</i>' + '</span>' + 'Thêm mới' + '</div>';
+            } else {
+                document.getElementById("showpeople").style.color = 'green';
+                document.getElementById('showbutton').innerHTML = '<button type="submit" class="btn btn-primary" style="width: 100%">' + '<span class="me-2">' + '<i class="fa fa-paper-plane">' + '</i>' + '</span>' + 'Thêm mới' + '</button>';
+            }
+        }
+    </script>
+@endif

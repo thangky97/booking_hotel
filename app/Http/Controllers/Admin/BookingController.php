@@ -64,12 +64,17 @@ class BookingController extends Controller
 
     public function createuser(UserRequest $request)
     {
+        if(Users::where('email','like','%'.$request->email.'%')->first()){
+            return redirect()->route('route_BackEnd_Bookings_Add', Users::where('email','like','%'.$request->email.'%')->first()->id);
+        }
+
         $today = date("Y/m/d", strtotime("now"));
         if (strtotime($request->date) >= strtotime($today)) {
             $this->v['error'] = 'Ngày sinh không hợp lệ phải nhỏ hơn hiện tại';
             $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
             return view('admin.booking.adduser', $this->v);
         }
+
         $user = Users::create($request->all());
         $userID = $user->id;
 
@@ -167,48 +172,6 @@ class BookingController extends Controller
                 $room = Rooms::find($ro_id);
                 $people = $room->adult + $people;
             }
-            if ($people < $request->people) {
-                $this->v['listEmployees'] = DB::table('admin')->get();
-                $Cate_rooms = new Categoryrooms();
-                $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-                $this->v['usernew'] = Users::find($id);
-                $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
-                $this->v['checkin'] = $request->checkin_date;
-                $this->v['checkout'] = $request->checkout_date;
-                $check_in = strtotime($request->checkin_date);
-                $check_out = strtotime($request->checkout_date);
-                $rooms = DB::table('rooms')
-                    ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
-                    ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
-                    ->select('rooms.id', 'bookings.checkin_date', 'bookings.checkout_date')
-                    ->get();
-                $arrRoomworks = array();
-                foreach ($rooms as $index => $room) {
-                    if (strtotime($room->checkin_date) <= $check_in && strtotime($room->checkout_date) >= $check_out) {
-                        $arrRoom = array($index => $room->id);
-                        $arrRoomworks = $arrRoom + $arrRoomworks;
-                    }
-                    if (strtotime($room->checkin_date) > $check_in && strtotime($room->checkout_date) < $check_out) {
-                        $arrRoom = array($index => $room->id);
-                        $arrRoomworks = $arrRoom + $arrRoomworks;
-                    }
-                    if (strtotime($room->checkin_date) > $check_in && strtotime($room->checkin_date) <= $check_out) {
-                        $arrRoom = array($index => $room->id);
-                        $arrRoomworks = $arrRoom + $arrRoomworks;
-                    }
-                    if (strtotime($room->checkout_date) >= $check_in && strtotime($room->checkout_date) < $check_out) {
-                        $arrRoom = array($index => $room->id);
-                        $arrRoomworks = $arrRoom + $arrRoomworks;
-                    }
-                }
-                $this->v['listRoomwork'] = array_unique($arrRoomworks);
-                $Rooms = new Rooms();
-                $this->v['listRooms'] = $Rooms->loadAll();
-                $this->v['errorpeople'] = 'Số người trong phòng không đủ. Xin hãy chọn thêm phòng!';
-                $this->v['people'] = $request->people;
-
-                return view('admin.booking.add', $this->v);
-            }
             $booking = Booking::create([
                 'user_id' => $request->user_id,
                 'checkin_date' => $request->checkin_date,
@@ -236,7 +199,6 @@ class BookingController extends Controller
             // $usernew->cccd = $request->cccd;
 
             $usernew->date = $request->date;
-            $usernew->room_id = implode(',', $request->room_id);
             $usernew->save();
 
             $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
@@ -252,7 +214,7 @@ class BookingController extends Controller
             ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
             ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
             ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
-            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')->where('service_room.booking_id','=',$id)
+            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')->where('service_room.booking_id','=',$id)
             ->get();
         $price = 0;
         foreach ($rooms as $item){

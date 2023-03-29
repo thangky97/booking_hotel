@@ -532,55 +532,134 @@
                         data-id="461b0a5e" data-element_type="section">
                         <div class="elementor-container elementor-column-gap-default">
                             @foreach ($listCaterooms as $index => $cateroom)
-                                @if ($index == 0 || $index == 1)
-                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-29ee155f"
-                                        data-id="29ee155f" data-element_type="column"
-                                        data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
-                                        {{ $index == 0 ? 'style=order:1' : 'style=order:4' }}>
-                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                            <div class="elementor-element elementor-element-37e5b5d6 elementor-widget elementor-widget-heading"
-                                                data-id="37e5b5d6" data-element_type="widget"
-                                                data-widget_type="heading.default">
-                                                <div class="elementor-widget-container">
-                                                    <h3 class="elementor-heading-title elementor-size-default">
-                                                        {{ $cateroom->name }}</h3>
+                                @if($index<4)
+                                    @if ($index == 0 || $index == 1)
+                                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-29ee155f"
+                                            data-id="29ee155f" data-element_type="column"
+                                            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
+                                            {{ $index == 0 ? 'style=order:1' : 'style=order:4' }}>
+                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-37e5b5d6 elementor-widget elementor-widget-heading"
+                                                    data-id="37e5b5d6" data-element_type="widget"
+                                                    data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <h3 class="elementor-heading-title elementor-size-default">
+                                                            {{ $cateroom->name }}</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-35bc1cc6 elementor-widget elementor-widget-heading"
+                                                    data-id="35bc1cc6" data-element_type="widget"
+                                                    data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <h1 class="elementor-heading-title elementor-size-default"><span
+                                                                style="font-size:25px">$</span> {{ $cateroom->price }} <span
+                                                                style="font-size:20px">/
+                                                                đêm</span></h1>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-52bd9918 elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                    data-id="52bd9918" data-element_type="widget"
+                                                    data-widget_type="icon-list.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="elementor-icon-list-items">
+                                                            @foreach ($listProperty_rooms as $property_room)
+                                                                @if ($cateroom->id == $property_room->id)
+                                                                    <?php $property_ids = explode(',', $property_room->properties_id); ?>
+                                                                    @foreach ($listProperties as $property)
+                                                                        @if (in_array($property->id, $property_ids))
+                                                                            <li class="elementor-icon-list-item">
+                                                                                <span
+                                                                                    class="elementor-icon-list-text">{{ $property->name }}</span>
+                                                                            </li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                @endif
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-1d3a9b21 elementor-align-center elementor-widget elementor-widget-button"
+                                                    data-id="1d3a9b21" data-element_type="widget"
+                                                    data-widget_type="button.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="elementor-button-wrapper">
+                                                            <form action="{{ route('route_FontEnd_BookingSearch_Search') }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <input name="cateroom_id" value="{{ $cateroom->id }}" hidden>
+                                                                <button
+                                                                    class="elementor-button-link elementor-button elementor-size-sm"
+                                                                    role="button" style="width: 190px;">
+                                                                    <span class="elementor-button-content-wrapper">
+                                                                        <span class="elementor-button-text">XEM PHÒNG</span>
+                                                                    </span>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="elementor-element elementor-element-35bc1cc6 elementor-widget elementor-widget-heading"
-                                                data-id="35bc1cc6" data-element_type="widget"
-                                                data-widget_type="heading.default">
-                                                <div class="elementor-widget-container">
-                                                    <h1 class="elementor-heading-title elementor-size-default"><span
-                                                            style="font-size:25px">$</span> {{ $cateroom->price }} <span
-                                                            style="font-size:20px">/
-                                                            đêm</span></h1>
+                                        </div>
+                                    @else
+                                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-17deba38 elementor-invisible"
+                                            data-id="17deba38" data-element_type="column"
+                                            data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;zoomIn&quot;}"
+                                            {{ $index == 2 ? 'style=order:2' : 'style=order:3' }}>
+                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                                <div class="elementor-background-overlay"></div>
+                                                <div class="elementor-element elementor-element-71d1ea7b elementor-absolute elementor-widget elementor-widget-image"
+                                                    data-id="71d1ea7b" data-element_type="widget"
+                                                    data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                                                    data-widget_type="image.default">
+                                                    <div class="elementor-widget-container">
+                                                        <img width="176" height="159"
+                                                            src="wp-content/uploads/sites/4/2022/03/badge.png"
+                                                            class="attachment-full size-full" alt=""
+                                                            loading="lazy" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="elementor-element elementor-element-52bd9918 elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                                                data-id="52bd9918" data-element_type="widget"
-                                                data-widget_type="icon-list.default">
-                                                <div class="elementor-widget-container">
-                                                    <ul class="elementor-icon-list-items">
-                                                        @foreach ($listProperty_rooms as $property_room)
-                                                            @if ($cateroom->id == $property_room->id)
-                                                                <?php $property_ids = explode(',', $property_room->properties_id); ?>
-                                                                @foreach ($listProperties as $property)
-                                                                    @if (in_array($property->id, $property_ids))
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <span
-                                                                                class="elementor-icon-list-text">{{ $property->name }}</span>
-                                                                        </li>
-                                                                    @endif
-                                                                @endforeach
-                                                            @endif
-                                                        @endforeach
-                                                    </ul>
+                                                <div class="elementor-element elementor-element-5ebd0cff elementor-widget elementor-widget-heading"
+                                                    data-id="5ebd0cff" data-element_type="widget"
+                                                    data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <h3 class="elementor-heading-title elementor-size-default">
+                                                            {{ $cateroom->name }}</h3>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="elementor-element elementor-element-1d3a9b21 elementor-align-center elementor-widget elementor-widget-button"
-                                                data-id="1d3a9b21" data-element_type="widget"
-                                                data-widget_type="button.default">
-                                                <div class="elementor-widget-container">
+                                                <div class="elementor-element elementor-element-e62fc2b elementor-widget elementor-widget-heading"
+                                                    data-id="e62fc2b" data-element_type="widget"
+                                                    data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <h1 class="elementor-heading-title elementor-size-default"><span
+                                                                style="font-size:25px">$</span> {{ $cateroom->price }} <span
+                                                                style="font-size:20px">/
+                                                                đêm</span></h1>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-e75d8ed elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                    data-id="e75d8ed" data-element_type="widget"
+                                                    data-widget_type="icon-list.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="elementor-icon-list-items">
+                                                            @foreach ($listProperty_rooms as $property_room)
+                                                                @if ($cateroom->id == $property_room->id)
+                                                                    <?php $property_ids = explode(',', $property_room->properties_id); ?>
+                                                                    @foreach ($listProperties as $property)
+                                                                        @if (in_array($property->id, $property_ids))
+                                                                            <li class="elementor-icon-list-item">
+                                                                                <span
+                                                                                    class="elementor-icon-list-text">{{ $property->name }}</span>
+                                                                            </li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                @endif
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-e241acb elementor-align-center elementor-widget elementor-widget-button"
+                                                    data-id="e241acb" data-element_type="widget"
+                                                    data-widget_type="button.default">
                                                     <div class="elementor-button-wrapper">
                                                         <form action="{{ route('route_FontEnd_BookingSearch_Search') }}"
                                                             method="post">
@@ -598,84 +677,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @else
-                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-17deba38 elementor-invisible"
-                                        data-id="17deba38" data-element_type="column"
-                                        data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;zoomIn&quot;}"
-                                        {{ $index == 2 ? 'style=order:2' : 'style=order:3' }}>
-                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                            <div class="elementor-background-overlay"></div>
-                                            <div class="elementor-element elementor-element-71d1ea7b elementor-absolute elementor-widget elementor-widget-image"
-                                                data-id="71d1ea7b" data-element_type="widget"
-                                                data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
-                                                data-widget_type="image.default">
-                                                <div class="elementor-widget-container">
-                                                    <img width="176" height="159"
-                                                        src="wp-content/uploads/sites/4/2022/03/badge.png"
-                                                        class="attachment-full size-full" alt=""
-                                                        loading="lazy" />
-                                                </div>
-                                            </div>
-                                            <div class="elementor-element elementor-element-5ebd0cff elementor-widget elementor-widget-heading"
-                                                data-id="5ebd0cff" data-element_type="widget"
-                                                data-widget_type="heading.default">
-                                                <div class="elementor-widget-container">
-                                                    <h3 class="elementor-heading-title elementor-size-default">
-                                                        {{ $cateroom->name }}</h3>
-                                                </div>
-                                            </div>
-                                            <div class="elementor-element elementor-element-e62fc2b elementor-widget elementor-widget-heading"
-                                                data-id="e62fc2b" data-element_type="widget"
-                                                data-widget_type="heading.default">
-                                                <div class="elementor-widget-container">
-                                                    <h1 class="elementor-heading-title elementor-size-default"><span
-                                                            style="font-size:25px">$</span> {{ $cateroom->price }} <span
-                                                            style="font-size:20px">/
-                                                            đêm</span></h1>
-                                                </div>
-                                            </div>
-                                            <div class="elementor-element elementor-element-e75d8ed elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                                                data-id="e75d8ed" data-element_type="widget"
-                                                data-widget_type="icon-list.default">
-                                                <div class="elementor-widget-container">
-                                                    <ul class="elementor-icon-list-items">
-                                                        @foreach ($listProperty_rooms as $property_room)
-                                                            @if ($cateroom->id == $property_room->id)
-                                                                <?php $property_ids = explode(',', $property_room->properties_id); ?>
-                                                                @foreach ($listProperties as $property)
-                                                                    @if (in_array($property->id, $property_ids))
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <span
-                                                                                class="elementor-icon-list-text">{{ $property->name }}</span>
-                                                                        </li>
-                                                                    @endif
-                                                                @endforeach
-                                                            @endif
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="elementor-element elementor-element-e241acb elementor-align-center elementor-widget elementor-widget-button"
-                                                data-id="e241acb" data-element_type="widget"
-                                                data-widget_type="button.default">
-                                                <div class="elementor-button-wrapper">
-                                                    <form action="{{ route('route_FontEnd_BookingSearch_Search') }}"
-                                                        method="post">
-                                                        @csrf
-                                                        <input name="cateroom_id" value="{{ $cateroom->id }}" hidden>
-                                                        <button
-                                                            class="elementor-button-link elementor-button elementor-size-sm"
-                                                            role="button" style="width: 190px;">
-                                                            <span class="elementor-button-content-wrapper">
-                                                                <span class="elementor-button-text">XEM PHÒNG</span>
-                                                            </span>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endif
                                 @endif
                             @endforeach
                         </div>
