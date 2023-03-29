@@ -102,14 +102,13 @@ class RoomController extends Controller
         $people = $request->people;
         $Rooms = new Rooms();
         $listRoomwork = array_unique($arrRoomworks);
-//        dd($people);
         $r=0;
         $filterRoom = array();
         foreach ($Rooms->loadOrderByPeople() as $item){
             if (empty(in_array($item->id, $listRoomwork))) {
                 if ($people>$item->adult){
                     $people = $people - $item->adult;
-                    $room = array($r => $item->name);
+                    $room = array($r => $item->id);
                     $filterRoom = $filterRoom + $room;
                     $r++;
                     continue;
@@ -122,7 +121,9 @@ class RoomController extends Controller
                 }
             }
         }
-        dd($filterRoom);
+        if ($people>0){
+            return;
+        }
         $cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $cate_rooms->loadAll();
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';

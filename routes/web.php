@@ -15,20 +15,41 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
-// Route::get('/', function () {
-//     return view('home');
-// });
+
 Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
 
-
-Route::get('/room_detail', function () {
-    return view('templates/pages/room_detail');
-});
-
 Route::get('/news', function () {
     return view('templates/pages/new');
+});
+
+Route::get('/contact', function () {
+    return view('templates/pages/contact');
+});
+
+Route::get('/about', function () {
+    return view('templates/pages/about');
+});
+
+Route::get('/services', function () {
+    return view('templates/pages/service');
+});
+
+Route::get('/page', function () {
+    return view('templates/pages/page');
+});
+
+Route::get('/page1', function () {
+    return view('templates/pages/page1');
+});
+
+Route::get('/page2', function () {
+    return view('templates/pages/page2');
+});
+
+Route::get('/page3', function () {
+    return view('templates/pages/page3');
 });
 
 Route::get('/new_detail', function () {
@@ -144,10 +165,15 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\BookingController@bookings')->name('route_BackEnd_Bookings_List');
         Route::get('/add/{id}', 'App\Http\Controllers\Admin\BookingController@add')->name('route_BackEnd_Bookings_Add');
         Route::get('/adduser', 'App\Http\Controllers\Admin\BookingController@adduser')->name('route_BackEnd_Bookings_Adduser');
+        Route::get('/addservice/{id}', 'App\Http\Controllers\Admin\BookingController@addservice')->name('route_BackEnd_Bookings_Addservice');
+        Route::get('/editservice/{id}', 'App\Http\Controllers\Admin\BookingController@editservice')->name('route_BackEnd_Bookings_Editservice');
         Route::post('/create/{id}', 'App\Http\Controllers\Admin\BookingController@create')->name('route_BackEnd_Bookings_Create');
         Route::post('/createuser', 'App\Http\Controllers\Admin\BookingController@createuser')->name('route_BackEnd_Bookings_Createuser');
+        Route::post('/createservice/{id}', 'App\Http\Controllers\Admin\BookingController@createservice')->name('route_BackEnd_Bookings_Createservice');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
+
+        Route::post('/updateservice/{id}', 'App\Http\Controllers\Admin\BookingController@updateservice')->name('route_BackEnd_Bookings_Updateservice');
 
     });
 
@@ -168,10 +194,15 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::prefix('/bills')->group(function () {
         Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bill')->name('route_BackEnd_Bill');
 
+        Route::get('/', 'App\Http\Controllers\Admin\BillController@index')->name('route_BackEnd_Bill_List');
+        Route::get('/rooms/{id}', 'App\Http\Controllers\Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
+        Route::get('/services/{id}', 'App\Http\Controllers\Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
+        Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
+
     });
 
     Route::prefix('/bill_detail')->group(function () {
-        Route::get('/{id}', 'App\Http\Controllers\Admin\BillDetailController@bill_detail')->name('route_BackEnd_BillDetail');
+        // Route::get('/{id}', 'App\Http\Controllers\Admin\BillDetailController@bill_detail')->name('route_BackEnd_BillDetail');
     });
 
     Route::prefix('/services')->group(function () {
@@ -181,6 +212,14 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\ServiceController@service_detail')->name('route_BackEnd_Service_Detail');
         Route::post('/update/{id}', 'App\Http\Controllers\Admin\ServiceController@service_update')->name('route_BackEnd_Service_Update');
         Route::get('/remove/{id}', 'App\Http\Controllers\Admin\ServiceController@service_remove')->name('route_BackEnd_Service_Remove');
+    });
+
+    Route::prefix('/service_room')->group(function () {
+        Route::get('/', 'App\Http\Controllers\Admin\ServiceRoomController@service_rooms')->name('route_BackEnd_ServiceRoom_list');
+        Route::get('/add', 'App\Http\Controllers\Admin\ServiceRoomController@add')->name('route_BackEnd_ServiceRoom_add');
+        Route::post('/create', 'App\Http\Controllers\Admin\ServiceRoomController@create')->name('route_BackEnd_ServiceRoom_create');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Admin\ServiceRoomController@edit')->name('route_BackEnd_ServiceRoom_edit');
+        Route::post('/update/{id}', 'App\Http\Controllers\Admin\ServiceRoomController@update')->name('route_BackEnd_ServiceRoom_update');
     });
 
     Route::prefix('/feedback')->group(function () {
@@ -196,8 +235,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/contact')->group(function () {
-        Route::get('/', 'ContactController@index')->name('route_BackEnd_Contact_index');
-        Route::get('/add', 'ContactController@add')->name('route_BackEnd_Contact_add');
+        Route::get('/', 'Admin\ContactController@index')->name('route_BackEnd_Contact_index');
+        Route::get('/add', 'Admin\ContactController@add')->name('route_BackEnd_Contact_add');
         Route::post('/store', function () {
             return view('admin/contact/store');
         });
@@ -232,16 +271,18 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/vouchers')->group(function () {
-        Route::get('/', 'VoucherController@index')->name('route_BackEnd_Voucher_index');
-        Route::get('/add', 'VoucherController@add')->name('route_BackEnd_Voucher_add');
-        Route::post('/store', function () {
-            return view('admin/vouchers/store');
-        });
+        Route::get('/', 'App\Http\Controllers\Admin\VoucherController@index')->name('route_BackEnd_Voucher_index');
+        Route::get('/add', 'App\Http\Controllers\Admin\VoucherController@add')->name('route_BackEnd_Voucher_add');
+        Route::post('/add', 'App\Http\Controllers\Admin\VoucherController@store')->name('route_BackEnd_Voucher_store');
+
         Route::get('/edit', function () {
             return view('admin/vouchers/edit');
         });
         Route::post('/update', function () {
             return view('admin/vouchers/update');
         });
+
+        Route::post('/check', 'App\Http\Controllers\Admin\VoucherController@check_voucher')->name('route_BackEnd_Voucher_check');
+        Route::get('/unset', 'App\Http\Controllers\Admin\VoucherController@unset')->name('route_BackEnd_Voucher_unset');
     });
 });

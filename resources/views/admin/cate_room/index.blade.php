@@ -98,10 +98,10 @@
                                                 </div>
                                             </td>
                                             <td>
-                                            <div class="guest-bx">
-                                                    <img class="me-3" src="{{asset(url("images/".$item->image))}}" alt="">
+                                                <div class="guest-bx">
+                                                    <img class="me-3" src="{{asset(url("image/".$item->image))}}" alt="">
                                                     <div>
-                                                        
+
                                                         <h4 class="mb-0 mt-1"><a class="text-black" href="">{{ $item->name }}</a></h4>
                                                     </div>
                                                 </div>
@@ -110,13 +110,21 @@
                                             <td>
                                                 <div class="text-center">
 
-                                                    <span>{{ $item->price }}</span>
+                                                    <span>{{ $item->price }}$</span>
                                                 </div>
                                             </td>
 
 
-                                            <td class="text-center">{{ $item->status == 1 ? 'kích hoạt' : 'khóa' }}</td>
-                                           
+                                            <td class="text-center">
+                                                @if ($item->status==1)
+                                                <p class="text-success">Kích hoạt</p>
+                                                @elseif($item->status==2)
+                                                <p class="text-danger">Khóa</p>
+                                                @else
+                                                <p class="text-warning">Đang bảo trì</p>
+                                                @endif
+                                            </td>
+
                                             <td class="text-center">
                                                 @foreach($item->gallery as $gallery)
                                                 <img src="{{ asset(url("images/".$gallery->images)) }}" alt="" width="50px" height="50px">

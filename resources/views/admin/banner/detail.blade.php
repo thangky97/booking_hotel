@@ -1,4 +1,4 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('css')
 @endsection
 @section('content')
@@ -23,28 +23,36 @@
                                         action="{{ route('route_BackEnd_Banner_Update', ['id' => request()->route('id')]) }}"
                                         method="post" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="form-group">
-                                            <h5 class="mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
-
-                                            <div class="fallback">
-                                                <input name="images" type="file" />
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="">Ảnh
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-12">
+                                                <div class="form-file">
+                                                    <input type="file" name="images" class="form-file-input form-control" style="margin-bottom: 6px">
+                                                    @if (isset($objItem) && $objItem->images)
+                                                        <img src="{{ asset($objItem->images ? '' . Storage::url($objItem->images) : '') }}" alt="banner"
+                                                            width="100">
+                                                    @endif
+                                                </div>
                                             </div>
-
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group" style="margin-top: 25px">
                                             <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span
                                                     class="text-danger">(*)</span></label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status"
-                                                    value="2">
-                                                <label class="form-check-label" for="flexRadioDefault1">Khóa</label>
                                                 <div>
                                                     <input class="form-check-input" type="radio" name="status"
-                                                        value="1">
+                                                        value="1"
+                                                        {{ isset($objItem) && $objItem->status === 1 ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="flexRadioDefault2">Kích
                                                         hoạt</label>
                                                 </div>
+                                                <input class="form-check-input" type="radio" name="status" value="0"
+                                                    {{ isset($objItem) && $objItem->status === 0 ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="flexRadioDefault1">Khóa</label>
+
                                             </div>
                                             <div class="text-start mt-4 mb-3">
 

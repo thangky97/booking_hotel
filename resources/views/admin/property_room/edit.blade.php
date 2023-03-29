@@ -82,6 +82,13 @@
     }
 </style>
 <div class="content-body">
+<div class="email-left-box px-0 mb-3">
+        <div class="p-0">
+            <a href="" class="btn btn-primary btn-block">Thuộc tính phòng</a>
+        </div>
+
+
+    </div>
     <section class="container">
         <form action="{{route('route_BackEnd_PropertyRoom_update',$property_rooms->id)}}" method="post" class="row">
             @csrf
