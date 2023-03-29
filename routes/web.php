@@ -20,9 +20,13 @@ Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
 
-Route::get('/news', function () {
-    return view('templates/pages/new');
+Route::get('/room_detail', function () {
+    return view('templates/pages/room_detail');
 });
+
+Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
+
+Route::get('new/detail/{id}', 'Client\NewController@detail')->name('route_FrontEnd_New_Detail'); 
 
 Route::get('/contact', function () {
     return view('templates/pages/contact');
@@ -34,26 +38,6 @@ Route::get('/about', function () {
 
 Route::get('/services', function () {
     return view('templates/pages/service');
-});
-
-Route::get('/page', function () {
-    return view('templates/pages/page');
-});
-
-Route::get('/page1', function () {
-    return view('templates/pages/page1');
-});
-
-Route::get('/page2', function () {
-    return view('templates/pages/page2');
-});
-
-Route::get('/page3', function () {
-    return view('templates/pages/page3');
-});
-
-Route::get('/new_detail', function () {
-    return view('templates/pages/new_detail');
 });
 
 Route::get('/booking', function () { // đặt phòng

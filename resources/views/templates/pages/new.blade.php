@@ -1,6 +1,6 @@
-@extends('templates.layouts.masterhome')
+@extends('templates.layouts.masternews')
 
-@section('title', 'Bài viết')
+@section('title', '12Zodiac - Bài viết')
 
 @section('content')
     <section
@@ -49,7 +49,7 @@
                                     font-size: 59px
                                 }
                             </style>
-                            <h1 class="elementor-heading-title elementor-size-default">Archive</h1>
+                            <h1 class="elementor-heading-title elementor-size-default">Bài viết</h1>
                         </div>
                     </div>
                 </div>
@@ -70,6 +70,7 @@
                         <div class="elementor-widget-container">
 
                             <div class="nd_elements_section nd_elements_masonry_content nd_elements_posgrid_widget_l4">
+                                @foreach ( $news as $new)
                                 <div
                                     class=" nd_elements_width_50_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
 
@@ -77,207 +78,43 @@
                                         class="nd_elements_section nd_elements_background_color_fff nd_elements_border_1_solid_grey">
 
                                         <a
-                                            href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/lounge-bar/"><img
+                                            href="{{ route('route_FrontEnd_New_Detail', ['id' => $new->id]) }}"><img
                                                 class="nd_elements_section" alt=""
-                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/04/vert-4.jpg"></a>
-
-
-
-
+                                                src="{{ $new->images ? '' . Storage::url($new->images) : '' }}"></a>
                                         <div
                                             class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
-
-
                                             <p style="border-left-color:#444444"
                                                 class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                April 27, 2022
+                                                {{ $new->date }}
                                             </p>
                                             <div class="nd_elements_section nd_elements_height_15">
                                             </div>
 
                                             <a class="nd_elements_section"
-                                                href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/lounge-bar/">
+                                                href="{{ route('route_FrontEnd_New_Detail', ['id' => $new->id]) }}">
                                                 <h3
                                                     class="nd_elements_font_size_23 nd_elements_posgrid_widget_l4_title nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                    <strong>Lounge Bar</strong>
+                                                    <strong>{{ $new->name }}</strong>
                                                 </h3>
                                             </a>
                                             <div class="nd_elements_section nd_elements_height_20">
                                             </div>
                                             <p
                                                 class="nd_elements_font_size_15 nd_elements_section nd_elements_margin_0_important nd_elements_posgrid_widget_l4_excerpt nd_elements_line_height_2">
-                                                Phasellus enim libero, blandit vel sapien vitae,
-                                                condimentum ultricies magna et. Quisque euismod orci
-                                                utet.</p>
+                                                {{ $new->description }}</p>
                                             <div class="nd_elements_section nd_elements_height_20">
                                             </div>
 
                                             <a class="nd_options_color_white nd_elements_font_size_13 nd_elements_posgrid_widget_l4_button nd_elements_letter_spacing_1 nd_elements_line_height_1 nd_elements_padding_10_20"
                                                 style="background-color:#444444;"
-                                                href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/lounge-bar/"><strong>READ
-                                                    MORE</strong></a>
+                                                href="{{ route('route_FrontEnd_New_Detail', ['id' => $new->id]) }}"><strong>Đọc thêm</strong></a>
 
                                         </div>
 
                                     </div>
 
                                 </div>
-                                <div
-                                    class=" nd_elements_width_50_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_background_color_fff nd_elements_border_1_solid_grey">
-
-                                        <a
-                                            href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/restaurant/"><img
-                                                class="nd_elements_section" alt=""
-                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/vert3.jpeg"></a>
-
-
-
-
-                                        <div
-                                            class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
-
-
-                                            <p style="border-left-color:#6b6978"
-                                                class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                April 27, 2022
-                                            </p>
-                                            <div class="nd_elements_section nd_elements_height_15">
-                                            </div>
-
-                                            <a class="nd_elements_section"
-                                                href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/restaurant/">
-                                                <h3
-                                                    class="nd_elements_font_size_23 nd_elements_posgrid_widget_l4_title nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                    <strong>Restaurants</strong>
-                                                </h3>
-                                            </a>
-                                            <div class="nd_elements_section nd_elements_height_20">
-                                            </div>
-                                            <p
-                                                class="nd_elements_font_size_15 nd_elements_section nd_elements_margin_0_important nd_elements_posgrid_widget_l4_excerpt nd_elements_line_height_2">
-                                                Phasellus enim libero, blandit vel sapien vitae,
-                                                condimentum ultricies magna et. Quisque euismod orci
-                                                utet.</p>
-                                            <div class="nd_elements_section nd_elements_height_20">
-                                            </div>
-
-                                            <a class="nd_options_color_white nd_elements_font_size_13 nd_elements_posgrid_widget_l4_button nd_elements_letter_spacing_1 nd_elements_line_height_1 nd_elements_padding_10_20"
-                                                style="background-color:#6b6978;"
-                                                href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/restaurant/"><strong>READ
-                                                    MORE</strong></a>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div
-                                    class=" nd_elements_width_50_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_background_color_fff nd_elements_border_1_solid_grey">
-
-                                        <a
-                                            href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wellness/"><img
-                                                class="nd_elements_section" alt=""
-                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/vert1.jpeg"></a>
-
-
-
-
-                                        <div
-                                            class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
-
-
-                                            <p style="border-left-color:#444444"
-                                                class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                April 27, 2022
-                                            </p>
-                                            <div class="nd_elements_section nd_elements_height_15">
-                                            </div>
-
-                                            <a class="nd_elements_section"
-                                                href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wellness/">
-                                                <h3
-                                                    class="nd_elements_font_size_23 nd_elements_posgrid_widget_l4_title nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                    <strong>Wellness</strong>
-                                                </h3>
-                                            </a>
-                                            <div class="nd_elements_section nd_elements_height_20">
-                                            </div>
-                                            <p
-                                                class="nd_elements_font_size_15 nd_elements_section nd_elements_margin_0_important nd_elements_posgrid_widget_l4_excerpt nd_elements_line_height_2">
-                                                Phasellus enim libero, blandit vel sapien vitae,
-                                                condimentum ultricies magna et. Quisque euismod orci
-                                                utet.</p>
-                                            <div class="nd_elements_section nd_elements_height_20">
-                                            </div>
-
-                                            <a class="nd_options_color_white nd_elements_font_size_13 nd_elements_posgrid_widget_l4_button nd_elements_letter_spacing_1 nd_elements_line_height_1 nd_elements_padding_10_20"
-                                                style="background-color:#444444;"
-                                                href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wellness/"><strong>READ
-                                                    MORE</strong></a>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div
-                                    class=" nd_elements_width_50_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_background_color_fff nd_elements_border_1_solid_grey">
-
-                                        <a
-                                            href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/internal-pool/"><img
-                                                class="nd_elements_section" alt=""
-                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/vert2.jpeg"></a>
-
-
-
-
-                                        <div
-                                            class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
-
-
-                                            <p style="border-left-color:#6b6978"
-                                                class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                April 28, 2022
-                                            </p>
-                                            <div class="nd_elements_section nd_elements_height_15">
-                                            </div>
-
-                                            <a class="nd_elements_section"
-                                                href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/internal-pool/">
-                                                <h3
-                                                    class="nd_elements_font_size_23 nd_elements_posgrid_widget_l4_title nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                    <strong>Internal Pool</strong>
-                                                </h3>
-                                            </a>
-                                            <div class="nd_elements_section nd_elements_height_20">
-                                            </div>
-                                            <p
-                                                class="nd_elements_font_size_15 nd_elements_section nd_elements_margin_0_important nd_elements_posgrid_widget_l4_excerpt nd_elements_line_height_2">
-                                                Phasellus enim libero, blandit vel sapien vitae,
-                                                condimentum ultricies magna et. Quisque euismod orci
-                                                utet.</p>
-                                            <div class="nd_elements_section nd_elements_height_20">
-                                            </div>
-
-                                            <a class="nd_options_color_white nd_elements_font_size_13 nd_elements_posgrid_widget_l4_button nd_elements_letter_spacing_1 nd_elements_line_height_1 nd_elements_padding_10_20"
-                                                style="background-color:#6b6978;"
-                                                href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/internal-pool/"><strong>READ
-                                                    MORE</strong></a>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

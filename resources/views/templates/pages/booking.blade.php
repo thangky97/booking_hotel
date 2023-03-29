@@ -1,4 +1,4 @@
-@extends('templates.layouts.masterhome')
+@extends('templates.layouts.masterbooking')
 
 @section('title', 'Đặt phòng')
 

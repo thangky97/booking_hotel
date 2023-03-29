@@ -1,4 +1,4 @@
-@extends('templates.layouts.masterhome')
+@extends('templates.layouts.masterbookingsearch')
 
 @section('title', $title)
 
@@ -23,18 +23,39 @@
                                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7410219b"
                                     data-id="7410219b" data-element_type="column">
                                     <div class="elementor-widget-wrap elementor-element-populated">
-                                        <div class="elementor-element elementor-element-1af726da elementor-widget elementor-widget-heading"
-                                            data-id="1af726da" data-element_type="widget"
-                                            data-widget_type="heading.default">
-
-                                        </div>
+                                        <div class="elementor-element elementor-element-1af726da elementor-widget elementor-widget-heading" data-id="1af726da" data-element_type="widget" data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                        <style>/*! elementor - v3.5.6 - 28-02-2022 */
+                            .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">Search</h1>		</div>
+                                            </div>
                                         <div class="elementor-element elementor-element-f23c8c7 elementor-widget elementor-widget-steps"
                                             data-id="f23c8c7" data-element_type="widget" data-widget_type="steps.default">
                                             <div class="elementor-widget-container">
 
                                                 <div class="nd_booking_section">
                                                     <!--start steps-->
-
+                                                    <div class="nd_booking_section nd_booking_position_relative nd_booking_text_align_center">
+                                                        <ul class="nd_booking_list_style_none nd_booking_padding_0 nd_booking_margin_0">
+                                                            
+                                                            <li id="nd_booking_vc_steps_search" class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
+                                                                <h1 class=" nd_booking_border_1_solid_white nd_booking_bg_greydark nd_booking_bg_custom_color nd_booking_border_1_solid_greydark_important nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">1</h1>
+                                                                <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text" href="#">Search</a>
+                                                            </li>
+                                                            <li id="nd_booking_vc_steps_booking" class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
+                                                                <h1 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">2</h1>
+                                                                <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text" href="#">Booking</a>
+                                                            </li>
+                                                            <li id="nd_booking_vc_steps_checkout" class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
+                                                                <h1 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">3</h1>
+                                                                <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text" href="#">Checkout</a>
+                                                            </li>
+                                                            <li id="nd_booking_vc_steps_thankyou" class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
+                                                                <h1 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">4</h1>
+                                                                <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text" href="#">Thank You</a>
+                                                            </li>
+                                                            
+                                                        </ul>
+                                                    </div>
                                                     <!--end steps-->
                                                 </div>
                                             </div>
