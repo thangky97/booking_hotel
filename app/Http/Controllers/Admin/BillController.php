@@ -16,6 +16,7 @@ use Illuminate\Database\DBAL\TimestampType;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\Console\Output\Output;
 
 use function PHPUnit\Framework\isNull;
@@ -42,6 +43,7 @@ class BillController extends Controller
     }
     public function print_order_convert($id)
     {
+        
         $Service = new Service();
         $this->v['service'] = $Service->loadAll();
 
@@ -400,15 +402,15 @@ class BillController extends Controller
             $bill_id = $bill_add->id;
 
             foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
-
+                
                 foreach ($this->v['service_room'] as $index => $ser_room) {
                     
-                    if (isNull($ser_room->room_id)) {  
-                        dd('3');            
+                    if (empty($ser_room->room_id)) {  
+                                  
                     } else {
-                        dd('0'); 
+                        
                         if ($bk_dt->room_id == $ser_room->room_id && $bk_dt->booking_id == $ser_room->booking_id) {
-                            dd('1'); 
+                           
                             Billdetails::create([
                                 'service_id' =>  $ser_room->service_id,
                                 'room_id' => $bk_dt->room_id,
@@ -417,7 +419,7 @@ class BillController extends Controller
                                 'status' => 1
                             ]);
                         }else{
-                            dd('2'); 
+                           
                             Billdetails::create([
                                 'service_id' => null,
                                 'room_id' => $bk_dt->room_id,

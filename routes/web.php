@@ -20,6 +20,10 @@ Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
 
+Route::get('/123mail', function () {
+    return view('email/booking');
+});
+
 Route::get('/news', function () {
     return view('templates/pages/new');
 });
@@ -146,7 +150,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
         Route::post('/updateservice/{id}', 'App\Http\Controllers\Admin\BookingController@updateservice')->name('route_BackEnd_Bookings_Updateservice');
-
     });
 
     Route::prefix('/booking_detail')->group(function () {
