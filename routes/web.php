@@ -16,25 +16,20 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
 
-Route::get('/rooms', function () {
-    return view('templates/pages/room');
-});
+Route::get('/rooms/detail/{id}', 'Client\RoomController@detail')->name('route_FrontEnd_Room_Detail');
 
-Route::get('/123mail', function () {
-    return view('email/booking');
-});
-
-Route::get('/123mail', function () {
-    return view('email/booking');
-});
 
 Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
 
 Route::get('/news/detail/{id}', 'Client\NewController@detail')->name('route_FrontEnd_New_Detail');
 
+Route::get('/feedback', 'Client\FeedbackController@feedback')->name('route_FontEnd_Feedback');
+
 Route::get('/contact', function () {
     return view('templates/pages/contact');
 });
+
+Route::get('/profile/{id}', 'Client\UserController@index')->name('route_FrontEnd_User_Profile');
 
 Route::get('/about', function () {
     return view('templates/pages/about');
@@ -165,6 +160,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
         Route::post('/updateservice/{id}', 'App\Http\Controllers\Admin\BookingController@updateservice')->name('route_BackEnd_Bookings_Updateservice');
+        Route::get('/history/{id}', 'App\Http\Controllers\Admin\BookingController@history')->name('route_BackEnd_Bookings_History');
     });
 
     Route::prefix('/booking_detail')->group(function () {

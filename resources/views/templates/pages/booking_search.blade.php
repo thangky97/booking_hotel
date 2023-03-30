@@ -1726,15 +1726,12 @@
                                                                                                             height="23"
                                                                                                             src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/private-bathroom.png"></a>
 
-                                                                                                    <a href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/small-room/"
+                                                                                                    <a href=""
                                                                                                        class="nd_booking_margin_top_7 nd_booking_margin_top_20_all_iphone nd_booking_width_100_percentage_all_iphone nd_booking_float_right nd_booking_float_left_all_iphone nd_booking_display_inline_block nd_booking_text_align_center nd_booking_box_sizing_border_box nd_booking_font_size_12">
                                                                                                         <span
                                                                                                             class="nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2">Thông
                                                                                                             Tin Phòng</span>
-                                                                                                        <img alt=""
-                                                                                                             class="nd_booking_margin_left_5 nd_booking_float_left"
-                                                                                                             width="10"
-                                                                                                             src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-right-arrow-grey.svg">
+                                                                                                       
                                                                                                     </a>
                                                                                                 </div>
                                                                                             </div>
@@ -2078,7 +2075,7 @@
                                                                                                         height="23"
                                                                                                         src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/private-bathroom.png"></a>
 
-                                                                                                <a href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/small-room/"
+                                                                                                <a href="{{route('route_FrontEnd_Room_Detail',$room->id)}}"
                                                                                                    class="nd_booking_margin_top_7 nd_booking_margin_top_20_all_iphone nd_booking_width_100_percentage_all_iphone nd_booking_float_right nd_booking_float_left_all_iphone nd_booking_display_inline_block nd_booking_text_align_center nd_booking_box_sizing_border_box nd_booking_font_size_12">
                                                                                                     <span
                                                                                                         class="nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2">Thông

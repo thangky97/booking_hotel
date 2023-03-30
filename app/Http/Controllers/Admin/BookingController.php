@@ -65,8 +65,8 @@ class BookingController extends Controller
 
     public function createuser(UserRequest $request)
     {
-        if(Users::where('email','like','%'.$request->email.'%')->first()){
-            return redirect()->route('route_BackEnd_Bookings_Add', Users::where('email','like','%'.$request->email.'%')->first()->id);
+        if (Users::where('email', 'like', '%' . $request->email . '%')->first()) {
+            return redirect()->route('route_BackEnd_Bookings_Add', Users::where('email', 'like', '%' . $request->email . '%')->first()->id);
         }
 
         $today = date("Y/m/d", strtotime("now"));
@@ -215,12 +215,13 @@ class BookingController extends Controller
             ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
             ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
             ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
-            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')->where('service_room.booking_id','=',$id)
+            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')->where('service_room.booking_id', '=', $id)
             ->get();
         $price = 0;
         foreach ($rooms as $item) {
             $price = $item->price + $price;
         }
+        $this->v['listUsers'] = DB::table('users')->get();
         $this->v['listRooms'] = $rooms;
         $this->v['price'] = $price;
         $booking = Booking::find($id);
@@ -230,7 +231,22 @@ class BookingController extends Controller
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         $Service = new Service();
         $this->v['listServices'] = $Service->loadAll();
+        $history = DB::table('bookings')
+            ->where('bookings.user_id', '=', $this->v['user']['id'])
+            ->where('bookings.id', '!=', $id)
+            ->orderByDesc('bookings.checkin_date')
+            ->get();
+        $this->v['history'] = $history;
+        $bills = new Bills();
+        $arrBills = array();
+        foreach ($bills->loadAll() as $index => $bill_bk) {
+            $arrBill_bk = array($index => $bill_bk->booking_id);
+            $arrBills = $arrBill_bk + $arrBills;
+        }
+        $this->v['list'] = $arrBills;
+
         $this->v['title'] = 'Chi tiết đơn';
+
         return view('admin.booking.detail', $this->v);
     }
 
@@ -413,21 +429,21 @@ class BookingController extends Controller
 
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
-        
+
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
-        
+
         $booking = Booking::find($id);
-        $this->v['booking']= $booking;
-      
+        $this->v['booking'] = $booking;
+
         $this->v['user'] = Users::find($booking->user_id);
-        
+
         $use_date = (strtotime($this->v['booking']['checkout_date']) - strtotime($this->v['booking']['checkin_date'])) / (60 * 60 * 24);
         $this->v['use_date'] = $use_date;
 
         $Cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-    
+
         $money_room = 0; //tổng tiền phòng
         foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
             foreach (($this->v['listRooms']) as $index => $room) {
@@ -446,7 +462,7 @@ class BookingController extends Controller
         $this->v['total_money_room'] = $total_money_room;
 
         $this->v['user'] = Users::find($booking->user_id);
-   
+
         $name_email = '12 Zodiac';
         Mail::send('email.booking', $this->v, function ($email) {
             $email->subject('Your Booking Information');
@@ -485,5 +501,30 @@ class BookingController extends Controller
         ]);
         $serviceroom = Serviceroom::find($id);
         return redirect()->route('route_BackEnd_Bookings_Detail', $serviceroom->booking_id);
+    }
+
+    public function history($id)
+    {
+
+        
+        $this->v['user'] = Users::find($id);
+        $Cate_rooms = new Categoryrooms();
+        $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        $history = DB::table('bookings')
+            ->where('bookings.user_id', '=', $this->v['user']['id'])
+            ->where('bookings.id', '!=', $id)
+            ->get();
+        $this->v['history'] = $history;
+        $bills = new Bills();
+        $arrBills = array();
+        foreach ($bills->loadAll() as $index => $bill_bk) {
+            $arrBill_bk = array($index => $bill_bk->booking_id);
+            $arrBills = $arrBill_bk + $arrBills;
+        }
+        $this->v['list'] = $arrBills;
+
+        $this->v['title'] = 'Lịch sử đặt phòng';
+        
+        return view('admin.booking.history', $this->v);
     }
 }
