@@ -20,13 +20,9 @@ Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
 
-Route::get('/room_detail', function () {
-    return view('templates/pages/room_detail');
+Route::get('/news', function () {
+    return view('templates/pages/new');
 });
-
-Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
-
-Route::get('new/detail/{id}', 'Client\NewController@detail')->name('route_FrontEnd_New_Detail'); 
 
 Route::get('/contact', function () {
     return view('templates/pages/contact');
@@ -40,9 +36,30 @@ Route::get('/services', function () {
     return view('templates/pages/service');
 });
 
-Route::get('/booking', function () { // đặt phòng
-    return view('templates/pages/booking');
+Route::get('/page', function () {
+    return view('templates/pages/page');
 });
+
+Route::get('/page1', function () {
+    return view('templates/pages/page1');
+});
+
+Route::get('/page2', function () {
+    return view('templates/pages/page2');
+});
+
+Route::get('/page3', function () {
+    return view('templates/pages/page3');
+});
+
+Route::get('/new_detail', function () {
+    return view('templates/pages/new_detail');
+});
+
+//Route::get('/booking', function () { // đặt phòng
+//    return view('templates/pages/booking');
+//});
+Route::post('/booking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking');//Giỏ hàng
 
 Route::get('/checkout', function () { //thanh toán
     return view('templates/pages/checkout');
@@ -57,7 +74,7 @@ Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
 Route::get('/booking_search', 'Client\RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
 Route::post('/booking_search', 'Client\RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
-Route::post('/booking_search/{id}', 'Client\RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
+Route::get('/booking_search/{id}', 'Client\RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
 
 Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');

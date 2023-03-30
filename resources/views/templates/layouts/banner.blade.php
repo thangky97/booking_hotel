@@ -189,7 +189,7 @@
                         <div class=" nd_booking_search_elem_component_l2 nd_booking_section  ">
 
                             <!--START FORM-->
-                            <form action="{{ route('route_FontEnd_BookingSearch_Search') }}" method="post">
+                            <form action="{{ route('route_FontEnd_Booking_autoBooking') }}" method="post">
                                 @csrf
                                 <!--START check in-->
                                 <div id="nd_booking_open_calendar_from"

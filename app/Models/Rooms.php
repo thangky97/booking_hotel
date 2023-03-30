@@ -13,7 +13,7 @@ class Rooms extends Model
 {
     use HasFactory;
     protected $table = "rooms";
-    protected $fillable = ['id','name','cate_room','images','floor','description','adult','childrend','bed','status','created_at','updated_at'];
+    protected $fillable = ['id','name','cate_room','images','floor','adult','childrend','bed','status','created_at','updated_at'];
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
@@ -31,10 +31,18 @@ class Rooms extends Model
         return $list;
     }
 
-    public function loadOrderByPeople($param = [])
+    public function loadOrderDescPeople($param = [])
     {
         $query = DB::table($this->table)
             ->select($this->fillable)->orderBy('adult', 'desc');
+        $list = $query->get();
+        return $list;
+    }
+
+    public function loadOrderAscPeople($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable)->orderBy('adult', 'asc');
         $list = $query->get();
         return $list;
     }
