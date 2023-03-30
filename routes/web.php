@@ -24,17 +24,32 @@ Route::get('/123mail', function () {
     return view('email/booking');
 });
 
-Route::get('/news', function () {
-    return view('templates/pages/new');
+Route::get('/123mail', function () {
+    return view('email/booking');
 });
 
-Route::get('/new_detail', function () {
-    return view('templates/pages/new_detail');
+Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
+
+Route::get('/news/detail/{id}', 'Client\NewController@detail')->name('route_FrontEnd_New_Detail');
+
+Route::get('/contact', function () {
+    return view('templates/pages/contact');
 });
 
-Route::get('/booking', function () { // đặt phòng
-    return view('templates/pages/booking');
+Route::get('/about', function () {
+    return view('templates/pages/about');
 });
+
+Route::get('/services', function () {
+    return view('templates/pages/service');
+});
+
+
+
+//Route::get('/booking', function () { // đặt phòng
+//    return view('templates/pages/booking');
+//});
+Route::post('/booking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking');//Giỏ hàng
 
 Route::get('/checkout', function () { //thanh toán
     return view('templates/pages/checkout');
@@ -50,7 +65,7 @@ Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
 Route::get('/booking_search', 'Client\RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
 Route::post('/booking_search', 'Client\RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
-Route::post('/booking_search/{id}', 'Client\RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
+Route::get('/booking_search/{id}', 'Client\RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
 
 Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
@@ -211,8 +226,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/contact')->group(function () {
-        Route::get('/', 'ContactController@index')->name('route_BackEnd_Contact_index');
-        Route::get('/add', 'ContactController@add')->name('route_BackEnd_Contact_add');
+        Route::get('/', 'Admin\ContactController@index')->name('route_BackEnd_Contact_index');
+        Route::get('/add', 'Admin\ContactController@add')->name('route_BackEnd_Contact_add');
         Route::post('/store', function () {
             return view('admin/contact/store');
         });

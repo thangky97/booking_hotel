@@ -99,7 +99,7 @@
                                             </td>
                                             <td>
                                                 <div class="guest-bx">
-                                                    <img class="me-3" src="{{asset(url("images/".$item->image))}}" alt="">
+                                                    <img class="me-3" src="{{asset(url("image/".$item->image))}}" alt="">
                                                     <div>
 
                                                         <h4 class="mb-0 mt-1"><a class="text-black" href="">{{ $item->name }}</a></h4>
