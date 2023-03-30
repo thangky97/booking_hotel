@@ -11,7 +11,7 @@ class NewController extends Controller
 {
 
     public function index(Request $request) {
-        $title = '12Zodiac - Tin tức';
+        $title = '12Zodiac - Bài viết';
         $news = News::with('cate_new')->get();
         return view('templates.pages.new', compact('news', 'title'));
     }
