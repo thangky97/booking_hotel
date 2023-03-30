@@ -1,4 +1,4 @@
-@extends('templates.layouts.masterhome')
+@extends('templates.layouts.masterabout')
 
 @section('title', 'Về chúng tôi')
 

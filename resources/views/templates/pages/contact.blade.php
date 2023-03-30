@@ -1,4 +1,4 @@
-@extends('templates.layouts.masterhome')
+@extends('templates.layouts.mastercontact')
 
 @section('title', 'Liên hệ')
 
