@@ -20,6 +20,14 @@ Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
 
+Route::get('/123mail', function () {
+    return view('email/booking');
+});
+
+Route::get('/123mail', function () {
+    return view('email/booking');
+});
+
 Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
 
 Route::get('/news/detail/{id}', 'Client\NewController@detail')->name('route_FrontEnd_New_Detail');
@@ -46,6 +54,7 @@ Route::post('/booking', 'Client\BookingController@autobooking')->name('route_Fon
 Route::get('/checkout', function () { //thanh toán
     return view('templates/pages/checkout');
 });
+
 
 
 Route::get('/sign-in', 'Client\SigninController@getSignin')->name('getSignin');
@@ -156,7 +165,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
         Route::post('/updateservice/{id}', 'App\Http\Controllers\Admin\BookingController@updateservice')->name('route_BackEnd_Bookings_Updateservice');
-
     });
 
     Route::prefix('/booking_detail')->group(function () {
@@ -179,6 +187,9 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/services/{id}', 'App\Http\Controllers\Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
         Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
 
+        //print_order
+        Route::get('/print_order/{id}', 'App\Http\Controllers\Admin\BillController@print_order')->name('printOrder');
+        
     });
 
     Route::prefix('/bill_detail')->group(function () {
