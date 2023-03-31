@@ -100,6 +100,8 @@ class RoomController extends Controller
             ->first();
         $caterooms = new CategoryRooms();
         $this->v['listCaterooms'] = $caterooms->loadAll();
+//        $services = new Service();
+//        $this->v['listService'] = $services->loadAll();
         $this->v['room'] = $room;
         $property = new Properties();
         $this->v['listProperty'] = $property->loadAll();

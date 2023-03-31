@@ -197,15 +197,6 @@
                                             <p>{{$item->people}}</p>
                                         </td>
                                         <td class="text-center">
-                                            <p>
-                                                @foreach ($listCaterooms as $cate)
-                                                <?php if ($item->cate_room_id == $cate->id) {
-                                                    echo $cate->name;
-                                                } ?>
-                                                @endforeach
-                                            </p>
-                                        </td>
-                                        <td class="text-center">
                                             <span class="fs-16">
                                                 <?= $item->status_pay == 0 ? '<span class="badge light badge-success">Đã thanh toán</span>' : '<span class="badge light badge-danger">Chưa thanh toán</span>' ?>
                                             </span>
@@ -300,15 +291,6 @@
                                         </td>
                                         <td class="text-center">
                                             <p>{{$item->people}}</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p>
-                                                @foreach ($listCaterooms as $cate)
-                                                <?php if ($item->cate_room_id == $cate->id) {
-                                                    echo $cate->name;
-                                                } ?>
-                                                @endforeach
-                                            </p>
                                         </td>
                                         <td class="text-center">
                                             <span class="fs-16">
