@@ -40,9 +40,7 @@ Route::get('/about', function () {
     return view('templates/pages/about');
 });
 
-Route::get('/services', function () {
-    return view('templates/pages/service');
-});
+Route::get('/services', 'Client\ServiceController@index')->name('route_FrontEnd_Service');
 
 
 
