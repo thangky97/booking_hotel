@@ -2542,7 +2542,7 @@
         content="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg" />
     <script type="text/javascript">
         function setREVStartSize(e) {
-            //window.requestAnimationFrame(function() {				 
+            //window.requestAnimationFrame(function() {
             window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
             window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
             try {
@@ -2653,7 +2653,9 @@
             <div class="nd_booking_section nd_booking_bg_greydark_alpha_gradient_5">
                 <div class="nd_booking_container nd_booking_box_sizing_border_box nd_booking_clearfix">
                     <div id="nd_booking_single_cpt_1_header_image_space_top"
-                        class="nd_booking_section nd_booking_height_250"></div>
+                        class="nd_booking_section nd_booking_height_250" style="text-align: center">
+                        <h2 style="font-size: 50px;color:white;padding-top:150px">CHI TIẾT PHÒNG</h2>
+                    </div>
 
 
                     <!--START MENU-->
@@ -2667,24 +2669,7 @@
                                 class="nd_booking_list_style_none nd_booking_padding_0 nd_booking_margin_0 nd_booking_text_align_center_responsive">
                                 <li
                                     class="nd_booking_display_inline_block nd_booking_margin_right_40 nd_booking_width_100_percentage_all_iphone nd_booking_margin_0_all_iphone">
-                                    <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_bottom_5 nd_booking_border_bottom_2_solid_white"
-                                        href="#nd_booking_single_cpt_1_description">Description</a>
-                                </li>
-                                <li
-                                    class="nd_booking_display_inline_block nd_booking_margin_right_40 nd_booking_width_100_percentage_all_iphone nd_booking_margin_0_all_iphone">
-                                    <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase"
-                                        href="#nd_booking_single_cpt_1_services"><span
-                                            class="nd_booking_single_cpt1_service_label_tab">room </span>Services</a>
-                                </li>
-                                <li
-                                    class="nd_booking_display_inline_block nd_booking_margin_right_40 nd_booking_width_100_percentage_all_iphone nd_booking_margin_0_all_iphone">
-                                    <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase"
-                                        href="#nd_booking_single_cpt_1_packages">Around The Hotel</a>
-                                </li>
-                                <li
-                                    class="nd_booking_display_inline_block nd_booking_margin_right_40 nd_booking_width_100_percentage_all_iphone nd_booking_margin_0_all_iphone">
-                                    <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase"
-                                        href="#nd_booking_single_cpt_1_similar_rooms">Similar rooms</a>
+                                    <p class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_padding_bottom_5 nd_booking_border_bottom_2_solid_white">Giới thiệu</p>
                                 </li>
                             </ul>
 
@@ -2693,34 +2678,6 @@
 
                     </div>
                     <!--END MENU-->
-
-
-                    <!--START PRICE-->
-                    <div id="nd_booking_single_cpt_1_header_image_price"
-                        class="nd_booking_width_33_percentage nd_booking_width_100_percentage_responsive nd_booking_float_left nd_booking_padding_15 nd_booking_box_sizing_border_box">
-
-                        <div class="nd_booking_section nd_booking_box_sizing_border_box nd_booking_text_align_center">
-
-                            <div class="nd_booking_display_inline_block ">
-                                <div class="nd_booking_float_left nd_booking_text_align_right">
-                                    <h1 class="nd_options_color_white nd_booking_font_size_50">56</h1>
-                                </div>
-                                <div
-                                    class="nd_booking_float_right nd_booking_text_align_left nd_booking_margin_left_10">
-                                    <h5
-                                        class="nd_options_second_font nd_options_color_white nd_booking_margin_top_7 nd_booking_font_size_14">
-                                        $</h5>
-                                    <div class="nd_booking_section nd_booking_height_5"></div>
-                                    <h3
-                                        class="nd_options_second_font nd_options_color_white nd_booking_font_size_14 nd_booking_letter_spacing_2">
-                                        / PER NIGHT</h3>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!--END PRICE-->
                 </div>
             </div>
 
@@ -2743,276 +2700,6 @@
 
             <div class="nd_booking_section nd_booking_height_50"></div>
 
-        </div>
-        <div id="nd_booking_single_cpt_1_similar_rooms"
-            class="  nd_booking_section nd_booking_border_top_2_solid_grey">
-            <div class="nd_booking_section nd_booking_height_50"></div>
-            <div class="nd_booking_container nd_booking_box_sizing_border_box nd_booking_clearfix">
-                <div class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box">
-                    <h1 class="nd_booking_font_size_40 nd_booking_word_wrap_break_word">Similar <span
-                            style="text-transform: capitalize;">rooms</span></h1>
-                    <div class="nd_booking_section">
-                        <span
-                            class="nd_booking_display_inline_block nd_booking_height_1 nd_booking_width_30 nd_booking_bg_greydark"></span>
-                    </div>
-                </div>
-
-                <div id="nd_booking_single_cpt_1_similar_room_5655"
-                    class=" nd_booking_rooms_component_similar nd_booking_width_33_percentage nd_booking_width_100_percentage_responsive nd_booking_float_left">
-
-                    <div class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box">
-
-                        <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
-
-
-
-                            <div class="nd_booking_section nd_booking_position_relative">
-
-                                <img alt="" class="nd_booking_section"
-                                    src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/room3-1024x664.jpeg">
-
-                                <div
-                                    class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
-                                    <div class="nd_booking_position_absolute nd_booking_bottom_20">
-                                        <p
-                                            class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">
-                                            Hotel London</p><img alt=""
-                                            class="nd_booking_margin_right_5 nd_booking_float_left" width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg">
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-
-
-                            <div class="nd_booking_section nd_booking_padding_30 nd_booking_box_sizing_border_box">
-
-                                <a
-                                    href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/apartment/">
-                                    <h1>Apartment</h1>
-                                </a>
-                                <div class="nd_booking_section nd_booking_height_10"></div>
-
-                                <div class="nd_booking_section">
-                                    <div class="nd_booking_display_table nd_booking_float_left">
-                                        <img alt=""
-                                            class="nd_booking_margin_right_10 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="23"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-user-grey.svg">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">
-                                            5 GUESTS</p>
-                                        <img alt=""
-                                            class="nd_booking_margin_right_10 nd_booking_margin_left_20 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="20"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-plan-grey.svg">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">
-                                            70 ft</p>
-                                    </div>
-                                </div>
-
-                                <div class="nd_booking_section nd_booking_height_20"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel molestie nisl.
-                                    Duis ac mi leo.</p>
-                                <div class="nd_booking_section nd_booking_height_20"></div>
-                                <a style="color: #6b6978; border:2px solid #6b6978;"
-                                    href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/apartment/"
-                                    class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2 ">BOOK
-                                    <span class="nd_booking_display_none_all_iphone">NOW</span> FROM 56 $</a>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div id="nd_booking_single_cpt_1_similar_room_5656"
-                    class=" nd_booking_rooms_component_similar nd_booking_width_33_percentage nd_booking_width_100_percentage_responsive nd_booking_float_left">
-
-                    <div class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box">
-
-                        <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
-
-
-
-                            <div class="nd_booking_section nd_booking_position_relative">
-
-                                <img alt="" class="nd_booking_section"
-                                    src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/room4-1024x664.jpeg">
-
-                                <div
-                                    class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
-                                    <div class="nd_booking_position_absolute nd_booking_bottom_20">
-                                        <p
-                                            class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">
-                                            Hotel New York</p><img alt=""
-                                            class="nd_booking_margin_right_5 nd_booking_float_left" width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg">
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-
-
-                            <div class="nd_booking_section nd_booking_padding_30 nd_booking_box_sizing_border_box">
-
-                                <a
-                                    href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/luxury-room/">
-                                    <h1>Luxury Room</h1>
-                                </a>
-                                <div class="nd_booking_section nd_booking_height_10"></div>
-
-                                <div class="nd_booking_section">
-                                    <div class="nd_booking_display_table nd_booking_float_left">
-                                        <img alt=""
-                                            class="nd_booking_margin_right_10 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="23"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-user-grey.svg">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">
-                                            2 GUESTS</p>
-                                        <img alt=""
-                                            class="nd_booking_margin_right_10 nd_booking_margin_left_20 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="20"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-plan-grey.svg">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">
-                                            50 ft</p>
-                                    </div>
-                                </div>
-
-                                <div class="nd_booking_section nd_booking_height_20"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel molestie nisl.
-                                    Duis ac mi leo.</p>
-                                <div class="nd_booking_section nd_booking_height_20"></div>
-                                <a style="color: #444444; border:2px solid #444444;"
-                                    href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/luxury-room/"
-                                    class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2 ">BOOK
-                                    <span class="nd_booking_display_none_all_iphone">NOW</span> FROM 67 $</a>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div id="nd_booking_single_cpt_1_similar_room_5654"
-                    class=" nd_booking_rooms_component_similar nd_booking_width_33_percentage nd_booking_width_100_percentage_responsive nd_booking_float_left">
-
-                    <div class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box">
-
-                        <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
-
-
-
-                            <div class="nd_booking_section nd_booking_position_relative">
-
-                                <img alt="" class="nd_booking_section"
-                                    src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/room2-1024x664.jpeg">
-
-                                <div
-                                    class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
-                                    <div class="nd_booking_position_absolute nd_booking_bottom_20">
-                                        <p
-                                            class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">
-                                            Hotel London</p><img alt=""
-                                            class="nd_booking_margin_right_5 nd_booking_float_left" width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg"><img
-                                            alt="" class="nd_booking_margin_right_5 nd_booking_float_left"
-                                            width="10"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-white.svg">
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-
-
-                            <div class="nd_booking_section nd_booking_padding_30 nd_booking_box_sizing_border_box">
-
-                                <a
-                                    href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/room-with-view/">
-                                    <h1>Room with View</h1>
-                                </a>
-                                <div class="nd_booking_section nd_booking_height_10"></div>
-
-                                <div class="nd_booking_section">
-                                    <div class="nd_booking_display_table nd_booking_float_left">
-                                        <img alt=""
-                                            class="nd_booking_margin_right_10 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="23"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-user-grey.svg">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">
-                                            4 GUESTS</p>
-                                        <img alt=""
-                                            class="nd_booking_margin_right_10 nd_booking_margin_left_20 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="20"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-plan-grey.svg">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">
-                                            40 ft</p>
-                                    </div>
-                                </div>
-
-                                <div class="nd_booking_section nd_booking_height_20"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel molestie nisl.
-                                    Duis ac mi leo.</p>
-                                <div class="nd_booking_section nd_booking_height_20"></div>
-                                <a style="color: #444444; border:2px solid #444444;"
-                                    href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/room-with-view/"
-                                    class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2 ">BOOK
-                                    <span class="nd_booking_display_none_all_iphone">NOW</span> FROM 76 $</a>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="nd_booking_section nd_booking_height_50"></div>
         </div>
 
 

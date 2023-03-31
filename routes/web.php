@@ -19,6 +19,7 @@ Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
 Route::get('/rooms', function () {
     return view('templates/pages/room');
 });
+Route::get('/room/detail/{id}', 'Client\RoomController@roomdetail')->name('route_FrontEnd_Room_RoomDetail');
 
 Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
 
@@ -42,10 +43,11 @@ Route::get('/services', function () {
 //    return view('templates/pages/booking');
 //});
 Route::post('/booking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking');//Giỏ hàng
+Route::post('/checkout', 'Client\BookingController@createbooking')->name('route_FontEnd_Booking_createBooking');
 
-Route::get('/checkout', function () { //thanh toán
-    return view('templates/pages/checkout');
-});
+//Route::get('/checkout', function () { //thanh toán
+//    return view('templates/pages/checkout');
+//});
 
 
 Route::get('/sign-in', 'Client\SigninController@getSignin')->name('getSignin');
