@@ -3,7 +3,11 @@
 @section('title', 'Đặt phòng')
 
 @section('content')
-
+<style>
+    #nd_booking_sorting_result_layer{
+        display:none;
+    }
+</style>
 
     <div class="nicdark_site nicdark_bg_white" style="margin-bottom: 50px">
 
@@ -416,52 +420,53 @@
                                                                     </div>
                                                                 </div>
                                                                 <hr style="margin: 30px 0 30px 0">
-                                                                <div>
-                                                                    <table>
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th>STT</th>
-                                                                            <th>Tên phòng</th>
-                                                                            <th>Hình ảnh</th>
-                                                                            <th>Số người</th>
-                                                                            <th>Giá</th>
-                                                                            <th>Chọn dịch vụ</th>
-                                                                        </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                        <?php $i=1?>
-                                                                        @foreach($listRooms as $item)
-                                                                            @if((in_array($item->id,$filterRoom)))
-                                                                                <tr>
-                                                                                    <td>{{$i++}}</td>
-                                                                                    <td>{{$item->name}}</td>
-                                                                                    <td>{{$item->images}}</td>
-                                                                                    <td>{{$item->adult}}</td>
-                                                                                    <td>{{$item->price}} đ</td>
-                                                                                    <td>
-                                                                                        <script>
-                                                                                            localStorage.setItem('room_{{$i-1}}',{{$item->price}})
-                                                                                        </script>
-                                                                                        <ul style="display: flex;flex-direction: column; flex-wrap: wrap;align-content: flex-start;">
-                                                                                            @foreach($listService as $service)
-                                                                                                @if($service->price!=0)
-                                                                                                    <li><input type="checkbox" id="checkbox_{{$service->id}}" name="service_id_{{$i-1}}[]" value="{{$service->id}}">{{$service->name}}: {{$service->price}} đ</li>
-                                                                                                @endif
-                                                                                            @endforeach
-                                                                                        </ul>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            @endif
-                                                                        @endforeach
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                                <hr style="margin: 30px 0 30px 0">
                                                                 <div class="nd_booking_section">
-                                                                    <h1 style="margin: 40px 0 30px 0">Nhập thông tin khách hàng</h1>
                                                                     <form method="post"
-                                                                          action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-checkout/">
-
+                                                                          action="{{ route('route_FontEnd_Booking_createBooking') }}">
+                                                                        @csrf
+                                                                        <div>
+                                                                            <table>
+                                                                                <thead>
+                                                                                <tr>
+                                                                                    <th>STT</th>
+                                                                                    <th>Tên phòng</th>
+                                                                                    <th>Hình ảnh</th>
+                                                                                    <th>Số người</th>
+                                                                                    <th>Giá</th>
+                                                                                    <th>Chọn dịch vụ</th>
+                                                                                </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                <?php $i=1?>
+                                                                                @foreach($listRooms as $item)
+                                                                                    @if((in_array($item->id,$filterRoom)))
+                                                                                        <tr>
+                                                                                            <td>{{$i++}}</td>
+                                                                                            <td>{{$item->name}}</td>
+                                                                                            <td>{{$item->images}}</td>
+                                                                                            <td>{{$item->adult}}</td>
+                                                                                            <td>{{$item->price}} đ</td>
+                                                                                            <td>
+                                                                                                <ul style="display: flex;flex-direction: column; flex-wrap: wrap;align-content: flex-start;">
+                                                                                                    @foreach($listService as $service)
+                                                                                                        @if($service->price!=0)
+                                                                                                            <li><input type="checkbox" id="checkbox_{{$service->id}}" name="service_id_{{$i-1}}[]" value="{{$service->id}}">{{$service->name}}: {{$service->price}} đ</li>
+                                                                                                        @endif
+                                                                                                    @endforeach
+                                                                                                </ul>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                @endforeach
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <hr style="margin: 30px 0 30px 0">
+                                                                        <input name="checkin_date" value="{{$checkin}}" hidden>
+                                                                        <input name="checkout_date" value="{{$checkout}}" hidden>
+                                                                        <input name="people" value="{{$peoples}}" hidden>
+                                                                        <input name="room_id" value="{{implode(",", $filterRoom)}}" hidden>
+                                                                        <h1 style="margin: 40px 0 30px 0">Nhập thông tin khách hàng</h1>
                                                                         <div id="nd_booking_booking_form_name_container"
                                                                              class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
                                                                             <p>Họ và tên *</p>
@@ -560,24 +565,20 @@
                                                                         <div
                                                                             class="nd_booking_section nd_booking_height_20">
                                                                         </div>
-                                                                        <div
-                                                                            class="nd_booking_width_100_percentage nd_booking_box_sizing_border_box nd_booking_float_left" id="showbutton">
-                                                                            <a class="nd_booking_bg_yellow nd_options_color_white nd_booking_cursor_pointer nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important">CHECKOUT</a>
-                                                                            <input id="nd_booking_submit_go_to_checkout"
-                                                                                   class="nd_booking_display_none nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important"
-                                                                                   type="submit" value="CHECKOUT">
+                                                                        <div>
+                                                                            <button type="submit">Gửi</button>
                                                                         </div>
-                                                                        <script>
-                                                                            var confrim= document.getElementById('confrim')
-                                                                            confrim.onclick = function (){
-                                                                                if (this.checked){
-                                                                                    document.getElementById('showbutton').innerHTML = '<a class="nd_booking_bg_yellow nd_options_color_white nd_booking_cursor_pointer nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important">' + 'CHECKOUT' + '</a>' + '<input id="nd_booking_submit_go_to_checkout" class="nd_booking_display_none nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" value="CHECKOUT">';
-                                                                                }
-                                                                                else{
-                                                                                    document.getElementById('showbutton').innerHTML = '<a class="nd_booking_bg_yellow nd_options_color_white nd_booking_cursor_pointer nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important">' + 'CHECKOUT' + '</a>' + '<div id="nd_booking_submit_go_to_checkout" class="nd_booking_display_none nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important">'+'CHECKOUT'+'</div>';
-                                                                                }
-                                                                            }
-                                                                        </script>
+{{--                                                                        <script>--}}
+{{--                                                                            var confrim= document.getElementById('confrim')--}}
+{{--                                                                            confrim.onclick = function (){--}}
+{{--                                                                                if (this.checked){--}}
+{{--                                                                                    document.getElementById('showbutton').innerHTML = '<input id="nd_booking_submit_go_to_checkout" class="nd_booking_display_none nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" value="CHECKOUT">';--}}
+{{--                                                                                }--}}
+{{--                                                                                else{--}}
+{{--                                                                                    document.getElementById('showbutton').innerHTML = '<div id="nd_booking_submit_go_to_checkout" class="nd_booking_display_none nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important">'+'CHECKOUT'+'</div>';--}}
+{{--                                                                                }--}}
+{{--                                                                            }--}}
+{{--                                                                        </script>--}}
                                                                     </form>
 
                                                                 </div>

@@ -8,32 +8,18 @@
                         class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box nd_booking_text_align_center_all_iphone">
                         <!--START title and branches-->
                         <h1 id="nd_booking_single_cpt_1_title"
-                            class="nd_booking_font_size_40 nd_booking_font_size_30_all_iphone ">Small Room</h1>
+                            class="nd_booking_font_size_40 nd_booking_font_size_30_all_iphone ">{{$room->name}}</h1>
                         <div class="nd_booking_section nd_booking_height_10"></div>
                         <div id="nd_booking_single_cpt_1_subtitle"
                             class="nd_booking_section nd_booking_display_inline_block_all_iphone nd_booking_width_initial_all_iphone nd_booking_float_initial_all_iphone">
                             <p class=" nd_booking_float_left nd_booking_letter_spacing_2"><span
-                                    class="nd_booking_margin_right_10 nd_booking_text_transform_uppercase">Hotel
-                                    Rome</span></p><img alt=""
-                                class="nd_booking_margin_right_5 nd_booking_float_left nd_booking_margin_top_5"
-                                width="15"
-                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg"><img
-                                alt=""
-                                class="nd_booking_margin_right_5 nd_booking_float_left nd_booking_margin_top_5"
-                                width="15"
-                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg"><img
-                                alt=""
-                                class="nd_booking_margin_right_5 nd_booking_float_left nd_booking_margin_top_5"
-                                width="15"
-                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg"><img
-                                alt=""
-                                class="nd_booking_margin_right_5 nd_booking_float_left nd_booking_margin_top_5"
-                                width="15"
-                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg"><img
-                                alt=""
-                                class="nd_booking_margin_right_5 nd_booking_float_left nd_booking_margin_top_5"
-                                width="15"
-                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg">
+                                    class="nd_booking_margin_right_10 nd_booking_text_transform_uppercase">12 Zodiac</span></p>
+                            @for($i=1; $i<=((int)$room->cate_room+2);$i++)
+                                <img alt=""
+                                     class="nd_booking_margin_right_5 nd_booking_float_left nd_booking_margin_top_5"
+                                     width="15"
+                                     src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg">
+                            @endfor
                         </div>
                         <!--END title and branches-->
                     </div>
@@ -141,487 +127,29 @@
                                     <img alt="" class="" width="40"
                                         src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-user-grey.svg">
                                     <div class="nd_booking_section nd_booking_height_5"></div>
-                                    <p class="">1 GUESTS</p>
+                                    <p class="">{{$room->adult}} người</p>
+                                </div>
+                                <div id="nd_booking_single_cpt_1_basic_info_night"
+                                     class="nd_booking_width_25_percentage nd_booking_width_100_percentage_all_iphone nd_booking_margin_top_40_all_iphone nd_booking_float_left nd_booking_text_align_center">
+                                    <img alt="" class="" width="40"
+                                         src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-bed-grey.svg">
+                                    <div class="nd_booking_section nd_booking_height_5"></div>
+                                    <p class="">{{$room->bed}} giường</p>
                                 </div>
                                 <div id="nd_booking_single_cpt_1_basic_info_measure"
                                     class="nd_booking_width_25_percentage nd_booking_width_100_percentage_all_iphone nd_booking_margin_top_40_all_iphone nd_booking_float_left nd_booking_text_align_center">
                                     <img alt="" class="" width="40"
                                         src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-plan-grey.svg">
                                     <div class="nd_booking_section nd_booking_height_5"></div>
-                                    <p class="">15 ft</p>
+                                    <p class="">50 m2</p>
                                 </div>
+
                                 <div id="nd_booking_single_cpt_1_basic_info_night"
-                                    class="nd_booking_width_25_percentage nd_booking_width_100_percentage_all_iphone nd_booking_margin_top_40_all_iphone nd_booking_float_left nd_booking_text_align_center">
+                                     class="nd_booking_width_25_percentage nd_booking_width_100_percentage_all_iphone nd_booking_margin_top_40_all_iphone nd_booking_float_left nd_booking_text_align_center">
                                     <img alt="" class="" width="40"
-                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-bed-grey.svg">
+                                         src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-calendar-grey.svg">
                                     <div class="nd_booking_section nd_booking_height_5"></div>
-                                    <p class="">56 $ / PER NIGHT</p>
-                                </div>
-                                <div id="nd_booking_single_cpt_1_basic_info_week_price"
-                                    class="nd_booking_week_price_icon nd_booking_width_25_percentage nd_booking_width_100_percentage_all_iphone nd_booking_margin_top_40_all_iphone nd_booking_float_left nd_booking_text_align_center">
-                                    <span class="nd_booking_position_relative nd_booking_display_inline_block ">
-                                        <img alt="" class="" width="40"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-calendar-grey.svg">
-
-
-                                        <style>
-                                            .nd_booking_week_price_icon:hover #nd_booking_week_price {
-                                                display: block;
-                                            }
-
-                                            .nd_booking_week_price_first_column {
-                                                background-color: #404040;
-                                            }
-
-                                            .nd_booking_week_price_current_column>table {
-                                                border-left: 1px solid #404040;
-                                                border-right: 1px solid #404040;
-                                            }
-
-                                            .nd_booking_week_price_first_column .nd_booking_week_price_first_line {
-                                                color: #6b6978 !important;
-                                            }
-
-                                            .nd_booking_week_price_first_column .nd_booking_week_price_second_line {
-                                                color: #404040;
-                                            }
-
-                                            .nd_booking_week_price_first_line {
-                                                font-size: 12px;
-                                                padding: 10px;
-                                                box-sizing: border-box;
-                                                background-color: #6b6978;
-                                                color: #fff !important;
-                                                letter-spacing: 2px;
-                                                line-height: 12px;
-                                            }
-
-                                            .nd_booking_week_price_second_line {
-                                                font-size: 11px;
-                                                letter-spacing: 2px;
-                                                padding: 10px;
-                                                box-sizing: border-box;
-                                                line-height: 11px;
-                                                background-color: #404040;
-                                            }
-
-                                            .nd_booking_week_price_content p {
-                                                font-size: 10px;
-                                            }
-
-                                            .nd_booking_week_price_content_empty {
-                                                color: #444444 !important;
-                                            }
-
-
-                                            .nd_booking_week_price_triangle_down {
-                                                width: 100%;
-                                                overflow: hidden;
-                                                box-sizing: border-box;
-                                                text-align: center;
-                                                line-height: 10px;
-                                                margin-bottom: -10px;
-                                            }
-
-                                            .nd_booking_week_price_triangle_down:after {
-                                                content: "";
-                                                display: inline-block;
-                                                width: 0px;
-                                                height: 0px;
-                                                border-left: 10px solid transparent;
-                                                border-right: 10px solid transparent;
-                                                border-top: 10px solid #444444;
-                                                line-height: 10px;
-                                            }
-                                        </style>
-
-
-
-                                        <div id="nd_booking_week_price"
-                                            class="nd_booking_width_650 nd_booking_padding_bottom_20 nd_booking_display_none nd_booking_width_300_responsive nd_booking_bottom_50 nd_booking_left_305_negative nd_booking_left_130_negative_responsive nd_booking_float_left nd_booking_position_absolute nd_booking_z_index_9">
-                                            <div class="nd_booking_section nd_booking_bg_greydark">
-
-                                                <div
-                                                    class="nd_booking_width_10_percentage nd_booking_display_none_responsive nd_booking_float_left nd_booking_box_sizing_border_box nd_booking_week_price_first_column">
-
-                                                    <p class="nd_booking_week_price_first_line">-</p>
-                                                    <p class="nd_booking_week_price_second_line">-</p>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr>
-                                                            <td>
-                                                                <p>MON</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr>
-                                                            <td>
-                                                                <p>TUE</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr>
-                                                            <td>
-                                                                <p>WED</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr>
-                                                            <td>
-                                                                <p>THU</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr>
-                                                            <td>
-                                                                <p>FRI</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr>
-                                                            <td>
-                                                                <p>SAT</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr>
-                                                            <td>
-                                                                <p>SUN</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <div
-                                                    class="nd_booking_width_30_percentage nd_booking_width_100_percentage_responsive nd_booking_float_left nd_booking_box_sizing_border_box nd_booking_week_price_prev_column ">
-
-                                                    <div class="nd_booking_section">
-                                                        <div class="nd_booking_section">
-                                                            <p class="nd_booking_week_price_first_line">PREV WEEK</p>
-                                                        </div>
-                                                        <div
-                                                            class="nd_booking_width_50_percentage nd_booking_float_left">
-                                                            <p class="nd_booking_week_price_second_line">DAY</p>
-                                                        </div>
-                                                        <div
-                                                            class="nd_booking_width_50_percentage nd_booking_float_left">
-                                                            <p class="nd_booking_week_price_second_line">PRICE</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/20/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/21/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/22/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/23/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/24/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/25/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/26/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div
-                                                    class="nd_booking_width_30_percentage nd_booking_width_100_percentage_responsive nd_booking_float_left nd_booking_box_sizing_border_box nd_booking_week_price_current_column ">
-
-                                                    <div class="nd_booking_section">
-                                                        <div class="nd_booking_section">
-                                                            <p class="nd_booking_week_price_first_line">CURRENT WEEK
-                                                            </p>
-                                                        </div>
-                                                        <div
-                                                            class="nd_booking_width_50_percentage nd_booking_float_left">
-                                                            <p class="nd_booking_week_price_second_line">DAY</p>
-                                                        </div>
-                                                        <div
-                                                            class="nd_booking_width_50_percentage nd_booking_float_left">
-                                                            <p class="nd_booking_week_price_second_line">PRICE</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/27/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/28/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="nd_options_color_white">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="nd_options_color_white">03/29/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="nd_options_color_white">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/30/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">03/31/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/01/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/02/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div
-                                                    class="nd_booking_width_30_percentage nd_booking_width_100_percentage_responsive nd_booking_float_left nd_booking_box_sizing_border_box nd_booking_week_price_next_column ">
-
-                                                    <div class="nd_booking_section">
-                                                        <div class="nd_booking_section">
-                                                            <p class="nd_booking_week_price_first_line">NEXT WEEK</p>
-                                                        </div>
-                                                        <div
-                                                            class="nd_booking_width_50_percentage nd_booking_float_left">
-                                                            <p class="nd_booking_week_price_second_line">DAY</p>
-                                                        </div>
-                                                        <div
-                                                            class="nd_booking_width_50_percentage nd_booking_float_left">
-                                                            <p class="nd_booking_week_price_second_line">PRICE</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/03/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/04/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/05/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/06/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/07/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/08/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <table
-                                                        class="nd_booking_width_100_percentage nd_booking_week_price_content">
-                                                        <tr class="">
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">04/09/2023</p>
-                                                            </td>
-                                                            <td class="nd_booking_width_50_percentage">
-                                                                <p class="">56 $</p>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <div class="nd_booking_week_price_triangle_down"></div>
-
-                                            </div>
-                                        </div>
-
-                                    </span>
-                                    <div class="nd_booking_section nd_booking_height_5"></div>
-                                    <p class="">
-                                        WEEK PRICE
-                                        <img alt="" class="nd_booking_margin_left_5" width="12"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-info-grey.svg">
-                                    </p>
+                                    <p class="">{{$room->price}} đ / ngày</p>
                                 </div>
                             </div>
                             <!--END basic informations-->
@@ -631,17 +159,10 @@
                                 class="nd_booking_section nd_booking_height_2 nd_booking_bg_grey nd_booking_single_cpt_1_divider">
                             </div>
                             <div class="nd_booking_section nd_booking_height_40"></div>
-
-                            <p>Cras malesuada mauris tortor, id tempus mauris blandit sit amet. Morbi a velit efficitur,
-                                porttitor metus et, interdum nunc. Phasellus ut elementum diam. Aliquam erat volutpat.
-                                Nunc et facilisis elit. Donec consectetur nibh vel gravida aliquet. Suspendisse sit amet
-                                lectus tristique, condimentum libero vel, porta justo. Proin sit amet porta nibh.
-                                Pellentesque leo lorem, blandit quis hendrerit a, suscipit dapibus nulla. Aenean ut
-                                facilisis felis. Cras tincidunt elementum neque, id viverra magna viverra et. Nam
-                                tincidunt urna sed urna vehicula fringilla. <u>Curabitur bibendum dictum nunc, ut
-                                    elementum nibh efficitur gravida. </u> Phasellus luctus scelerisque libero, nec
-                                lobortis tortor volutpat at. Nam vitae turpis in est tristique placerat id sed tortor.
-                                Vivamus luctus sed nibh ac cursus. Sed vel ligula non risus tempus fermentum.</p>
+                            <div>
+                                <h3 style="margin-bottom: 20px">Mô tả:</h3>
+                                <p>{{$room->description}}</p>
+                            </div>
                             <div id="nd_booking_single_cpt_1_services"
                                 class="nd_booking_section nd_booking_height_50"></div>
                             <div
@@ -653,58 +174,22 @@
                                 <div class="nd_booking_section nd_booking_height_40"></div>
                                 <div class="nd_booking_section">
                                     <h2 class="nd_booking_word_wrap_break_word"><span
-                                            style="text-transform: capitalize;">room</span> Services</h2>
+                                            style="text-transform: capitalize;">Thuộc tính phòng</span></h2>
                                 </div>
                                 <div class="nd_booking_section nd_booking_height_20"></div>
-
-                                <div
-                                    class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_padding_10_0">
-                                    <div class="nd_booking_display_table nd_booking_float_left">
-                                        <img alt=""
-                                            class="nd_booking_margin_right_15 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="25"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/swmming-pool.png">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">
-                                            Swimming Pool</p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_padding_10_0">
-                                    <div class="nd_booking_display_table nd_booking_float_left">
-                                        <img alt=""
-                                            class="nd_booking_margin_right_15 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="25"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/television.png">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">
-                                            Television</p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_padding_10_0">
-                                    <div class="nd_booking_display_table nd_booking_float_left">
-                                        <img alt=""
-                                            class="nd_booking_margin_right_15 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="25"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/no-smoking.png">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">
-                                            No Smoking</p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_padding_10_0">
-                                    <div class="nd_booking_display_table nd_booking_float_left">
-                                        <img alt=""
-                                            class="nd_booking_margin_right_15 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                            width="25"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/04/private-bathroom.png">
-                                        <p
-                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">
-                                            Private Bathroom</p>
-                                    </div>
-                                </div>
+                                <?php $propertyWork = explode(",",$room->properties_id)?>
+                                @foreach($listProperty as $property)
+                                    @if(in_array($property->id,$propertyWork))
+                                        <div
+                                            class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_padding_10_0">
+                                            <div class="nd_booking_display_table nd_booking_float_left">
+                                                <p
+                                                    class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">
+                                                    {{$property->name}}</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         <!--</div>-->
@@ -1154,94 +639,63 @@
                         <div id="block-7" class="widget widget_block">
                             <h2>Best Rooms</h2>
                         </div>
-                        <div id="block-8" class="widget widget_block">
-                            <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-                        </div>
                         <div id="block-9" class="widget widget_block">
                             <p>
                             <div class="nd_booking_section">
-                                <div id="nd_booking_ss_rooms_5655"
-                                    class="nd_booking_ss_rooms nd_booking_width_100_percentage">
+                                @foreach($listCaterooms as $cateroom)
+                                    @if($cateroom->id!=$room->cate_room)
+                                        <div id="nd_booking_ss_rooms_5655"
+                                            class="nd_booking_ss_rooms nd_booking_width_100_percentage">
 
-                                    <div style="padding:0px 0px 20px 0px;"
-                                        class="nd_booking_section nd_booking_box_sizing_border_box">
+                                            <div style="padding:0px 0px 20px 0px;"
+                                                class="nd_booking_section nd_booking_box_sizing_border_box">
 
-                                        <div class="nd_booking_section nd_booking_position_relative">
+                                                <div class="nd_booking_section nd_booking_position_relative">
 
-                                            <img alt=""
-                                                class="nd_booking_position_absolute nd_booking_left_0 nd_booking_top_0"
-                                                width="100"
-                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/room3-150x150.jpeg">
+                                                    <img alt=""
+                                                        class="nd_booking_position_absolute nd_booking_left_0 nd_booking_top_0"
+                                                        width="100"
+                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/room3-150x150.jpeg">
 
-                                            <div
-                                                class="nd_booking_section nd_booking_padding_left_120 nd_booking_min_height_100 nd_booking_box_sizing_border_box">
+                                                    <div
+                                                        class="nd_booking_section nd_booking_padding_left_120 nd_booking_min_height_100 nd_booking_box_sizing_border_box">
 
-                                                <h4>Apartment</h4>
-                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                <p class="">From 56 $ per night</p>
-                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                <div class="nd_booking_section">
-                                                    <a href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/apartment/"
-                                                        style="background-color: #6b6978;"
-                                                        class="nd_options_color_white nd_booking_padding_5_10 nd_booking_font_size_10 nd_booking_letter_spacing_2 nd_booking_font_weight_bold">BOOK
-                                                        NOW</a>
+                                                        <h4>{{$cateroom->name}}</h4>
+                                                        <div class="nd_booking_section nd_booking_height_10"></div>
+                                                        <div class="nd_booking_section">
+                                                            @for($i=1; $i<=((int)$cateroom->id+2);$i++)
+                                                            <img alt=""
+                                                                 class="nd_booking_margin_right_5 nd_booking_float_left"
+                                                                 width="13"
+                                                                 src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg">
+                                                            @endfor
+                                                        </div>
+                                                        <div class="nd_booking_section nd_booking_height_10"></div>
+                                                        <p class="">Chỉ từ {{$cateroom->price}} đ</p>
+                                                        <div class="nd_booking_section">
+                                                            <a href="{{ route('route_FrontEnd_Room_RoomDetail', $cateroom->id) }}"
+                                                                style="background-color: #6b6978;"
+                                                                class="nd_options_color_white nd_booking_padding_5_10 nd_booking_font_size_10 nd_booking_letter_spacing_2 nd_booking_font_weight_bold">Xêm thêm</a>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
 
                                             </div>
+
                                         </div>
-
-                                    </div>
-
-                                </div>
-                                <div id="nd_booking_ss_rooms_5657"
-                                    class="nd_booking_ss_rooms nd_booking_width_100_percentage">
-
-                                    <div style="padding:0px 0px 20px 0px;"
-                                        class="nd_booking_section nd_booking_box_sizing_border_box">
-
-                                        <div class="nd_booking_section nd_booking_position_relative">
-
-                                            <img alt=""
-                                                class="nd_booking_position_absolute nd_booking_left_0 nd_booking_top_0"
-                                                width="100"
-                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/room6-150x150.jpeg">
-
-                                            <div
-                                                class="nd_booking_section nd_booking_padding_left_120 nd_booking_min_height_100 nd_booking_box_sizing_border_box">
-
-                                                <h4>Double Room</h4>
-                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                <p class="">From 25 $ per night</p>
-                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                <div class="nd_booking_section">
-                                                    <a href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/double-room/"
-                                                        style="background-color: #6b6978;"
-                                                        class="nd_options_color_white nd_booking_padding_5_10 nd_booking_font_size_10 nd_booking_letter_spacing_2 nd_booking_font_weight_bold">BOOK
-                                                        NOW</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                                    @endif
+                                @endforeach
                             </div>
                             </p>
-                        </div>
-                        <div id="block-10" class="widget widget_block">
-                            <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
                         </div>
                         <div id="block-11" class="widget widget_block">
                             <h2>Documents</h2>
                         </div>
-                        <div id="block-12" class="widget widget_block">
-                            <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-                        </div>
                         <div id="block-13" class="widget widget_block">
                             <p>
 
-                            <div style="margin:;"
+                            <div
                                 class=" nd_booking_sidebar_room_list nd_options_display_table nd_options_float_left">
 
 
@@ -1255,7 +709,7 @@
 
 
                                 <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a style="color:;" class="nd_options_margin_right_20 nd_options__font "
+                                    <a class="nd_options_margin_right_20 nd_options__font "
                                         href="#">Conditions of Hospitality</a>
                                 </div>
 
@@ -1265,7 +719,7 @@
                             <br />
 
 
-                            <div style="margin:;"
+                            <div
                                 class=" nd_booking_sidebar_room_list nd_options_display_table nd_options_float_left">
 
 
@@ -1279,7 +733,7 @@
 
 
                                 <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a style="color:;" class="nd_options_margin_right_20 nd_options__font "
+                                    <a class="nd_options_margin_right_20 nd_options__font "
                                         href="#">Fire Rules of the Hotel</a>
                                 </div>
 
@@ -1289,7 +743,7 @@
                             <br />
 
 
-                            <div style="margin:;"
+                            <div
                                 class=" nd_booking_sidebar_room_list nd_options_display_table nd_options_float_left">
 
 
@@ -1303,7 +757,7 @@
 
 
                                 <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a style="color:;" class="nd_options_margin_right_20 nd_options__font "
+                                    <a class="nd_options_margin_right_20 nd_options__font "
                                         href="#">Seasonal Room Rates</a>
                                 </div>
 
@@ -1311,134 +765,6 @@
                             </div>
 
                             </p>
-                        </div>
-                        <div id="block-14" class="widget widget_block">
-                            <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-                        </div>
-                        <div id="block-15" class="widget widget_block">
-                            <h2>Branches</h2>
-                        </div>
-                        <div id="block-16" class="widget widget_block">
-                            <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-                        </div>
-                        <div id="block-17" class="widget widget_block">
-                            <p>
-                            <div class="nd_booking_section">
-                                <div id="nd_booking_ss_branches_6211"
-                                    class="nd_booking_ss_branches nd_booking_width_100_percentage">
-
-                                    <div style="padding:0px 0px 20px 0px;"
-                                        class="nd_booking_section nd_booking_box_sizing_border_box">
-
-                                        <div class="nd_booking_section nd_booking_position_relative">
-
-                                            <img alt=""
-                                                class="nd_booking_position_absolute nd_booking_left_0 nd_booking_top_0"
-                                                width="100"
-                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/vert3-150x150.jpeg">
-
-                                            <div
-                                                class="nd_booking_section nd_booking_padding_left_120 nd_booking_min_height_100 nd_booking_box_sizing_border_box">
-
-                                                <div class="nd_booking_section nd_booking_height_5"></div>
-                                                <a
-                                                    href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/branches/hotel-london/">
-                                                    <h4>Hotel London</h4>
-                                                </a>
-
-                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                <p class="">London ( England )</p>
-
-                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                <div class="nd_booking_section">
-                                                    <img alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg"><img
-                                                        alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg"><img
-                                                        alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg"><img
-                                                        alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg"><img
-                                                        alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg">
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div id="nd_booking_ss_branches_6243"
-                                    class="nd_booking_ss_branches nd_booking_width_100_percentage">
-
-                                    <div style="padding:0px 0px 20px 0px;"
-                                        class="nd_booking_section nd_booking_box_sizing_border_box">
-
-                                        <div class="nd_booking_section nd_booking_position_relative">
-
-                                            <img alt=""
-                                                class="nd_booking_position_absolute nd_booking_left_0 nd_booking_top_0"
-                                                width="100"
-                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/04/vert-4-150x150.jpg">
-
-                                            <div
-                                                class="nd_booking_section nd_booking_padding_left_120 nd_booking_min_height_100 nd_booking_box_sizing_border_box">
-
-                                                <div class="nd_booking_section nd_booking_height_5"></div>
-                                                <a
-                                                    href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/branches/hotel-new-york/">
-                                                    <h4>Hotel New York</h4>
-                                                </a>
-
-                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                <p class="">New York ( U.S.A. )</p>
-
-                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                <div class="nd_booking_section">
-                                                    <img alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg"><img
-                                                        alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg"><img
-                                                        alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg"><img
-                                                        alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg"><img
-                                                        alt=""
-                                                        class="nd_booking_margin_right_5 nd_booking_float_left"
-                                                        width="13"
-                                                        src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/addons/shortcodes/branches/img/icon-star-full-grey.svg">
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            </p>
-                        </div>
-                        <div id="block-18" class="widget widget_block">
-                            <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
                         </div>
                         <div id="block-19" class="widget widget_block">
                             <p>
@@ -1456,13 +782,12 @@
 
                                             <a
                                                 href="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/rooms/small-room/">
-                                                <h4 class="nd_options_color_white nd_booking_letter_spacing_1">Small
-                                                    Room</h4>
+                                                <h4 class="nd_options_color_white nd_booking_letter_spacing_1">{{$room->name}}</h4>
                                             </a>
                                             <div class="nd_booking_section nd_booking_height_10"></div>
                                             <p
                                                 class="nd_options_color_white nd_booking_letter_spacing_2 nd_booking_font_weight_bold nd_booking_font_size_12">
-                                                FROM 56 $</p>
+                                               Với {{$room->price}} đ</p>
 
                                         </div>
 
