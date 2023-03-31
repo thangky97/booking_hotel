@@ -58,9 +58,9 @@
                                             </td>
                                             <td class="text-center">
                                                 <p>
-                                                    @foreach ($listRooms as $room)
-                                                            <?php if($item->room_id==$room->id){
-                                                            echo $room->name;
+                                                    @foreach ($listCategoryroom as $cate)
+                                                            <?php if($item->cate_room==$cate->id){
+                                                            echo $cate->name;
                                                         }?>
                                                     @endforeach
                                                 </p>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PropertyRoomRequest;
+use App\Models\CategoryRooms;
 use App\Models\Rooms;
 use App\Models\Propertyroom;
 use App\Models\Properties;
@@ -19,11 +20,11 @@ class PropertyRoomController extends Controller
     public function propertyrooms()
     {
         $Propertyrooms = new Propertyroom();
-        $this->v['listPropertyrooms'] = $Propertyrooms->loadListWithPager();
-        $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadListWithPager();
+        $this->v['listPropertyrooms'] = $Propertyrooms->loadAll();
+        $cateRooms = new CategoryRooms();
+        $this->v['listCategoryroom'] = $cateRooms->loadAll();
         $Properties = new Properties();
-        $this->v['listProperties'] = $Properties->loadListWithPager();
+        $this->v['listProperties'] = $Properties->loadAll();
         $this->v['title'] = ' Thuộc tính phòng';
         return view("admin.property_room.index", $this->v);
     }
@@ -31,11 +32,11 @@ class PropertyRoomController extends Controller
     public function add()
     {
         $Property_rooms = new Propertyroom();
-        $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadAll();
+        $cateRooms = new CategoryRooms();
+        $this->v['listCategoryroom'] = $cateRooms->loadAll();
         $arrProperty_rooms = array();
         foreach ($Property_rooms->loadAll() as $index => $property_room){
-            $arrProperty_room= array($index => $property_room->room_id);
+            $arrProperty_room= array($index => $property_room->cate_room);
             $arrProperty_rooms = $arrProperty_room + $arrProperty_rooms;
         }
         $this->v['list'] = $arrProperty_rooms;
@@ -49,7 +50,7 @@ class PropertyRoomController extends Controller
     {
         $property_ids = implode(',' ,$request->properties_id);
         Propertyroom::create([
-            'room_id' => $request->room_id,
+            'cate_room' => $request->cate_room,
             'properties_id' => $property_ids,
             'status' => $request->status
         ]);
@@ -63,7 +64,7 @@ class PropertyRoomController extends Controller
         $this->v['listProperties'] = $Properties->loadAll();
         $this->v['idNotChecked'] = explode(',', Propertyroom::find($id)->properties_id);
         $this->v['property_rooms'] = Propertyroom::find($id);
-        $this->v['room'] = Rooms::find(Propertyroom::find($id)->room_id);
+        $this->v['cateRoom'] = CategoryRooms::find(Propertyroom::find($id)->cate_room);
         $this->v['title'] = ' Sửa ';
         return view('admin.property_room.edit', $this->v);
     }
