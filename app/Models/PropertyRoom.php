@@ -19,7 +19,7 @@ class PropertyRoom extends Model
     protected $table = "property_room";
     protected $fillable = [
         'id',
-        'room_id',
+        'cate_room',
         'properties_id',
         'status',
     ];
@@ -27,7 +27,7 @@ class PropertyRoom extends Model
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable)->orderBy('room_id', 'asc');
+            ->select($this->fillable);
         $list = $query->paginate(10);
         return $list;
     }

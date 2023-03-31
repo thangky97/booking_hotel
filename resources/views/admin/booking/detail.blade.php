@@ -68,9 +68,7 @@
                                                             @foreach($listServices as $service)
                                                                 @foreach($service_ids as $service_id)
                                                                     @if($service->id==$service_id)
-                                                                        @if($service->$price!=0)
-                                                                            {{$service->name}}<br>
-                                                                        @endif
+                                                                        {{$service->name}}<br>
                                                                     @endif
                                                                 @endforeach
                                                             @endforeach

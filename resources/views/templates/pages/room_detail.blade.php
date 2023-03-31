@@ -191,6 +191,24 @@
                                     @endif
                                 @endforeach
                             </div>
+{{--                            <div id="nd_booking_single_cpt_1_services_content" class="nd_booking_section">--}}
+{{--                                <div class="nd_booking_section nd_booking_height_40"></div>--}}
+{{--                                <div class="nd_booking_section">--}}
+{{--                                    <h2 class="nd_booking_word_wrap_break_word"><span--}}
+{{--                                            style="text-transform: capitalize;">Dịch vụ</span></h2>--}}
+{{--                                </div>--}}
+{{--                                <div class="nd_booking_section nd_booking_height_20"></div>--}}
+{{--                                @foreach($listService as $service)--}}
+{{--                                    <div--}}
+{{--                                        class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_padding_10_0">--}}
+{{--                                        <div class="nd_booking_display_table nd_booking_float_left">--}}
+{{--                                            <p--}}
+{{--                                                class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">--}}
+{{--                                                {{$service->name}}</p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                @endforeach--}}
+{{--                            </div>--}}
                         </div>
                         <!--</div>-->
 
@@ -687,83 +705,6 @@
                                     @endif
                                 @endforeach
                             </div>
-                            </p>
-                        </div>
-                        <div id="block-11" class="widget widget_block">
-                            <h2>Documents</h2>
-                        </div>
-                        <div id="block-13" class="widget widget_block">
-                            <p>
-
-                            <div
-                                class=" nd_booking_sidebar_room_list nd_options_display_table nd_options_float_left">
-
-
-                                <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a href="#"><img alt="" width="40px"
-                                            class="nd_options_margin_right_10 nd_options_float_left"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/pdf-purple.svg"></a>
-                                </div>
-
-
-
-
-                                <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a class="nd_options_margin_right_20 nd_options__font "
-                                        href="#">Conditions of Hospitality</a>
-                                </div>
-
-
-                            </div>
-
-                            <br />
-
-
-                            <div
-                                class=" nd_booking_sidebar_room_list nd_options_display_table nd_options_float_left">
-
-
-                                <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a href="#"><img alt="" width="40px"
-                                            class="nd_options_margin_right_10 nd_options_float_left"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/pdf-purple.svg"></a>
-                                </div>
-
-
-
-
-                                <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a class="nd_options_margin_right_20 nd_options__font "
-                                        href="#">Fire Rules of the Hotel</a>
-                                </div>
-
-
-                            </div>
-
-                            <br />
-
-
-                            <div
-                                class=" nd_booking_sidebar_room_list nd_options_display_table nd_options_float_left">
-
-
-                                <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a href="#"><img alt="" width="40px"
-                                            class="nd_options_margin_right_10 nd_options_float_left"
-                                            src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/pdf-purple.svg"></a>
-                                </div>
-
-
-
-
-                                <div class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                    <a class="nd_options_margin_right_20 nd_options__font "
-                                        href="#">Seasonal Room Rates</a>
-                                </div>
-
-
-                            </div>
-
                             </p>
                         </div>
                         <div id="block-19" class="widget widget_block">

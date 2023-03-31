@@ -27,8 +27,7 @@ class HomeController extends Controller
             // dd($this->v['banners']);
 
         $property_rooms = DB::table('property_room')
-            ->leftjoin('rooms', 'rooms.id', '=', 'property_room.room_id')
-            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'property_room.cate_room')
             ->select('property_room.id','property_room.properties_id')
             ->get();
         $this->v['listProperty_rooms'] = $property_rooms;
