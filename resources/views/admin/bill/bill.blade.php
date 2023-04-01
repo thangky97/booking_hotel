@@ -190,7 +190,7 @@
                     <br>
                     <div class="" style="text-align: center;">
                         <div class="me-10 mb-sm-0 mb-3">
-                            <a href="" class="btn btn-info mb-xxl-0 mb-4 btn-submit"><i class="flaticon-022-copy"></i> In hóa đơn</a>
+                            <a href="{{route('printOrder',$booking->id)}}" class="btn btn-info mb-xxl-0 mb-4 btn-submit"><i class="flaticon-022-copy"></i> In hóa đơn</a>
                             <a href="{{route('route_BackEnd_Bookings_List')}}" class="btn btn-danger mb-xxl-0 mb-4 btn-submit"><i class="fa fa-times"></i> Danh sách</a>
                         </div>
                     </div>

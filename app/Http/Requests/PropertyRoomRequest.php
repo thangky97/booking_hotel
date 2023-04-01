@@ -25,7 +25,7 @@ class PropertyRoomRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "room_id" => "required",
+            "cate_room" => "required",
             "properties_id" => "required",
         ];
     }
@@ -33,7 +33,7 @@ class PropertyRoomRequest extends FormRequest
     public function messages()
     {
         return [
-            'room_id.required' => 'Bạn phải chọn phòng',
+            'cate_room.required' => 'Bạn phải chọn loại phòng',
             'properties_id.required' => 'Bạn phải chọn thuộc tính',
         ];
     }

@@ -137,7 +137,7 @@
                                             @foreach($s_r as $inx => $sr_id)
                                             @if($sr_id==$ser->id)
                                             {{trim(($inx>0?', '.$ser->name:$ser->name), ',')}}
-                                            
+
                                             <?php echo '<br>' ?>
                                             @endif
                                             @endforeach
@@ -159,7 +159,7 @@
                                                 ?>
                                                 @endforeach
                                                 @endforeach
-                                                {{$money;}}.00$
+                                                {{$money}}.00$
                                             </span>
                                         </div>
                                     </td>

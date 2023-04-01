@@ -157,7 +157,6 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select name="status" class="default-select wide form-control">
-
                                                         <option data-display="Chọn trạng thái">Trạng thái</option>
                                                         <option value="1">Hoạt động</option>
                                                         <option value="2">Không hoạt động</option>

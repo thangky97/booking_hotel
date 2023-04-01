@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminRequest;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -61,7 +62,44 @@ class AdminController extends Controller
         $this->v['title'] = ' Thêm mới admin';
         $method_route = "route_BackEnd_Admin_Add";
 
+
+
         if ($request->isMethod('post')) {
+            $request->validate([
+                'name' => 'required|min:3|max:40',
+                'email' => 'required|email|max:50|unique:admin',
+                'password' => 'required|min:6',
+                'phone' => 'required|numeric|min:10',
+                'status' => 'required',
+                'images' =>
+                [
+                    'required',
+                    'image',
+                    'mimes:jpeg,png,jpg',
+                    'mimetypes:image/jpeg,image/png',
+                    'max:2048',
+                ],
+                'role' => 'required',
+                'status' => 'required',
+            ], [
+                'name.required' => 'Tên bắt buộc nhập!',
+                'name.min' => 'Tên tối thiểu 3 ký tự!',
+                'name.max' => 'Tên tối đa là 40 ký tự!',
+                'email.required' => 'Email bắt buộc nhập!',
+                'email.unique' => 'Email đã tồn tại!',
+                'email.email' => 'Email không đúng định dạng!',
+                'email.max' => 'Email tối đa 50 ký tự!',
+                'password.required' => 'Mật khẩu bắt buộc nhập!',
+                'password.min' => 'Mật khẩu tối thiểu 6 ký tự!',
+                'phone.required' => 'Số điện thoại bắt buộc nhập!',
+                'phone.numeric' => 'Số điện thoại phải là số!',
+                'phone.min' => 'Số điện thoại tối thiểu 10 số!',
+                'images.required' => 'Ảnh không được để trống!',
+                'images.image' => 'Bắt buộc phải là ảnh!',
+                'images.max' => 'Ảnh không được lớn hơn 2MB!',
+                'role.required' => 'Người dùng bắt buộc phải có 1 quyền',
+                'status.required' => 'Bạn chưa chọn trạng thái',
+            ], []);
             $params = [];
             $params['cols'] = $request->post();
             unset($params['cols']['_token']);
@@ -93,7 +131,7 @@ class AdminController extends Controller
         return view('admin.administration.edit', $this->v);
     }
 
-    public function update($id, Request $request)
+    public function update($id, AdminRequest $request)
     {
 
         $method_route = 'route_BackEnd_Admin_Edit';
@@ -127,5 +165,4 @@ class AdminController extends Controller
         $fileName = time() . '_' . $file->getClientOriginalName();
         return $file->storeAs('admin', $fileName, 'public');
     }
-    
 }

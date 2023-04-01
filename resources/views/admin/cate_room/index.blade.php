@@ -131,9 +131,10 @@
 
                                                 @endforeach
                                             </td>
-                                            <td>
-                                                <a href="{{route('route_BackEnd_Categoryrooms_Detail', $item->id)}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
+                                                   <a href="{{route('route_BackEnd_Categoryrooms_Detail', $item->id)}}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
                                             </td>
+
+
                                         </tr>
                                         @endforeach
                                     </tbody>

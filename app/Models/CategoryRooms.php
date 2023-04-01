@@ -17,7 +17,7 @@ class CategoryRooms extends Model
         'image',
         'price',
         'status',
-//        'gallery_id',
+        'description',
         'sort'
     ];
 

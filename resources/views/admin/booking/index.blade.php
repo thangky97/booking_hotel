@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div>
-                        <a href="{{route('route_BackEnd_Bookings_Adduser')}}" class="btn btn-info mb-xxl-0 mb-4"><i class="fa fa-bed me-2"></i>Thêm mới</a>
+                        <a href="{{route('route_BackEnd_Bookings_Adduser')}}" class="btn btn-info mb-xxl-0 mb-4"><i class="bi bi-minecart-loaded"></i> Thêm mới</a>
                         <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i class="far fa-file-word me-2"></i>Tạo báo cáo</a>
                     </div>
                 </div>
@@ -197,15 +197,6 @@
                                             <p>{{$item->people}}</p>
                                         </td>
                                         <td class="text-center">
-                                            <p>
-                                                @foreach ($listCaterooms as $cate)
-                                                <?php if ($item->cate_room_id == $cate->id) {
-                                                    echo $cate->name;
-                                                } ?>
-                                                @endforeach
-                                            </p>
-                                        </td>
-                                        <td class="text-center">
                                             <span class="fs-16">
                                                 <?= $item->status_pay == 0 ? '<span class="badge light badge-success">Đã thanh toán</span>' : '<span class="badge light badge-danger">Chưa thanh toán</span>' ?>
                                             </span>
@@ -300,15 +291,6 @@
                                         </td>
                                         <td class="text-center">
                                             <p>{{$item->people}}</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p>
-                                                @foreach ($listCaterooms as $cate)
-                                                <?php if ($item->cate_room_id == $cate->id) {
-                                                    echo $cate->name;
-                                                } ?>
-                                                @endforeach
-                                            </p>
                                         </td>
                                         <td class="text-center">
                                             <span class="fs-16">

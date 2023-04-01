@@ -1,4 +1,4 @@
-@extends('templates/admin.layoutadmin')
+admin.News.edit@extends('templates/admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection

@@ -684,7 +684,7 @@
                                                     </li> --}}
                                                     <li id="menu-item-7025"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7025">
-                                                        <a href="news">Tin tức</a>
+                                                        <a href="{{ route('route_FrontEnd_News') }}">Tin tức</a>
                                                     </li>
                                                     <li id="menu-item-6990"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6990">

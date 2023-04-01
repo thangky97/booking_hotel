@@ -22,12 +22,12 @@
                                     <form action="{{ route('route_BackEnd_News_saveAdd') }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="" class="col-md-3 col-sm-4 control-label">Tên Phòng<span
+                                            <label for="" class="col-md-3 col-sm-4 control-label">Tên Tin Tức<span
                                                     class="text-danger">(*)</span></label>
 
                                             <div class="col-md-9 col-sm-8">
                                                 <input type="text" name="name" id="name" class="form-control"
-                                                    placeholder="Tên Phòng">
+                                                    placeholder="Tên Tin Tức">
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
@@ -47,7 +47,7 @@
 
                                             <div class="col-md-9 col-sm-8">
                                                 <input type="text" name="title" id="title" class="form-control"
-                                                    placeholder="Tên Phòng">
+                                                    placeholder="Tiêu đề">
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
@@ -56,16 +56,16 @@
                                                     class="text-danger">(*)</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="date" id="price" class="form-control"
-                                                    placeholder="date">
+                                                <input type="date" name="date" id="date" class="form-control"
+                                                    placeholder="ngày">
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="col-md-3 col-sm-4 control-label">Tên phòng<span class="text-danger">(*)</span></label>
+                                            <label for="" class="col-md-3 col-sm-4 control-label">Tên Tin tuc<span class="text-danger">(*)</span></label>
                                             <div class="col-md-9 col-sm-8">
                                             <select name="cate_id" id="">
-                                                @foreach($cate_id as $c)
+                                                @foreach($category_new as $c)
                                                 <option value="{{$c->id}}">{{$c->name}}</option>
                                                 @endforeach
                                             </select>
