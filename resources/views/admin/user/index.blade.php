@@ -7,21 +7,42 @@
         <!-- row -->
         <div class="container-fluid">
             <div class="row">
+                <div style="font-size: 23px; font-weight: 600; color:#000 ; margin-bottom: 20px; margin-left: 2px;">Lọc</div>
                 <div class="col-xl-12">
                     <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+                        <div style="margin-right: 50px">
+                            <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
+                                @csrf
+                                <input type="search" name="name" value="{{ $name }}" class="form-control" style="width: 25rem"
+                                    placeholder="Tìm kiếm">
+                            </form>
+                        </div>
+                        <div style="margin-right: 50px">
+                            <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
+                                @csrf
+                                <input type="search" name="phone" value="{{ $phone }}" class="form-control" style="width: 25rem"
+                                    placeholder="Số điện thoại">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
+                                @csrf
+                                <input type="search" name="email" value="{{ $email }}" class="form-control" style="width: 25rem"
+                                    placeholder="Email">
+                            </form>
+                        </div>
 
-                        <div class="table-search">
-                            <div class="input-group search-area mb-xxl-0 mb-4">
-                                <input type="text" class="form-control" placeholder="Tìm kiếm">
-                                <span class="input-group-text"><a href="javascript:void(0)"><i
-                                            class="flaticon-381-search-2"></i></a></span>
-                            </div>
+                    </div>
+                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+
+                        <div>
+
                         </div>
                         <div>
                             <a href="{{ route('route_BackEnd_Users_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
                                     class="fa fa-users me-2"></i>Thêm mới</a>
-                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                            <a href="{{ route('route_BackEnd_Bookings_Adduser') }}" class="btn btn-primary mb-xxl-0 mb-4"><i
+                                    class="far fa-file-word me-2"></i>Đặt phòng</a>
                         </div>
 
                     </div>
@@ -125,22 +146,23 @@
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path
                                                                     d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
-                                                                    stroke="#262626" stroke-width="2" stroke-linecap="round"
-                                                                    stroke-linejoin="round" />
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
                                                                 <path
                                                                     d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
-                                                                    stroke="#262626" stroke-width="2" stroke-linecap="round"
-                                                                    stroke-linejoin="round" />
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
                                                                 <path
                                                                     d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
-                                                                    stroke="#262626" stroke-width="2" stroke-linecap="round"
-                                                                    stroke-linejoin="round" />
+                                                                    stroke="#262626" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
                                                             </svg>
                                                         </a>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item"
-                                                                href="{{ route('route_BackEnd_Users_Edit', ['id' => $user->id]) }}">Sửa</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">Xóa</a>
+                                                               href="{{ route('route_BackEnd_Bookings_Add', ['id' => $user->id]) }}">Đặt phòng</a>
+                                                            <a class="dropdown-item"
+                                                               href="{{ route('route_BackEnd_Users_Edit', ['id' => $user->id]) }}">Sửa</a>
                                                         </div>
                                                     </div>
                                                 </td>
