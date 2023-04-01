@@ -24,58 +24,58 @@
                                         @csrf
                                         <div class="form-group">
                                             <label for="" class="col-md-3 col-sm-4 control-label">Tên liên hệ<span
-                                                    class="text-danger">(*)</span></label>
+                                                    class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="name" id="name" class="form-control"
-                                                value="{{old('name',  $editContact->name)}}">
+                                                <input type="text" name="name" id="name" class="form-control" style="background: #f3f3f3"
+                                                value="{{old('name',  $editContact->name)}}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="" class="col-md-3 col-sm-4 control-label">Số điện thoại<span
-                                                    class="text-danger">(*)</span></label>
+                                                    class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="phone" id="phone" class="form-control"
-                                                value="{{old('phone',  $editContact->phone)}}">
+                                                <input type="text" name="phone" id="phone" class="form-control" style="background: #f3f3f3"
+                                                value="{{old('phone',  $editContact->phone)}}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="col-md-3 col-sm-4 control-label">email<span
-                                                    class="text-danger">(*)</span></label>
+                                            <label for="" class="col-md-3 col-sm-4 control-label">Email<span
+                                                    class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="email" name="email" id="email" class="form-control"
-                                                value="{{old('email',  $editContact->email)}}">
+                                                <input type="email" name="email" id="email" class="form-control" style="background: #f3f3f3"
+                                                value="{{old('email',  $editContact->email)}}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="col-md-3 col-sm-4 control-label">Nội dung<span
-                                                    class="text-danger">(*)</span></label>
+                                            <label for="" class="col-md-3 col-sm-4 control-label block">Nội dung<span
+                                                    class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="content" id="content" class="form-control"
-                                                value="{{old('content',  $editContact->content)}}">
+                                                <input type="text" name="content" id="content" class="form-control" style="background: #f3f3f3"
+                                                value="{{old('content',  $editContact->content)}}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="" class="col-md-3 col-sm-4 control-label">Tiêu đề<span
-                                                    class="text-danger">(*)</span></label>
+                                                    class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="title" id="title" class="form-control"
-                                                value="{{old('title',  $editContact->title)}}">
+                                                <input type="text" name="title" id="title" class="form-control" style="background: #f3f3f3"
+                                                value="{{old('title',  $editContact->title)}}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span class="text-danger">(*)</span></label>
+                                            <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span class="text-danger"> *</span></label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status" value = "2" {{(isset($editContact) && $editContact->status === 2) ? 'checked' : ''}}>
+                                                <input class="form-check-input" type="radio" name="status" value = "0" {{(isset($editContact) && $editContact->status === 0) ? 'checked' : ''}}>
                                                 <label class="form-check-label" for="flexRadioDefault1" >Chưa liên hệ</label>
                                                 <div>
                                                     <input class="form-check-input" type="radio" name="status" value = "1" {{(isset($editContact) && $editContact->status === 1) ? 'checked' : ''}}>

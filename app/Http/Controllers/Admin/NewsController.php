@@ -22,7 +22,7 @@ class NewsController extends Controller
         $this->v['news'] = News::with('cate_new')->paginate(10);
         $this ->v['title'] = 'Danh sach tin tuc';
         // dd($this->v['news']);
-        return view('admin.News.index', $this->v);
+        return view('admin.news.index', $this->v);
 
     }
 
@@ -30,7 +30,7 @@ class NewsController extends Controller
     {
         $this->v['title']= ' Them tin tuc';
         $category_new = DB::table('category_new')->get();
-        return view('admin.News.add', $this->v, compact('category_new'));
+        return view('admin.news.add', $this->v, compact('category_new'));
     }
 
     public function saveAdd(Request $request)
@@ -59,7 +59,7 @@ class NewsController extends Controller
         // {   //lay du lieu theo id
         //     $editNews = News::find($id);//lay du lieu tu db
         //     $cate_id = DB::table('category_rooms')->get();
-        //     return view('admin.News.edit',compact('editNews','id','$cate_id'));// truyen du lieu de hien thi sang file view de admin nhin thay
+        //     return view('admin.news.edit',compact('editNews','id','$cate_id'));// truyen du lieu de hien thi sang file view de admin nhin thay
         // }
         public function editForm($id)
         {   // lay giu lieu theo id
@@ -67,7 +67,7 @@ class NewsController extends Controller
             $editNews = News::find($id);
             // $cate_id = News::with('cate_new')->get();
             $cate_id = DB::table('category_new')->get();
-            return view('admin.News.edit',compact('editNews','cate_id','id','title'));
+            return view('admin.news.edit',compact('editNews','cate_id','id','title'));
         }
 
         public function saveEdit(Request $request, $id){

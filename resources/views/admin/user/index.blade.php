@@ -80,7 +80,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
-                                                    <span class="text-primary">{{ $index + 1 }}</span>
+                                                    <span class="text-primary">#{{ $index + 1 }}</span>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="guest-bx">

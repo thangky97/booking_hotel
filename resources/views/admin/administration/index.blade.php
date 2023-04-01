@@ -92,7 +92,6 @@
                                                         </div>
                                                     </div>
                                                 </td>
-
                                                 <td class="text-center"><a
                                                         href="javascript:void(0);"><strong>{{ $admin->email }}</strong></a>
                                                 </td>

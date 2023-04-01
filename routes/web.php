@@ -230,8 +230,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::prefix('/contact')->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\ContactController@index')->name('route_BackEnd_Contact_List');
-        // Route::get('/add', 'App\Http\Controllers\Admin\ContactController@addForm')->name('route_BackEnd_Contact_Add');
-        // Route::post('/saveAddForm', 'App\Http\Controllers\Admin\ContactController@saveAdd')->name('route_BackEnd_Contact_saveAdd');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\ContactController@editForm')->name('route_BackEnd_Contact_Detail');
         Route::post('/detail/{id}', 'App\Http\Controllers\Admin\ContactController@saveEdit')->name('route_BackEnd_Contact_Update');
         Route::get('/remove/{id}', 'App\Http\Controllers\Admin\ContactController@destroy')->name('route_BackEnd_Contact_Remove');
@@ -243,7 +241,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/saveAddForm', 'App\Http\Controllers\Admin\NewsController@saveAdd')->name('route_BackEnd_News_saveAdd');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\NewsController@editForm')->name('route_BackEnd_News_Detail');
         Route::post('/detail/{id}', 'App\Http\Controllers\Admin\NewsController@saveEdit')->name('route_BackEnd_News_Update');
-        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\NewsController@destroy')->name('route_BackEnd_News_Remove');
     });
 
     Route::prefix('/category_news')->group(function () {
@@ -252,7 +249,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/saveAddForm', 'App\Http\Controllers\Admin\CategoryNewController@saveAdd')->name('route_BackEnd_Category_News_saveAdd');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\CategoryNewController@editForm')->name('route_BackEnd_Category_News_Detail');
         Route::post('/detail/{id}', 'App\Http\Controllers\Admin\CategoryNewController@saveEdit')->name('route_BackEnd_Category_News_Update');
-        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\CategoryNewController@destroy')->name('route_BackEnd_Category_News_Remove');
     });
 
     Route::prefix('/vouchers')->group(function () {

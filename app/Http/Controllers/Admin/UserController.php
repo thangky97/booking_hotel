@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $title = ' Danh sách user';
+        $title = ' Danh sách người dùng';
         $name = $request->get('name');
         $phone = $request->get('phone');
         $email = $request->get('email');
@@ -40,10 +41,38 @@ class UserController extends Controller
     }
 
     public function add(Request $request) {
-        $this->v['title'] = ' Thêm mới user';
+        $this->v['title'] = ' Thêm mới người dùng';
         $method_route = "route_BackEnd_Users_Add";
 
         if ($request->isMethod('post')) {
+            $request->validate([
+                'name' => 'required|min:3|max:40',
+                'email' => 'required|email|max:50|unique:users',
+                'phone' => 'required|numeric|min:10',
+                'status' => 'required',
+                'images' =>
+                [
+                    'image',
+                    'mimes:jpeg,png,jpg',
+                    'mimetypes:image/jpeg,image/png',
+                    'max:2048',
+                ],
+            ], [
+                'name.required' => 'Tên bắt buộc nhập!',
+                'name.min' => 'Tên tối thiểu 3 ký tự!',
+                'name.max' => 'Tên tối đa là 40 ký tự!',
+                'email.required' => 'Email bắt buộc nhập!',
+                'email.unique' => 'Email đã tồn tại!',
+                'email.email' => 'Email không đúng định dạng!',
+                'email.max' => 'Email tối đa 50 ký tự!',
+                'phone.required' => 'Số điện thoại bắt buộc nhập!',
+                'phone.numeric' => 'Số điện thoại phải là số!',
+                'phone.min' => 'Số điện thoại tối thiểu 10 số!',
+                'images.image' => 'Bắt buộc phải là ảnh!',
+                'images.max' => 'Ảnh không được lớn hơn 2MB!',
+                'status.required' => 'Bạn chưa chọn trạng thái',
+            ], []);
+
             $params = [];
             $params['cols'] = $request->post();
             unset( $params['cols']['_token']);
@@ -56,10 +85,10 @@ class UserController extends Controller
             if ($res == null) {
                 return  redirect()->route($method_route);
             } elseif ($res > 0) {
-                Session::flash('success','Thêm mới thành công User');
+                Session::flash('success','Thêm mới thành công người dùng');
                 return redirect()->route('route_BackEnd_Users_List');
             } else {
-                Session::flash('error','Lỗi thêm mới User');
+                Session::flash('error','Lỗi thêm mới người dùng');
                 return redirect()->route($method_route);
             }
         }
@@ -69,12 +98,12 @@ class UserController extends Controller
     public function edit($id, Request $request) {
         $modelUser = new Users();
         $users = $modelUser->loadOne($id);
-        $this->v['title'] = ' Sửa user';
+        $this->v['title'] = ' Sửa người dùng';
         $this->v['users'] = $users;
         return view('admin.user.edit', $this->v);
     }
 
-    public function update($id, Request $request) {
+    public function update($id, UserRequest $request) {
 
         $method_route = 'route_BackEnd_Users_Edit';
         $params = [];
@@ -107,12 +136,4 @@ class UserController extends Controller
         return $file->storeAs('cccd',$fileName,'public');
     }
 
-    // public function changeStatus(Request $request)
-
-    // { 
-    //     $User = User::find($request->id); 
-    //     $User->status = $request->status; 
-    //     $User->save(); 
-    //     return response()->json(['success'=>'Status change successfully.']); 
-    // }
 }
