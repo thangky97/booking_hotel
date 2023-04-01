@@ -13,14 +13,14 @@
                     <div class="card-body">
                         <div class="email-left-box px-0 mb-3">
                             <div class="p-0">
-                                <a href="" class="btn btn-primary btn-block">Sửa Loại Phòng</a>
+                                <a href="" class="btn btn-primary btn-block">Sửa Tin Tức</a>
                             </div>
 
                         </div>
                         <div class="email-right-box ms-0 ms-sm-2 ms-sm-0">
 
                             <div class="compose-content">
-                                <form action="{{ route('route_BackEnd_News_Detail', $id) }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('route_BackEnd_News_Detail', ['id' => request()->route('id')]) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="" class="col-md-3 col-sm-4 control-label">Tên Phòng<span
@@ -51,7 +51,17 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-md-3 col-sm-4 control-label">Tên phòng<span class="text-danger">(*)</span></label>
+                                        <label for="" class="col-md-3 col-sm-4 control-label">Ngày<span
+                                                class="text-danger">(*)</span></label>
+
+                                        <div class="col-md-9 col-sm-8">
+                                            <input type="date" name="date" id="date" class="form-control"
+                                            value="{{old('date',  $editNews->date)}}">
+                                            <span id="mes_sdt"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-3 col-sm-4 control-label">Cate_id<span class="text-danger">(*)</span></label>
                                         <div class="col-md-9 col-sm-8">
                                             <select name="cate_id" id="">
                                                 @foreach($cate_id as $c)
@@ -62,22 +72,24 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span class="text-danger">(*)</span></label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="status" value = "2">
-                                        <label class="form-check-label" for="flexRadioDefault1" >Khóa</label>
-                                        <div>
-                                        <input class="form-check-input" type="radio" name="status" value = "1">
-                                        <label class="form-check-label" for="flexRadioDefault2">Kích hoạt</label>
-                                    </div>
-                                    </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="status" value = "2" {{(isset($editNews) && $editNews->status === 2) ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="flexRadioDefault1" >Khoa</label>
+                                            <div>
+                                                <input class="form-check-input" type="radio" name="status" value = "1" {{(isset($editNews) && $editNews->status === 1) ? 'checked' : ''}}>
+                                                <label class="form-check-label" for="flexRadioDefault2">Kich hoat</label>
+                                            </div>
+                                        </div>
 
                                     <div class="form-group">
                                         <h5 class="mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
-
                                             <div class="fallback">
                                                 <input name="images" type="file"/>
+                                                @if (isset($editNews) && $editNews->images)
+                                                            <img src="{{ asset($editNews->images ? '' . Storage::url($editNews->images) : $editNews->images) }}" alt="{{$editNews->images }}"
+                                                                width="100">
+                                                        @endif
                                             </div>
-
                                     </div>
 
                                     <div class="text-start mt-4 mb-3">

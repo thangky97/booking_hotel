@@ -44,6 +44,19 @@
                     <span class="nav-text">Banner</span>
                 </a>
             </li>
+            <li><a class="" href="{{ route('route_BackEnd_Category_News_List') }}" aria-expanded="false">
+                <i class="bi bi-newspaper"></i>
+                <span class="nav-text">Danh Mục Tin Tức</span>
+            </a>
+            <li><a class="" href="{{ route('route_BackEnd_News_List') }}" aria-expanded="false">
+                <i class="bi bi-newspaper"></i>
+                <span class="nav-text">Tin Tức</span>
+            </a>
+            <li><a class="" href="{{ route('route_BackEnd_Contact_List') }}" aria-expanded="false">
+                <i class="bi bi-telephone"></i>
+                <span class="nav-text">Liên hệ</span>
+            </a>
+        </li>
             <li><a class="" href="{{ route('route_BackEnd_Voucher_index') }}" aria-expanded="false">
                     <i class="fa fa-users me-2"></i>
                     <span class="nav-text">Voucher</span>
@@ -54,7 +67,7 @@
                     <span class="nav-text">Bài đăng</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ route('route_BackEnd_News_Detail') }}">Nội dung</a></li>
+                    {{--  <li><a href="{{ route('route_BackEnd_News_Detail') }}">Nội dung</a></li>  --}}
                     <li><a href="{{ route('route_BackEnd_News_List') }}">Tất cả bài đăng</a></li>
                     <li><a href="{{ route('route_BackEnd_News_Add') }}">Soạn bài</a>
                     </li>

@@ -3,21 +3,34 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\News;
 use App\Http\Controllers\Controller;
+use App\Models\Category_new;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class NewsController extends Controller
 {
 
+    private $v;
+
+    public function __construct()
+    {
+        $this->v = [];
+    }
     public function index()
     {
-        $news = DB::table('news')->orderBy('name','desc')->paginate(100);//phan trang , toi da 5 ban ghi
-        return view('admin.News.index', compact('news'));
+        // $this->v['news'] = DB::table('news');
+        // ->orderBy('name','asc')->paginate(10);//phan trang , toi da 5 ban ghi
+        $this->v['news'] = News::with('cate_new')->paginate(10);
+        $this ->v['title'] = 'Danh sach tin tuc';
+        // dd($this->v['news']);
+        return view('admin.News.index', $this->v);
+
     }
 
     public function addForm()
     {
-        $cate_id = DB::table('category_rooms')->get();
-        return view('admin.News.add', compact('cate_id'));
+        $this->v['title']= ' Them tin tuc';
+        $cate_id = DB::table('category_new')->get();
+        return view('admin.News.add', $this->v, compact('category_new'));
     }
 
     public function saveAdd(Request $request)
@@ -42,12 +55,21 @@ class NewsController extends Controller
         return redirect()->route('route_BackEnd_News_List')
             ->with('success', 'Thêm thành công');
     }
+        // public function editForm($id)
+        // {   //lay du lieu theo id
+        //     $editNews = News::find($id);//lay du lieu tu db
+        //     $cate_id = DB::table('category_rooms')->get();
+        //     return view('admin.News.edit',compact('editNews','id','$cate_id'));// truyen du lieu de hien thi sang file view de admin nhin thay
+        // }
         public function editForm($id)
-        {   //lay du lieu theo id
-            $editNews = News::find($id);//lay du lieu tu db
-            $cate_id = DB::table('category_rooms')->get();
-            return view('admin.News.edit',compact('editNews','id','$cate_id'));// truyen du lieu de hien thi sang file view de admin nhin thay
+        {   // lay giu lieu theo id
+            $title= ' Sua tin tuc';
+            $editNews = News::find($id);
+            // $cate_id = News::with('cate_new')->get();
+            $cate_id = DB::table('category_new')->get();
+            return view('admin.News.edit',compact('editNews','cate_id','id','title'));
         }
+
         public function saveEdit(Request $request, $id){
             $createEdit =  News::find($id);
             $createEdit->name = $request->name;
@@ -56,7 +78,7 @@ class NewsController extends Controller
             $createEdit->date = $request->date;
             $createEdit->cate_id = $request->cate_id;
             $createEdit->status = $request->status;
-            // $createEdit->gallery_id = $request->gallery_id;
+
             if ($request->hasFile('images')) {
                 $newFileName = uniqid() . '-' . $request->images->extension(); //duoi file anh /- unuqid (ten anh va ko trung)
                 $path = $request->images->storeAs('news', $newFileName,'public'); //luu vao thu muc storage public

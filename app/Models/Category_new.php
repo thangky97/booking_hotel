@@ -9,5 +9,11 @@ class Category_new extends Model
 {
     protected $table = 'category_new';
     public $timestamp = true;
+    // protected $fillable = [
+    //     'id','name','status'
+    // ];
+    // function news(){
+    //     return $this->belongsTo(\App\Models\News::class,'cate_id','id');
+    // }
     use HasFactory;
 }
