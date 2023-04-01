@@ -95,15 +95,15 @@
             <h1>Thông tin thuộc tính phòng</h1>
             <label for="date" class="col-5 col-form-label">Tên phòng</label>
             <div class="col-0">
-                <select name="room_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <select name="cate_room" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                     <option selected="selected" disabled>Chọn phòng</option>
-                    @foreach($listRooms as $room)
-                    @if(!in_array($room->id,$list))
-                    <option value="{{$room->id}}">{{$room->name}}</option>
+                    @foreach($listCategoryroom as $cate)
+                    @if(!in_array($cate->id,$list))
+                    <option value="{{$cate->id}}">{{$cate->name}}</option>
                     @endif
                     @endforeach
                 </select>
-                @error('room_id')
+                @error('cate_room')
                 <div>
                     <p class="text-danger">{{ $message }}</p>
                 </div>

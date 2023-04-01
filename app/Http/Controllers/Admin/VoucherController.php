@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 session_start();
 class VoucherController extends Controller
 {
+    private $v;
     public function __construct()
     {
         $this->v = [];

@@ -98,7 +98,7 @@
                     <span class="text-danger">*</span>
                 </label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control" placeholder="Nhập tên..." value="{{$room->name}}" readonly>
+                    <input type="text" class="form-control" placeholder="Nhập tên..." value="{{$cateRoom->name}}" readonly>
                 </div>
             </div>
             <label for="date" class="col-5 col-form-label">Tên thuộc tính</label>
@@ -111,7 +111,7 @@
                     </ul>
                 </div>
             </div>
-           
+
             <div class="text-start mt-4 mb-3">
                 <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i class="fa fa-paper-plane"></i></span>Cập nhập</button>
                 <a href="{{route('route_BackEnd_PropertyRoom_list')}}" class="btn btn-danger light btn-sl-sm"><span class="me-2"><i class="fa fa-times"></i></span>Quay lại</a>

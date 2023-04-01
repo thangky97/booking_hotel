@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="col-lg-6" style="float: right;padding-left: 30px;">
                                             <button type="submit" class="btn btn-primary"><span class="me-2"><i
-                                                        class="fa fa-paper-plane"></i></span>Tìm phòng
+                                                        class="fa fa-paper-plane"></i></span>Đặt Phòng
                                             </button>
                                         </div>
                                     </div>
