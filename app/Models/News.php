@@ -10,15 +10,17 @@ class News extends Model
 {
     use HasFactory;
     protected $table = 'news';
+    public $timestamp = true;
 
-    public function loadOne($id, $params = []) {
-        $query = DB::table($this->table)->where('id', '=', $id);
-        $obj = $query->first();
-        return $obj;
-    }
+    protected $fillable = [
+        'id','name','images','description','title','date','cate_id','status'
+    ];
+    // function category_new(){
+    //     return $this->hasMany(\App\Models\Category_new::class,'cate_id','id');
+    // }
 
     public function cate_new(){
         return $this->belongsTo(Category_new::class, 'cate_id');
     }
-
+    use HasFactory;
 }

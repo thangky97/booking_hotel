@@ -12,14 +12,14 @@
                         <div class="card-body">
                             <div class="email-left-box px-0 mb-3">
                                 <div class="p-0">
-                                    <a href="" class="btn btn-primary btn-block">Thêm Mới Loại Phòng</a>
+                                    <a href="" class="btn btn-primary btn-block">Thêm Mới Danh mục Tin tức</a>
                                 </div>
 
                             </div>
                             <div class="email-right-box ms-0 ms-sm-2 ms-sm-0">
 
                                 <div class="compose-content">
-                                    <form action="{{ route('route_BackEnd_Category_New_saveAdd') }}" method="post">
+                                    <form action="{{ route('route_BackEnd_Category_News_saveAdd') }}" method="post">
                                         @csrf
                                         <div class="form-group">
                                             <label for="" class="col-md-3 col-sm-4 control-label">Tên Phòng<span
@@ -48,7 +48,7 @@
                                                 class="fa fa-paper-plane"></i></span>Thêm mới</button>
                                                     <button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i
                                                                 class="fa fa-times"></i></span><a
-                                                            href="{{ route('route_BackEnd_Category_New_index') }}">Quay Lại</a></button>
+                                                            href="{{ route('route_BackEnd_Category_News_List') }}">Quay Lại</a></button>
                                                 </div>
                                 </div>
                                     </form>

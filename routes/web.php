@@ -123,8 +123,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::prefix('/categoryrooms')->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\CategoryroomController@index')->name('route_BackEnd_Categoryrooms_List');
-        Route::get('/addForm', 'App\Http\Controllers\Admin\CategoryroomController@addForm')->name('route_BackEnd_Categoryrooms_Add');
-        Route::post('/saveAddForm', 'App\Http\Controllers\Admin\CategoryroomController@saveAdd')->name('route_BackEnd_Categoryrooms_saveAdd');
+        Route::get('/add', 'App\Http\Controllers\Admin\CategoryroomController@addForm')->name('route_BackEnd_Categoryrooms_Add');
+        Route::post('/saveAdd', 'App\Http\Controllers\Admin\CategoryroomController@saveAdd')->name('route_BackEnd_Categoryrooms_saveAdd');
         Route::get('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@editForm')->name('route_BackEnd_Categoryrooms_Detail');
         Route::put('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@saveEdit')->name('route_BackEnd_Categoryrooms_Update');
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\CategoryroomController@destroy')->name('route_BackEnd_Categoryrooms_Delete');
@@ -163,6 +163,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/createservice/{id}', 'App\Http\Controllers\Admin\BookingController@createservice')->name('route_BackEnd_Bookings_Createservice');
         Route::get('/detail/{id}', 'App\Http\Controllers\Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'App\Http\Controllers\Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
+
         Route::post('/updateservice/{id}', 'App\Http\Controllers\Admin\BookingController@updateservice')->name('route_BackEnd_Bookings_Updateservice');
     });
 
@@ -181,6 +182,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/bills')->group(function () {
+        Route::get('/{id}', 'App\Http\Controllers\Admin\BillController@bill')->name('route_BackEnd_Bill');
+
         Route::get('/', 'App\Http\Controllers\Admin\BillController@index')->name('route_BackEnd_Bill_List');
         Route::get('/rooms/{id}', 'App\Http\Controllers\Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
         Route::get('/services/{id}', 'App\Http\Controllers\Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
@@ -226,44 +229,30 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/contact')->group(function () {
-        Route::get('/', 'Admin\ContactController@index')->name('route_BackEnd_Contact_index');
-        Route::get('/add', 'Admin\ContactController@add')->name('route_BackEnd_Contact_add');
-        Route::post('/store', function () {
-            return view('admin/contact/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/contact/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/contact/update');
-        });
+        Route::get('/', 'App\Http\Controllers\Admin\ContactController@index')->name('route_BackEnd_Contact_List');
+        // Route::get('/add', 'App\Http\Controllers\Admin\ContactController@addForm')->name('route_BackEnd_Contact_Add');
+        // Route::post('/saveAddForm', 'App\Http\Controllers\Admin\ContactController@saveAdd')->name('route_BackEnd_Contact_saveAdd');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\ContactController@editForm')->name('route_BackEnd_Contact_Detail');
+        Route::post('/detail/{id}', 'App\Http\Controllers\Admin\ContactController@saveEdit')->name('route_BackEnd_Contact_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\ContactController@destroy')->name('route_BackEnd_Contact_Remove');
     });
 
     Route::prefix('/news')->group(function () {
-        Route::get('/', 'App\Http\Controllers\Admin\NewController@news')->name('route_BackEnd_News_List');
-        Route::match(['get', 'post'], '/add', 'App\Http\Controllers\Admin\NewController@news_add')->name('route_BackEnd_News_Add');
-        Route::get('/detail', 'App\Http\Controllers\Admin\NewController@news_detail')->name('route_BackEnd_News_Detail');
-        Route::post('/update/{id}', 'App\Http\Controllers\Admin\NewController@news_update')->name('route_BackEnd_News_Update');
-        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\NewController@news_remove')->name('route_BackEnd_News_Remove');
-        Route::get('/', 'App\Http\Controllers\Admin\NewController@news')->name('route_BackEnd_News_List');
-        Route::match(['get', 'post'], '/add', 'App\Http\Controllers\Admin\NewController@news_add')->name('route_BackEnd_News_Add');
-        Route::get('/detail', 'App\Http\Controllers\Admin\NewController@news_detail')->name('route_BackEnd_News_Detail');
-        Route::post('/update/{id}', 'App\Http\Controllers\Admin\NewController@news_update')->name('route_BackEnd_News_Update');
-        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\NewController@news_remove')->name('route_BackEnd_News_Remove');
+        Route::get('/', 'App\Http\Controllers\Admin\NewsController@index')->name('route_BackEnd_News_List');
+        Route::get('/add', 'App\Http\Controllers\Admin\NewsController@addForm')->name('route_BackEnd_News_Add');
+        Route::post('/saveAddForm', 'App\Http\Controllers\Admin\NewsController@saveAdd')->name('route_BackEnd_News_saveAdd');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\NewsController@editForm')->name('route_BackEnd_News_Detail');
+        Route::post('/detail/{id}', 'App\Http\Controllers\Admin\NewsController@saveEdit')->name('route_BackEnd_News_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\NewsController@destroy')->name('route_BackEnd_News_Remove');
     });
 
-    Route::prefix('/category_new')->group(function () {
-        Route::get('/', 'CategoryNewController@index')->name('route_BackEnd_Category_New_index');
-        Route::get('/add', 'CategoryNewController@add')->name('route_BackEnd_Category_New_add');
-        Route::post('/store', function () {
-            return view('admin/category_new/store');
-        });
-        Route::get('/edit', function () {
-            return view('admin/category_new/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/category_new/update');
-        });
+    Route::prefix('/category_news')->group(function () {
+        Route::get('/', 'App\Http\Controllers\Admin\CategoryNewController@index')->name('route_BackEnd_Category_News_List');
+        Route::get('/add', 'App\Http\Controllers\Admin\CategoryNewController@addForm')->name('route_BackEnd_Category_News_Add');
+        Route::post('/saveAddForm', 'App\Http\Controllers\Admin\CategoryNewController@saveAdd')->name('route_BackEnd_Category_News_saveAdd');
+        Route::get('/detail/{id}', 'App\Http\Controllers\Admin\CategoryNewController@editForm')->name('route_BackEnd_Category_News_Detail');
+        Route::post('/detail/{id}', 'App\Http\Controllers\Admin\CategoryNewController@saveEdit')->name('route_BackEnd_Category_News_Update');
+        Route::get('/remove/{id}', 'App\Http\Controllers\Admin\CategoryNewController@destroy')->name('route_BackEnd_Category_News_Remove');
     });
 
     Route::prefix('/vouchers')->group(function () {
