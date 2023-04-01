@@ -48,8 +48,8 @@
                         <div></div>
 
                         <div>
-                            <a href="{{ route('route_BackEnd_Users_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
-                                    class="fa fa-users me-2"></i>Thêm mới</a>
+                            <a href="{{ route('route_BackEnd_Admin_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
+                                    class="bi bi-person-fill"></i> Thêm mới</a>
                             <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
                                     class="far fa-file-word me-2"></i>Tạo báo cáo</a>
                         </div>
@@ -64,9 +64,9 @@
 
                                     <thead>
                                         <tr>
-                                            <th class="h5 text-center">STT</th>
-                                            <th class="h5 text-center">Avatar</th>
-                                            <th class="h5 text-center">Tên</th>
+                                            <th class="bg-none h5 text-center">STT
+                                            </th>
+                                            <th>Tên</th>
                                             <th class="h5 text-center">Email</th>
                                             <th class="h5 text-center">Phone</th>
                                             <th class="h5 text-center">Role</th>
@@ -77,16 +77,30 @@
                                     <tbody>
                                         @foreach ($admin_list as $index => $admin)
                                             <tr>
-                                                <td class="text-primary">{{ $index + 1 }}</td>
-                                                <td><img class="rounded-circle" width="90"
-                                                        src="{{ asset($admin->avatar) ? '' . Storage::url($admin->avatar) : $admin->name }}"
-                                                        alt=""></td>
-                                                <td class="text-center">{{ $admin->name }}</td>
+                                                <td class="text-center text-primary">
+                                                    {{ $index + 1 }}
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="concierge-bx">
+                                                        <img class="me-3 rounded"
+                                                            src="{{ asset($admin->avatar) ? '' . Storage::url($admin->avatar) : $admin->name }}"
+                                                            alt="">
+                                                        <div>
+
+                                                            <h4 class="mt-1 pt-3"><a class="text-black"
+                                                                    href="">{{ $admin->name }}</a></h4>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
                                                 <td class="text-center"><a
                                                         href="javascript:void(0);"><strong>{{ $admin->email }}</strong></a>
                                                 </td>
-                                                <td class="text-center"><a
-                                                        href="javascript:void(0);"><strong>{{ $admin->phone }}</strong></a>
+                                                <td class="text-center">
+                                                    <div class="text-nowrap">
+                                                        <span class="text-black font-w500"><i
+                                                                class="fas fa-phone-volume me-2 text-primary"></i>{{ $admin->phone }}</span>
+                                                    </div>
                                                 </td>
                                                 <td class="text-center">
                                                     @if ($admin->role === 1)
@@ -107,7 +121,7 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
-                                                    <div class="d-flex">
+                                                    <div>
 
                                                         <a href="{{ route('route_BackEnd_Admin_Edit', ['id' => $admin->id]) }}"
                                                             class="btn btn-primary shadow btn-xs sharp me-1"><i
