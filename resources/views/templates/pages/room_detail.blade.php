@@ -191,24 +191,24 @@
                                     @endif
                                 @endforeach
                             </div>
-{{--                            <div id="nd_booking_single_cpt_1_services_content" class="nd_booking_section">--}}
-{{--                                <div class="nd_booking_section nd_booking_height_40"></div>--}}
-{{--                                <div class="nd_booking_section">--}}
-{{--                                    <h2 class="nd_booking_word_wrap_break_word"><span--}}
-{{--                                            style="text-transform: capitalize;">Dịch vụ</span></h2>--}}
-{{--                                </div>--}}
-{{--                                <div class="nd_booking_section nd_booking_height_20"></div>--}}
-{{--                                @foreach($listService as $service)--}}
-{{--                                    <div--}}
-{{--                                        class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_padding_10_0">--}}
-{{--                                        <div class="nd_booking_display_table nd_booking_float_left">--}}
-{{--                                            <p--}}
-{{--                                                class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">--}}
-{{--                                                {{$service->name}}</p>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                @endforeach--}}
-{{--                            </div>--}}
+                            <div id="nd_booking_single_cpt_1_services_content" class="nd_booking_section">
+                                <div class="nd_booking_section nd_booking_height_40"></div>
+                                <div class="nd_booking_section">
+                                    <h2 class="nd_booking_word_wrap_break_word"><span
+                                            style="text-transform: capitalize;">Dịch vụ phòng</span></h2>
+                                </div>
+                                <div class="nd_booking_section nd_booking_height_20"></div>
+                                @foreach($listService as $service)
+                                    <div
+                                        class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_padding_10_0">
+                                        <div class="nd_booking_display_table nd_booking_float_left">
+                                            <p
+                                                class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">
+                                                {{$service->name}}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                         <!--</div>-->
 

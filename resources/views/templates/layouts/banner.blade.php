@@ -189,7 +189,7 @@
                         <div class=" nd_booking_search_elem_component_l2 nd_booking_section  ">
 
                             <!--START FORM-->
-                            <form action="{{ route('route_FontEnd_Booking_autoBooking') }}" method="post">
+                            <form action="{{ route('route_FontEnd_BookingSearch_Search') }}" method="post">
                                 @csrf
                                 <!--START check in-->
                                 <div id="nd_booking_open_calendar_from"
@@ -202,7 +202,7 @@
                                         class="nd_booking_section nd_booking_section_box_search_field nd_booking_border_style_solid nd_booking_padding_10_20 nd_booking_position_relative">
                                         <p id="nd_booking_date_number_from_front"
                                             class="nd_booking_field_search nd_booking_display_inline_block ">
-                                            <?php echo date('d'); ?></p>
+                                            <?php echo date('d',strtotime('now')); ?></p>
                                         <p id="nd_booking_date_month_from_front"
                                             class="nd_booking_field_search nd_booking_display_inline_block ">
                                             <?php
@@ -261,31 +261,31 @@
                                         class="nd_booking_section nd_booking_section_box_search_field nd_booking_border_style_solid nd_booking_padding_10_20 nd_booking_position_relative">
                                         <p id="nd_booking_date_number_to_front"
                                             class="nd_booking_field_search nd_booking_display_inline_block ">
-                                            <?php echo date('d') + 1; ?></p>
+                                            <?php echo date('d',(strtotime('now')+86400)); ?></p>
                                         <p id="nd_booking_date_month_to_front"
                                             class="nd_booking_field_search nd_booking_display_inline_block ">
                                             <?php
-                                            if (date('m') == 1) {
+                                            if (date('m',(strtotime('now')+86400)) == 1) {
                                                 echo 'Jan';
-                                            } elseif (date('m') == 2) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 2) {
                                                 echo 'Feb';
-                                            } elseif (date('m') == 3) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 3) {
                                                 echo 'Mar';
-                                            } elseif (date('m') == 4) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 4) {
                                                 echo 'Apr';
-                                            } elseif (date('m') == 5) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 5) {
                                                 echo 'May';
-                                            } elseif (date('m') == 6) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 6) {
                                                 echo 'Jun';
-                                            } elseif (date('m') == 7) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 7) {
                                                 echo 'Jul';
-                                            } elseif (date('m') == 8) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 8) {
                                                 echo 'Aug';
-                                            } elseif (date('m') == 9) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 9) {
                                                 echo 'Sep';
-                                            } elseif (date('m') == 10) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 10) {
                                                 echo 'Oct';
-                                            } elseif (date('m') == 11) {
+                                            } elseif (date('m',(strtotime('now')+86400)) == 11) {
                                                 echo 'Nov';
                                             } else {
                                                 echo 'Dec';
