@@ -117,7 +117,7 @@
                                                         <option data-display="Chọn quyền" value="">Chọn quyền</option>
                                                         <option value="1">Admin</option>
                                                         <option value="2">Nhân viên</option>
-                                                        <option value="0">Người dùng</option>
+                                                        {{-- <option value="0">Người dùng</option> --}}
                                                     </select>
                                                     @error('role')
                                                         <div>

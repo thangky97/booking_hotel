@@ -50,7 +50,7 @@ class AdminController extends Controller
                 ->paginate(20);
         } else {
             $admin = Admin::select('id', 'name', 'email', 'phone', 'password', 'avatar', 'status', 'role')
-                ->with('new')
+                ->orderBy('status', 'asc')
                 ->paginate(5);
         }
 

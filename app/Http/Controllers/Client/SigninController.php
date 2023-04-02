@@ -23,8 +23,10 @@ class SigninController extends Controller
         $data = $request->all();
         $email = $data['email'];
         $password = $data['password'];
+
+        // if ($request->username == 'admin'        && $request->password == 'admin');
         
-        if ( Auth::attempt(['email' => $email,'password' => $password])) {
+        if ( Users::where(['email' => $email,'password' => $password])) {
             
             return redirect()->route('route_FrontEnd_Home');
         }

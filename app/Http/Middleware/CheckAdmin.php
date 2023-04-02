@@ -27,12 +27,13 @@ class CheckAdmin
         // return $next($request);
         //return redirect()->route('getLogin');
 
-        $user = $request->user();
-        // Chỉ user có role = 1 thì mới được vào xem Category
-        if ($user->role !== 1) {
-            // Nếu không đáp ứng đk thì tự quay về route error.404
-            return redirect()->route('403');
-        }
+        // $user = $request->user();
+        // // Chỉ user có role = 1 thì mới được vào xem Category
+        // if ($user->role == 1 && 2) {
+        //     // Nếu không đáp ứng đk thì tự quay về route error.404
+        //     // return redirect()->route('403');
+        //     return redirect()->route('route_BackEnd_Dashboard');
+        // }
         // else ($user->role !==2  ) {
         //     return redirect()->route();
         // }

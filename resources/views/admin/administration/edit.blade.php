@@ -111,7 +111,7 @@
                                                         <option data-display="Chọn quyền" value="">Chọn quyền</option>
                                                         <option name="role" value="1" {{(isset($admin) && $admin->role === 1) ? 'selected' : ''}}>Admin</option>
                                                         <option name="role" value="2" {{(isset($admin) && $admin->role === 2) ? 'selected' : ''}}>Nhân viên</option>
-                                                        <option name="role" value="0" {{(isset($admin) && $admin->role === 0) ? 'selected' : ''}}>Người dùng</option>
+                                                        {{-- <option name="role" value="0" {{(isset($admin) && $admin->role === 0) ? 'selected' : ''}}>Người dùng</option> --}}
                                                     </select>
                                                     @error('role')
                                                         <div>

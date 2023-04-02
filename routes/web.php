@@ -47,7 +47,7 @@ Route::get('/services', 'Client\ServiceController@index')->name('route_FrontEnd_
 //Route::get('/booking', function () { // đặt phòng
 //    return view('templates/pages/booking');
 //});
-Route::post('/booking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking');//Giỏ hàng
+Route::post('/booking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking'); //Giỏ hàng
 Route::post('/checkout', 'Client\BookingController@createbooking')->name('route_FontEnd_Booking_createBooking');
 
 //Route::get('/checkout', function () { //thanh toán
@@ -62,9 +62,9 @@ Route::get('/sign-up', 'Client\SignupController@getSignup')->name('getSignup');
 Route::post('/sign-up', 'Client\SignupController@postSignup')->name('postSignup');
 Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
-Route::get('/booking_search', 'Client\RoomController@index')->name('route_FontEnd_BookingSearch');//tìm kiếm phòng
-Route::post('/booking_search', 'Client\RoomController@search')->name('route_FontEnd_BookingSearch_Search');//Tìm kiếm phòng theo order booking
-Route::get('/booking_search/{id}', 'Client\RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate');//Tìm kiếm phòng theo loại phòng
+Route::get('/booking_search', 'Client\RoomController@index')->name('route_FontEnd_BookingSearch'); //tìm kiếm phòng
+Route::post('/booking_search', 'Client\RoomController@search')->name('route_FontEnd_BookingSearch_Search'); //Tìm kiếm phòng theo order booking
+Route::get('/booking_search/{id}', 'Client\RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate'); //Tìm kiếm phòng theo loại phòng
 
 Route::middleware('guest')->prefix('/auth')->group(function () {
     Route::get('/login', 'Auth\LoginController@getLogin')->name('getLogin');
@@ -86,6 +86,11 @@ Route::get('403', 'ErrorController@error403')->name('403');
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     //Route::prefix('admin')->group(function () {
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
+
+    Route::prefix('/profile')->group(function () {
+        Route::get('/edit/{id}', 'Admin\ProfileController@edit')->name('route_BackEnd_Profile_Edit');
+        Route::post('/update/{id}', 'Admin\ProfileController@update')->name('route_BackEnd_Profile_Update');
+    });
 
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
     Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
@@ -128,9 +133,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@editForm')->name('route_BackEnd_Categoryrooms_Detail');
         Route::put('/editForm/{id}', 'App\Http\Controllers\Admin\CategoryroomController@saveEdit')->name('route_BackEnd_Categoryrooms_Update');
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\CategoryroomController@destroy')->name('route_BackEnd_Categoryrooms_Delete');
-        Route::delete('/deleteimages/{id}',[\App\Http\Controllers\Admin\CategoryRoomController::class,'deleteimages'])->name('route_BackEnd_Categoryrooms_DeleteImgs');
-
-
+        Route::delete('/deleteimages/{id}', [\App\Http\Controllers\Admin\CategoryRoomController::class, 'deleteimages'])->name('route_BackEnd_Categoryrooms_DeleteImgs');
     });
 
     Route::prefix('/property_room')->group(function () {
@@ -191,7 +194,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
         //print_order
         Route::get('/print_order/{id}', 'App\Http\Controllers\Admin\BillController@print_order')->name('printOrder');
-
     });
 
     Route::prefix('/bill_detail')->group(function () {

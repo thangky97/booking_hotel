@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
+    private $v;
+    public function __construct()
+    {
+        $this->v = [];
+    }
     public function autobooking(Request $request)
     {
         $check_in = strtotime($request->check_in);
