@@ -37,7 +37,6 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('route_BackEnd_Bookings_List') }}">Đơn đặt phòng</a></li>
-                            <li><a href="{{ route('route_BackEnd_Employees_List') }}">Nhân viên</a></li>
                             <li><a href="{{ route('route_BackEnd_Feedback_List') }}">Nhận xét</a></li>
                         </ul>
                     </li>

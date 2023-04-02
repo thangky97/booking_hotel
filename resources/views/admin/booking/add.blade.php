@@ -341,9 +341,7 @@
                                                 </div>
                                             </div>
                                             <input name="status_booking" value="1" hidden>
-                                            <div id="showbutton">
-
-                                            </div>
+                                            <div id="showbutton"></div>
                                         @else
                                             <div class="col-xl-6">
                                                 <div class="mb-3 row">
@@ -414,7 +412,7 @@
     <script>
         function showpeople() {
             document.getElementById('showpeople').innerHTML = 'Số người: ' + localStorage.getItem('people') + '/' + {{$people}};
-            if (Number(localStorage.getItem('people')) < Number({{$people}})) {
+            if (Number(localStorage.getItem('people')) < Number({{$people}}) || (Number({{$people}})+3) < Number(localStorage.getItem('people'))) {
                 document.getElementById("showpeople").style.color = 'red';
                 document.getElementById('showbutton').innerHTML = '<div class="btn btn-danger" style="width: 100%">' + '<span class="me-2">' + '<i class="fa fa-paper-plane">' + '</i>' + '</span>' + 'Thêm mới' + '</div>';
             } else {
