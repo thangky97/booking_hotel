@@ -2559,7 +2559,7 @@
         content="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/04/hotel-booking-thumbnail.jpg" />
     <script type="text/javascript">
         function setREVStartSize(e) {
-            //window.requestAnimationFrame(function() {				 
+            //window.requestAnimationFrame(function() {
             window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
             window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
             try {
@@ -2677,7 +2677,7 @@
                     <div data-elementor-type="wp-page" data-elementor-id="5686" class="elementor elementor-5686"
                         data-elementor-settings="[]">
                         <div class="elementor-section-wrap">
-                            
+
                             @yield('content')
 
                         </div>

@@ -437,13 +437,15 @@
                                                                                 </tr>
                                                                                 </thead>
                                                                                 <tbody>
-                                                                                <?php $i=1?>
-                                                                                @foreach($listRooms as $item)
-                                                                                    @if((in_array($item->id,$filterRoom)))
+                                                                                <?php $i=1; $arrRoomId = array();?>
+                                                                                @foreach($listRooms as $index => $item)
+                                                                                    <?php $roomId = array($index => $item->id);
+                                                                                        $arrRoomId = array_merge($roomId,$arrRoomId);
+                                                                                        ?>
                                                                                         <tr>
                                                                                             <td>{{$i++}}</td>
                                                                                             <td>{{$item->name}}</td>
-                                                                                            <td>{{$item->images}}</td>
+                                                                                            <td>{{$item->image}}</td>
                                                                                             <td>{{$item->adult}}</td>
                                                                                             <td>{{$item->price}} đ</td>
                                                                                             <td>
@@ -456,7 +458,6 @@
                                                                                                 </ul>
                                                                                             </td>
                                                                                         </tr>
-                                                                                    @endif
                                                                                 @endforeach
                                                                                 </tbody>
                                                                             </table>
@@ -465,7 +466,7 @@
                                                                         <input name="checkin_date" value="{{$checkin}}" hidden>
                                                                         <input name="checkout_date" value="{{$checkout}}" hidden>
                                                                         <input name="people" value="{{$peoples}}" hidden>
-                                                                        <input name="room_id" value="{{implode(",", $filterRoom)}}" hidden>
+                                                                        <input name="room_id" value="{{implode(",", $arrRoomId)}}" hidden>
                                                                         <h1 style="margin: 40px 0 30px 0">Nhập thông tin khách hàng</h1>
                                                                         <div id="nd_booking_booking_form_name_container"
                                                                              class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
