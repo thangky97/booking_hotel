@@ -15,6 +15,69 @@ use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
+    public function booking(Request $request)
+    {
+        $arrRooms = explode(",", $request->rooms);
+        $caterooms = new CategoryRooms();
+        $arrCateRoom = array();
+        foreach ($caterooms->loadAll() as $item){
+            foreach ($arrRooms as $index => $i){
+                if ($i!="null"){
+                    if (($index+1)==$item->id && $i>0){
+                        $arrCate = array($item->id => $i);
+                        $arrCateRoom = $arrCate + $arrCateRoom;
+                    }
+                }
+            }
+        }
+        $check_in = strtotime($request->check_in);
+        $check_out = strtotime($request->check_out);
+        $roomWork = DB::table('rooms')
+            ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
+            ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
+            ->select('rooms.id', 'bookings.checkin_date', 'bookings.checkout_date')
+            ->get();
+        $arrRoomworks = array();
+        foreach ($roomWork as $index => $room) {
+            if (strtotime($room->checkin_date) <= $check_in && strtotime($room->checkout_date) >= $check_out) {
+                $arrRoom = array($index => $room->id);
+                $arrRoomworks = $arrRoom + $arrRoomworks;
+            }
+            if (strtotime($room->checkin_date) > $check_in && strtotime($room->checkout_date) < $check_out) {
+                $arrRoom = array($index => $room->id);
+                $arrRoomworks = $arrRoom + $arrRoomworks;
+            }
+            if (strtotime($room->checkin_date) > $check_in && strtotime($room->checkin_date) <= $check_out) {
+                $arrRoom = array($index => $room->id);
+                $arrRoomworks = $arrRoom + $arrRoomworks;
+            }
+            if (strtotime($room->checkout_date) >= $check_in && strtotime($room->checkout_date) < $check_out) {
+                $arrRoom = array($index => $room->id);
+                $arrRoomworks = $arrRoom + $arrRoomworks;
+            }
+        }
+        $listRoomwork = array_unique($arrRoomworks);
+        $roomNotWorks = array();
+        foreach ($arrCateRoom as $index => $item){
+            $roomNotWork = DB::table('rooms')
+                ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+                ->select('rooms.id','rooms.cate_room','category_rooms.image','rooms.adult','rooms.bed','category_rooms.price','category_rooms.name')
+                ->where('cate_room','=',$index)
+                ->paginate($item)->items();
+            $roomNotWorks = array_merge($roomNotWork,$roomNotWorks);
+        }
+        $this->v['checkin'] = $check_in;
+        $this->v['checkout'] = $check_out;
+        $this->v['peoples'] = $request->people;
+        $this->v['listRooms'] = $roomNotWorks;
+        $services = new Service();
+        $this->v['listService'] = $services->loadAll();
+        $cate_rooms = new CategoryRooms();
+        $this->v['listCaterooms'] = $cate_rooms->loadAll();
+        $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
+        return view('templates.pages.booking', $this->v);
+
+    }
     public function autobooking(Request $request)
     {
         $check_in = strtotime($request->check_in);
@@ -89,7 +152,7 @@ class BookingController extends Controller
         $this->v['checkout'] = $check_out;
         $this->v['listRooms'] = DB::table('rooms')
             ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
-            ->select('rooms.*', 'category_rooms.name', 'category_rooms.price')
+            ->select('rooms.*', 'category_rooms.name', 'category_rooms.price', 'category_rooms.image')
             ->get();
         $this->v['filterRoom'] = $filterRoom;
         $services = new Service();

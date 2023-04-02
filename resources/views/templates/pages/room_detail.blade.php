@@ -518,81 +518,87 @@
 
 
                                     <!--guests-->
-                                    <div id="nd_booking_single_cpt_1_calendar_guests"
-                                        class="nd_booking_width_50_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_all_iphone nd_booking_padding_top_0 nd_booking_box_sizing_border_box">
-                                        <div
-                                            class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
+                                    <div id="nd_booking_search_cpt_1_form_guests"
+                                         class="nd_booking_width_50_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_padding_top_0 nd_booking_box_sizing_border_box">
+                                        <div id="nd_booking_search_guests_bg"
+                                             class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
                                             <div
                                                 class="nd_booking_section  nd_booking_box_sizing_border_box nd_booking_text_align_center">
                                                 <h6
                                                     class="nd_options_color_white nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12">
-                                                    GUESTS</h6>
-                                                <div class="nd_booking_section nd_booking_height_15"></div>
-                                                <div class="nd_booking_display_inline_flex ">
-                                                    <div class="nd_booking_float_left nd_booking_text_align_right">
+                                                    Số Người</h6>
+                                                <div
+                                                    class="nd_booking_section nd_booking_height_15">
+                                                </div>
+                                                <div
+                                                    class="nd_booking_display_inline_flex ">
+                                                    <div
+                                                        class="nd_booking_float_left nd_booking_text_align_right">
                                                         <h1
                                                             class="nd_booking_font_size_50 nd_booking_color_yellow_important nd_booking_guests_number">
                                                             1</h1>
                                                     </div>
                                                     <div
                                                         class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
-                                                        <div class="nd_booking_section nd_booking_height_7"></div>
-                                                        <div class="nd_booking_section">
-                                                            <img class="nd_booking_float_right nd_booking_guests_increase nd_booking_cursor_pointer"
-                                                                style="transform: rotate(180deg);" alt=""
-                                                                width="12"
-                                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-down-arrow-white.svg">
+                                                        <div
+                                                            class="nd_booking_section nd_booking_height_7">
                                                         </div>
-                                                        <div class="nd_booking_section nd_booking_height_10"></div>
-                                                        <div class="nd_booking_section">
-                                                            <img class="nd_booking_float_right nd_booking_guests_decrease nd_booking_cursor_pointer"
-                                                                alt="" width="12"
-                                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-down-arrow-white.svg">
+                                                        <div
+                                                            class="nd_booking_section">
+                                                            <img
+                                                                class="nd_booking_float_right nd_booking_guests_increase nd_booking_cursor_pointer"
+                                                                style="transform: rotate(180deg);"
+                                                                alt=""
+                                                                width="12"
+                                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
+                                                        </div>
+                                                        <div
+                                                            class="nd_booking_section nd_booking_height_10">
+                                                        </div>
+                                                        <div
+                                                            class="nd_booking_section">
+                                                            <img
+                                                                class="nd_booking_float_right nd_booking_guests_decrease nd_booking_cursor_pointer"
+                                                                alt=""
+                                                                width="12"
+                                                                src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <label class="nd_booking_display_none"
-                                            for="nd_booking_archive_form_guests">Guests :</label>
-                                        <input placeholder="Guests" class="nd_booking_section nd_booking_display_none"
-                                            type="number" name="nd_booking_archive_form_guests"
-                                            id="nd_booking_archive_form_guests" min="1" value="1" />
+                                               for="nd_booking_archive_form_guests">Guests
+                                            :</label>
+                                        <input placeholder="Guests"
+                                               onchange="nd_booking_sorting(1)"
+                                               class="nd_booking_section nd_booking_display_none"
+                                               type="number" name="so_nguoi"
+                                               id="nd_booking_archive_form_guests"
+                                               min="1" value="1"/>
                                     </div>
                                     <script type="text/javascript">
                                         //<![CDATA[
-                                        jQuery(document).ready(function() {
+                                        jQuery(document).ready(function () {
 
-                                            jQuery(function($) {
+                                            jQuery(function ($) {
 
-                                                $(".nd_booking_guests_increase").click(function() {
+                                                $(".nd_booking_guests_increase").click(function () {
                                                     var value = $(".nd_booking_guests_number").text();
-
-                                                    if (value < 1) {
-                                                        value++;
-                                                        $(".nd_booking_guests_increase").removeClass(
-                                                            "nd_booking_cursor_not_allowed");
-                                                        $(".nd_booking_guests_increase").addClass("nd_booking_cursor_pointer");
-                                                        $(".nd_booking_guests_number").text(value);
-                                                        $("#nd_booking_archive_form_guests").val(value);
-                                                    } else {
-                                                        $(".nd_booking_guests_increase").removeClass("nd_booking_cursor_pointer");
-                                                        $(".nd_booking_guests_increase").addClass("nd_booking_cursor_not_allowed");
-                                                    }
-
-
+                                                    value++;
+                                                    $(".nd_booking_guests_number").text(value);
+                                                    $("#nd_booking_archive_form_guests").val(value);
+                                                    nd_booking_sorting(1);
                                                 });
 
-                                                $(".nd_booking_guests_decrease").click(function() {
+                                                $(".nd_booking_guests_decrease").click(function () {
                                                     var value = $(".nd_booking_guests_number").text();
 
                                                     if (value > 1) {
                                                         value--;
-                                                        $(".nd_booking_guests_increase").removeClass(
-                                                            "nd_booking_cursor_not_allowed");
-                                                        $(".nd_booking_guests_increase").addClass("nd_booking_cursor_pointer");
                                                         $(".nd_booking_guests_number").text(value);
                                                         $("#nd_booking_archive_form_guests").val(value);
+                                                        nd_booking_sorting(1);
                                                     }
 
                                                 });
@@ -600,7 +606,7 @@
                                             });
 
                                         });
-                                        //]]>
+                                        //]]&gt;
                                     </script>
                                     <!--guests-->
 

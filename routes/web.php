@@ -50,7 +50,8 @@ Route::get('/services', function () {
 //Route::get('/booking', function () { // đặt phòng
 //    return view('templates/pages/booking');
 //});
-Route::post('/booking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking');//Giỏ hàng
+Route::post('/autobooking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking');//Giỏ hàng
+Route::post('/booking', 'Client\BookingController@booking')->name('route_FontEnd_Booking_Booking');//Giỏ hàng
 Route::post('/checkout', 'Client\BookingController@createbooking')->name('route_FontEnd_Booking_createBooking');
 
 //Route::get('/checkout', function () { //thanh toán
@@ -191,7 +192,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
         //print_order
         Route::get('/print_order/{id}', 'App\Http\Controllers\Admin\BillController@print_order')->name('printOrder');
-        
+
     });
 
     Route::prefix('/bill_detail')->group(function () {
