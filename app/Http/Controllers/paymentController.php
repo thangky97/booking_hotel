@@ -2,27 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\Vnpay;
 use Illuminate\Http\Request;
+
 
 class paymentController extends Controller
 {
     //
+    public function thanks(){
+        if (isset($_GET['vnp_Amount'])){
 
-    public function vnpay_payment()
+            $vnpay = new Vnpay();
+            $vnpay->create([
+
+                'vnp_Amount' => $_GET['vnp_Amount'],
+                'vnp_BankTranNo' => $_GET['vnp_BankTranNo'],
+                'vnp_CardType' => $_GET['vnp_CardType'],
+                'vnp_OrderInfo' => $_GET['vnp_OrderInfo'],
+                'vnp_PayDate' => $_GET['vnp_PayDate'],
+                'vnp_TmnCode' => $_GET['vnp_TmnCode'],
+                'vnp_TransactionStatus' => $_GET['vnp_TransactionStatus'],
+                'vnp_TxnRef' => $_GET['vnp_TxnRef'],
+                'vnp_SecureHash' => $_GET['vnp_SecureHash'],
+                'vnp_BankCode' => $_GET['vnp_BankCode'],
+                'vnp_ResponseCode' => $_GET['vnp_ResponseCode'],
+                'vnp_TransactionNo' => $_GET['vnp_TransactionNo'],
+            ]);
+
+        }
+        if ($_GET['vnp_TransactionStatus'] === '00' && $_GET['vnp_ResponseCode'] === '00') {
+            Booking::where('id',$_GET['vnp_TxnRef'])->update(['status_pay'=>'1']);
+        }
+        return view('thanks');
+    }
+    public function vnpay_payment(Request $request)
     {
 
         error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
         date_default_timezone_set('Asia/Ho_Chi_Minh');
 
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-        $vnp_Returnurl = "http://127.0.0.1:8000/";
+        $vnp_Returnurl = "http://127.0.0.1:8000/thanks";
         $vnp_TmnCode = "DYVH2BH3";//Mã website tại VNPAY
         $vnp_HashSecret = "MFYXATKEMHKQTTLCIWKKLKPDTQXRFOIF"; //Chuỗi bí mật
 
-        $vnp_TxnRef = "123456123"; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_TxnRef = $request->booking_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = "Thanh toán booking";
         $vnp_OrderType = "billpayment";
-        $vnp_Amount = 20000 * 100;
+        $vnp_Amount = $request->price * 100;
         $vnp_Locale = "vn";
         $vnp_BankCode = "NCB";
         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
@@ -108,4 +136,5 @@ class paymentController extends Controller
         }
         // vui lòng tham khảo thêm tại code demo
     }
+
 }
