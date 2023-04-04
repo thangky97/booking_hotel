@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 //cong thanh toan
 Route::post('/vnpay_payment','paymentController@vnpay_payment');
-
+Route::get('/thanks','paymentController@thanks');
 
 Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
 
