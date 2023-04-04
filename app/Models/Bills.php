@@ -43,6 +43,14 @@ class Bills extends Model
         $obj = $query->first();
         return $obj;
     }
+
+    public function loadIdBookings($id, $param = [])
+    {
+        $query = DB::table($this->table)
+            ->where('booking_id', '=', $id);
+        $obj = $query->first();
+        return $obj;
+    }
     //phương thức update
     public function saveUpdate($params)
     {

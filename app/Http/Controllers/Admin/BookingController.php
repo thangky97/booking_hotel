@@ -421,11 +421,19 @@ class BookingController extends Controller
             ]);
         }
 
-        // $Service = new Service();
-        // $this->v['service'] = $Service->loadAll();
+        $room_service = DB::table('bookings_detail')
+            ->select('bookings_detail.*', 'service_room.service_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
+            ->where('bookings_detail.booking_id', '=', $id)
+            ->where('service_room.booking_id', '=', $id)
+            ->get();
+        $this->v['room_service'] = $room_service;
 
-        // $Service_room = new ServiceRoom();
-        // $this->v['service_room'] = $Service_room->loadIdBooking($id);
+        $Service = new Service();
+        $this->v['service'] = $Service->loadAll();
+
+        $Service_room = new ServiceRoom();
+        $this->v['service_room'] = $Service_room->loadIdBooking($id);
 
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
@@ -458,8 +466,35 @@ class BookingController extends Controller
                 }
             };
         };
+        $money_service = 0; //tổng tiền dịch vụ
+        foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
+            foreach (($this->v['listRooms']) as $index => $room) {
+                if ($bk_dt->room_id == $room->id) {
+                    foreach ($this->v['service_room'] as $index => $ser_room) {
+                        if ($bk_dt->room_id == $ser_room->room_id) {
+                            $s_r = explode(',', $ser_room->service_id);
+                            foreach ($this->v['service'] as $index => $ser) {
+
+                                foreach ($s_r as $inx => $sr_id) {
+                                    if ($sr_id == $ser->id) {
+                                        $money_service += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //tổng tiền phòng
         $total_money_room = $money_room * $use_date;
         $this->v['total_money_room'] = $total_money_room;
+        //tổng tiền dịch vụ
+        $total_money_service = $money_service;
+        $this->v['total_money_service'] = $total_money_service;
+        //tổng tất cả
+        $total_money_room_sv = $total_money_room + $total_money_service;
+        $this->v['total_money_room_service'] = $total_money_room_sv;
 
         $this->v['user'] = Users::find($booking->user_id);
 

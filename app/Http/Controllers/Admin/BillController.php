@@ -12,10 +12,12 @@ use App\Models\Rooms;
 use App\Models\Service;
 use App\Models\ServiceRoom;
 use App\Models\Users;
+use App\Models\Voucher;
 use Illuminate\Database\DBAL\TimestampType;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\Console\Output\Output;
 
@@ -43,7 +45,30 @@ class BillController extends Controller
     }
     public function print_order_convert($id)
     {
-        
+        $room_service = DB::table('bookings_detail')
+            ->select('bookings_detail.*', 'service_room.service_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
+            ->where('bookings_detail.booking_id', '=', $id)
+            ->where('service_room.booking_id', '=', $id)
+            ->get();
+        $this->v['room_service'] = $room_service;
+
+        $bill_mn = new Bills();
+        $bill_mn_pdf = $bill_mn->loadIdBookings($id);
+        $bill_mn_view_pdf = $bill_mn_pdf->total_money;
+
+        $voucher = new Voucher();
+        $this->v['voucher'] = $voucher->loadAll();
+
+        $voucher_code = '';
+        $voucher_price = 0;
+        foreach ($this->v['voucher'] as $index => $v_c) {
+            if ($v_c->id == $bill_mn_pdf->voucher_id) {
+                $voucher_code = $v_c->code;
+                $voucher_price = $v_c->discount;
+            }
+        }
+
         $Service = new Service();
         $this->v['service'] = $Service->loadAll();
 
@@ -81,6 +106,35 @@ class BillController extends Controller
         };
         $total_money_room = $money_room * $use_date;
         $this->v['total_money_room'] = $total_money_room;
+
+        $money_service = 0; //tổng tiền dịch vụ
+        foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
+            foreach (($this->v['listRooms']) as $index => $room) {
+                if ($bk_dt->room_id == $room->id) {
+                    foreach ($this->v['service_room'] as $index => $ser_room) {
+                        if ($bk_dt->room_id == $ser_room->room_id) {
+                            $s_r = explode(',', $ser_room->service_id);
+                            foreach ($this->v['service'] as $index => $ser) {
+
+                                foreach ($s_r as $inx => $sr_id) {
+                                    if ($sr_id == $ser->id) {
+                                        $money_service += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        $total_money_service = $money_service;
+        $this->v['total_money_service'] = $total_money_service;
+        $total_money_room_sv = $total_money_room + $total_money_service;
+        $this->v['total_money_room_service'] = $total_money_room_sv;
+
+
 
         $this->v['user'] = Users::find($booking->user_id);
         $this->v['title'] = 'Phí phòng';
@@ -150,14 +204,15 @@ class BillController extends Controller
                                         <th >Tên phòng</th>
                                         <th >Loại phòng</th>
                                         <th >Dịch vụ</th>
+                                        <th>Phí dịch vụ</th>
                                         <th >Tổng</th>
                                         
                                     </tr>
                                 </thead>
                                 <tbody>';
-        foreach (($this->v['bookingDetails']) as $bookingDetail) {
+        foreach (($this->v['room_service']) as $room_sv) {
             foreach (($this->v['listRooms']) as $room) {
-                if ($bookingDetail->room_id == $room->id) {
+                if ($room_sv->room_id == $room->id) {
                     foreach (($this->v['listCaterooms']) as $cateRoom) {
                         if ($room->cate_room == $cateRoom->id) {
 
@@ -176,20 +231,56 @@ class BillController extends Controller
                             </td>
                             <td>
                                 <span class="guest-bx">
-                                    ' . $cateRoom->name . '(' . $cateRoom->price . '$)
+                                    ' . $cateRoom->name . '<br>(' . number_format($cateRoom->price) . 'đ)
                                 </span>
                             </td>
                             <td>
-                                <span class="text-primary d-block guest-bx">
-                                
-                                    
-                                </span>
+                            ';
+                            $s_r = explode(',', $room_sv->service_id);
+                            foreach ($this->v['service'] as $ser) {
+                                foreach ($s_r as $inx => $sr_id) {
+                                    if ($sr_id == $ser->id) {
+                                        $sv_name = trim(($inx > 0 ? ', ' . $ser->name : $ser->name), ',');
+                                        $output .= ' <span class="text-primary d-block guest-bx">' .  $sv_name . '<br></span>';
+                                    }
+                                }
+                            }
+
+                            $output .= '  
+                            </td>
+                            <td>';
+                            $money = 0;
+                            $ser_room_id = $room_sv->service_id;
+                            $s_r = explode(',', $ser_room_id);
+
+                            foreach ($this->v['service'] as $ser) {
+                                foreach ($s_r as $inx => $sr_id) {
+                                    if ($sr_id == $ser->id) {
+                                        $money += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                    }
+                                }
+                            }
+                            $output .= ' <span class="text-primary d-block guest-bx">' . number_format($money) . 'đ<br></span>';
+
+                            $output .= '
+                            
                             </td>
                             <td>
                                 <div>
-                                    <span class="text-danger d-block guest-bx">
-                                        ' . ($cateRoom->price) * $use_date . '$
-                                    </span>
+                                    ';
+                            $money = 0;
+                            $ser_room_id = $room_sv->service_id;
+                            $s_r = explode(',', $ser_room_id);
+
+                            foreach ($this->v['service'] as $ser) {
+                                foreach ($s_r as $inx => $sr_id) {
+                                    if ($sr_id == $ser->id) {
+                                        $money += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                    }
+                                }
+                            }
+                            $total = ($cateRoom->price) * $use_date + $money;
+                            $output .= '<span class="text-danger d-block guest-bx">' . number_format($total) . 'đ</span>
                                 </div>
                             </td>
                             
@@ -214,7 +305,12 @@ class BillController extends Controller
                                                 <div class="me-10 mb-sm-0 mb-3">
                                                     <h3 class="mb-2">Tổng thanh toán</h3>
                                                     <hr style="width:10%;" >
-                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>' . $total_money_room . '$</var></b></h3>
+                                                    <i class="mb-2">Mã giảm giá:' . $voucher_code . ' </i>
+                                                    <hr style="width:10%;" >
+                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>' . number_format($total_money_room_sv) . 'đ</var></b></h3>
+                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>-' . number_format($voucher_price) . 'đ</var></b></h3>
+                                                    <hr style="width:20%;" >
+                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>' . number_format($bill_mn_view_pdf) . 'đ</var></b></h3>
                                                 </div>
                                             </div>
         ';
@@ -222,6 +318,14 @@ class BillController extends Controller
     }
     public function bill_room($id)
     {
+        $room_service = DB::table('bookings_detail')
+            ->select('bookings_detail.*', 'service_room.service_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
+            ->where('bookings_detail.booking_id', '=', $id)
+            ->where('service_room.booking_id', '=', $id)
+            ->get();
+        $this->v['room_service'] = $room_service;
+
         $Service = new Service();
         $this->v['service'] = $Service->loadAll();
 
@@ -257,8 +361,35 @@ class BillController extends Controller
                 }
             };
         };
+        $money_service = 0; //tổng tiền dịch vụ
+        foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
+            foreach (($this->v['listRooms']) as $index => $room) {
+                if ($bk_dt->room_id == $room->id) {
+                    foreach ($this->v['service_room'] as $index => $ser_room) {
+                        if ($bk_dt->room_id == $ser_room->room_id) {
+                            $s_r = explode(',', $ser_room->service_id);
+                            foreach ($this->v['service'] as $index => $ser) {
+
+                                foreach ($s_r as $inx => $sr_id) {
+                                    if ($sr_id == $ser->id) {
+                                        $money_service += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         $total_money_room = $money_room * $use_date;
         $this->v['total_money_room'] = $total_money_room;
+
+        $total_money_service = $money_service;
+        $this->v['total_money_service'] = $total_money_service;
+
+        $total_money_room_sv = $total_money_room + $total_money_service;
+        $this->v['total_money_room_service'] = $total_money_room_sv;
 
         $this->v['user'] = Users::find($booking->user_id);
         $this->v['title'] = 'Phí phòng';
@@ -269,6 +400,14 @@ class BillController extends Controller
     }
     public function bill_service($id)
     {
+        $room_service = DB::table('bookings_detail')
+            ->select('bookings_detail.*', 'service_room.service_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
+            ->where('bookings_detail.booking_id', '=', $id)
+            ->where('service_room.booking_id', '=', $id)
+            ->get();
+
+        $this->v['room_service'] = $room_service;
         $Service = new Service();
         $this->v['service'] = $Service->loadAll();
 
@@ -321,8 +460,9 @@ class BillController extends Controller
     }
 
 
-    public function bills($id)
+    public function bills($id, Request $request)
     {
+
         $Service = new Service();
         $this->v['service'] = $Service->loadAll();
 
@@ -332,6 +472,8 @@ class BillController extends Controller
 
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
+
+
 
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
@@ -385,57 +527,75 @@ class BillController extends Controller
         $total_money_service = $money_service;
         $this->v['total_money_service'] = $total_money_service;
 
+
+        $room_service = DB::table('bookings_detail')
+            ->select('bookings_detail.*', 'service_room.service_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
+            ->where('bookings_detail.booking_id', '=', $id)
+            ->where('service_room.booking_id', '=', $id)
+            ->get();
+
+        $this->v['room_service'] = $room_service;
         $bills = new Bills();
+
+
         $arrBills = array();
         foreach ($bills->loadAll() as $index => $bill_bk) {
             $arrBill_bk = array($index => $bill_bk->booking_id);
             $arrBills = $arrBill_bk + $arrBills;
         }
         $this->v['list'] = $arrBills;
+
         if (!in_array($id, $this->v['list'])) {
             date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $bill_add = Bills::create([
-                'booking_id' => $id,
-                'total_money' => $total_money_room + $total_money_service,
-                'status' => 1
-            ]);
-            $bill_id = $bill_add->id;
+            if (isset($request->voucher)) {
 
-            foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
-                
-                foreach ($this->v['service_room'] as $index => $ser_room) {
-                    
-                    if (empty($ser_room->room_id)) {  
-                                  
-                    } else {
-                        
-                        if ($bk_dt->room_id == $ser_room->room_id && $bk_dt->booking_id == $ser_room->booking_id) {
-                           
-                            Billdetails::create([
-                                'service_id' =>  $ser_room->service_id,
-                                'room_id' => $bk_dt->room_id,
-                                'bill_id' => $bill_id,
-                                'date' => $use_date,
-                                'status' => 1
-                            ]);
-                        }else{
-                           
-                            Billdetails::create([
-                                'service_id' => null,
-                                'room_id' => $bk_dt->room_id,
-                                'bill_id' => $bill_id,
-                                'date' => $use_date,
-                                'status' => 1
-                            ]);
-                        }
-                    }
-                    
+                $bill_add = Bills::create([
+                    'booking_id' => $id,
+                    'total_money' => $request->total_add_voucher,
+                    'voucher_id' => $request->voucher,
+                    'status' => 1
+                ]);
+                $bill_id = $bill_add->id;
+
+                foreach (($this->v['room_service']) as $index => $room_sv) {
+
+                    Billdetails::create([
+                        'service_id' =>  $room_sv->service_id,
+                        'room_id' => $room_sv->room_id,
+                        'bill_id' => $bill_id,
+                        'date' => $use_date,
+                        'status' => 1
+                    ]);
+                }
+            } else {
+
+                $bill_add = Bills::create([
+                    'booking_id' => $id,
+                    'total_money' => $total_money_room + $total_money_service,
+                    'status' => 1
+                ]);
+                $bill_id = $bill_add->id;
+
+                foreach (($this->v['room_service']) as $index => $room_sv) {
+                    Billdetails::create([
+                        'service_id' =>  $room_sv->service_id,
+                        'room_id' => $room_sv->room_id,
+                        'bill_id' => $bill_id,
+                        'date' => $use_date,
+                        'status' => 1
+                    ]);
                 }
             }
         }
+        $bill_mn = new Bills();
+        $this->v['bill_mn'] = $bill_mn->loadIdBookings($id);
+        $voucher = new Voucher();
+        $this->v['voucher'] = $voucher->loadOne($request->voucher);
         $this->v['title'] = 'Bills';
         $this->v['user'] = Users::find($booking->user_id);
         $this->v['count'] = count($this->v['bookingDetails']);
+
         return view('admin.bill.bill', $this->v);
     }
 

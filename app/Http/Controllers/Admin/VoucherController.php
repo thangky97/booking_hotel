@@ -83,6 +83,7 @@ class VoucherController extends Controller
                     $is_avaiable = 0;
                     if ($is_avaiable == 0){
                         $vou[] = array(
+                            'id'=>$voucher->id,
                             'code' =>  $voucher->code,
                             'discount' =>  $voucher->discount,
                         );
@@ -91,6 +92,7 @@ class VoucherController extends Controller
                     }
                 }else{
                     $vou[] = array(
+                        'id'=>$voucher->id,
                         'code' =>  $voucher->code,
                         'discount' =>  $voucher->discount,
                     );
@@ -100,11 +102,11 @@ class VoucherController extends Controller
                 Session::save();
 
                 return redirect()->back()
-                    ->with('success', 'Thêm thành công');
+                    ->with('success', 'Sử dụng mã voucher thành công');
             }
         }else{
             return redirect()->back()
-                ->with('error', 'ko dung hoac het han');
+                ->with('error', 'Mã voucher không đúng hoặc đã hết hạn');
         }
     }
     public function unset()
@@ -113,7 +115,7 @@ class VoucherController extends Controller
         if($voucher == true){
             Session::forget('voucher');
             return redirect()->back()
-                ->with('success', 'Xoa voucher thành công');
+                ->with('success', 'Xóa voucher thành công');
         }
     }
 }

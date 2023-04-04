@@ -29,20 +29,23 @@
 
 
                     </div>
-                    <div>                     
+                    <form action="{{route('route_BackEnd_Bill',$booking->id)}}" method="post">
+                        @csrf
+                        <div>
                             <table class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-mg " id="guestTable-all">
                                 <thead>
                                     <tr>
                                         <th>Tên phòng</th>
                                         <th>Loại phòng</th>
-                                        <th>Đơn giá</th>
+                                        <th>Dịch vụ</th>
+                                        <th>Phí dịch vụ</th>
                                         <th class="bg-none">Tổng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($bookingDetails as $bookingDetail)
+                                    @foreach($room_service as $room_sv)
                                     @foreach($listRooms as $room)
-                                    @if($bookingDetail->room_id==$room->id)
+                                    @if($room_sv->room_id==$room->id)
                                     @foreach($listCaterooms as $cateRoom)
                                     @if($room->cate_room==$cateRoom->id)
                                     <tr>
@@ -56,25 +59,67 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <span class="guest-bx">
+                                            <span class="guest-bx  text-black">
                                                 {{$cateRoom->name}}
+                                                <br>
+                                                ({{number_format($cateRoom->price)}}đ)
+
                                             </span>
                                         </td>
                                         <td>
-                                            <span class="text-primary d-block guest-bx">
-                                                {{$cateRoom->price}}$
+                                            <span class="text-primary  guest-bx">
+                                                <?php $s_r = explode(',', $room_sv->service_id); ?>
+                                                @foreach ($service as $ser)
+                                                @foreach($s_r as $inx => $sr_id)
+                                                @if($sr_id==$ser->id)
+                                                - {{trim(($inx>0?', '.$ser->name:$ser->name), ',')}}
+
+                                                <?php echo '<br>' ?>
+                                                @endif
+                                                @endforeach
+                                                @endforeach
+
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-black  guest-bx">
+                                                <?php
+                                                $money = 0;
+                                                $ser_room_id = $room_sv->service_id;
+                                                $s_r = explode(',', $ser_room_id);
+                                                ?>
+                                                @foreach ($service as $ser)
+                                                @foreach($s_r as $inx => $sr_id)
+                                                <?php if ($sr_id == $ser->id)
+                                                    $money += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                                ?>
+                                                @endforeach
+                                                @endforeach
+                                                {{number_format($money)}}đ
                                             </span>
                                         </td>
                                         <td>
                                             <div>
                                                 <span class="text-danger d-block guest-bx">
-                                                    {{($cateRoom->price)*$use_date}}$
+                                                    <?php
+                                                    $money = 0;
+                                                    $ser_room_id = $room_sv->service_id;
+                                                    $s_r = explode(',', $ser_room_id);
+                                                    ?>
+                                                    @foreach ($service as $ser)
+                                                    @foreach($s_r as $inx => $sr_id)
+                                                    <?php if ($sr_id == $ser->id)
+                                                        $money += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                                    ?>
+                                                    @endforeach
+                                                    @endforeach
+                                                    {{number_format(($cateRoom->price)*$use_date+$money)}}đ
                                                 </span>
                                             </div>
                                         </td>
                                         <td>
                                         </td>
-                                        
+
                                     </tr>
                                     @endif
                                     @endforeach
@@ -90,7 +135,7 @@
                                                 <div class="me-10 mb-sm-0 mb-3">
                                                     <h3 class="mb-2">Tổng</h3>
                                                     <hr style="margin-left: 15px; margin-right: 15px">
-                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>{{$total_money_room}}$</var></b></h3>
+                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>{{number_format($total_money_room_service)}}đ</var></b></h3>
                                                 </div>
                                             </div>
                                         </td>
@@ -99,47 +144,120 @@
                             </table>
                             <hr style="margin-left: 15px; margin-right: 15px">
                             <br>
-                            <div class="" style="text-align: center;">
-                                <div class="me-10 mb-sm-0 mb-3">
-                                    <a href="{{route('route_BackEnd_Bill_Service',$booking->id)}}"  class="btn btn-info mb-xxl-0 mb-4 btn-submit"><i class="flaticon-022-copy"></i>Tiếp Tục</a>
-                                </div>
+                            <div>
+                                @if(Session::get('voucher'))
+                                @foreach(Session::get('voucher') as $voucher)
+
+                                <input type="hidden" name="voucher" value="{{$voucher['id']}}">
+                                <input type="hidden" name="total_add_voucher" value="{{($total_money_room_service) - $voucher['discount'] }}">
+                                @endforeach
+                                @endif
                             </div>
-                        </form>
-                    </div>
+                            <div class="" style="text-align: center;">
 
+                                <button type="submit" class="btn btn-info"><span class="me-2"><i class="flaticon-022-copy"></i></span>Tiếp Tục
+                                </button>
 
+                            </div>
+                    </form>
                 </div>
 
 
             </div>
-            <div class="col-xl-3 col-xxl-4">
-                <div class="card profile-card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <img src="{{ asset('admin/images/profile/10.jpg')}}" alt="" class="rounded profile-img me-4">
-                            <div>
-                                <h5 class="text-primary">#Khách hàng</h5>
-                                <h4 class="mb-0">{{$user->name}}</h4>
-                            </div>
+
+
+        </div>
+        <div class="col-xl-3 col-xxl-4">
+            <div class="card profile-card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('admin/images/profile/10.jpg')}}" alt="" class="rounded profile-img me-4">
+                        <div>
+                            <h5 class="text-primary">#Khách hàng</h5>
+                            <h4 class="mb-0">{{$user->name}}</h4>
                         </div>
-                        <hr>
-                        <ul class="user-info-list">
-                            <li>
-                                <i class="fas fa-phone-volume"></i>
-                                <span>{{$user->phone}}</span>
-                            </li>
-                            <li>
-                                <i class="far fa-envelope"></i>
-                                <span class="overflow-hidden">{{$user->email}}</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>{{$user->address}}</span>
-                            </li>
-                        </ul>
                     </div>
+                    <hr>
+                    <ul class="user-info-list">
+                        <li>
+                            <i class="fas fa-phone-volume"></i>
+                            <span>{{$user->phone}}</span>
+                        </li>
+                        <li>
+                            <i class="far fa-envelope"></i>
+                            <span class="overflow-hidden">{{$user->email}}</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>{{$user->address}}</span>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h4 class="me-auto mb-3 text-center">Nhập mã giảm giá </h4>
+                    <ul class="user-info-list">
+
+
+                        @if(Session::get('voucher'))
+                        @foreach(Session::get('voucher') as $voucher)
+
+                        <li>
+                            <div style="color: black;" class="mb-0 card-title">Mã đã sử dụng:<p><b style="color: red;"><input type="hidden" name="voucher" value="{{$voucher['id']}}">{{$voucher['code']}}</b>
+                                <p>
+                            </div>
+                            <a href="{{route('route_BackEnd_Voucher_unset')}}" style="font-size: 15px">
+                                <i class="fa fa-trash" style="font-size: 15px;"></i>
+                            </a>
+                        </li>
+                        <div style="color: black;" class="mb-0 ">Tổng tiền:<b><var> {{number_format($total_money_room_service)}}đ</var></b></div>
+                        <div style="color: black;" class="mb-0 ">Tiền giảm :<b><var> {{number_format($voucher['discount'])}}đ</var></b></div>
+                        <div style="color: black;" class="mb-0 ">Tổng tiền sau giảm :<b><var> <input type="hidden" name="total_add_voucher" value="{{($total_money_room_service) - $voucher['discount'] }}">{{number_format(($total_money_room_service) - $voucher['discount']) }}đ</var></b></div>
+
+                        @endforeach
+                        @endif
+
+
+                        @if(!isset($voucher))
+                        <li>
+                            <form action="{{route("route_BackEnd_Voucher_check")}}" method="post" class="needs-validation">
+                                @csrf
+                                <div class="mb-3">
+                                    <div style="color: black;" class="mb-0 card-title">Mã Voucher :<span class="text-danger">(*)</span></div>
+                                    <input type="text" name="voucher" class="form-control bg-transparent" placeholder="Mã voucher *">
+                                </div>
+
+
+
+                                <div>
+                                    <button type="submit" class="btn btn-info"><span class="me-2"></span>Sử dụng
+                                    </button>
+                                </div>
+                            </form>
+                        </li>
+                        @endif
+
+                    </ul>
+
+                    @if (Session::has('success'))
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <strong>{{ Session::get('success') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    @endif
+                    @if (Session::has('error'))
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <strong>{{ Session::get('error') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
