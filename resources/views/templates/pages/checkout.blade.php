@@ -124,105 +124,153 @@
 
                                                                 <!--START black section-->
                                                                 <div id="nd_booking_checkout_main_bg"
-                                                                    class="nd_booking_section nd_booking_bg_greydark nd_booking_padding_30 nd_booking_padding_0_all_iphone nd_booking_box_sizing_border_box">
+                                                                     class="nd_booking_section nd_booking_bg_greydark nd_booking_padding_30 nd_booking_padding_0_all_iphone nd_booking_box_sizing_border_box">
 
                                                                     <h6
                                                                         class="nd_options_second_font nd_booking_margin_top_20_all_iphone nd_options_color_white nd_booking_letter_spacing_2 nd_booking_text_align_center nd_booking_font_size_12 nd_booking_font_weight_lighter">
-                                                                        ĐẶT PHÒNG CỦA BẠN</h6>
+                                                                        YOUR RESERVATION</h6>
 
 
-                                                                    <div class="nd_booking_section nd_booking_height_30">
+                                                                    <div
+                                                                        class="nd_booking_section nd_booking_height_30">
                                                                     </div>
 
                                                                     <div
                                                                         class="nd_booking_width_50_percentage nd_booking_float_left  nd_booking_padding_right_10 nd_booking_box_sizing_border_box ">
-                                                                        <div id="nd_booking_checkout_bg_check_in"
-                                                                            class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
+                                                                        <div id="nd_booking_book_bg_check_in"
+                                                                             class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
                                                                             <h6
                                                                                 class="nd_options_color_white nd_booking_color_yellow_important nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12 nd_booking_font_weight_lighter">
-                                                                                Ngày đến</h6>
+                                                                                CHECK-IN</h6>
                                                                             <div
                                                                                 class="nd_booking_section nd_booking_height_15">
                                                                             </div>
                                                                             <h1
                                                                                 class="nd_booking_font_size_50 nd_booking_color_yellow_important">
-                                                                                16</h1>
+                                                                                {{date("d",strtotime($booking->checkin_date))}}</h1>
                                                                             <div
                                                                                 class="nd_booking_section nd_booking_height_15">
                                                                             </div>
                                                                             <h6
                                                                                 class="nd_options_color_white nd_booking_font_size_11">
-                                                                                <i>
-                                                                                    tháng hai - 2023</i>
-                                                                            </h6>
+                                                                                <i>@if(date("m",strtotime($booking->checkin_date))==1)
+                                                                                        Jan
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==2)
+                                                                                        Feb
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==3)
+                                                                                        Mar
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==4)
+                                                                                        Apr
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==5)
+                                                                                        May
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==6)
+                                                                                        Jun
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==7)
+                                                                                        Jul
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==8)
+                                                                                        Aug
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==9)
+                                                                                        Sep
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==10)
+                                                                                        Oct
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==11)
+                                                                                        Nov
+                                                                                    @elseif(date("m",strtotime($booking->checkin_date))==12)
+                                                                                        Dec
+                                                                                    @endif
+                                                                                    , 2023</i></h6>
                                                                             <div
                                                                                 class="nd_booking_section nd_booking_height_5">
                                                                             </div>
                                                                             <h6
                                                                                 class="nd_options_second_font nd_options_color_grey nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_text_transform_uppercase">
-                                                                                Thứ 5</h6>
+                                                                                {{date("l",strtotime($booking->checkin_date))}}</h6>
                                                                         </div>
                                                                     </div>
 
                                                                     <div
                                                                         class="nd_booking_width_50_percentage nd_booking_float_left  nd_booking_padding_left_10 nd_booking_box_sizing_border_box ">
-                                                                        <div id="nd_booking_checkout_bg_check_out"
-                                                                            class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
+                                                                        <div id="nd_booking_book_bg_check_out"
+                                                                             class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
                                                                             <h6
                                                                                 class="nd_options_color_white nd_booking_color_yellow_important nd_options_second_font nd_booking_letter_spacing_2 nd_booking_font_size_12 nd_booking_font_weight_lighter">
-                                                                                Ngày đi</h6>
+                                                                                CHECK-OUT</h6>
                                                                             <div
                                                                                 class="nd_booking_section nd_booking_height_15">
                                                                             </div>
                                                                             <h1
                                                                                 class="nd_booking_font_size_50 nd_booking_color_yellow_important">
-                                                                                17</h1>
+                                                                                {{date("d",strtotime($booking->checkout_date))}}</h1>
                                                                             <div
                                                                                 class="nd_booking_section nd_booking_height_15">
                                                                             </div>
                                                                             <h6
                                                                                 class="nd_options_color_white nd_booking_font_size_11">
-                                                                                <i>
-                                                                                    tháng hai - 2023</i>
-                                                                            </h6>
+                                                                                <i>@if(date("m",strtotime($booking->checkout_date))==1)
+                                                                                        Jan
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==2)
+                                                                                        Feb
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==3)
+                                                                                        Mar
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==4)
+                                                                                        Apr
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==5)
+                                                                                        May
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==6)
+                                                                                        Jun
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==7)
+                                                                                        Jul
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==8)
+                                                                                        Aug
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==9)
+                                                                                        Sep
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==10)
+                                                                                        Oct
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==11)
+                                                                                        Nov
+                                                                                    @elseif(date("m",strtotime($booking->checkout_date))==12)
+                                                                                        Dec
+                                                                                    @endif
+                                                                                    , 2023</i></h6>
                                                                             <div
                                                                                 class="nd_booking_section nd_booking_height_5">
                                                                             </div>
                                                                             <h6
                                                                                 class="nd_options_second_font nd_options_color_grey nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_text_transform_uppercase">
-                                                                                Thứ 6</h6>
+                                                                                {{date("l",strtotime($booking->checkout_date))}}</h6>
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="nd_booking_section nd_booking_height_20">
+                                                                    <div
+                                                                        class="nd_booking_section nd_booking_height_20">
                                                                     </div>
 
                                                                     <div
                                                                         class="nd_booking_width_50_percentage nd_booking_float_left  nd_booking_padding_right_10 nd_booking_box_sizing_border_box ">
-                                                                        <div id="nd_booking_checkout_bg_guests"
-                                                                            class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                                                                            <h1 class=" nd_options_color_white">1</h1>
+                                                                        <div id="nd_booking_book_bg_guests"
+                                                                             class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
+                                                                            <h1 class=" nd_options_color_white">{{$booking->people}}</h1>
                                                                             <div
                                                                                 class="nd_booking_section nd_booking_height_10">
                                                                             </div>
                                                                             <h6
                                                                                 class="nd_options_second_font nd_options_color_grey nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter">
-                                                                                KHÁCH</h6>
+                                                                                GUESTS</h6>
 
                                                                         </div>
                                                                     </div>
 
                                                                     <div
                                                                         class="nd_booking_width_50_percentage nd_booking_float_left  nd_booking_padding_left_10 nd_booking_box_sizing_border_box ">
-                                                                        <div id="nd_booking_checkout_bg_nights"
-                                                                            class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
-                                                                            <h1 class=" nd_options_color_white">1</h1>
+                                                                        <div id="nd_booking_book_bg_nights"
+                                                                             class="nd_booking_section nd_booking_bg_greydark_2 nd_booking_padding_20 nd_booking_box_sizing_border_box nd_booking_text_align_center">
+                                                                            <h1 class=" nd_options_color_white">{{(strtotime($booking->checkout_date)-strtotime($booking->checkin_date))/86400}}</h1>
                                                                             <div
                                                                                 class="nd_booking_section nd_booking_height_10">
                                                                             </div>
                                                                             <h6
                                                                                 class="nd_options_second_font nd_options_color_grey nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter">
-                                                                                nGÀY</h6>
+                                                                                NIGHTS</h6>
                                                                         </div>
                                                                     </div>
 
@@ -238,7 +286,7 @@
                                                                                 class="nd_booking_float_left nd_booking_text_align_right">
                                                                                 <h1 id="nd_booking_final_trip_price"
                                                                                     class="nd_options_color_white nd_booking_font_size_50">
-                                                                                    <span>7.900.999</span>
+                                                                                    <span>{{$price}}</span>
                                                                                 </h1>
                                                                             </div>
                                                                             <div
@@ -281,19 +329,13 @@
                                                                 class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Tên
-                                                                        :</span> linh nguyen van</p>
-                                                            </div>
-                                                            <div
-                                                                class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
-                                                                <p><span
-                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Họ
-                                                                        :</span> nguyen van</p>
+                                                                        :</span> {{$user->name}}</p>
                                                             </div>
                                                             <div
                                                                 class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Email
-                                                                        :</span> kjfskjd@gmail.com</p>
+                                                                        :</span> {{$user->email}}</p>
                                                             </div>
 
                                                             <div class="nd_booking_section nd_booking_height_10"></div>
@@ -302,20 +344,13 @@
                                                                 class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Số
-                                                                        điện thoại :</span> 0978646464</p>
+                                                                        điện thoại :</span> {{$user->phone}}</p>
                                                             </div>
                                                             <div
                                                                 class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
-                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Địa
-                                                                        chỉ :</span> 142 xuan phuong - nam tu liem - ha noi
+                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Giới tính :</span><?=$user->gender==1?'Nam':'Nữ'?>
                                                                 </p>
-                                                            </div>
-                                                            <div
-                                                                class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
-                                                                <p><span
-                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Thành
-                                                                        phố :</span> ha noi</p>
                                                             </div>
 
                                                             <div class="nd_booking_section nd_booking_height_10"></div>
@@ -323,66 +358,92 @@
                                                             <div
                                                                 class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
-                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Quốc
-                                                                        gia :</span> Vietnam</p>
+                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Địa chỉ :</span>
+                                                                    {{$user->address}}</p>
                                                             </div>
+
+                                                            <div class="nd_booking_section nd_booking_height_10"></div>
+{{--                                                            Image--}}
                                                             <div
                                                                 class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
-                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">ZIP
-                                                                        :</span> 100000</p>
-                                                            </div>
-                                                            <div
-                                                                class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
-                                                                <p><span
-                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Đến
-                                                                        :</span> Tôi không biết</p>
+                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Hình ảnh :</span>
+                                                                    Hình ảnh cccd</p>
                                                             </div>
 
                                                             <div class="nd_booking_section nd_booking_height_30"></div>
 
                                                             <div
-                                                                class="nd_booking_width_100_percentage nd_booking_float_left nd_booking_box_sizing_border_box ">
+                                                                class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
-                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Yêu
-                                                                        cầu :</span></p>
-                                                                <p></p>
+                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Ngày đặt :</span> {{date("d-m-Y",strtotime($booking->checkin_date))}}</p>
+                                                            </div>
+                                                            <div
+                                                                class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box ">
+                                                                <p><span
+                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Ngày trả :</span>{{date("d-m-Y",strtotime($booking->checkout_date))}}
+                                                                </p>
                                                             </div>
 
                                                             <div class="nd_booking_section nd_booking_height_30"></div>
-
-                                                            <div
-                                                                class="nd_booking_width_100_percentage nd_booking_float_left nd_booking_box_sizing_border_box ">
-                                                                <p><span
-                                                                        class="nd_options_color_greydark nd_booking_font_weight_bolder">Dịch
-                                                                        vụ bổ sung :</span></p>
-
-                                                                <div class="nd_booking_section nd_booking_height_10"></div>
-                                                                <div
-                                                                    class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left">
-                                                                    <div
-                                                                        class="nd_booking_display_table nd_booking_float_left">
-
-                                                                        <p
-                                                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">
-                                                                            Bữa sáng</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="nd_booking_width_33_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left">
-                                                                    <div
-                                                                        class="nd_booking_display_table nd_booking_float_left">
-
-                                                                        <p
-                                                                            class="  nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_line_height_20">
-                                                                            Chi phí vệ sinh</p>
-                                                                    </div>
-                                                                </div>
+                                                            <style>
+                                                                .custom-table-room{
+                                                                    border: 1px solid #f1f1f1;
+                                                                    text-align: center;
+                                                                    display: grid;
+                                                                }
+                                                                .custom-table-room-table{
+                                                                    width: 100%;
+                                                                }
+                                                                .custom-table-room-table > thead > tr >th{
+                                                                    border-bottom: 1px solid #f1f1f1;
+                                                                    border-right: 1px solid #f1f1f1;
+                                                                    text-align: center
+                                                                }
+                                                                .custom-table-room-table > tbody > tr > td{
+                                                                    border-bottom: 1px solid #f1f1f1;
+                                                                    border-right: 1px solid #f1f1f1;
+                                                                    text-align: center
+                                                                }
+                                                            </style>
+                                                            <div class="custom-table-room">
+                                                                <table class="custom-table-room-table">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>STT</th>
+                                                                        <th>Tên phòng</th>
+                                                                        <th>Hình ảnh</th>
+                                                                        <th>Số người</th>
+                                                                        <th>Chọn dịch vụ</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <?php $i=1?>
+                                                                    @foreach($listRooms as $item)
+                                                                        <tr>
+                                                                            <td>{{$i++}}</td>
+                                                                            <td>{{$item->name}}</td>
+                                                                            <td>{{$item->images}}</td>
+                                                                            <td>{{$item->adult}}</td>
+                                                                            <td>
+                                                                                <?php $services=explode(",", $item->service_id)?>
+                                                                                <ul style="display: flex;flex-direction: column; flex-wrap: wrap;align-content: flex-start;">
+                                                                                    @foreach($listServices as $ser)
+                                                                                        @if(in_array($ser->id, $services))
+                                                                                            {{$ser->name}}<br>
+                                                                                        @endif
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                             <div class="nd_booking_section nd_booking_height_30  "></div>
 
                                                             <div
-                                                                class="nd_booking_width_100_percentage  nd_booking_float_left nd_booking_box_sizing_border_ààbox ">
+                                                                class="nd_booking_width_100_percentage  nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Mã
                                                                         giảm giá :</span></p>
@@ -392,7 +453,7 @@
                                                             <div class="nd_booking_section nd_booking_height_30"></div>
 
                                                             <div
-                                                                class="nd_booking_width_100_percentage nd_booking_float_left nd_booking_box_sizing_border_ààbox ">
+                                                                class="nd_booking_width_100_percentage nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Thuế
                                                                         :</span></p>
@@ -441,7 +502,8 @@
                                                                         <h4>
                                                                             <a class="nd_booking_outline_0 nd_booking_padding_10_0 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_font_size_14 nd_booking_display_inline_block nd_options_second_font nd_options_color_greydark"
                                                                                 href="#nd_booking_checkout_payment_2_tab">
-                                                                                CHUYỂN KHOẢN NGÂN HÀNG</a>
+                                                                                THANH TOÁN VNPAY</a>
+
                                                                         </h4>
                                                                     </li>
 
@@ -632,10 +694,11 @@
 
                                                                         <div
                                                                             class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                                                            <a class="nd_options_margin_right_20 nd_options__font "
-                                                                                href="#">Đặt phòng của bạn sẽ được
-                                                                                xác nhận khi chúng tôi nhận được chuyển
-                                                                                khoản ngân hàng.</a>
+
+                                                                            <form action="{{url('/vnpay_payment')}}" method="post">
+                                                                                @csrf
+                                                                                <input class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" id="" name="redirect" value="PAYMENT NOW">
+                                                                            </form>
                                                                         </div>
 
 
@@ -647,7 +710,7 @@
                                                                     </div>
 
                                                                     <form
-                                                                        action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-checkout/"
+                                                                        action="#"
                                                                         method="post">
                                                                         <input type="hidden"
                                                                             id="nd_booking_form_checkout_arrive"
@@ -791,7 +854,7 @@
                                                                     </div>
 
                                                                     <form
-                                                                        action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-checkout/"
+                                                                        action="#"
                                                                         method="post">
                                                                         <input type="hidden"
                                                                             id="nd_booking_form_checkout_arrive"

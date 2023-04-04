@@ -33,7 +33,10 @@ class Users extends Model
     public function saveNew($params)
     {
         $data = array_merge(
-            $params['cols']
+            $params['cols'],
+            [
+                'password' => Hash::make($params['cols']['password']),
+            ]
         );
 
         $res = DB::table($this->table)->insertGetId($data);
@@ -56,24 +59,26 @@ class Users extends Model
         return $list;
     }
 
-    public function loadOne($id, $params = []) {
+    public function loadOne($id, $params = [])
+    {
         $query = DB::table($this->table)->where('id', '=', $id);
         $obj = $query->first();
         return $obj;
     }
 
-    public function saveUpdate($params) {
+    public function saveUpdate($params)
+    {
         if (empty($params['cols']['id'])) {
-            Session::push('errors','không xác định bản ghi cập nhập');
+            Session::push('errors', 'không xác định bản ghi cập nhập');
         }
 
         $dataUpdate = [];
-        foreach ($params['cols'] as $colName =>$val) {
+        foreach ($params['cols'] as $colName => $val) {
             if ($colName == 'id') continue;
-            $dataUpdate[$colName] = (strlen($val) == 0) ? null:$val;
+            $dataUpdate[$colName] = (strlen($val) == 0) ? null : $val;
         }
         $res = DB::table($this->table)
-            ->where('id',$params['cols']['id'])
+            ->where('id', $params['cols']['id'])
             ->update($dataUpdate);
         return $res;
     }

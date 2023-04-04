@@ -29,11 +29,17 @@
                                             </label>
                                             <div class="col-lg-12">
                                                 <div class="form-file">
-                                                    <input type="file" name="images" class="form-file-input form-control" style="margin-bottom: 6px">
+                                                    <input type="file" name="images"
+                                                        class="form-file-input form-control" style="margin-bottom: 6px">
                                                     @if (isset($objItem) && $objItem->images)
-                                                        <img src="{{ asset($objItem->images ? '' . Storage::url($objItem->images) : '') }}" alt="banner"
-                                                            width="100">
+                                                        <img src="{{ asset($objItem->images ? '' . Storage::url($objItem->images) : '') }}"
+                                                            alt="banner" width="100">
                                                     @endif
+                                                    @error('images')
+                                                        <div class="mt-1">
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -52,7 +58,11 @@
                                                 <input class="form-check-input" type="radio" name="status" value="0"
                                                     {{ isset($objItem) && $objItem->status === 0 ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="flexRadioDefault1">Khóa</label>
-
+                                                @error('status')
+                                                    <div class="mt-1">
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
                                             </div>
                                             <div class="text-start mt-4 mb-3">
 

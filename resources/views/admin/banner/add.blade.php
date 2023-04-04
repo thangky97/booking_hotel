@@ -23,17 +23,22 @@
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
-                                            <h5 class="mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
+                                            <h5 class="mb-4">Ảnh</h5>
 
                                             <div class="fallback">
                                                 <input name="images" type="file" />
+                                                @error('images')
+                                                    <div class="mt-1">
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
                                             </div>
 
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group mt-4">
                                             <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span
-                                                    class="text-danger">(*)</span></label>
+                                                    class="text-danger"> *</span></label>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="status"
                                                     value="0">
@@ -44,6 +49,11 @@
                                                     <label class="form-check-label" for="flexRadioDefault2">Kích
                                                         hoạt</label>
                                                 </div>
+                                                @error('status')
+                                                    <div>
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
                                             </div>
 
                                             <div class="text-start mt-4 mb-3">

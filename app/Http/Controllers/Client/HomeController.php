@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\CategoryRooms;
 use App\Models\Properties;
 use App\Models\Rooms;
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,9 +27,15 @@ class HomeController extends Controller
             ->get();
             // dd($this->v['banners']);
 
+        //checkUser
+        $this->v['users'] = Users::select('name', 'email', 'status')
+            ->where("status", "=", 1)->get();
+            // dd($this->v['users']);
+   
+        
+
         $property_rooms = DB::table('property_room')
-            ->leftjoin('rooms', 'rooms.id', '=', 'property_room.room_id')
-            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'property_room.cate_room')
             ->select('property_room.id','property_room.properties_id')
             ->get();
         $this->v['listProperty_rooms'] = $property_rooms;

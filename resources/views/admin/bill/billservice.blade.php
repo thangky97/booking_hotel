@@ -88,7 +88,7 @@
             <div class="col-xl-9 col-xxl-8">
                 <div class="card">
                     <div class="card-header border-0 pb-0">
-                        <h2 <?= $booking->status_pay == 1 ? 'class="text-success"' : 'class="text-danger"' ?>>Thanh toán</h2>
+                        <h2 <?= $booking->status_pay == 1 ? 'class="text-success"' : 'class="text-danger"' ?>>Dịch vụ đi kèm</h2>
 
                     </div>
                     <div class="card-header border-0 pb-0">
@@ -109,80 +109,91 @@
                         <table class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-mg " id="guestTable-all">
                             <thead>
                                 <tr>
-                                    <th>Thời gian sử dụng</th>
-                                    <th>Phí phòng</th>
-                                    <th>Phí dịch vụ</th>
-                                    <th>Voucher sử dụng</th>
+                                    <th>Tên phòng</th>
+                                    <th>Dịch vụ</th>
                                     <th class="bg-none">Tổng tiền</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                                <tr class="text-center" style="font-weight: bold;">
-                                    <td class="text-black">
-                                        {{$use_date}} Ngày
-                                    </td>
-                                    <td class="text-primary">
-                                        {{number_format($total_money_room)}}đ
-                                    </td>
-                                    <td class="text-primary">
-                                        {{number_format($total_money_service)}}đ
-                                    </td>
-                                    <td>                                     
-                                    @if($voucher==null)
-                                    @else
-                                    <b class="text-danger">{{$voucher->code}}</b>
-                                    @endif
+                                @foreach($bookingDetails as $bookingDetail)
+                                @foreach($listRooms as $room)
+                                @if($bookingDetail->room_id==$room->id)
+                                @foreach($service_room as $ser_room)
+                                @if($bookingDetail->room_id==$ser_room->room_id)
+                                <tr>
+                                    <td>
+                                        <div class="guest-bx">
+                                            <img class="me-3" src="{{asset("storage/".$room->images)}}" alt="">
+                                            <div>
+                                                <span class="text-primary">#{{$booking->id}}</span>
+                                                <h4 class="mb-0 mt-1"><a class="text-black" href="">{{$room->name}}</a></h4>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
-                                        <i><b>{{number_format($bill_mn->total_money)}}đ</b></i>
+                                        <span style="color: #12bbd4;">
+                                            <?php $s_r = explode(',', $ser_room->service_id); ?>
+                                            @foreach ($service as $ser)
+                                            @foreach($s_r as $inx => $sr_id)
+                                            @if($sr_id==$ser->id)
+                                            {{trim(($inx>0?', '.$ser->name:$ser->name), ',')}}
+
+                                            <?php echo '<br>' ?>
+                                            @endif
+                                            @endforeach
+                                            @endforeach
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <span class="text-danger d-block">
+                                                <?php
+                                                $money = 0;
+                                                $ser_room_id = $ser_room->service_id;
+                                                $s_r = explode(',', $ser_room_id);
+                                                ?>
+                                                @foreach ($service as $ser)
+                                                @foreach($s_r as $inx => $sr_id)
+                                                <?php if($sr_id==$ser->id)
+                                                $money+=array_sum(explode(',',$inx>0?','.$ser->price:$ser->price)) ;
+                                                ?>
+                                                @endforeach
+                                                @endforeach
+                                                {{$money}}.00$
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
                                     </td>
                                 </tr>
-                               
-
+                                @endif
+                                @endforeach
+                                @endif
+                                @endforeach
+                                @endforeach
                                 <tr>
                                     <td></td>
                                     <td></td>
                                     <td></td>
-
+                                    <td>
+                                        <div class="d-sm-flex d-block align-items-center flex-wrap">
+                                            <div class="me-10 mb-sm-0 mb-3">
+                                                <h3 class="mb-2">Tổng</h3>
+                                                <hr style="margin-left: 15px; margin-right: 15px">
+                                                <h3 class="mb-0 card-title" style="color: blue;"><b><var>{{$total_money_service}}.00$ </var></b></h3>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                         <!-- end checkbox -->
-                        <ul class="bg-none">
-                            <li>Tổng tiền : {{$total_money_room+$total_money_service}}.00$</li>
-
-                            @if(Session::get('voucher'))
-                                @foreach(Session::get('voucher') as $voucher)
-                                    <li>Mã giảm giá :  {{$voucher['code']}}    -
-                                        <a href="{{route('route_BackEnd_Voucher_unset')}}" style="font-size: 15px">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </li>
-                                    <li>Tiền giảm :{{$voucher['discount']}} $</li>
-                                    <li>Tổng tiền sau giảm : {{($total_money_room+$total_money_service) - $voucher['discount'] }}.00$</li>
-
-                                @endforeach
-                            @endif
-
-
-                            <li> <form action="{{route("route_BackEnd_Voucher_check")}}" method="post">
-                                    @csrf
-                                    <label for="">Nhập voucher :</label>
-                                    <input type="text" name="voucher" id="" class="">
-
-                                    <input type="hidden" name="bill_id" value="{{$bill_id}}">
-                                    <button type="submit">ok</button>
-                                </form></li>
-                        </ul>
-
                     </div>
                     <hr style="margin-left: 15px; margin-right: 15px">
                     <br>
                     <div class="" style="text-align: center;">
                         <div class="me-10 mb-sm-0 mb-3">
-                            <a href="{{route('printOrder',$booking->id)}}" class="btn btn-info mb-xxl-0 mb-4 btn-submit"><i class="flaticon-022-copy"></i> In hóa đơn</a>
-                            <a href="{{route('route_BackEnd_Bookings_List')}}" class="btn btn-danger mb-xxl-0 mb-4 btn-submit"><i class="fa fa-times"></i> Danh sách</a>
+                            <a href="{{route('route_BackEnd_Bill',$booking->id)}}" class="btn btn-info mb-xxl-0 mb-4 btn-submit"><i class="flaticon-022-copy"></i>Tiếp Tục</a>
                         </div>
                     </div>
                 </div>
@@ -219,3 +230,4 @@
         </div>
     </div>
 </div>
+

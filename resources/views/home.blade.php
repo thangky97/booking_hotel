@@ -583,18 +583,13 @@
                                                     data-widget_type="button.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <form action="{{ route('route_FontEnd_BookingSearch_Search') }}"
-                                                                method="post">
-                                                                @csrf
-                                                                <input name="cateroom_id" value="{{ $cateroom->id }}" hidden>
-                                                                <button
-                                                                    class="elementor-button-link elementor-button elementor-size-sm"
-                                                                    role="button" style="width: 190px;">
-                                                                    <span class="elementor-button-content-wrapper">
-                                                                        <span class="elementor-button-text">XEM PHÒNG</span>
-                                                                    </span>
-                                                                </button>
-                                                            </form>
+                                                            <a href="{{ route('route_FrontEnd_Room_RoomDetail', $cateroom->id) }}"
+                                                                class="elementor-button-link elementor-button elementor-size-sm"
+                                                                role="button" style="width: 190px;">
+                                                                <span class="elementor-button-content-wrapper">
+                                                                    <span class="elementor-button-text">XEM PHÒNG</span>
+                                                                </span>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -661,18 +656,13 @@
                                                     data-id="e241acb" data-element_type="widget"
                                                     data-widget_type="button.default">
                                                     <div class="elementor-button-wrapper">
-                                                        <form action="{{ route('route_FontEnd_BookingSearch_Search') }}"
-                                                            method="post">
-                                                            @csrf
-                                                            <input name="cateroom_id" value="{{ $cateroom->id }}" hidden>
-                                                            <button
-                                                                class="elementor-button-link elementor-button elementor-size-sm"
-                                                                role="button" style="width: 190px;">
-                                                                <span class="elementor-button-content-wrapper">
-                                                                    <span class="elementor-button-text">XEM PHÒNG</span>
-                                                                </span>
-                                                            </button>
-                                                        </form>
+                                                        <a href="{{ route('route_FrontEnd_Room_RoomDetail', $cateroom->id) }}"
+                                                            class="elementor-button-link elementor-button elementor-size-sm"
+                                                            role="button" style="width: 190px;">
+                                                            <span class="elementor-button-content-wrapper">
+                                                                <span class="elementor-button-text">XEM PHÒNG</span>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

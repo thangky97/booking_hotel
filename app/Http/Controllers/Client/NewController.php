@@ -12,7 +12,7 @@ class NewController extends Controller
 
     public function index(Request $request) {
         $title = '12Zodiac - Bài viết';
-        $news = News::with('cate_new')->get();
+        $news = News::with('cate_new')->where('status', '=', 1)->get();
         return view('templates.pages.new', compact('news', 'title'));
     }
 

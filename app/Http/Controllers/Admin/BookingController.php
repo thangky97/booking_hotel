@@ -215,13 +215,27 @@ class BookingController extends Controller
             ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
             ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
             ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
-            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')->where('service_room.booking_id', '=', $id)
+            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')
+            ->where('service_room.booking_id','=',$id)
             ->get();
+
         $price = 0;
         foreach ($rooms as $item) {
             $price = $item->price + $price;
         }
-        $this->v['listUsers'] = DB::table('users')->get();
+        $arrService = array();
+        foreach ($rooms as $item){
+            $arrService = array_merge($arrService,explode(',' ,$item->service_id));
+        }
+        $Service = new Service();
+        $this->v['listServices'] = $Service->loadAll();
+        foreach ($arrService as $item){
+            foreach ($this->v['listServices'] as $service){
+                if ($item == $service->id){
+                    $price = $price + $service->price;
+                }
+            }
+        }
         $this->v['listRooms'] = $rooms;
         $this->v['price'] = $price;
         $booking = Booking::find($id);

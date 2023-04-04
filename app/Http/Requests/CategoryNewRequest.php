@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerRequest extends FormRequest
+class CategoryNewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,25 +22,19 @@ class BannerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'images' =>
-            [
-                // 'required',
-                'image',
-                'mimes:jpeg,png,jpg',
-                'mimetypes:image/jpeg,image/png',
-                'max:2048',
-            ],
+            'name' => 'required|min:3|max:70',
             'status' => 'required',
         ];
     }
 
     public function messages()
     {
+        // key là key của rule . đk
         return [
-            // 'images.required' => 'Ảnh không được để trống!',
-            'images.image' => 'Bắt buộc phải là ảnh!',
-            'images.max' => 'Ảnh không được lớn hơn 2MB!',
-            'status.required' => 'Bạn chưa chọn trạng thái',
+            'name.required' => 'Tên bắt buộc nhập!',
+            'name.min' => 'Tên tối thiểu 3 ký tự!',
+            'name.max' => 'Tên tối đa là 70 ký tự!',
+            'status.required' => 'Bạn chưa chọn trạng thái!',
         ];
     }
 }
