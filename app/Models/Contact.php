@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category_new extends Model
+class Contact extends Model
 {
-    use HasFactory;
-    protected $table = 'category_new';
+    protected $table = 'contact';
     public $timestamp = true;
+    use HasFactory;
 }

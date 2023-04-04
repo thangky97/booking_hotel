@@ -668,7 +668,7 @@
                                                     </li>
                                                     <li id="menu-item-6986"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6986">
-                                                        <a href="{{ route('route_FontEnd_BookingSearch') }}">Phòng</a>
+                                                        <a href="{{ route('route_FrontEnd_Room') }}">Loại phòng</a>
                                                     </li>
                                                     <li id="menu-item-6970"
                                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6970">

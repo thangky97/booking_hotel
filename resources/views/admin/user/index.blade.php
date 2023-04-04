@@ -13,22 +13,22 @@
                         <div style="margin-right: 50px">
                             <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
                                 @csrf
-                                <input type="search" name="name" value="{{ $name }}" class="form-control" style="width: 25rem"
-                                    placeholder="Tìm kiếm">
+                                <input type="search" name="name" value="{{ $name }}" class="form-control"
+                                    style="width: 25rem" placeholder="Tìm kiếm">
                             </form>
                         </div>
                         <div style="margin-right: 50px">
                             <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
                                 @csrf
-                                <input type="search" name="phone" value="{{ $phone }}" class="form-control" style="width: 25rem"
-                                    placeholder="Số điện thoại">
+                                <input type="search" name="phone" value="{{ $phone }}" class="form-control"
+                                    style="width: 25rem" placeholder="Số điện thoại">
                             </form>
                         </div>
                         <div>
                             <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
                                 @csrf
-                                <input type="search" name="email" value="{{ $email }}" class="form-control" style="width: 25rem"
-                                    placeholder="Email">
+                                <input type="search" name="email" value="{{ $email }}" class="form-control"
+                                    style="width: 25rem" placeholder="Email">
                             </form>
                         </div>
 
@@ -40,7 +40,7 @@
                         </div>
                         <div>
                             <a href="{{ route('route_BackEnd_Users_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
-                                    class="fa fa-users me-2"></i>Thêm mới</a>
+                                    class="bi bi-people-fill"></i> Thêm mới</a>
                             <a href="{{ route('route_BackEnd_Bookings_Adduser') }}" class="btn btn-primary mb-xxl-0 mb-4"><i
                                     class="far fa-file-word me-2"></i>Đặt phòng</a>
                         </div>
@@ -80,7 +80,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
-                                                    <span class="text-primary">{{ $index + 1 }}</span>
+                                                    <span class="text-primary">#{{ $index + 1 }}</span>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="guest-bx">
@@ -160,9 +160,10 @@
                                                         </a>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item"
-                                                               href="{{ route('route_BackEnd_Bookings_Add', ['id' => $user->id]) }}">Đặt phòng</a>
+                                                                href="{{ route('route_BackEnd_Bookings_Add', ['id' => $user->id]) }}">Đặt
+                                                                phòng</a>
                                                             <a class="dropdown-item"
-                                                               href="{{ route('route_BackEnd_Users_Edit', ['id' => $user->id]) }}">Sửa</a>
+                                                                href="{{ route('route_BackEnd_Users_Edit', ['id' => $user->id]) }}">Sửa</a>
                                                         </div>
                                                     </div>
                                                 </td>

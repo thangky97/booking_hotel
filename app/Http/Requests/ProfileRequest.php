@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerRequest extends FormRequest
+class ProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,25 +22,33 @@ class BannerRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => 'required|min:3|max:40',
+            'phone' => 'required|numeric|min:10',
+            'email' => 'required|email|max:50',
             'images' =>
             [
-                // 'required',
                 'image',
                 'mimes:jpeg,png,jpg',
                 'mimetypes:image/jpeg,image/png',
                 'max:2048',
             ],
-            'status' => 'required',
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
-            // 'images.required' => 'Ảnh không được để trống!',
+            'name.required' => 'Tên bắt buộc nhập!',
+            'name.min' => 'Tên tối thiểu 3 ký tự!',
+            'name.max' => 'Tên tối đa là 40 ký tự!',
+            'email.required' => 'Email bắt buộc nhập!',
+            'email.email' => 'Email không đúng định dạng!',
+            'email.max' => 'Email tối đa 50 ký tự!',
+            'phone.required' => 'Số điện thoại bắt buộc nhập!',
+            'phone.numeric' => 'Số điện thoại phải là số!',
+            'phone.min' => 'Số điện thoại tối thiểu 10 số!',
             'images.image' => 'Bắt buộc phải là ảnh!',
             'images.max' => 'Ảnh không được lớn hơn 2MB!',
-            'status.required' => 'Bạn chưa chọn trạng thái',
         ];
     }
 }

@@ -20,6 +20,11 @@ class RoomController extends Controller
         $this->v = [];
     }
 
+    public function cateroom() {
+        $this->v['title'] = '12 Zodiac - Loại phòng';
+        return view('templates.pages.room', $this->v);
+    }
+
     public function index(Request $request)
     {
         $rooms = DB::table('rooms')

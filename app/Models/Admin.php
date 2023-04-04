@@ -66,8 +66,4 @@ class Admin extends Authenticatable
             ->update($dataUpdate);
         return $res;
     }
-
-    public function new(){
-        return $this->belongsTo(News::class, 'new_id', 'id');
-    }
 }
