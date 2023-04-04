@@ -502,7 +502,8 @@
                                                                         <h4>
                                                                             <a class="nd_booking_outline_0 nd_booking_padding_10_0 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_font_size_14 nd_booking_display_inline_block nd_options_second_font nd_options_color_greydark"
                                                                                 href="#nd_booking_checkout_payment_2_tab">
-                                                                                CHUYỂN KHOẢN NGÂN HÀNG</a>
+                                                                                THANH TOÁN VNPAY</a>
+
                                                                         </h4>
                                                                     </li>
 
@@ -693,10 +694,11 @@
 
                                                                         <div
                                                                             class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                                                            <a class="nd_options_margin_right_20 nd_options__font "
-                                                                                href="#">Đặt phòng của bạn sẽ được
-                                                                                xác nhận khi chúng tôi nhận được chuyển
-                                                                                khoản ngân hàng.</a>
+
+                                                                            <form action="{{url('/vnpay_payment')}}" method="post">
+                                                                                @csrf
+                                                                                <input class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" id="" name="redirect" value="PAYMENT NOW">
+                                                                            </form>
                                                                         </div>
 
 
@@ -708,7 +710,7 @@
                                                                     </div>
 
                                                                     <form
-                                                                        action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-checkout/"
+                                                                        action="#"
                                                                         method="post">
                                                                         <input type="hidden"
                                                                             id="nd_booking_form_checkout_arrive"
@@ -852,7 +854,7 @@
                                                                     </div>
 
                                                                     <form
-                                                                        action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-checkout/"
+                                                                        action="#"
                                                                         method="post">
                                                                         <input type="hidden"
                                                                             id="nd_booking_form_checkout_arrive"

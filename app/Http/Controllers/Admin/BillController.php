@@ -436,6 +436,7 @@ class BillController extends Controller
         $this->v['title'] = 'Bills';
         $this->v['user'] = Users::find($booking->user_id);
         $this->v['count'] = count($this->v['bookingDetails']);
+
         return view('admin.bill.bill', $this->v);
     }
 
