@@ -65,6 +65,7 @@ class BookingController extends Controller
         }
         $listRoomwork = array_unique($arrRoomworks);
         $roomNotWorks = array();
+        $priceRoom = 0;
         foreach ($arrCateRoom as $index => $item){
             $roomNotWork = DB::table('rooms')
                 ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
