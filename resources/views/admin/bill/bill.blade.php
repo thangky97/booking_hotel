@@ -149,33 +149,7 @@
                             </tbody>
                         </table>
                         <!-- end checkbox -->
-                        <ul class="bg-none">
-                            <li>Tổng tiền : {{$total_money_room+$total_money_service}}.00$</li>
-
-                            @if(Session::get('voucher'))
-                                @foreach(Session::get('voucher') as $voucher)
-                                    <li>Mã giảm giá :  {{$voucher['code']}}    -
-                                        <a href="{{route('route_BackEnd_Voucher_unset')}}" style="font-size: 15px">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </li>
-                                    <li>Tiền giảm :{{$voucher['discount']}} $</li>
-                                    <li>Tổng tiền sau giảm : {{($total_money_room+$total_money_service) - $voucher['discount'] }}.00$</li>
-
-                                @endforeach
-                            @endif
-
-
-                            <li> <form action="{{route("route_BackEnd_Voucher_check")}}" method="post">
-                                    @csrf
-                                    <label for="">Nhập voucher :</label>
-                                    <input type="text" name="voucher" id="" class="">
-
-                                    <input type="hidden" name="bill_id" value="{{$bill_id}}">
-                                    <button type="submit">ok</button>
-                                </form></li>
-                        </ul>
-
+                        
                     </div>
                     <hr style="margin-left: 15px; margin-right: 15px">
                     <br>
