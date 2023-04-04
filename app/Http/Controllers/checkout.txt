@@ -1,0 +1,12 @@
+?vnp_Amount=85000000
+&vnp_BankCode=NCB
+&vnp_BankTranNo=VNP13982163
+&vnp_CardType=ATM
+&vnp_OrderInfo=Thanh+to%C3%A1n+booking
+&vnp_PayDate=20230403211839
+&vnp_ResponseCode=00
+&vnp_TmnCode=DYVH2BH3
+&vnp_TransactionNo=13982163
+&vnp_TransactionStatus=00
+&vnp_TxnRef=43
+&vnp_SecureHash=e3a90a3fbb3d79a6eb970210bae85e888d740c50cda031569d90d817f7ee1c5a718fb1e09a766ca7b08e126c1198705f69ec885d977cdc52c10548b8972e2686
