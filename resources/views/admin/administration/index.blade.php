@@ -48,12 +48,45 @@
                         <div></div>
 
                         <div>
-                            <a href="{{ route('route_BackEnd_Admin_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
+                            <a href="{{ route('route_BackEnd_Admin_Add') }}" class="btn btn-info mb-xxl-0 mb-4" style="margin-right: 30px"><i
                                     class="bi bi-person-fill"></i> Thêm mới</a>
-                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                            {{-- <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
+                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a> --}}
                         </div>
 
+                    </div>
+                    <div id="msg-box">
+                        <?php //Hiển thị thông báo thành công
+                        ?>
+                        @if (Session::has('success'))
+                            <div class="alert alert-success solid alert-dismissible fade show">
+                                <span><i class="mdi mdi-check"></i></span>
+                                <strong>{{ Session::get('success') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                </button>
+                            </div>
+                        @endif
+                        <?php //Hiển thị thông báo lỗi
+                        ?>
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                                <span><i class="mdi mdi-help"></i></span>
+                                <strong>{{ Session::get('errors') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                </button>
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                </button>
+                            </div>
+                        @endif
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane active show" id="All">

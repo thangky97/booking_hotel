@@ -45,10 +45,10 @@ class ProfileController extends Controller
         if ($res == null) {
             return redirect()->route($method_route, ['id' => $id]);
         } elseif ($res == 1) {
-            Session::flash('success', 'Cập nhât bản ghi' . $id . " " .  "Thành công");
+            Session::flash('success', 'Cập nhậtt thành công!');
             return redirect()->route($method_route, ['id' => $id]);
         } else {
-            Session::flash('error', 'Lỗi cập nhât bản ghi' . $id);
+            Session::flash('error', 'Cập nhật không thành công!');
             return redirect()->route($method_route, ['id' => $id]);
         }
     }

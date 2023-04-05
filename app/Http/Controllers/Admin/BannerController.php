@@ -63,10 +63,10 @@ class BannerController extends Controller
             if ($res == null) {
                 return redirect()->route($method_route);
             } elseif ($res > 0) {
-                Session::flash('success', 'Thêm mới thành công');
+                Session::flash('success', 'Thêm mới thành công!');
                 return redirect()->route('route_BackEnd_Banner_List');
             } else {
-                Session::flash('error', 'Lỗi thêm mới');
+                Session::flash('error', 'Thêm mới không thành công!');
                 return redirect()->route($method_route);
             }
         }
@@ -75,7 +75,7 @@ class BannerController extends Controller
 
     public function banner_detail($id)
     {
-        $this->v['title'] = ' Chi tiết Banner';
+        $this->v['title'] = ' Chi tiết banner';
         $banner = new Banner();
         $objItem = $banner->loadOne($id);
         $this->v['objItem'] = $objItem;
@@ -97,10 +97,10 @@ class BannerController extends Controller
         if ($res == null) {
             return redirect()->route($method_route, ['id' => $id]);
         } elseif ($res == 1) {
-            Session::flash('success', 'Cập nhật thông tin mã #' . $objItem->id . ' thành công !');
+            Session::flash('success', 'Cập nhật thành công!');
             return redirect()->route('route_BackEnd_Banner_List');
         } else {
-            Session::flash('error', 'Lỗi cập nhật thông tin mã #000' . $objItem->id);
+            Session::flash('error', 'Cập nhật không thành công!');
             return redirect()->route($method_route, ['id' => $id]);
         }
     }
