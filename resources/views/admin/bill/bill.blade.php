@@ -161,6 +161,8 @@
                                     @csrf
                                     <label for="">Nhập voucher :</label>
                                     <input type="text" name="voucher" id="" class="">
+
+                                    <input type="hidden" name="bill_id" value="{{$bill_id}}">
                                     <button type="submit">ok</button>
                                 </form></li>
                         </ul>

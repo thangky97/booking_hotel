@@ -386,9 +386,28 @@
                                                             </div>
 
                                                             <div class="nd_booking_section nd_booking_height_30"></div>
-
-                                                            <div>
-                                                                <table>
+                                                            <style>
+                                                                .custom-table-room{
+                                                                    border: 1px solid #f1f1f1;
+                                                                    text-align: center;
+                                                                    display: grid;
+                                                                }
+                                                                .custom-table-room-table{
+                                                                    width: 100%;
+                                                                }
+                                                                .custom-table-room-table > thead > tr >th{
+                                                                    border-bottom: 1px solid #f1f1f1;
+                                                                    border-right: 1px solid #f1f1f1;
+                                                                    text-align: center
+                                                                }
+                                                                .custom-table-room-table > tbody > tr > td{
+                                                                    border-bottom: 1px solid #f1f1f1;
+                                                                    border-right: 1px solid #f1f1f1;
+                                                                    text-align: center
+                                                                }
+                                                            </style>
+                                                            <div class="custom-table-room">
+                                                                <table class="custom-table-room-table">
                                                                     <thead>
                                                                     <tr>
                                                                         <th>STT</th>
@@ -424,7 +443,7 @@
                                                             <div class="nd_booking_section nd_booking_height_30  "></div>
 
                                                             <div
-                                                                class="nd_booking_width_100_percentage  nd_booking_float_left nd_booking_box_sizing_border_ààbox ">
+                                                                class="nd_booking_width_100_percentage  nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Mã
                                                                         giảm giá :</span></p>
@@ -434,7 +453,7 @@
                                                             <div class="nd_booking_section nd_booking_height_30"></div>
 
                                                             <div
-                                                                class="nd_booking_width_100_percentage nd_booking_float_left nd_booking_box_sizing_border_ààbox ">
+                                                                class="nd_booking_width_100_percentage nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Thuế
                                                                         :</span></p>
@@ -483,8 +502,27 @@
                                                                         <h4>
                                                                             <a class="nd_booking_outline_0 nd_booking_padding_10_0 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_font_size_14 nd_booking_display_inline_block nd_options_second_font nd_options_color_greydark"
                                                                                 href="#nd_booking_checkout_payment_2_tab">
-                                                                                CHUYỂN KHOẢN NGÂN HÀNG</a>
+                                                                                THANH TOÁN VNPAY</a>
+
                                                                         </h4>
+                                                                        <form
+                                                                                action="{{url('/vnpay_payment')}}"
+                                                                                method="post">
+                                                                            @csrf
+                                                                            <input type="hidden"
+                                                                                   id=""
+                                                                                   name="price"
+                                                                                   value="{{$price}}">
+                                                                            <input type="hidden"
+                                                                                   id=""
+                                                                                   name="booking_id"
+                                                                                   value="{{$booking->id}}">
+
+                                                                            <input
+                                                                                    class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important"
+                                                                                    type="submit" id="" name="redirect"
+                                                                                    value="SEND REQUEST">
+                                                                        </form>
                                                                     </li>
 
                                                                     <li id="nd_booking_poa_payment"
@@ -493,17 +531,18 @@
                                                                             <a class="nd_booking_outline_0 nd_booking_padding_10_0 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_font_size_14 nd_booking_display_inline_block nd_options_second_font nd_options_color_greydark"
                                                                                 href="#nd_booking_checkout_payment_3_tab">
                                                                                 THANH TOÁN KHI ĐẾN</a>
+                                                                            <div
+                                                                                    class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
+                                                                                <a class="nd_options_margin_right_20 nd_options__font "
+                                                                                   href="#">LƯU ý: Yêu cầu này không
+                                                                                    phải là đặt phòng mà là một yêu cầu đơn
+                                                                                    giản, chúng tôi sẽ liên hệ với bạn.</a>
+                                                                            </div>
                                                                         </h4>
+
                                                                     </li>
 
-                                                                    <li id="nd_booking_br_payment"
-                                                                        class="nd_booking_display_inline_block nd_booking_margin_right_20">
-                                                                        <h4>
-                                                                            <a class="nd_booking_outline_0 nd_booking_padding_10_0 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_font_size_14 nd_booking_display_inline_block nd_options_second_font nd_options_color_greydark"
-                                                                                href="#nd_booking_checkout_payment_1_tab">YÊU
-                                                                                CẦU ĐẶT PHÒNG</a>
-                                                                        </h4>
-                                                                    </li>
+
 
                                                                 </ul>
 
@@ -518,24 +557,11 @@
                                                                         class=" nd_booking_checkout_msg nd_options_display_table nd_options_float_left">
 
 
-                                                                        <div
-                                                                            class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                                                            <a href="#"><img alt=""
-                                                                                    width="20px"
-                                                                                    class="nd_options_margin_right_10 nd_options_float_left"
-                                                                                    src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/05/icon-request-grey.png"></a>
-                                                                        </div>
 
 
 
 
-                                                                        <div
-                                                                            class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                                                            <a class="nd_options_margin_right_20 nd_options__font "
-                                                                                href="#">LƯU ý: Yêu cầu này không
-                                                                                phải là đặt phòng mà là một yêu cầu đơn
-                                                                                giản, chúng tôi sẽ liên hệ với bạn.</a>
-                                                                        </div>
+
 
 
                                                                     </div>
@@ -545,106 +571,7 @@
                                                                     <div class="nd_booking_section nd_booking_height_20">
                                                                     </div>
 
-                                                                    <form
-                                                                        action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-checkout/"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_form_checkout_arrive"
-                                                                            name="nd_booking_form_checkout_arrive"
-                                                                            value="1">
 
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_date_from"
-                                                                            name="nd_booking_checkout_form_date_from"
-                                                                            value="02/16/2023">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_date_top"
-                                                                            name="nd_booking_checkout_form_date_top"
-                                                                            value="02/17/2023">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_guests"
-                                                                            name="nd_booking_checkout_form_guests"
-                                                                            value="1">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_final_price"
-                                                                            name="nd_booking_checkout_form_final_price"
-                                                                            value="79">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_post_id"
-                                                                            name="nd_booking_checkout_form_post_id"
-                                                                            value="5649-5649">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_post_title"
-                                                                            name="nd_booking_checkout_form_post_title"
-                                                                            value="Small Room">
-
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_name"
-                                                                            name="nd_booking_checkout_form_name"
-                                                                            value="linh nguyen van">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_surname"
-                                                                            name="nd_booking_checkout_form_surname"
-                                                                            value="nguyen van">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_email"
-                                                                            name="nd_booking_checkout_form_email"
-                                                                            value="kjfskjd@gmail.com">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_phone"
-                                                                            name="nd_booking_checkout_form_phone"
-                                                                            value="0978646464">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_address"
-                                                                            name="nd_booking_checkout_form_address"
-                                                                            value="142 xuan phuong - nam tu liem - ha noi">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_city"
-                                                                            name="nd_booking_checkout_form_city"
-                                                                            value="ha noi">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_country"
-                                                                            name="nd_booking_checkout_form_country"
-                                                                            value="Vietnam">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_zip"
-                                                                            name="nd_booking_checkout_form_zip"
-                                                                            value="100000">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_requets"
-                                                                            name="nd_booking_checkout_form_requets"
-                                                                            value="">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_arrival"
-                                                                            name="nd_booking_checkout_form_arrival"
-                                                                            value="I do not know">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_coupon"
-                                                                            name="nd_booking_checkout_form_coupon"
-                                                                            value="">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_term"
-                                                                            name="nd_booking_checkout_form_term"
-                                                                            value="1">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_services"
-                                                                            name="nd_booking_booking_form_services"
-                                                                            value="6220,7276,">
-
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_action_type"
-                                                                            name="nd_booking_booking_form_action_type"
-                                                                            value="booking_request">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_payment_status"
-                                                                            name="nd_booking_booking_form_payment_status"
-                                                                            value="Pending">
-
-                                                                        <input
-                                                                            class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important"
-                                                                            type="submit" id="" name=""
-                                                                            value="SEND REQUEST">
-                                                                    </form>
 
 
                                                                 </div>
@@ -652,289 +579,12 @@
 
 
 
-                                                                <div class="nd_booking_section"
-                                                                    id="nd_booking_checkout_payment_2_tab">
-
-
-
-                                                                    <div
-                                                                        class=" nd_booking_checkout_msg nd_options_display_table nd_options_float_left">
-
-
-                                                                        <div
-                                                                            class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                                                            <a href="#"><img alt=""
-                                                                                    width="20px"
-                                                                                    class="nd_options_margin_right_10 nd_options_float_left"
-                                                                                    src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/05/icon-checked-grey.png"></a>
-                                                                        </div>
 
 
 
 
-                                                                        <div
-                                                                            class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                                                            <a class="nd_options_margin_right_20 nd_options__font "
-                                                                                href="#">Đặt phòng của bạn sẽ được
-                                                                                xác nhận khi chúng tôi nhận được chuyển
-                                                                                khoản ngân hàng.</a>
-                                                                        </div>
 
 
-                                                                    </div>
-
-
-
-                                                                    <div class="nd_booking_section nd_booking_height_20">
-                                                                    </div>
-
-                                                                    <form
-                                                                        action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-checkout/"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_form_checkout_arrive"
-                                                                            name="nd_booking_form_checkout_arrive"
-                                                                            value="1">
-
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_date_from"
-                                                                            name="nd_booking_checkout_form_date_from"
-                                                                            value="02/16/2023">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_date_top"
-                                                                            name="nd_booking_checkout_form_date_top"
-                                                                            value="02/17/2023">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_guests"
-                                                                            name="nd_booking_checkout_form_guests"
-                                                                            value="1">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_final_price"
-                                                                            name="nd_booking_checkout_form_final_price"
-                                                                            value="79">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_post_id"
-                                                                            name="nd_booking_checkout_form_post_id"
-                                                                            value="5649-5649">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_post_title"
-                                                                            name="nd_booking_checkout_form_post_title"
-                                                                            value="Small Room">
-
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_name"
-                                                                            name="nd_booking_checkout_form_name"
-                                                                            value="linh nguyen van">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_surname"
-                                                                            name="nd_booking_checkout_form_surname"
-                                                                            value="nguyen van">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_email"
-                                                                            name="nd_booking_checkout_form_email"
-                                                                            value="kjfskjd@gmail.com">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_phone"
-                                                                            name="nd_booking_checkout_form_phone"
-                                                                            value="0978646464">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_address"
-                                                                            name="nd_booking_checkout_form_address"
-                                                                            value="142 xuan phuong - nam tu liem - ha noi">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_city"
-                                                                            name="nd_booking_checkout_form_city"
-                                                                            value="ha noi">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_country"
-                                                                            name="nd_booking_checkout_form_country"
-                                                                            value="Vietnam">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_zip"
-                                                                            name="nd_booking_checkout_form_zip"
-                                                                            value="100000">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_requets"
-                                                                            name="nd_booking_checkout_form_requets"
-                                                                            value="">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_arrival"
-                                                                            name="nd_booking_checkout_form_arrival"
-                                                                            value="I do not know">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_coupon"
-                                                                            name="nd_booking_checkout_form_coupon"
-                                                                            value="">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_term"
-                                                                            name="nd_booking_checkout_form_term"
-                                                                            value="1">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_services"
-                                                                            name="nd_booking_booking_form_services"
-                                                                            value="6220,7276,">
-
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_action_type"
-                                                                            name="nd_booking_booking_form_action_type"
-                                                                            value="bank_transfer">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_payment_status"
-                                                                            name="nd_booking_booking_form_payment_status"
-                                                                            value="Pending Payment">
-
-                                                                        <input
-                                                                            class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important"
-                                                                            type="submit" id="" name=""
-                                                                            value="BOOK NOW">
-                                                                    </form>
-
-
-                                                                </div>
-
-
-
-
-                                                                <div class="nd_booking_section"
-                                                                    id="nd_booking_checkout_payment_3_tab">
-
-
-
-                                                                    <div
-                                                                        class=" nd_booking_checkout_msg nd_options_display_table nd_options_float_left">
-
-
-                                                                        <div
-                                                                            class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                                                            <a href="#"><img alt=""
-                                                                                    width="20px"
-                                                                                    class="nd_options_margin_right_10 nd_options_float_left"
-                                                                                    src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/05/icon-wallet-grey.png"></a>
-                                                                        </div>
-
-
-
-
-                                                                        <div
-                                                                            class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
-                                                                            <a class="nd_options_margin_right_20 nd_options__font "
-                                                                                href="#">LƯU Ý: Bạn có thể thanh
-                                                                                toán trực tiếp trong cấu trúc của chúng tôi
-                                                                                bằng bất kỳ loại thẻ tín dụng hoặc tiền mặt
-                                                                                nào.</a>
-                                                                        </div>
-
-
-                                                                    </div>
-
-
-
-                                                                    <div class="nd_booking_section nd_booking_height_20">
-                                                                    </div>
-
-                                                                    <form
-                                                                        action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/booking-checkout/"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_form_checkout_arrive"
-                                                                            name="nd_booking_form_checkout_arrive"
-                                                                            value="1">
-
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_date_from"
-                                                                            name="nd_booking_checkout_form_date_from"
-                                                                            value="02/16/2023">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_date_top"
-                                                                            name="nd_booking_checkout_form_date_top"
-                                                                            value="02/17/2023">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_guests"
-                                                                            name="nd_booking_checkout_form_guests"
-                                                                            value="1">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_final_price"
-                                                                            name="nd_booking_checkout_form_final_price"
-                                                                            value="79">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_post_id"
-                                                                            name="nd_booking_checkout_form_post_id"
-                                                                            value="5649-5649">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_post_title"
-                                                                            name="nd_booking_checkout_form_post_title"
-                                                                            value="Small Room">
-
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_name"
-                                                                            name="nd_booking_checkout_form_name"
-                                                                            value="linh nguyen van">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_surname"
-                                                                            name="nd_booking_checkout_form_surname"
-                                                                            value="nguyen van">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_email"
-                                                                            name="nd_booking_checkout_form_email"
-                                                                            value="kjfskjd@gmail.com">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_phone"
-                                                                            name="nd_booking_checkout_form_phone"
-                                                                            value="0978646464">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_address"
-                                                                            name="nd_booking_checkout_form_address"
-                                                                            value="142 xuan phuong - nam tu liem - ha noi">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_city"
-                                                                            name="nd_booking_checkout_form_city"
-                                                                            value="ha noi">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_country"
-                                                                            name="nd_booking_checkout_form_country"
-                                                                            value="Vietnam">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_zip"
-                                                                            name="nd_booking_checkout_form_zip"
-                                                                            value="100000">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_requets"
-                                                                            name="nd_booking_checkout_form_requets"
-                                                                            value="">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_arrival"
-                                                                            name="nd_booking_checkout_form_arrival"
-                                                                            value="I do not know">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_coupon"
-                                                                            name="nd_booking_checkout_form_coupon"
-                                                                            value="">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_checkout_form_term"
-                                                                            name="nd_booking_checkout_form_term"
-                                                                            value="1">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_services"
-                                                                            name="nd_booking_booking_form_services"
-                                                                            value="6220,7276,">
-
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_action_type"
-                                                                            name="nd_booking_booking_form_action_type"
-                                                                            value="payment_on_arrive">
-                                                                        <input type="hidden"
-                                                                            id="nd_booking_booking_form_payment_status"
-                                                                            name="nd_booking_booking_form_payment_status"
-                                                                            value="Pending Payment">
-
-                                                                        <input
-                                                                            class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important"
-                                                                            type="submit" id="" name=""
-                                                                            value="BOOK NOW">
-                                                                    </form>
-
-
-                                                                </div>
 
 
 

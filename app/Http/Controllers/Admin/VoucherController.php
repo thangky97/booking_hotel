@@ -70,6 +70,7 @@ class VoucherController extends Controller
     public  function check_voucher(Request $request){
         $now = Carbon::now('Asia/Ho_Chi_Minh')->format('Y-m-d');
         $data = $request->all();
+
         $voucher = Voucher::where('code', $data['voucher'])
             ->where('date_end','>=', $now)
             ->where('status',1)
