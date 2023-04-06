@@ -32,7 +32,7 @@ class paymentController extends Controller
 
         }
         if ($_GET['vnp_TransactionStatus'] === '00' && $_GET['vnp_ResponseCode'] === '00') {
-            Booking::where('id',$_GET['vnp_TxnRef'])->update(['status_pay'=>'1']);
+            Booking::where('id',$_GET['vnp_TxnRef'])->update(['status_pay'=>'1','status_booking'=>'1']);
         }
         return view('thanks');
     }
