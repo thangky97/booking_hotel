@@ -74,7 +74,7 @@ class Rooms extends Model
     public function loadAllOrder($param = []){
         //biến thời gian hiện tại
         $query = DB::table($this->table)
-            ->select('bookings.checkin_date','bookings.checkout_date','rooms.id','rooms.name','rooms.cate_room','rooms.images','rooms.floor','rooms.description','rooms.adult','rooms.childrend','rooms.bed','rooms.status') //truy vấn DB
+            ->select('bookings.checkin_date','bookings.checkout_date','rooms.id','rooms.name','rooms.cate_room','rooms.images','rooms.floor','rooms.adult','rooms.childrend','rooms.bed','rooms.status') //truy vấn DB
             ->leftjoin('bookings_detail','bookings_detail.id','=','rooms.id')
             ->leftjoin('bookings','bookings.id','=','bookings_detail.booking_id');
         //Điều kiện trạng thái phòng đang trống

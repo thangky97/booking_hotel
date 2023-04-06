@@ -96,7 +96,8 @@
                                                 <input name="status_pay" value="1" hidden>
                                                 <button type="submit" class="btn btn-danger w180">Chưa thanh toán</button>
                                                 @else
-                                                <div class="btn btn-success w180">Đã thanh toán</div>
+                                                <input name="status_pay" value="0" hidden>
+                                                <button type="submit" class="btn btn-success w180">Đã thanh toán</button>
                                                 @endif
                                             </form>
                                         </td>

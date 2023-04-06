@@ -32,10 +32,10 @@
                             </form>
                         </div>
 
-                    </div>
-                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+                </div>
+                <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
 
-                        <div>
+                    <div>
 
                         </div>
                         <div>
@@ -126,22 +126,20 @@
                                                 <td class="text-center">
                                                     <div>
 
-                                                        <span class="fs-16">{{ $user->phone }}</span>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <img class="" width="90"
-                                                        src="{{ asset($user->cccd) ? '' . Storage::url($user->cccd) : $user->name }}"
-                                                        alt="">
-                                                </td>
-                                                <td class="text-center">
-                                                    <div>
+                                                <span class="fs-16">{{ $user->phone }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img class="" width="90" src="{{ asset($user->cccd) ? '' . Storage::url($user->cccd) : $user->name }}" alt="">
+                                        </td>
+                                        <td class="text-center">
+                                            <div>
 
-                                                        <span class="fs-16">{{ $user->email }}</span>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <div>
+                                                <span class="fs-16">{{ $user->email }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div>
 
                                                         <span class="fs-16">
                                                             @if ($user && $user->gender === 1)

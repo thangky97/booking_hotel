@@ -24,17 +24,19 @@ Route::get('/room/detail/{id}', 'Client\RoomController@roomdetail')->name('route
 Route::get('/123mail', function () {
     return view('email/booking');
 });
+Route::get('/rooms/detail/{id}', 'Client\RoomController@detail')->name('route_FrontEnd_Room_Detail');
 
-Route::get('/123mail', function () {
-    return view('email/booking');
-});
 
 Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
 Route::get('/news/detail/{id}', 'Client\NewController@detail')->name('route_FrontEnd_New_Detail');
 
+Route::get('/feedback', 'Client\FeedbackController@feedback')->name('route_FontEnd_Feedback');
+
 Route::get('/contact', function () {
     return view('templates/pages/contact');
 });
+
+Route::get('/profile/{id}', 'Client\UserController@index')->name('route_FrontEnd_User_Profile');
 
 Route::get('/about', function () {
     return view('templates/pages/about');
@@ -149,6 +151,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/updatepay/{id}', 'Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
 
         Route::post('/updateservice/{id}', 'Admin\BookingController@updateservice')->name('route_BackEnd_Bookings_Updateservice');
+        Route::get('/history/{id}', 'App\Http\Controllers\Admin\BookingController@history')->name('route_BackEnd_Bookings_History');
     });
 
     Route::prefix('/booking_detail')->group(function () {
@@ -166,12 +169,13 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/bills')->group(function () {
-        Route::get('/{id}', 'Admin\BillController@bill')->name('route_BackEnd_Bill');
+        
 
         Route::get('/', 'Admin\BillController@index')->name('route_BackEnd_Bill_List');
         Route::get('/rooms/{id}', 'Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
         Route::get('/services/{id}', 'Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
-        Route::get('/{id}', 'Admin\BillController@bills')->name('route_BackEnd_Bill');
+
+        Route::match(['get', 'post'], '/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
 
         //print_order
         Route::get('/print_order/{id}', 'Admin\BillController@print_order')->name('printOrder');

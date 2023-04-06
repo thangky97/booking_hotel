@@ -423,7 +423,7 @@
                                                                         <tr>
                                                                             <td>{{$i++}}</td>
                                                                             <td>{{$item->name}}</td>
-                                                                            <td>{{$item->images}}</td>
+                                                                            <td><img class="me-3" src="{{asset("storage/".$item->images)}}"  alt="" style="border-radius:10px;" width="100px" height="100px"></td>
                                                                             <td>{{$item->adult}}</td>
                                                                             <td>
                                                                                 <?php $services=explode(",", $item->service_id)?>
