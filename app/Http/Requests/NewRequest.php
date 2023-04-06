@@ -25,10 +25,10 @@ class NewRequest extends FormRequest
             'name' => 'required|min:3|max:70',
             'title' => 'required|min:3|max:70',
             'cate_id' => 'required',
+            'admin_id' => 'required',
             'status' => 'required',
             'images' =>
             [
-                // 'required',
                 'image',
                 'mimes:jpeg,png,jpg',
                 'mimetypes:image/jpeg,image/png',
@@ -48,8 +48,8 @@ class NewRequest extends FormRequest
             'title.min' => 'Tên tối thiểu 3 ký tự!',
             'title.max' => 'Tên tối đa là 70 ký tự!',
             'cate_id.required' => 'Bạn chưa chọn danh mục bài viết!',
+            'admin_id.required' => 'Bạn chưa chọn người đăng!',
             'status.required' => 'Bạn chưa chọn trạng thái!',
-            // 'images.required' => 'Ảnh không được để trống',
             'images.image' => 'Bắt buộc phải là ảnh!',
             'images.max' => 'Ảnh không được lớn hơn 2MB!',
         ];

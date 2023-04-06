@@ -23,7 +23,7 @@ class News extends Model
         return $this->belongsTo(Category_new::class, 'cate_id');
     }
 
-    public function admin(){
+    public function admin_name(){
         return$this->belongsTo(Admin::class, 'admin_id');
     }
 }

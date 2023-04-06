@@ -20,7 +20,8 @@ class NewsController extends Controller
     }
     public function index()
     {
-        $this->v['news'] = News::with('cate_new')->with('admin')->orderBy('status', 'asc')->paginate(10);
+        $this->v['news'] = News::with('cate_new')->with('admin_name')->orderBy('status', 'asc')->paginate(10);
+        // dd($this->v['news']);
         $this->v['title'] = 'Danh sách tin tức';
         return view('admin.news.index', $this->v);
     }
@@ -85,5 +86,4 @@ class NewsController extends Controller
         return redirect()->route('route_BackEnd_News_List')
             ->with('success', 'Sửa thành công');
     }
-    
 }
