@@ -112,10 +112,10 @@ class AdminController extends Controller
             if ($res == null) {
                 return  redirect()->route($method_route);
             } elseif ($res > 0) {
-                Session::flash('success', 'Thêm mới thành công Admin');
+                Session::flash('success', 'Thêm mới thành công!');
                 return redirect()->route('route_BackEnd_Admin_List');
             } else {
-                Session::flash('error', 'Lỗi thêm mới user ');
+                Session::flash('error', 'Thêm mới không thành công!');
                 return redirect()->route($method_route);
             }
         }
@@ -151,10 +151,10 @@ class AdminController extends Controller
         if ($res == null) {
             return redirect()->route($method_route, ['id' => $id]);
         } elseif ($res == 1) {
-            //Session::flash('success','Cập nhât bản ghi' . $id . " ".  "Thành công");
-            return redirect()->route('route_BackEnd_Admin_List')->with('sucess', 'Cập nhật admin thành công');
+            Session::flash('success','Cập nhật thành công!');
+            return redirect()->route('route_BackEnd_Admin_List');
         } else {
-            Session::flash('error', 'Lỗi cập nhât bản ghi' . $id);
+            Session::flash('error', 'Cập nhật không thành công!');
             return redirect()->route($method_route, ['id' => $id]);
         }
     }

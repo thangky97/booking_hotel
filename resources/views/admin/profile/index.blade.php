@@ -79,6 +79,28 @@
                                                 class="nav-link active show">Tài khoản của bạn</a>
                                         </li>
                                     </ul>
+                                    <div id="msg-box" class="mt-3">
+                                        <?php //Hiển thị thông báo thành công
+                                        ?>
+                                        @if (Session::has('success'))
+                                            <div class="alert alert-success solid alert-dismissible fade show">
+                                                <span><i class="mdi mdi-check"></i></span>
+                                                <strong>{{ Session::get('success') }}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                                </button>
+                                            </div>
+                                        @endif
+                                        <?php //Hiển thị thông báo lỗi
+                                        ?>
+                                        @if (Session::has('error'))
+                                            <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                                                <span><i class="mdi mdi-help"></i></span>
+                                                <strong>{{ Session::get('errors') }}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                                </button>
+                                            </div>
+                                        @endif
+                                    </div>
                                     <div class="tab-content">
                                         <div id="profile-settings" class="tab-pane fade active show">
                                             <div class="pt-5">

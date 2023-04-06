@@ -10,6 +10,30 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+                            <div id="msg-box">
+                                <?php //Hiển thị thông báo thành công
+                                ?>
+                                @if (Session::has('success'))
+                                    <div class="alert alert-success solid alert-dismissible fade show">
+                                        <span><i class="mdi mdi-check"></i></span>
+                                        <strong>{{ Session::get('success') }}</strong>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="btn-close">
+                                        </button>
+                                    </div>
+                                @endif
+                                <?php //Hiển thị thông báo lỗi
+                                ?>
+                                @if (Session::has('error'))
+                                    <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                                        <span><i class="mdi mdi-help"></i></span>
+                                        <strong>{{ Session::get('errors') }}</strong>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="btn-close">
+                                        </button>
+                                    </div>
+                                @endif
+                            </div>
                             <div class="email-left-box px-0 mb-3">
                                 <div class="p-0">
                                     <a href="" class="btn btn-primary btn-block">Thêm Mới Banner</a>
@@ -33,9 +57,7 @@
                                                     </div>
                                                 @enderror
                                             </div>
-
                                         </div>
-
                                         <div class="form-group mt-4">
                                             <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span
                                                     class="text-danger"> *</span></label>
@@ -68,10 +90,7 @@
                                             </div>
                                         </div>
                                     </form>
-
-
                                 </div>
-
                             </div>
                         </div>
                     </div>

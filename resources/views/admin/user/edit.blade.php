@@ -11,6 +11,28 @@
                         <div class="card-header">
                             <h4 class="card-title">Sửa</h4>
                         </div>
+                        <div id="msg-box">
+                            <?php //Hiển thị thông báo thành công
+                            ?>
+                            @if (Session::has('success'))
+                                <div class="alert alert-success solid alert-dismissible fade show">
+                                    <span><i class="mdi mdi-check"></i></span>
+                                    <strong>{{ Session::get('success') }}</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                    </button>
+                                </div>
+                            @endif
+                            <?php //Hiển thị thông báo lỗi
+                            ?>
+                            @if (Session::has('error'))
+                                <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                                    <span><i class="mdi mdi-help"></i></span>
+                                    <strong>{{ Session::get('errors') }}</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                    </button>
+                                </div>
+                            @endif
+                        </div>
                         <div class="card-body">
                             <div class="form-validation">
                                 <form class="needs-validation" novalidate
@@ -69,7 +91,8 @@
                                                 <div class="col-lg-6">
                                                     <select name="gender" class="default-select wide form-control"
                                                         id="validationCustom05">
-                                                        <option data-display="Chọn giới tính" value="">Giới tính</option>
+                                                        <option data-display="Chọn giới tính" value="">Giới tính
+                                                        </option>
                                                         <option value="1"
                                                             {{ isset($users) && $users->gender === 1 ? 'selected' : '' }}>
                                                             Nam</option>
@@ -106,8 +129,8 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" name="phone" class="form-control"
-                                                        id="validationCustom08" placeholder="Nhập số điện thoại..." required
-                                                        value="{{ $users->phone }}">
+                                                        id="validationCustom08" placeholder="Nhập số điện thoại..."
+                                                        required value="{{ $users->phone }}">
                                                     @error('phone')
                                                         <div>
                                                             <p class="text-danger">{{ $message }}</p>

@@ -33,22 +33,20 @@
                             <?php //Hiển thị thông báo thành công
                             ?>
                             @if (Session::has('success'))
-                                <div class="alert alert-success alert-dismissible" role="alert">
+                                <div class="alert alert-success solid alert-dismissible fade show">
+                                    <span><i class="mdi mdi-check"></i></span>
                                     <strong>{{ Session::get('success') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                        <span class="sr-only">Close</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
                             @endif
                             <?php //Hiển thị thông báo lỗi
                             ?>
                             @if (Session::has('error'))
-                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                                    <span><i class="mdi mdi-help"></i></span>
                                     <strong>{{ Session::get('errors') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                        <span class="sr-only">Close</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
                             @endif
@@ -59,9 +57,7 @@
                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        <span class="sr-only">Close</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
                             @endif

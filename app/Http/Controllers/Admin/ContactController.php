@@ -64,15 +64,6 @@ class ContactController extends Controller
 
             $createEdit->save();
             return redirect()->route('route_BackEnd_Contact_List')
-            ->with('success', 'Sửa thành công');
+            ->with('success', 'Cập nhật thành công!');
         }
-        // public function destroy($id)
-        // {
-        //     $delete = Contact::destroy($id);
-        //     if(!$delete){
-        //         return redirect()->back();
-        //     }
-        //     return redirect()->route('route_BackEnd_Contact_List')
-        //     ->with('success', 'Xóa thành công');
-        // }
 }

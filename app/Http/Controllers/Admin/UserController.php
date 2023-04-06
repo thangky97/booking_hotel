@@ -85,10 +85,10 @@ class UserController extends Controller
             if ($res == null) {
                 return  redirect()->route($method_route);
             } elseif ($res > 0) {
-                Session::flash('success','Thêm mới thành công người dùng');
+                Session::flash('success','Thêm mới thành công!');
                 return redirect()->route('route_BackEnd_Users_List');
             } else {
-                Session::flash('error','Lỗi thêm mới người dùng');
+                Session::flash('error','Thêm mới không thành công!');
                 return redirect()->route($method_route);
             }
         }
@@ -123,10 +123,10 @@ class UserController extends Controller
         if ($res == null) {
             return redirect()->route($method_route,['id'=>$id]);
         } elseif ($res == 1) {
-            Session::flash('success','Cập nhât bản ghi' . $id . " ".  "Thành công");
+            Session::flash('success', 'Cập nhật thành công!');
             return redirect()->route('route_BackEnd_Users_List');
         } else {
-            Session::flash('error','Lỗi cập nhât bản ghi'.$id);
+            Session::flash('error', 'Cập nhật không thành công!');
             return redirect()->route($method_route,['id'=>$id]);
         }
     }
