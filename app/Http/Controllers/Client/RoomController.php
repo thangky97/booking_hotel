@@ -136,10 +136,10 @@ class RoomController extends Controller
         return view('templates.pages.room_detail', $this->v);
     }
 
-    public function add()
+    public function detail()
     {
         //thêm
-        return view('admin.room.add');
+        return view('templates.pages.room_detail');
     }
 
     public function store()

@@ -718,19 +718,51 @@
                                             border-right: 1px solid #f1f1f1;
                                         }
                                     </style>
+                                    <style>
+                                                                #customers {
+                                                                    font-family: Arial, Helvetica, sans-serif;
+                                                                    border-collapse: collapse;
+                                                                    width: 100%;
+                                                                }
+
+                                                                #customers td,
+                                                                #customers th {
+                                                                    border: 1px solid #ddd;
+                                                                    padding: 8px;
+                                                                    text-align: center;
+                                                                }
+
+                                                                #customers tr:nth-child(even) {
+                                                                    background-color: #f2f2f2;
+                                                                }
+
+                                                                #customers tr:hover {
+                                                                    background-color: #ddd;
+                                                                }
+
+                                                                #customers th {
+                                                                    padding-top: 12px;
+                                                                    padding-bottom: 12px;
+                                                                    text-align: left;
+                                                                    background-color:#DDDDDD;
+                                                                    color: white;
+                                                                    text-align: center;
+                                                                }
+                                                            </style>
                                     <div id="nd_booking_search_cpt_1_content"
                                         class="nd_booking_float_left nd_booking_width_66_percentage nd_booking_box_sizing_border_box nd_booking_width_100_percentage_responsive">
+                                       
                                         <div class="custom-table-room">
-                                            <table class="custom-table-room-table">
+                                            <table id="customers">
                                                 <thead>
                                                     <tr>
-                                                        <th>STT</th>
-                                                        <th>Tên phòng</th>
+                                                        
+                                                        <th>Loại phòng</th>
                                                         <th>Hình ảnh</th>
                                                         <th>Số người</th>
                                                         <th>Giá</th>
                                                         <th>Số lượng</th>
-                                                        <th>Hành động</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -755,6 +787,7 @@
                                                 <button type="submit" style="margin-right: 25px">Đặt phòng</button>
                                             </form>
                                         </div>
+                                        
 
                                         <div id="nd_booking_archive_search_masonry_container"
                                             class="nd_booking_section nd_booking_position_relative">
@@ -769,7 +802,7 @@
                                                 <div class="nd_booking_section nd_booking_masonry_content">
                                                     <?php $i = 1; ?>
                                                     @foreach ($listRooms as $room)
-                                                        {{--                                                                            @if (in_array($room->id, $arrCateRooms)) --}}
+                                                        
                                                         @foreach ($cateRooms as $index => $item)
                                                             @if ($room->id == $index)
                                                                 <div id="nd_booking_archive_cpt_1_single_5649"
@@ -792,7 +825,7 @@
 
                                                                                 <img alt=""
                                                                                     class="nd_booking_section"
-                                                                                    src="{{ asset('storage/' . $room->image) }}">
+                                                                                    src="{{ asset('image/' . $room->image) }}" >
 
                                                                                 <div
                                                                                     class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
@@ -801,7 +834,7 @@
                                                                                         <p
                                                                                             class="nd_options_color_white nd_booking_margin_right_10 nd_booking_float_left nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">
                                                                                             Hotel
-                                                                                            Rome</p><img alt=""
+                                                                                            12 Zodiac</p><img alt=""
                                                                                             class="nd_booking_margin_right_5 nd_booking_float_left"
                                                                                             width="10"
                                                                                             src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-star-full-white.svg"><img
@@ -898,12 +931,11 @@
                                                                                                         document.getElementById('showerror_{{ $room->id }}').innerHTML = '{{ $room->name }}' +
                                                                                                             ' đã hết xin vui lòng chọn phòng khác!';
                                                                                                     }
-                                                                                                    document.getElementById('showListRoom_{{ $room->id }}').innerHTML = '<td>' +
-                                                                                                        '{{ $i++ }}' + '</td>' + '<td>' + '{{ $room->name }}' + '</td>' + '<td>' +
-                                                                                                        '{{ $room->image }}' + '</td>' + '<td>' + '{{ $room->adult }}' + '</td>' + '<td>' +
-                                                                                                        '{{ $room->price . ' đ' }}' + '</td>' + '<td id="show_count_room_{{ $room->id }}">' +
+                                                                                                    document.getElementById('showListRoom_{{ $room->id }}').innerHTML ='<td>' + '{{ $room->name }}' + '</td>' + '<td>' +
+                                                                                                        '<img class="me-3" src="{{asset("image/".$room->image)}}"  alt="" style="border-radius:10px;" width="100px" height="100px">' + '</td>' + '<td>' + '{{ $room->adult }}' + '</td>' + '<td>' +
+                                                                                                        '{{ number_format($room->price)}}'+'đ/night' + '</td>' + '<td id="show_count_room_{{ $room->id }}">' +
                                                                                                         localStorage.getItem('countRoom_{{ $room->id }}') + '</td>' + '<td>' +
-                                                                                                        '<button tyle="submit" onclick="delete{{ $room->id }}Room()">' + 'Xóa' + '</button>' +
+                                                                                                        '<a href="javascript:void(0);" style="background-color:red;padding:5px 10px 5px 10px;border-radius:8px;color:white;" onclick="delete{{ $room->id }}Room()">' + 'Xóa' + '</a>' +
                                                                                                         '</td>';
                                                                                                     saveRoom();
                                                                                                 }

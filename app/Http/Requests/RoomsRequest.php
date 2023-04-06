@@ -35,7 +35,7 @@ class RoomsRequest extends FormRequest
                             // "cate_room" => "required",
                             // "images" => "required",
                             // "floor" => "required",
-                            "description" => "required",
+                           
                             "adult" => "required|max:2000",
                             "childrend" => "required",
                             "bed" => "required",
@@ -47,7 +47,7 @@ class RoomsRequest extends FormRequest
                             // "cate_room" => "required",
                             // "images" => "required",
                             // "floor" => "required",
-                            "description" => "required",
+                            
                             "adult" => "required|max:2000",
                             "childrend" => "required",
                             "bed" => "required",
@@ -67,7 +67,7 @@ class RoomsRequest extends FormRequest
         return [
             'name.required' => 'Bạn phải nhập tên phòng',
             // 'floor.required' => 'Bạn phải nhập vị trí tầng',
-            'description.required' => 'Bạn phải nhập thông tin mô tả',
+            
             'adult.required' => 'Bạn phải nhập số lượng người lớn',
             'childrend.max' => 'Bạn phải nhập số lượng trẻ em',
             'bed.required' => 'Bạn phải nhập số lượng giường',

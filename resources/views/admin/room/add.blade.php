@@ -113,10 +113,7 @@
                                                 <option class="text-warning" value="3">Đang bảo trì</option>
                                             </select>
                                         </div>
-                                        <div class="mb-3">
-                                            <div>Mô Tả<span class="text-danger">(*)</span></div>
-                                            <textarea class="form-control" rows="5" id="description" name="description" placeholder=" Mô tả" value="@isset($request['description']){{ $request['description'] }}@endisset"></textarea>
-                                        </div>
+                                        
                                         <div>
                                             <h5 class=" mb-4"><i class="fa fa-paperclip"></i> Đính kèm File</h5>
                                             <form action="#" class="dropzone">

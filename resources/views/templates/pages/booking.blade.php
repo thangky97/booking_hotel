@@ -444,16 +444,39 @@
                                                                         list-style-type: none;
                                                                     }
                                                                 </style>
+                                                                <style>
+                                                                    #customers {
+                                                                    font-family: Arial, Helvetica, sans-serif;
+                                                                    border-collapse: collapse;
+                                                                    width: 100%;
+                                                                    }
+
+                                                                    #customers td, #customers th {
+                                                                    border: 1px solid #ddd;
+                                                                    padding: 8px;
+                                                                    }
+
+                                                                    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+                                                                    #customers tr:hover {background-color: #ddd;}
+
+                                                                    #customers th {
+                                                                    padding-top: 12px;
+                                                                    padding-bottom: 12px;
+                                                                    text-align: left;
+                                                                    background-color: #444444;
+                                                                    color: white;
+                                                                    }
+                                                                    </style>
                                                                 <div class="nd_booking_section">
                                                                     <form method="post"
                                                                           action="{{ route('route_FontEnd_Booking_createBooking') }}">
                                                                         @csrf
                                                                         <div class="custom-table-room">
-                                                                            <table class="custom-table-room-table">
+                                                                            <table id="customers">
                                                                                 <thead>
-                                                                                <tr>
-                                                                                    <th>STT</th>
-                                                                                    <th>Tên phòng</th>
+                                                                                <tr>                                   
+                                                                                    <th>Loại phòng</th>
                                                                                     <th>Hình ảnh</th>
                                                                                     <th>Số người</th>
                                                                                     <th>Giá</th>
@@ -471,30 +494,30 @@
                                                                                         $arrRoomId = array_merge($roomId,$arrRoomId);
                                                                                         ?>
                                                                                         <tr>
-                                                                                            <td>{{$i++}}</td>
+                                                                                            
                                                                                             <td>{{$item->name}}</td>
-                                                                                            <td>{{$item->image}}</td>
+                                                                                            <td><img class="me-3" src="{{asset("image/".$item->image)}}"  alt="" style="border-radius:10px;" width="100px" height="100px"></td>
                                                                                             <td>{{$item->adult}}</td>
-                                                                                            <td>{{$item->price}} đ</td>
+                                                                                            <td>{{($item->price)}}đ/Ngày</td>
                                                                                             <script>
-                                                                                                localStorage.setItem('priceRoom_{{$item->id}}',{{$item->price}});
+                                                                                                localStorage.setItem('priceRoom_{{$item->id}}',{{($item->price)}});
                                                                                                 localStorage.setItem('priceSum',Number(localStorage.getItem('priceSum'))+Number(localStorage.getItem('priceRoom_{{$item->id}}')));
                                                                                             </script>
                                                                                             <td class="special-box">
                                                                                                 <ul style="display: flex;flex-direction: column; flex-wrap: wrap;align-content: flex-start;" class="special-box-ul">
                                                                                                     @foreach($listService as $service)
-                                                                                                        <li><input type="checkbox" id="checkbox_{{$item->id}}_{{$service->id}}" name="service_id_{{$i-1}}[]" value="{{$service->id}}">{{$service->name}}: {{$service->price}} đ</li>
+                                                                                                        <li><input type="checkbox" id="checkbox_{{$item->id}}_{{$service->id}}" name="service_id_{{$i-1}}[]" value="{{$service->id}}">{{$service->name}}: {{($service->price)}}đ</li>
                                                                                                         <script>
                                                                                                             var checkbox_{{$item->id}}_{{$service->id}}= document.getElementById('checkbox_{{$item->id}}_{{$service->id}}')
                                                                                                             checkbox_{{$item->id}}_{{$service->id}}.onclick = function (){
                                                                                                                 if (this.checked){
-                                                                                                                    localStorage.setItem('priceRoom_{{$item->id}}',Number(localStorage.getItem('priceRoom_{{$item->id}}')) + Number({{$service->price}}));
-                                                                                                                    localStorage.setItem('priceSum', Number(localStorage.getItem('priceSum'))+Number({{$service->price}}));
+                                                                                                                    localStorage.setItem('priceRoom_{{$item->id}}',Number(localStorage.getItem('priceRoom_{{$item->id}}')) + Number({{($service->price)}}));
+                                                                                                                    localStorage.setItem('priceSum', Number(localStorage.getItem('priceSum'))+Number({{($service->price)}}));
                                                                                                                     showpicesum()
                                                                                                                 }
                                                                                                                 else{
-                                                                                                                    localStorage.setItem('priceRoom_{{$item->id}}',Number(localStorage.getItem('priceRoom_{{$item->id}}')) - Number({{$service->price}}));
-                                                                                                                    localStorage.setItem('priceSum', Number(localStorage.getItem('priceSum'))-Number({{$service->price}}));
+                                                                                                                    localStorage.setItem('priceRoom_{{$item->id}}',Number(localStorage.getItem('priceRoom_{{$item->id}}')) - Number({{($service->price)}}));
+                                                                                                                    localStorage.setItem('priceSum', Number(localStorage.getItem('priceSum'))-Number({{($service->price)}}));
                                                                                                                     showpicesum()
                                                                                                                 }
                                                                                                                 showpice{{$item->id}}()
@@ -503,7 +526,7 @@
                                                                                                     @endforeach
                                                                                                 </ul>
                                                                                             </td>
-                                                                                            <td id="showpice_{{$item->id}}">{{$item->price}} đ</td>
+                                                                                            <td id="showpice_{{$item->id}}">{{($item->price)}}đ</td>
                                                                                             <script>
                                                                                                 function showpice{{$item->id}}() {
                                                                                                     document.getElementById('showpice_{{$item->id}}').innerHTML = localStorage.getItem('priceRoom_{{$item->id}}')+' đ';
