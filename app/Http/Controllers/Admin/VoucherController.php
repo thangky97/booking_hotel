@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\CategoryRooms;
 use App\Models\Voucher;
 use App\Models\Vouchers;
 use Carbon\Carbon;
@@ -58,14 +59,31 @@ class VoucherController extends Controller
             ->with('success', 'Thêm thành công');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        //sửa
+        $this->v['id'] = $id;
+        $this->v['voucher'] = Voucher::find($id);
+
+        $this->v['title'] = ' Sửa Voucher';
+        return view('admin.voucher.edit', $this->v);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
-        //lưu sửa
+        $voucher = Voucher::find($id);
+        $voucher->update([
+            "name" => $request->name,
+            "code" => $request->code,
+            "discount" => $request->discount,
+            "limit" => $request->limit,
+            "date_start" => $request->date_start,
+            "date_end" => $request->date_end,
+            "status" => $request->status
+        ]);
+
+        return redirect()->route('route_BackEnd_Voucher_index')
+            ->with('success', 'Sửa thành công!');
+
     }
     public  function check_voucher(Request $request){
         $now = Carbon::now('Asia/Ho_Chi_Minh')->format('Y-m-d');
@@ -86,6 +104,7 @@ class VoucherController extends Controller
                         $vou[] = array(
                             'id'=>$voucher->id,
                             'code' =>  $voucher->code,
+                            'limit' =>  $voucher->limit,
                             'discount' =>  $voucher->discount,
                         );
                         Session::put('voucher', $vou );
@@ -95,6 +114,7 @@ class VoucherController extends Controller
                     $vou[] = array(
                         'id'=>$voucher->id,
                         'code' =>  $voucher->code,
+                        'limit' =>  $voucher->limit,
                         'discount' =>  $voucher->discount,
                     );
                     Session::put('voucher', $vou );
