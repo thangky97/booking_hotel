@@ -47,34 +47,23 @@ class ContactController extends Controller
     // }
 
         public function editForm($id)
-        {   // lay giu lieu theo id
-            $title='Sua lien he';
+        {   
+            $title='Sửa liên hệ';
             $editContact = Contact::find($id);
             return view('admin.contact.edit',compact('editContact','id','title'));
         }
 
         public function saveEdit(Request $request, $id){
             $createEdit = Contact::find($id);
-            $createEdit->name = $request->name;
-            $createEdit->phone = $request->phone;
-            $createEdit->email = $request->email;
-            $createEdit->content = $request->content;
-            $createEdit->title = $request->title;
+            // $createEdit->name = $request->name;
+            // $createEdit->phone = $request->phone;
+            // $createEdit->email = $request->email;
+            // $createEdit->content = $request->content;
+            // $createEdit->title = $request->title;
             $createEdit->status = $request->status;
 
-            // luu
             $createEdit->save();
-            // dd($createEdit->save());
             return redirect()->route('route_BackEnd_Contact_List')
-            ->with('success', 'Sửa thành công');
+            ->with('success', 'Cập nhật thành công!');
         }
-        // public function destroy($id)
-        // {
-        //     $delete = Contact::destroy($id);
-        //     if(!$delete){
-        //         return redirect()->back();
-        //     }
-        //     return redirect()->route('route_BackEnd_Contact_List')
-        //     ->with('success', 'Xóa thành công');
-        // }
 }

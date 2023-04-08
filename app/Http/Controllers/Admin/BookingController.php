@@ -65,8 +65,8 @@ class BookingController extends Controller
 
     public function createuser(UserRequest $request)
     {
-        if(Users::where('email','like','%'.$request->email.'%')->first()){
-            return redirect()->route('route_BackEnd_Bookings_Add', Users::where('email','like','%'.$request->email.'%')->first()->id);
+        if (Users::where('email', 'like', '%' . $request->email . '%')->first()) {
+            return redirect()->route('route_BackEnd_Bookings_Add', Users::where('email', 'like', '%' . $request->email . '%')->first()->id);
         }
 
         $today = date("Y/m/d", strtotime("now"));
@@ -243,7 +243,24 @@ class BookingController extends Controller
         $this->v['user'] = Users::find($booking->user_id);
         $Cate_rooms = new Categoryrooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        $Service = new Service();
+        $this->v['listServices'] = $Service->loadAll();
+        $history = DB::table('bookings')
+            ->where('bookings.user_id', '=', $this->v['user']['id'])
+            ->where('bookings.id', '!=', $id)
+            ->orderByDesc('bookings.checkin_date')
+            ->get();
+        $this->v['history'] = $history;
+        $bills = new Bills();
+        $arrBills = array();
+        foreach ($bills->loadAll() as $index => $bill_bk) {
+            $arrBill_bk = array($index => $bill_bk->booking_id);
+            $arrBills = $arrBill_bk + $arrBills;
+        }
+        $this->v['list'] = $arrBills;
+
         $this->v['title'] = 'Chi tiết đơn';
+
         return view('admin.booking.detail', $this->v);
     }
 
@@ -418,29 +435,37 @@ class BookingController extends Controller
             ]);
         }
 
-        // $Service = new Service();
-        // $this->v['service'] = $Service->loadAll();
+        $room_service = DB::table('bookings_detail')
+            ->select('bookings_detail.*', 'service_room.service_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
+            ->where('bookings_detail.booking_id', '=', $id)
+            ->where('service_room.booking_id', '=', $id)
+            ->get();
+        $this->v['room_service'] = $room_service;
 
-        // $Service_room = new ServiceRoom();
-        // $this->v['service_room'] = $Service_room->loadIdBooking($id);
+        $Service = new Service();
+        $this->v['service'] = $Service->loadAll();
+
+        $Service_room = new ServiceRoom();
+        $this->v['service_room'] = $Service_room->loadIdBooking($id);
 
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
-        
+
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
-        
+
         $booking = Booking::find($id);
-        $this->v['booking']= $booking;
-      
+        $this->v['booking'] = $booking;
+
         $this->v['user'] = Users::find($booking->user_id);
-        
+
         $use_date = (strtotime($this->v['booking']['checkout_date']) - strtotime($this->v['booking']['checkin_date'])) / (60 * 60 * 24);
         $this->v['use_date'] = $use_date;
 
         $Cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-    
+
         $money_room = 0; //tổng tiền phòng
         foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
             foreach (($this->v['listRooms']) as $index => $room) {
@@ -455,11 +480,38 @@ class BookingController extends Controller
                 }
             };
         };
+        $money_service = 0; //tổng tiền dịch vụ
+        foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
+            foreach (($this->v['listRooms']) as $index => $room) {
+                if ($bk_dt->room_id == $room->id) {
+                    foreach ($this->v['service_room'] as $index => $ser_room) {
+                        if ($bk_dt->room_id == $ser_room->room_id) {
+                            $s_r = explode(',', $ser_room->service_id);
+                            foreach ($this->v['service'] as $index => $ser) {
+
+                                foreach ($s_r as $inx => $sr_id) {
+                                    if ($sr_id == $ser->id) {
+                                        $money_service += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //tổng tiền phòng
         $total_money_room = $money_room * $use_date;
         $this->v['total_money_room'] = $total_money_room;
+        //tổng tiền dịch vụ
+        $total_money_service = $money_service;
+        $this->v['total_money_service'] = $total_money_service;
+        //tổng tất cả
+        $total_money_room_sv = $total_money_room + $total_money_service;
+        $this->v['total_money_room_service'] = $total_money_room_sv;
 
         $this->v['user'] = Users::find($booking->user_id);
-   
+
         $name_email = '12 Zodiac';
         Mail::send('email.booking', $this->v, function ($email) {
             $email->subject('Your Booking Information');
@@ -498,5 +550,30 @@ class BookingController extends Controller
         ]);
         $serviceroom = Serviceroom::find($id);
         return redirect()->route('route_BackEnd_Bookings_Detail', $serviceroom->booking_id);
+    }
+
+    public function history($id)
+    {
+
+        
+        $this->v['user'] = Users::find($id);
+        $Cate_rooms = new Categoryrooms();
+        $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        $history = DB::table('bookings')
+            ->where('bookings.user_id', '=', $this->v['user']['id'])
+            ->where('bookings.id', '!=', $id)
+            ->get();
+        $this->v['history'] = $history;
+        $bills = new Bills();
+        $arrBills = array();
+        foreach ($bills->loadAll() as $index => $bill_bk) {
+            $arrBill_bk = array($index => $bill_bk->booking_id);
+            $arrBills = $arrBill_bk + $arrBills;
+        }
+        $this->v['list'] = $arrBills;
+
+        $this->v['title'] = 'Lịch sử đặt phòng';
+        
+        return view('admin.booking.history', $this->v);
     }
 }

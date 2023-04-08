@@ -8,9 +8,11 @@
             border-collapse: collapse;
             width: 100%;
         }
+
         i {
-            font-size : 12px;            
+            font-size: 12px;
         }
+
         td,
         th {
             border: 1px solid #dddddd;
@@ -42,20 +44,66 @@
                 <th>Room</th>
                 <th>Kind of Room</th>
                 <th>Service</th>
+                <th>Service Charge</th>
                 <th>Total</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($bookingDetails as $bookingDetail)
-            @foreach ($listRooms as $room)
-            @if ($bookingDetail->room_id == $room->id)
-            @foreach ($listCaterooms as $cateRoom)
-            @if ($room->cate_room == $cateRoom->id)
+            @foreach($room_service as $room_sv)
+            @foreach($listRooms as $room)
+            @if($room_sv->room_id==$room->id)
+            @foreach($listCaterooms as $cateRoom)
+            @if($room->cate_room==$cateRoom->id)
+
             <tr>
-                <td> {{$room->name}}</td>
-                <td>{{$cateRoom->name}}({{$cateRoom->price}}đ)</td>
-                <td>Không sử dụng</td>
-                <td>{{($cateRoom->price) * $use_date}}đ</td>
+                <td style="color: black;"> <b>{{$room->name}}</b></td>
+                <td><b>{{$cateRoom->name}}</b><br><i style="color: #006600;">({{number_format($cateRoom->price)}}đ)</i></td>
+                <td style="color: #0099FF;">
+                    <?php $s_r = explode(',', $room_sv->service_id); ?>
+                    @foreach ($service as $ser)
+                    @foreach($s_r as $inx => $sr_id)
+                    @if($sr_id==$ser->id)
+                    -{{trim(($inx>0?', '.$ser->name:$ser->name), ',')}}
+
+                    <?php echo '<br>' ?>
+                    @endif
+                    @endforeach
+                    @endforeach
+                </td>
+                <td style="color: #006600;">
+
+                    <?php
+                    $money = 0;
+                    $ser_room_id = $room_sv->service_id;
+                    $s_r = explode(',', $ser_room_id);
+                    ?>
+                    @foreach ($service as $ser)
+                    @foreach($s_r as $inx => $sr_id)
+                    <?php if ($sr_id == $ser->id)
+                        $money += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                    ?>
+                    @endforeach
+                    @endforeach
+                    <b>
+                        {{number_format($money)}}đ
+                    </b>
+
+                </td>
+                <td style="color: #FF0000;">
+                    <?php
+                    $money = 0;
+                    $ser_room_id = $room_sv->service_id;
+                    $s_r = explode(',', $ser_room_id);
+                    ?>
+                    @foreach ($service as $ser)
+                    @foreach($s_r as $inx => $sr_id)
+                    <?php if ($sr_id == $ser->id)
+                        $money += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                    ?>
+                    @endforeach
+                    @endforeach
+                    <i><b>{{number_format(($cateRoom->price)*$use_date+$money)}}đ</b></i>
+                </td>
             </tr>
             @endif
             @endforeach
@@ -68,10 +116,10 @@
         <div class="me-10 mb-sm-0 mb-3">
             <h3 class="mb-2">Tổng thanh toán</h3>
             <hr style="width:10%;">
-            <h3 class="mb-0 card-title" style="color: blue;"><b><var>{{ $total_money_room}} VNĐ</var></b></h3>
+            <h3 class="mb-0 card-title" style="color: blue;"><b><var>{{number_format($total_money_room_service)}}đ</var></b></h3>
         </div>
     </div>
-    
+
     <div style="margin-top: 30px;text-align: center;">
         <span><i style="font-weight: bold;color:orangered;">Hotel 12Zodiac</i> - Nhóm dự án FPOLY</span>
     </div>

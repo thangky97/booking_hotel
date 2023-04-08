@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class CategoryNewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,12 +19,11 @@ class LoginRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
      */
-    public function rules()
+    public function rules(): array
     {
-        // key là name của các input, value là các đk
         return [
-            'email' => 'required|email|',
-            'password' => 'required|min:6'
+            'name' => 'required|min:3|max:70',
+            'status' => 'required',
         ];
     }
 
@@ -32,10 +31,10 @@ class LoginRequest extends FormRequest
     {
         // key là key của rule . đk
         return [
-            'email.required' => 'Email bắt buộc nhập!',
-            'email.email' => 'Email không đúng định dạng!',
-            'password.required' => 'Mật khẩu bắt buộc nhập!',
-            'password.min' => 'Mật khẩu tối thiểu 6 ký tự'
+            'name.required' => 'Tên bắt buộc nhập!',
+            'name.min' => 'Tên tối thiểu 3 ký tự!',
+            'name.max' => 'Tên tối đa là 70 ký tự!',
+            'status.required' => 'Bạn chưa chọn trạng thái!',
         ];
     }
 }

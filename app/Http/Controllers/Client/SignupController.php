@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -28,13 +28,13 @@ class SignupController extends Controller
             //     $params['cols']['avatar'] = $this->uploadFile($request->file('images'));
             // }
             
-            $modelTes = new Admin();
+            $modelTes = new Users();
             $res = $modelTes->saveNew($params);
             if ($res == null) {
                 return  redirect()->route($method_route);
             } elseif ($res > 0) {
                 Session::flash('success','Đăng ký');
-                return redirect()->route($method_route);
+                return redirect()->route('getSignin');
             } else {
                 Session::flash('error','Lỗi đăng ký tài khoản ');
                 return redirect()->route($method_route);

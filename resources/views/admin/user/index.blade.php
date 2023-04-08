@@ -32,10 +32,10 @@
                             </form>
                         </div>
 
-                    </div>
-                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+                </div>
+                <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
 
-                        <div>
+                    <div>
 
                         </div>
                         <div>
@@ -45,6 +45,39 @@
                                     class="far fa-file-word me-2"></i>Đặt phòng</a>
                         </div>
 
+                    </div>
+                    <div id="msg-box">
+                        <?php //Hiển thị thông báo thành công
+                        ?>
+                        @if (Session::has('success'))
+                            <div class="alert alert-success solid alert-dismissible fade show">
+                                <span><i class="mdi mdi-check"></i></span>
+                                <strong>{{ Session::get('success') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                </button>
+                            </div>
+                        @endif
+                        <?php //Hiển thị thông báo lỗi
+                        ?>
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                                <span><i class="mdi mdi-help"></i></span>
+                                <strong>{{ Session::get('errors') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                </button>
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                </button>
+                            </div>
+                        @endif
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane active show" id="All">
@@ -80,7 +113,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
-                                                    <span class="text-primary">{{ $index + 1 }}</span>
+                                                    <span class="text-primary">#{{ $index + 1 }}</span>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="guest-bx">
@@ -93,22 +126,20 @@
                                                 <td class="text-center">
                                                     <div>
 
-                                                        <span class="fs-16">{{ $user->phone }}</span>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <img class="" width="90"
-                                                        src="{{ asset($user->cccd) ? '' . Storage::url($user->cccd) : $user->name }}"
-                                                        alt="">
-                                                </td>
-                                                <td class="text-center">
-                                                    <div>
+                                                <span class="fs-16">{{ $user->phone }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img class="" width="90" src="{{ asset($user->cccd) ? '' . Storage::url($user->cccd) : $user->name }}" alt="">
+                                        </td>
+                                        <td class="text-center">
+                                            <div>
 
-                                                        <span class="fs-16">{{ $user->email }}</span>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <div>
+                                                <span class="fs-16">{{ $user->email }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div>
 
                                                         <span class="fs-16">
                                                             @if ($user && $user->gender === 1)

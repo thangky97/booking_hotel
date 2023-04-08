@@ -13,7 +13,7 @@ class News extends Model
     public $timestamp = true;
 
     protected $fillable = [
-        'id','name','images','description','title','date','cate_id','status'
+        'id','name','images','description','title','date','cate_id', 'admin_id', 'status'
     ];
     // function category_new(){
     //     return $this->hasMany(\App\Models\Category_new::class,'cate_id','id');
@@ -22,5 +22,8 @@ class News extends Model
     public function cate_new(){
         return $this->belongsTo(Category_new::class, 'cate_id');
     }
-    use HasFactory;
+
+    public function admin_name(){
+        return$this->belongsTo(Admin::class, 'admin_id');
+    }
 }

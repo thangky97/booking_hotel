@@ -386,9 +386,28 @@
                                                             </div>
 
                                                             <div class="nd_booking_section nd_booking_height_30"></div>
-
-                                                            <div>
-                                                                <table>
+                                                            <style>
+                                                                .custom-table-room{
+                                                                    border: 1px solid #f1f1f1;
+                                                                    text-align: center;
+                                                                    display: grid;
+                                                                }
+                                                                .custom-table-room-table{
+                                                                    width: 100%;
+                                                                }
+                                                                .custom-table-room-table > thead > tr >th{
+                                                                    border-bottom: 1px solid #f1f1f1;
+                                                                    border-right: 1px solid #f1f1f1;
+                                                                    text-align: center
+                                                                }
+                                                                .custom-table-room-table > tbody > tr > td{
+                                                                    border-bottom: 1px solid #f1f1f1;
+                                                                    border-right: 1px solid #f1f1f1;
+                                                                    text-align: center
+                                                                }
+                                                            </style>
+                                                            <div class="custom-table-room">
+                                                                <table class="custom-table-room-table">
                                                                     <thead>
                                                                     <tr>
                                                                         <th>STT</th>
@@ -404,7 +423,7 @@
                                                                         <tr>
                                                                             <td>{{$i++}}</td>
                                                                             <td>{{$item->name}}</td>
-                                                                            <td>{{$item->images}}</td>
+                                                                            <td><img class="me-3" src="{{asset("storage/".$item->images)}}"  alt="" style="border-radius:10px;" width="100px" height="100px"></td>
                                                                             <td>{{$item->adult}}</td>
                                                                             <td>
                                                                                 <?php $services=explode(",", $item->service_id)?>
@@ -424,7 +443,7 @@
                                                             <div class="nd_booking_section nd_booking_height_30  "></div>
 
                                                             <div
-                                                                class="nd_booking_width_100_percentage  nd_booking_float_left nd_booking_box_sizing_border_ààbox ">
+                                                                class="nd_booking_width_100_percentage  nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Mã
                                                                         giảm giá :</span></p>
@@ -434,7 +453,7 @@
                                                             <div class="nd_booking_section nd_booking_height_30"></div>
 
                                                             <div
-                                                                class="nd_booking_width_100_percentage nd_booking_float_left nd_booking_box_sizing_border_ààbox ">
+                                                                class="nd_booking_width_100_percentage nd_booking_float_left nd_booking_box_sizing_border_box ">
                                                                 <p><span
                                                                         class="nd_options_color_greydark nd_booking_font_weight_bolder">Thuế
                                                                         :</span></p>

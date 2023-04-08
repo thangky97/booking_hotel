@@ -15,7 +15,6 @@
     <meta property="og:image" content="page-error-404.html" />
     <meta name="format-detection" content="telephone=no">
 
-    <!-- PAGE TITLE HERE -->
     <title>@yield('title')</title>
 
     <!-- FAVICONS ICON -->
@@ -72,16 +71,12 @@
         </div>
     <div id="main-wrapper">
         
-        <!--Header-->
         @include('templates.admin.header')
 
-        <!--Sidebar-->
         @include('templates.admin.aside')
 
-        <!--Content-->
         @yield('content')
 
-        <!--Footer-->
         @include('templates.admin.footer')
 
     </div>

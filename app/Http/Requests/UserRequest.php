@@ -23,28 +23,35 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'phone' =>'required',
-            'email' =>'required|email',
-            'address' =>'required',
-            'cccd' =>'required',
-            'date' =>'required|date',
-            'gender' =>'required',
+            'name' => 'required|min:3|max:40',
+            'phone' => 'required|numeric|min:10',
+            'email' => 'required|email|max:50',
+            'images' =>
+            [
+                'image',
+                'mimes:jpeg,png,jpg',
+                'mimetypes:image/jpeg,image/png',
+                'max:2048',
+            ],
+            'status' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Nhap ten khach hang!',
-            'phone.required' => 'Nhập số điện thoại!',
-            'email.required' =>'Nhập email!',
-            'email.email' =>'Phải là email!',
-            'address.required' => 'Nhập địa chỉ!',
-            'cccd.required' => 'Nhập căn cước công dân!',
-            'date.required' => 'Chọn ngày sinh!',
-            'date.date' => 'Phải là ngày!',
-            'gender.required' => 'Chon giới tính!',
+            'name.required' => 'Tên bắt buộc nhập!',
+            'name.min' => 'Tên tối thiểu 3 ký tự!',
+            'name.max' => 'Tên tối đa là 40 ký tự!',
+            'email.required' => 'Email bắt buộc nhập!',
+            'email.email' => 'Email không đúng định dạng!',
+            'email.max' => 'Email tối đa 50 ký tự!',
+            'phone.required' => 'Số điện thoại bắt buộc nhập!',
+            'phone.numeric' => 'Số điện thoại phải là số!',
+            'phone.min' => 'Số điện thoại tối thiểu 10 số!',
+            'images.image' => 'Bắt buộc phải là ảnh!',
+            'images.max' => 'Ảnh không được lớn hơn 2MB!',
+            'status.required' => 'Bạn chưa chọn trạng thái',
         ];
     }
 }

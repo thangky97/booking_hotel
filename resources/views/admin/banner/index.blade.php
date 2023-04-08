@@ -32,22 +32,20 @@
                             <?php //Hiển thị thông báo thành công
                             ?>
                             @if (Session::has('success'))
-                                <div class="alert alert-success alert-dismissible" role="alert">
+                                <div class="alert alert-success solid alert-dismissible fade show">
+                                    <span><i class="mdi mdi-check"></i></span>
                                     <strong>{{ Session::get('success') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                        <span class="sr-only">Close</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
                             @endif
                             <?php //Hiển thị thông báo lỗi
                             ?>
                             @if (Session::has('error'))
-                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                                    <span><i class="mdi mdi-help"></i></span>
                                     <strong>{{ Session::get('errors') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                        <span class="sr-only">Close</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
                             @endif
@@ -81,14 +79,16 @@
                                         id="guestTable-all">
                                         <thead>
                                             <tr>
+                                                <th>ID</th>
                                                 <th class="text-center">Ảnh</th>
                                                 <th class="text-center">Trạng thái</th>
                                                 <th class="text-center">Hành động</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($list as $b)
+                                            @foreach ($list as $index => $b)
                                                 <tr>
+                                                    <td class="text-primary">{{ $index + 1 }}</td>
                                                     <td class="text-center"><img src="{{ asset('storage/' . $b->images) }}"
                                                             alt="" width="100px"></td>
                                                     <td class="text-center">

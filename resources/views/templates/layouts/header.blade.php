@@ -322,7 +322,7 @@
                                                 <div class="elementor-widget-container">
                                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                                            <a href="#">
+                                                            <a href="{{ route('route_FontEnd_BookingSearch') }}">
 
                                                                 <span class="elementor-icon-list-text">Đặt phòng</span>
                                                             </a>
@@ -334,142 +334,7 @@
                                     </div>
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-461289c"
                                         data-id="461289c" data-element_type="column">
-                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                            <div class="elementor-element elementor-element-72b67e5 elementor-widget elementor-widget-shortcode"
-                                                data-id="72b67e5" data-element_type="widget"
-                                                data-widget_type="shortcode.default">
-                                                <div class="elementor-widget-container">
-                                                    <div class="elementor-shortcode">
-
-                                                        <div style="margin:15px 10px;" id="nd_options_alert_1"
-                                                            class="  nd_options_position_relative nd_options_float_right ">
-
-                                                            <div id="nd_options_alert_1_icon"
-                                                                class="nd_options_position_relative">
-                                                                <p class="nd_options_position_absolute nd_options_color_white nd_options_font_size_10"
-                                                                    style="line-height: 10px; padding: 2px 3px; left: 13px; top: -7px; background-color:#6B6978; ">
-                                                                    4</p>
-                                                                <img alt="" class="nd_options_float_left"
-                                                                    width="20"
-                                                                    src="wp-content/uploads/sites/4/2022/05/icn5.png">
-                                                            </div>
-
-                                                            <div id="nd_options_alert_1_messages"
-                                                                class="nd_options_display_none">
-
-                                                                <div class="triangle-up"></div>
-
-                                                                <div style="background-color:#fff;"
-                                                                    class="nd_options_box_sizing_border_box nd_options_padding_10 nd_options_section nd_options_text_align_left">
-
-                                                                    <div
-                                                                        class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
-                                                                        <img alt=""
-                                                                            class="nd_options_position_absolute"
-                                                                            width="50"
-                                                                            src="../hotel/wp-content/uploads/sites/2/2022/03/square-4.jpg">
-                                                                        <div
-                                                                            class="nd_options_section nd_options_padding_left_70 nd_options_box_sizing_border_box">
-                                                                            <div
-                                                                                class="nd_options_section nd_options_height_10">
-                                                                            </div><a href="#">
-                                                                                <h6>Best Hotel Plugin</h6>
-                                                                            </a>
-                                                                            <div
-                                                                                class="nd_options_section nd_options_height_10">
-                                                                            </div><a href="#">
-                                                                                <p class="nd_options_font_size_10">
-                                                                                    CHECK FEATURES</p>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div
-                                                                        class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
-                                                                        <img alt=""
-                                                                            class="nd_options_position_absolute"
-                                                                            width="50"
-                                                                            src="../hotel/wp-content/uploads/sites/2/2022/03/square-6.jpg">
-                                                                        <div
-                                                                            class="nd_options_section nd_options_padding_left_70 nd_options_box_sizing_border_box">
-                                                                            <div
-                                                                                class="nd_options_section nd_options_height_10">
-                                                                            </div><a href="#">
-                                                                                <h6>Multi Purpose</h6>
-                                                                            </a>
-                                                                            <div
-                                                                                class="nd_options_section nd_options_height_10">
-                                                                            </div><a href="#">
-                                                                                <p class="nd_options_font_size_10">A
-                                                                                    LOT OF DEMOS</p>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div
-                                                                        class="  nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70">
-                                                                        <img alt=""
-                                                                            class="nd_options_position_absolute"
-                                                                            width="50"
-                                                                            src="../hotel/wp-content/uploads/sites/2/2022/03/square-2.jpg">
-                                                                        <div
-                                                                            class="nd_options_section nd_options_padding_left_70 nd_options_box_sizing_border_box">
-                                                                            <div
-                                                                                class="nd_options_section nd_options_height_10">
-                                                                            </div><a href="#">
-                                                                                <h6>No Code Required</h6>
-                                                                            </a>
-                                                                            <div
-                                                                                class="nd_options_section nd_options_height_10">
-                                                                            </div><a href="#">
-                                                                                <p class="nd_options_font_size_10">VERY
-                                                                                    EASY TO USE</p>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <style>
-                                                            #nd_options_alert_1:hover #nd_options_alert_1_messages {
-                                                                display: block;
-                                                            }
-
-                                                            #nd_options_alert_1_messages {
-                                                                width: 250px;
-                                                                position: absolute;
-                                                                left: -115px;
-                                                                top: 0px;
-                                                                padding-top: 35px;
-                                                                z-index: 9;
-                                                            }
-
-                                                            .triangle-up {
-                                                                width: 100%;
-                                                                overflow: hidden;
-                                                                box-sizing: border-box;
-                                                                text-align: center;
-                                                                line-height: 10px;
-                                                            }
-
-                                                            .triangle-up:after {
-                                                                content: "";
-                                                                display: inline-block;
-                                                                width: 0px;
-                                                                height: 0px;
-                                                                border-left: 10px solid transparent;
-                                                                border-right: 10px solid transparent;
-                                                                border-bottom: 10px solid #fff;
-                                                                line-height: 10px;
-                                                            }
-                                                        </style>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-d72b31a"
                                         data-id="d72b31a" data-element_type="column">
@@ -480,7 +345,7 @@
                                                 <div class="elementor-widget-container">
                                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                                            <a href="#">
+                                                            <a href="{{ route('route_FontEnd_Feedback') }}">
 
                                                                 <span class="elementor-icon-list-text">Đánh giá</span>
                                                             </a>
@@ -501,18 +366,17 @@
                                                         <div style="background-color: #6b6978" id="nd_options_alert_1"
                                                             class="nd_options_display_table nd_options_position_relative nd_options_float_right nd_options_padding_10_20 nd_options_margin_right_15">
                                                             @if (Auth::check())
-                                                                <a href="booking-account/index.html"><img
+                                                                <a href="{{ route('route_FrontEnd_User_Profile',Auth::user()->id) }}"><img
                                                                         alt=""
                                                                         class="nd_options_margin_right_10 nd_options_position_relative nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
                                                                         width="30"
-                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg" /></a>
+                                                                        src="/wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg" /></a>
                                                                 <div
                                                                     class="nd_options_display_table_cell nd_options_vertical_align_middle">
                                                                     <p
                                                                         class="nd_options_font_size_12 nd_options_text_align_left">
                                                                         <a class="nd_options_color_white nd_options_first_font nd_options_position_relative"
-                                                                            href="booking-account/index.html">Tài
-                                                                            khoản</a>
+                                                                            href="{{ route('logoutUser') }}">Đăng Xuất</a>
                                                                     </p>
                                                                     <div
                                                                         class="nd_options_section nd_options_height_5">
@@ -520,7 +384,7 @@
                                                                     <h6
                                                                         class="nd_options_font_size_10 nd_options_text_align_left nd_options_color_white nd_options_second_font">
                                                                         <a class="nd_options_color_white nd_options_position_relative"
-                                                                            href="booking-account/index.html">{{ Auth::user()->name }}</a>
+                                                                            href="{{ route('route_FrontEnd_User_Profile',Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                                                                     </h6>
                                                                 </div>
 
@@ -531,33 +395,10 @@
                                                                         style="margin-top: 15px;">
                                                                     </div>
 
-                                                                    <div style="background-color: #fff"
-                                                                        class="nd_options_box_sizing_border_box nd_options_section nd_options_text_align_left nd_options_display_table_cell nd_options_vertical_align_middle">
-                                                                        <div class="nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_10 nd_options_min_height_70"
-                                                                            style="padding-top: 20px; padding-bottom: 20px">
-                                                                            <div
-                                                                                class="nd_options_section nd_options_padding_left_20 nd_options_box_sizing_border_box">
-                                                                                <a href="#">
-                                                                                    <h6>Đơn hàng của tôi</h6>
-                                                                                </a>
-                                                                                <div class="nd_options_section nd_options_height_10"
-                                                                                    style="height: 16px">
-                                                                                </div>
-                                                                                <a href="#">
-                                                                                    <h6>Cập nhật tài khoản</h6>
-                                                                                </a>
-                                                                                <div class="nd_options_section nd_options_height_10"
-                                                                                    style="height: 16px">
-                                                                                </div>
-                                                                                <a href="{{ route('logoutUser') }}">
-                                                                                    <h6>Đăng xuất</h6>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             @else
-                                                                <a href="booking-account/index.html"><img
+                                                                <a href="{{ route('getSignin') }}"><img
                                                                         alt=""
                                                                         class="nd_options_margin_right_10 nd_options_position_relative nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
                                                                         width="30"
@@ -567,8 +408,7 @@
                                                                     <p
                                                                         class="nd_options_font_size_12 nd_options_text_align_left">
                                                                         <a class="nd_options_color_white nd_options_first_font nd_options_position_relative"
-                                                                            href="booking-account/index.html">Tài
-                                                                            khoản</a>
+                                                                            href="{{ route('getSignin') }}">Đăng Nhập</a>
                                                                     </p>
 
                                                                 </div>
@@ -580,25 +420,7 @@
                                                                         style="margin-top: 15px;">
                                                                     </div>
 
-                                                                    <div style="background-color: #fff"
-                                                                        class="nd_options_box_sizing_border_box nd_options_section nd_options_text_align_left nd_options_display_table_cell nd_options_vertical_align_middle">
-                                                                        <div
-                                                                            class="nd_options_section nd_options_position_relative nd_options_box_sizing_border_box nd_options_padding_15 nd_options_min_height_70">
-                                                                            <div
-                                                                                class="nd_options_section nd_options_padding_left_20 nd_options_box_sizing_border_box">
-
-                                                                                <a href="{{ route('getSignin') }}">
-                                                                                    <h6>Đăng nhập</h6>
-                                                                                </a>
-                                                                                <div
-                                                                                    class="nd_options_section nd_options_height_15">
-                                                                                </div>
-                                                                                <a href="{{ route('getSignup') }}">
-                                                                                    <h6>Đăng ký</h6>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             @endif
                                                         </div>
@@ -644,7 +466,7 @@
                                         }
                                     </style> <a href="/">
                                         <img width="281" height="21"
-                                            src="image/Zdiac_client1.png"
+                                            src="/image/Zdiac_client1.png"
                                             class="attachment-large size-large" alt="" loading="lazy" /> </a>
                                 </div>
                             </div>
@@ -668,7 +490,7 @@
                                                     </li>
                                                     <li id="menu-item-6986"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6986">
-                                                        <a href="{{ route('route_FontEnd_BookingSearch') }}">Phòng</a>
+                                                        <a href="{{ route('route_FrontEnd_Room') }}">Loại phòng</a>
                                                     </li>
                                                     <li id="menu-item-6970"
                                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6970">
@@ -1027,7 +849,7 @@
                                 data-id="85b82e9" data-element_type="widget" data-widget_type="button.default">
                                 <div class="elementor-widget-container">
                                     <div class="elementor-button-wrapper">
-                                        <a href="booking-search/index.html"
+                                        <a href="{{ route('route_FontEnd_BookingSearch') }}"
                                             class="elementor-button-link elementor-button elementor-size-sm"
                                             role="button">
                                             <span class="elementor-button-content-wrapper">

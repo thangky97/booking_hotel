@@ -20,6 +20,11 @@ class RoomController extends Controller
         $this->v = [];
     }
 
+    public function cateroom() {
+        $this->v['title'] = '12 Zodiac - Loại phòng';
+        return view('templates.pages.room', $this->v);
+    }
+
     public function index(Request $request)
     {
         $rooms = DB::table('rooms')
@@ -35,12 +40,17 @@ class RoomController extends Controller
 
     public function search(Request $request)
     {
+        if ($request->people){
+            $people = $request->people;
+        }else{
+            $people = "1";
+        }
         $check_in = strtotime($request->check_in);
         $check_out = strtotime($request->check_out);
         $rooms = DB::table('rooms')
             ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
             ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
-            ->select('rooms.id', 'bookings.checkin_date', 'bookings.checkout_date')
+            ->select('rooms.id', 'bookings.checkin_date', 'bookings.checkout_date', 'rooms.cate_room')
             ->get();
         $arrRoomworks = array();
         foreach ($rooms as $index => $room) {
@@ -61,11 +71,28 @@ class RoomController extends Controller
                 $arrRoomworks = $arrRoom + $arrRoomworks;
             }
         }
-        $this->v['listRoomwork'] = array_unique($arrRoomworks);
         $cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $cate_rooms->loadAll();
         $Rooms = new Rooms();
-        $this->v['listRooms'] = $Rooms->loadAll();
+        $arrCateRooms = array();
+        foreach ($Rooms->loadAll() as $index => $item){
+            if (!in_array($item->id,$arrRoomworks)){
+                $arrCate = array($index => $item->cate_room);
+                $arrCateRooms = $arrCate + $arrCateRooms;
+            }
+        }
+        $cateRooms = array_count_values($arrCateRooms);
+        $this->v['arrCateRooms'] = $arrCateRooms;
+        $this->v['cateRooms'] = $cateRooms;
+        $roomByCate = DB::table('rooms')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->select('category_rooms.*', 'rooms.adult', 'rooms.adult', 'rooms.floor', 'rooms.bed')
+            ->distinct()
+            ->get();
+        $this->v['listRooms'] = $roomByCate;
+        $this->v['check_in'] = strtotime($request->check_in);
+        $this->v['check_out'] = strtotime($request->check_out);
+        $this->v['people'] = $people;
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
         return view('templates.pages.booking_search', $this->v);
     }
@@ -100,8 +127,8 @@ class RoomController extends Controller
             ->first();
         $caterooms = new CategoryRooms();
         $this->v['listCaterooms'] = $caterooms->loadAll();
-//        $services = new Service();
-//        $this->v['listService'] = $services->loadAll();
+        $services = new Service();
+        $this->v['listService'] = $services->loadAll();
         $this->v['room'] = $room;
         $property = new Properties();
         $this->v['listProperty'] = $property->loadAll();
@@ -109,10 +136,10 @@ class RoomController extends Controller
         return view('templates.pages.room_detail', $this->v);
     }
 
-    public function add()
+    public function detail()
     {
         //thêm
-        return view('admin.room.add');
+        return view('templates.pages.room_detail');
     }
 
     public function store()
