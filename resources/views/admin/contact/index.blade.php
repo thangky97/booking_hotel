@@ -3,8 +3,8 @@
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
-        <!-- row -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
@@ -20,12 +20,9 @@
                         {{--  <div>
 								<a href="{{route('route_BackEnd_Contact_Add')}}" class="btn btn-info mb-xxl-0 mb-4"><i
 									class="fa fa-bed me-2"></i>Thêm mới</a>
-								<a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-										class="far fa-file-word me-2"></i>Tạo báo cáo</a>
 							</div>  --}}
 
                     </div>
-
 
                     {{--  thong bao  --}}
                     <section class="content booking Hotel">

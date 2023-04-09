@@ -43,6 +43,12 @@ class Billdetails extends Model
         $obj = $query->first();
         return $obj;
     }
+
+    public function loadOneBillDetail($id, $params = []) {
+        $query = DB::table($this->table)->where('bill_id', '=', $id);
+        $obj = $query->first();
+        return $obj;
+    }
     //phương thức update
     public function saveUpdate($params)
     {
@@ -61,5 +67,20 @@ class Billdetails extends Model
             ->where('id', $params['cols']['id'])
             ->update($dataUpdate);
         return $res;
+    }
+
+    public function bill()
+    {
+        return $this->belongsTo(Bills::class, 'bill_id');
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'service_id');
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(Rooms::class, 'room_id');
     }
 }

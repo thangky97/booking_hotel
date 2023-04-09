@@ -25,16 +25,16 @@ class UserController extends Controller
         $email = $request->get('email');
         if($name){
             $users = Users::where('name','like','%'.$name.'%')
-        ->paginate(5);
+        ->paginate(10);
         } elseif ($phone){
             $users = Users::where('phone','like','%'.$phone.'%')
-        ->paginate(5);
+        ->paginate(10);
         } elseif ($email){
             $users = Users::where('email','like','%'.$email.'%')
-        ->paginate(5);
+        ->paginate(10);
         } else{
             $users = Users::select('id', 'name', 'email', 'phone', 'address', 'cccd', 'date', 'gender', 'status')
-        ->paginate(5);
+        ->paginate(10);
         }   
 
         return view('admin.user.index', compact('users','name', 'email', 'phone', 'title'));

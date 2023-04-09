@@ -22,8 +22,6 @@
                         <div>
                             <a href="{{ route('route_BackEnd_Service_Add') }}" class="btn btn-info mb-xxl-0 mb-4" style="margin-right: 30px"><i
                                     class="fa fa-bed me-2"></i>Thêm mới</a>
-                            {{-- <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a> --}}
                         </div>
                     </div>
                     <section class="content booking Hotel">

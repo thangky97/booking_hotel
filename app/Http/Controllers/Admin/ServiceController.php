@@ -22,7 +22,7 @@ class ServiceController extends Controller
         $name = $request->get('name');
         if ($name) {
             $this->v['list'] = Service::where('name', 'like', '%' . $name . '%')
-                ->paginate(20);
+                ->paginate(10);
         } else {
             $service = new Service();
             $this->v['list'] = $service->loadListWithPager();

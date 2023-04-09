@@ -41,17 +41,17 @@ class AdminController extends Controller
         $email = $request->get('email');
         if ($name) {
             $admin = Admin::where('name', 'like', '%' . $name . '%')
-                ->paginate(20);
+                ->paginate(10);
         } elseif ($phone) {
             $admin = Admin::where('phone', 'like', '%' . $phone . '%')
-                ->paginate(20);
+                ->paginate(10);
         } elseif ($email) {
             $admin = Admin::where('email', 'like', '%' . $email . '%')
-                ->paginate(20);
+                ->paginate(10);
         } else {
             $admin = Admin::select('id', 'name', 'email', 'phone', 'password', 'avatar', 'status', 'role')
                 ->orderBy('status', 'asc')
-                ->paginate(5);
+                ->paginate(10);
         }
 
         return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title]);

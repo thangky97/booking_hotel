@@ -24,7 +24,7 @@ class RoomController extends Controller
         $name = $request->get('name');
         if ($name) {
             $this->v['list'] = Rooms::where('name', 'like', '%' . $name . '%')
-                ->paginate(20);
+                ->paginate(10);
         } else {
             $rooms = new rooms();
             $this->v['list'] = $rooms->loadListWithPager();

@@ -23,60 +23,63 @@
                                                 </div>
                                             </th>
                                             <th>ID</th>
-                                            <th>Tên</th>
-                                            <th>Ngày đến</th>
-                                            <th>Ngày đi</th>
-                                            <th>Số người</th>
+                                            <th>d</th>
+                                            <th>Dịch vụ</th>
+                                            <th>Phòng</th>
+                                            <th>Hóa đơn</th>
+                                            <th>Số ngày</th>
                                             <th>Trạng thái</th>
-                                            <th class="bg-none">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($bills as $bill)
-                                            <tr>
-                                                <td>
-                                                    <div class="form-check style-1">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="fs-16">#{{ $bill->booking_id }}</span>
-                                                </td>
-                                                {{-- <td>
-											@foreach ($loai_phong as $lp)
-											@if ($bill->cate_room == $lp->id)
-											<p class="text-black">{{$lp->name}}</p>				
-											@endif
-											@endforeach
-										</td> --}}
-                                                <td>
-                                                    <div>
-                                                        <span class="fs-16">{{ number_format($bill->total_money) }}đ</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <span class="fs-16">{{ $bill->voucher->code }}</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <span class="text-danger d-block">
-                                                            @if ($bill->status == 1)
-                                                                <p class="text-success">Đã thanh toán</p>
-                                                            @else
-                                                                <p class="text-warning">Lỗi</p>
-                                                            @endif
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('route_BackEnd_BillDetail_List', $bill->id) }}"
-                                                        style="margin-left: 10px"><button class="btn btn-primary">Chi
-                                                            tiết</button></a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                        <tr>
+                                            <td>
+                                                <div class="form-check style-1">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="fs-16">#{{ $bill_detail->id }}</span>
+                                            </td>
+                                            <td>
+                                                @foreach ($listRooms as $lp)
+                                                    @if ($bill_detail->room == $lp->room_id)
+                                                        <p class="text-black">{{ $lp->name }}</p>
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <span class="fs-16">{{ $bill_detail->service_id }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <span class="fs-16">{{ $bill_detail->room_id }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <span class="fs-16">{{ $bill_detail->bill_id }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <span class="fs-16">{{ $bill_detail->date }} ngày</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <span class="text-danger d-block">
+                                                        @if ($bill_detail->status == 1)
+                                                            <p class="text-success">Đã thanh toán</p>
+                                                        @else
+                                                            <p class="text-warning">Lỗi</p>
+                                                        @endif
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

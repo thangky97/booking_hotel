@@ -26,7 +26,7 @@ class CategoryRoomController extends Controller
         $name = $request->get('name');
         if ($name) {
             $this->v['categoryRoom'] = CategoryRooms::where('name', 'like', '%' . $name . '%')
-                ->paginate(20);
+                ->paginate(10);
         } else {
             $this->v['categoryRoom'] = CategoryRooms::select('id', 'name', 'image', 'price', 'description', 'status', 'sort')
                 ->orderBy('id', 'asc')

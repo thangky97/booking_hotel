@@ -29,8 +29,6 @@ class Voucher extends Model
                 Voucher::where('id',$id)->update(['limit'=>$limit]);
       }
             Session::forget('voucher');
-
-
         }
     }
     public function loadOne($id, $param = [])
