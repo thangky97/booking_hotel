@@ -1,31 +1,31 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
-        <!-- row -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
-
-                        <div class="table-search">
-                            <div class="input-group search-area mb-xxl-0 mb-4">
-                                <input type="text" class="form-control" placeholder="Tìm kiếm">
-                                <span class="input-group-text"><a href="javascript:void(0)"><i
-                                            class="flaticon-381-search-2"></i></a></span>
+                        <div class="d-flex mb-4 flex-wrap">
+                            <div style="margin-right: 50px">
+                                <caption>
+                                    <form action="{{ route('route_BackEnd_Categoryrooms_List') }}" method="get">
+                                        @csrf
+                                        <input type="search" name="name" value="{{ $name }}" class="form-control"
+                                            style="width: 25rem" placeholder="Tên">
+                                    </form>
+                                </caption>
                             </div>
                         </div>
                         <div>
-                            <a href="{{ route('route_BackEnd_Categoryrooms_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
+                            <a href="{{ route('route_BackEnd_Categoryrooms_Add') }}" class="btn btn-info mb-xxl-0 mb-4" style="margin-right: 30px"><i
                                     class="fa fa-bed me-2"></i>Thêm mới</a>
-                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a>
                         </div>
 
                     </div>
-
 
                     {{-- thong bao  --}}
                     <section class="content booking Hotel">
@@ -57,7 +57,9 @@
                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
                                     </button>
                                 </div>
                             @endif
@@ -111,10 +113,8 @@
                                                             </div>
                                                         </div>
                                                     </td>
-
                                                     <td>
                                                         <div class="text-center">
-
                                                             <span>{{ number_format($item->price) }}đ</span>
                                                         </div>
                                                     </td>

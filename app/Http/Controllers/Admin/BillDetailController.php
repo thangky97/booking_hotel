@@ -19,8 +19,23 @@ class BillDetailController extends Controller
     {
         $this->v = [];
     }
-    public function index(Request $request)
+    public function index($id)
     {
+        // $Service = new Service();
+        // $this->v['service'] = $Service->loadAll();
+        // $Cate_rooms = new CategoryRooms();
+        // $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        // $this->v['title'] = ' Dịch vụ đi kèm';
+        // $Bookingdetail = new Bookingdetail();
+        // $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
+        // $Rooms = new Rooms();
+        // $this->v['listRooms'] = $Rooms->loadAll();
+        // $booking = Booking::find($id);
+        // $this->v['booking'] = $booking;
+        // $use_date = (strtotime($this->v['booking']['checkout_date']) - strtotime($this->v['booking']['checkin_date'])) / (60 * 60 * 24);
+        // $this->v['use_date'] = $use_date;
+        // $this->v['user'] = Users::find($booking->user_id);
+        // $this->v['count'] = count($this->v['bookingDetails']);
         return view('admin.bill_detail.index');
     }
 
@@ -46,24 +61,4 @@ class BillDetailController extends Controller
         return view('admin.bill_detail.detail', $this->v);
     }
 
-    public function add()
-    {
-        //thêm
-        return view('admin.bill_detail.add');
-    }
-
-    public function store()
-    {
-        //lưu thêm
-    }
-
-    public function edit()
-    {
-        //sửa
-    }
-
-    public function update()
-    {
-        //lưu sửa
-    }
 }

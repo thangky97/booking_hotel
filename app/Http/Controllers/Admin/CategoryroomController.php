@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\CategoryRooms;
 use App\Models\gallery;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRoomRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -18,14 +19,21 @@ class CategoryRoomController extends Controller
         $this->v = [];
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $this->v['categoryRoom'] = CategoryRooms::where('status', 1)
-            ->orderBy('id', 'asc')
-            ->with('gallery')
-            ->paginate(10);
         $this->v['title'] = 'Danh sách loại phòng';
-        return view('admin.cate_room.index', $this->v);
+
+        $name = $request->get('name');
+        if ($name) {
+            $this->v['categoryRoom'] = CategoryRooms::where('name', 'like', '%' . $name . '%')
+                ->paginate(20);
+        } else {
+            $this->v['categoryRoom'] = CategoryRooms::select('id', 'name', 'image', 'price', 'description', 'status', 'sort')
+                ->orderBy('id', 'asc')
+                ->with('gallery')
+                ->paginate(10);
+        }
+        return view('admin.cate_room.index', $this->v, ['name' => $name]);
     }
 
     public function addForm()
@@ -35,7 +43,7 @@ class CategoryRoomController extends Controller
         return view('admin.cate_room.add', $this->v);
     }
 
-    public function saveAdd(Request $request)
+    public function saveAdd(CategoryRoomRequest $request)
     {
 
         if ($request->hasFile("image")) {
@@ -93,7 +101,7 @@ class CategoryRoomController extends Controller
         return view('admin.cate_room.detail', $this->v);
     }
 
-    public function saveEdit(Request $request, $id)
+    public function saveEdit(CategoryRoomRequest $request, $id)
     {
         //        $createEdit = CategoryRooms::find($id);
         //        $createEdit->name = $request->name;
@@ -141,7 +149,6 @@ class CategoryRoomController extends Controller
         return redirect()->route('route_BackEnd_Categoryrooms_List')
             ->with('success', 'Sửa thành công!');
     }
-
 
     public function deleteimages($id)
     {

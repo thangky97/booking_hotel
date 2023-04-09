@@ -89,7 +89,7 @@ class BookingController extends Controller
         }
 
         $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
-        return redirect()->route('route_BackEnd_Bookings_Add', $userID);
+        return redirect()->route('route_BackEnd_Bookings_Add', $userID)->with('success', 'Thêm thành công! Tiếp tục đặt phòng');
     }
 
     public function create($id, Request $request)
@@ -203,7 +203,7 @@ class BookingController extends Controller
             $usernew->save();
 
             $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
-            return redirect()->route('route_BackEnd_Bookings_Addservice', $idBooking);
+            return redirect()->route('route_BackEnd_Bookings_Addservice', $idBooking)->with('success', 'Thêm thành công! Tiếp tục chọn dịch vụ');
         }
     }
 
@@ -301,8 +301,6 @@ class BookingController extends Controller
         }
         $this->v['email_user'] = $tt_user->email;
         $booking_detail = new Bookingdetail();
-
-
 
 
         $rooms = DB::table('rooms')
@@ -517,7 +515,7 @@ class BookingController extends Controller
             $email->subject('Your Booking Information');
             $email->to($this->v['email_user'], '12 Zodiac - Hotel');
         });
-        return redirect()->route('route_BackEnd_Bookings_List');
+        return redirect()->route('route_BackEnd_Bookings_List')->with('success', 'Đặt phòng thành công!');
     }
 
     public function editservice($id)
@@ -549,7 +547,7 @@ class BookingController extends Controller
             'service_id' => $service_id,
         ]);
         $serviceroom = Serviceroom::find($id);
-        return redirect()->route('route_BackEnd_Bookings_Detail', $serviceroom->booking_id);
+        return redirect()->route('route_BackEnd_Bookings_Detail', $serviceroom->booking_id)->with('success', 'Thêm/sửa dịch vụ thành công!');
     }
 
     public function history($id)

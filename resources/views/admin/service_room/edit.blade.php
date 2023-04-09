@@ -1,4 +1,4 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
@@ -86,8 +86,6 @@
         <div class="p-0">
             <a href="" class="btn btn-primary btn-block">Dịch vụ phòng</a>
         </div>
-
-
     </div>
     <section class="container">
         <form action="{{route('route_BackEnd_ServiceRoom_update',$service_rooms->id)}}" method="post" class="row">

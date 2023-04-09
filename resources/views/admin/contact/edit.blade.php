@@ -1,12 +1,11 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
-        <!-- row -->
         <div class="container-fluid">
-            <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -51,8 +50,9 @@
                                                     class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="name" id="name" class="form-control" style="background: #f3f3f3"
-                                                value="{{old('name',  $editContact->name)}}" disabled>
+                                                <input type="text" name="name" id="name" class="form-control"
+                                                    style="background: #f3f3f3"
+                                                    value="{{ old('name', $editContact->name) }}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
@@ -61,8 +61,9 @@
                                                     class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="phone" id="phone" class="form-control" style="background: #f3f3f3"
-                                                value="{{old('phone',  $editContact->phone)}}" disabled>
+                                                <input type="text" name="phone" id="phone" class="form-control"
+                                                    style="background: #f3f3f3"
+                                                    value="{{ old('phone', $editContact->phone) }}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
@@ -71,18 +72,20 @@
                                                     class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="email" name="email" id="email" class="form-control" style="background: #f3f3f3"
-                                                value="{{old('email',  $editContact->email)}}" disabled>
+                                                <input type="email" name="email" id="email" class="form-control"
+                                                    style="background: #f3f3f3"
+                                                    value="{{ old('email', $editContact->email) }}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="col-md-3 col-sm-4 control-label block">Nội dung<span
-                                                    class="text-danger"> *</span></label>
+                                            <label for="" class="col-md-3 col-sm-4 control-label block">Nội
+                                                dung<span class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="content" id="content" class="form-control" style="background: #f3f3f3"
-                                                value="{{old('content',  $editContact->content)}}" disabled>
+                                                <input type="text" name="content" id="content" class="form-control"
+                                                    style="background: #f3f3f3"
+                                                    value="{{ old('content', $editContact->content) }}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
@@ -91,42 +94,46 @@
                                                     class="text-danger"> *</span></label>
 
                                             <div class="col-md-9 col-sm-8">
-                                                <input type="text" name="title" id="title" class="form-control" style="background: #f3f3f3"
-                                                value="{{old('title',  $editContact->title)}}" disabled>
+                                                <input type="text" name="title" id="title" class="form-control"
+                                                    style="background: #f3f3f3"
+                                                    value="{{ old('title', $editContact->title) }}" disabled>
                                                 <span id="mes_sdt"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span class="text-danger"> *</span></label>
+                                            <label class="col-md-3 col-sm-4 control-label">Trạng Thái <span
+                                                    class="text-danger"> *</span></label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status" value = "0" {{(isset($editContact) && $editContact->status === 0) ? 'checked' : ''}}>
-                                                <label class="form-check-label" for="flexRadioDefault1" >Chưa liên hệ</label>
+                                                <input class="form-check-input" type="radio" name="status" value="0"
+                                                    {{ isset($editContact) && $editContact->status === 0 ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="flexRadioDefault1">Chưa liên hệ</label>
                                                 <div>
-                                                    <input class="form-check-input" type="radio" name="status" value = "1" {{(isset($editContact) && $editContact->status === 1) ? 'checked' : ''}}>
-                                                    <label class="form-check-label" for="flexRadioDefault2">Đã liên hệ</label>
+                                                    <input class="form-check-input" type="radio" name="status"
+                                                        value="1"
+                                                        {{ isset($editContact) && $editContact->status === 1 ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="flexRadioDefault2">Đã liên
+                                                        hệ</label>
                                                 </div>
                                             </div>
                                             <div class="text-start mt-4 mb-3">
 
-                                                <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
-                                                                class="fa fa-paper-plane"></i></span>Cập Nhật</button>
-                                                <button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i
-                                                                class="fa fa-times"></i></span><a
-                                                            href="{{ route('route_BackEnd_Contact_List') }}">Quay Lại</a></button>
+                                                <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span
+                                                        class="me-2"><i class="fa fa-paper-plane"></i></span>Cập
+                                                    Nhật</button>
+                                                <button class="btn btn-danger light btn-sl-sm" type="button"><span
+                                                        class="me-2"><i class="fa fa-times"></i></span><a
+                                                        href="{{ route('route_BackEnd_Contact_List') }}">Quay
+                                                        Lại</a></button>
                                             </div>
                                         </div>
                                     </form>
-
-
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <!-- Main content -->
 
 @endsection

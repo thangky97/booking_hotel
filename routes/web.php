@@ -128,10 +128,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/properties')->group(function () {
-        Route::get('/', 'Admin\PropertiesController@index')
-            ->name('route_BackEnd_properties_List');
-        Route::get('/addForm', 'Admin\PropertiesController@addForm')
-            ->name('route_BackEnd_properties_Add');
+        Route::get('/', 'Admin\PropertiesController@index')->name('route_BackEnd_properties_List');
+        Route::get('/addForm', 'Admin\PropertiesController@addForm')->name('route_BackEnd_properties_Add');
         Route::post('/saveAddForm', 'Admin\PropertiesController@saveAdd')->name('route_BackEnd_properties_saveAdd');
         Route::get('/editForm/{id}', 'Admin\PropertiesController@editForm')->name('route_BackEnd_properties_Detail');
         Route::post('/editForm/{id}', 'Admin\PropertiesController@saveEdit')->name('route_BackEnd_properties_Update');
@@ -169,8 +167,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/bills')->group(function () {
-        
-
         Route::get('/', 'Admin\BillController@index')->name('route_BackEnd_Bill_List');
         Route::get('/rooms/{id}', 'Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
         Route::get('/services/{id}', 'Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
@@ -182,11 +178,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/bill_detail')->group(function () {
-        // Route::get('/{id}', 'Admin\BillDetailController@bill_detail')->name('route_BackEnd_BillDetail');
+        Route::get('/{id}', 'Admin\BillDetailController@index')->name('route_BackEnd_BillDetail_List');
     });
 
     Route::prefix('/services')->group(function () {
-
         Route::get('/', 'Admin\ServiceController@service')->name('route_BackEnd_Service_List');
         Route::match(['post', 'get'], '/add', 'Admin\ServiceController@service_add')->name('route_BackEnd_Service_Add');
         Route::get('/detail/{id}', 'Admin\ServiceController@service_detail')->name('route_BackEnd_Service_Detail');
@@ -207,7 +202,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/banner')->group(function () {
-
         Route::get('/', 'Admin\BannerController@banner')->name('route_BackEnd_Banner_List');
         Route::match(['post', 'get'], '/add', 'Admin\BannerController@banner_add')->name('route_BackEnd_Banner_Add');
         Route::get('/detail/{id}', 'Admin\BannerController@banner_detail')->name('route_BackEnd_Banner_Detail');

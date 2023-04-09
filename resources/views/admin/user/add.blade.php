@@ -1,8 +1,9 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
         <div class="container-fluid">
             <div class="row">

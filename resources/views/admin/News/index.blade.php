@@ -110,8 +110,11 @@
                                                             alt="" width="100px"></td>
                                                     <td>
                                                         <div class="text-center">
-                                                            {{-- <span>{{ $n->admins->name }}</span> --}}
-                                                            <span>{{ $n->admin_id }}</span>
+                                                            @if ($n->admin_name)
+                                                                <span>{{ $n->admin_name->name }}</span>
+                                                            @else
+                                                                <span>Không có người đăng</span>
+                                                            @endif
                                                         </div>
                                                     </td>
                                                     <td>
@@ -121,7 +124,11 @@
                                                     </td>
                                                     <td>
                                                         <div class="text-center">
-                                                            {{ $n->cate_new->name }}
+                                                            @if ($n->cate_new)
+                                                                <span>{{ $n->cate_new->name }}</span>
+                                                            @else
+                                                                <span>Không có danh mục</span>
+                                                            @endif
                                                         </div>
                                                     </td>
                                                     <td class="text-center">

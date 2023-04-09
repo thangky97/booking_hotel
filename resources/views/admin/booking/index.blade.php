@@ -1,10 +1,10 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
 <div class="content-body">
-    <!-- row -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-12">
@@ -29,9 +29,43 @@
                         </div>
                     </div>
                     <div>
-                        <a href="{{route('route_BackEnd_Bookings_Adduser')}}" class="btn btn-info mb-xxl-0 mb-4"><i class="bi bi-minecart-loaded"></i> Thêm mới</a>
-                        <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                        <a href="{{route('route_BackEnd_Bookings_Adduser')}}" class="btn btn-info mb-xxl-0 mb-4" style="margin-right: 30px"><i class="bi bi-minecart-loaded"></i> Thêm mới</a>
                     </div>
+                </div>
+                <div id="msg-box">
+                    <?php //Hiển thị thông báo thành công
+                    ?>
+                    @if (Session::has('success'))
+                        <div class="alert alert-success solid alert-dismissible fade show">
+                            <span><i class="mdi mdi-check"></i></span>
+                            <strong>{{ Session::get('success') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                            </button>
+                        </div>
+                    @endif
+                    <?php //Hiển thị thông báo lỗi
+                    ?>
+                    @if (Session::has('error'))
+                        <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                            <span><i class="mdi mdi-help"></i></span>
+                            <strong>{{ Session::get('errors') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                            </button>
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                        </div>
+                    @endif
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane active show" id="Active">
@@ -141,7 +175,6 @@
                     </div>
                     <div class="tab-pane fade" id="All">
                         <div class="table-responsive">
-                            <a href="{{route('route_BackEnd_Bookings_Adduser')}}">Thêm mới</a>
                             <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                 <thead>
                                     <tr>
@@ -236,7 +269,6 @@
                     </div>
                     <div class="tab-pane fade" id="Canceled">
                         <div class="table-responsive">
-                            <a href="{{route('route_BackEnd_Bookings_Adduser')}}">Thêm mới</a>
                             <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                 <thead>
                                     <tr>

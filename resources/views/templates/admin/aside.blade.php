@@ -31,15 +31,19 @@
                             <li><a href="{{ route('route_BackEnd_ServiceRoom_list') }}">Dịch vụ phòng</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="#" aria-expanded="false">
+                    <li><a class="" href="{{ route('route_BackEnd_Bookings_List') }}" aria-expanded="false">
                             <i class="bi bi-minecart-loaded"></i>
                             <span class="nav-text">Booking</span>
                         </a>
-                        <ul aria-expanded="false">
+                        {{-- <ul aria-expanded="false">
                             <li><a href="{{ route('route_BackEnd_Bookings_List') }}">Đơn đặt phòng</a></li>
-                            <li><a href="{{ route('route_BackEnd_Feedback_List') }}">Nhận xét</a></li>
-                        </ul>
+                        </ul> --}}
                     </li>
+                    <li><a class="" href="{{ route('route_BackEnd_Bill_List') }}" aria-expanded="false">
+                        <i class="bi bi-file-zip"></i>
+                        <span class="nav-text">Hóa đơn</span>
+                    </a>
+                </li>
                     <li><a class="" href="{{ route('route_BackEnd_Banner_List') }}" aria-expanded="false">
                             <i class="bi bi-image-fill"></i>
                             <span class="nav-text">Banner</span>
@@ -75,16 +79,16 @@
                             <span class="nav-text">Voucher</span>
                         </a>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-050-info"></i>
                             <span class="nav-text">Bài đăng</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('route_BackEnd_Schedule_List') }}">Lịch</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="" href="#" aria-expanded="false">
                             <i class="bi bi-bar-chart-line-fill"></i>
                             <span class="nav-text">Thống kê</span>
                         </a>

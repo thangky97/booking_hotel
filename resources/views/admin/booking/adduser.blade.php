@@ -1,8 +1,9 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
         <div class="container-fluid">
             <div class="row">
@@ -20,7 +21,7 @@
                                         <div class="col-xl-6">
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label">Tên
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger"> *</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" name="name" class="form-control"
@@ -37,7 +38,7 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label">Email <span
-                                                        class="text-danger">*</span>
+                                                        class="text-danger"> *</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" name="email" class="form-control"
@@ -54,7 +55,7 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label">Cmt/Cccd
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger"> *</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <div class="form-file">
@@ -74,7 +75,7 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label">Giới tính
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger"> *</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select name="gender" class="default-select wide form-control">
@@ -94,7 +95,7 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label">Địa chỉ
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger"> *</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" name="address" class="form-control"
@@ -113,7 +114,7 @@
                                         <div class="col-xl-6">
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label">Ngày sinh
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger"> *</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="date" name="date" class="form-control"
@@ -136,7 +137,7 @@
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label">Số điện
                                                     thoại
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger"> *</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" name="phone" class="form-control"
@@ -153,7 +154,7 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label">Trạng thái
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger"> *</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select name="status" class="default-select wide form-control">

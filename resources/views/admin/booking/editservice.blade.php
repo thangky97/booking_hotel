@@ -1,8 +1,9 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
         <div class="container-fluid">
             <div class="row">
@@ -62,8 +63,12 @@
                                         </div>
                                         <div class="col-lg-6" style="float: right;padding-left: 30px;">
                                             <button type="submit" class="btn btn-primary"><span class="me-2"><i
-                                                        class="fa fa-paper-plane"></i></span>Tìm phòng
+                                                        class="fa fa-paper-plane"></i></span>Lưu
                                             </button>
+                                            <div class="btn btn-danger light btn-sl-sm"><span class="me-2"><i
+                                                class="fa fa-times"></i></span><a
+                                            href="{{ route('route_BackEnd_Bookings_List') }}">Quay Lại</a>
+                                    </div>
                                         </div>
                                     </div>
                                 </form>

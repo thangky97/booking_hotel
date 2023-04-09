@@ -34,7 +34,23 @@ class BillController extends Controller
 
     public function index(Request $request)
     {
-        return view('admin.bill.index');
+        $title = 'Danh sách hóa đơn';
+        $name = $request->get('name');
+        $phone = $request->get('phone');
+        if ($name) {
+            $bill = Bills::where('name', 'like', '%' . $name . '%')
+                ->paginate(20);
+        } elseif ($phone) {
+            $bill = Bills::where('phone', 'like', '%' . $phone . '%')
+                ->paginate(20);
+        } else {
+            $bill = Bills::with('voucher')
+                ->orderBy('status', 'asc')
+                ->paginate(5);
+                // dd($bill);
+        }
+
+        return view('admin.bill.index', ['bills' => $bill, 'title' => $title]);
     }
 
     public function print_order($id)
@@ -45,7 +61,7 @@ class BillController extends Controller
     }
     public function print_order_convert($id)
     {
-       $room_service = DB::table('bookings_detail')
+        $room_service = DB::table('bookings_detail')
             ->select('bookings_detail.*', 'service_room.service_id')
             ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
             ->where('bookings_detail.booking_id', '=', $id)

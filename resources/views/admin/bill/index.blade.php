@@ -8,6 +8,21 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
+                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+                        <div class="table-search">
+                            <div class="input-group search-area mb-xxl-0 mb-4">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm">
+                                <span class="input-group-text"><a href="javascript:void(0)"><i
+                                            class="flaticon-381-search-2"></i></a></span>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="{{ route('route_BackEnd_Rooms_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
+                                    class="fa fa-bed me-2"></i>Thêm mới</a>
+                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
+                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                        </div>
+                    </div>
                     <div class="tab-content">
                         <div class="tab-pane active show" id="All">
                             <div class="table-responsive">
@@ -22,11 +37,9 @@
                                                         id="checkAll">
                                                 </div>
                                             </th>
-                                            <th>ID</th>
-                                            <th>Tên</th>
-                                            <th>Ngày đến</th>
-                                            <th>Ngày đi</th>
-                                            <th>Số người</th>
+                                            <th>ID đặt phòng</th>
+                                            <th>Tổng tiền</th>
+                                            <th>Mã voucher</th>
                                             <th>Trạng thái</th>
                                             <th class="bg-none">Hành động</th>
                                         </tr>
@@ -42,13 +55,6 @@
                                                 <td>
                                                     <span class="fs-16">#{{ $bill->booking_id }}</span>
                                                 </td>
-                                                {{-- <td>
-											@foreach ($loai_phong as $lp)
-											@if ($bill->cate_room == $lp->id)
-											<p class="text-black">{{$lp->name}}</p>				
-											@endif
-											@endforeach
-										</td> --}}
                                                 <td>
                                                     <div>
                                                         <span class="fs-16">{{ number_format($bill->total_money) }}đ</span>
@@ -56,7 +62,11 @@
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <span class="fs-16">{{ $bill->voucher->code }}</span>
+                                                        @if ($bill->voucher)
+                                                            <span class="fs-16">{{ $bill->voucher->code }}</span>
+                                                        @else
+                                                            <span class="fs-16 text-warning">Không có voucher</span>
+                                                        @endif
                                                     </div>
                                                 </td>
                                                 <td>
