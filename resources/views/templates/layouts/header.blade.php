@@ -334,7 +334,7 @@
                                     </div>
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-461289c"
                                         data-id="461289c" data-element_type="column">
-                                        
+
                                     </div>
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-d72b31a"
                                         data-id="d72b31a" data-element_type="column">
@@ -395,7 +395,7 @@
                                                                         style="margin-top: 15px;">
                                                                     </div>
 
-                                                                    
+
                                                                 </div>
                                                             @else
                                                                 <a href="{{ route('getSignin') }}"><img
@@ -420,7 +420,7 @@
                                                                         style="margin-top: 15px;">
                                                                     </div>
 
-                                                                    
+
                                                                 </div>
                                                             @endif
                                                         </div>
@@ -849,11 +849,11 @@
                                 data-id="85b82e9" data-element_type="widget" data-widget_type="button.default">
                                 <div class="elementor-widget-container">
                                     <div class="elementor-button-wrapper">
-                                        <a href="{{ route('route_FontEnd_BookingSearch') }}"
+                                        <a href="#flatbooking"
                                             class="elementor-button-link elementor-button elementor-size-sm"
                                             role="button">
                                             <span class="elementor-button-content-wrapper">
-                                                <span class="elementor-button-text">Đặt Phòng</span>
+                                                <span class="elementor-button-text">Đặt Phòng cho Cặp Đôi</span>
                                             </span>
                                         </a>
                                     </div>

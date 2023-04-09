@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\CategoryRooms;
 use App\Models\Properties;
 use App\Models\Rooms;
+use App\Models\Service;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,8 +32,8 @@ class HomeController extends Controller
         $this->v['users'] = Users::select('name', 'email', 'status')
             ->where("status", "=", 1)->get();
             // dd($this->v['users']);
-   
-        
+
+
 
         $property_rooms = DB::table('property_room')
             ->leftjoin('category_rooms', 'category_rooms.id', '=', 'property_room.cate_room')
@@ -41,6 +42,8 @@ class HomeController extends Controller
         $this->v['listProperty_rooms'] = $property_rooms;
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
+        $Services = new Service();
+        $this->v['listServices'] = $Services->loadAll();
         $this->v['listCaterooms'] = CategoryRooms::select('id', 'name', 'image', 'price', 'status')->where('status', '=', 1)->get();
         return view('home', $this->v);
     }

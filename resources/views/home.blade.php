@@ -552,7 +552,7 @@
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
                                                         <h1 class="elementor-heading-title elementor-size-default"><span
-                                                                style="font-size:25px">$</span> {{ $cateroom->price }} <span
+                                                                style="font-size:25px">$</span> {{ number_format($cateroom->price)}} <span
                                                                 style="font-size:20px">/
                                                                 đêm</span></h1>
                                                     </div>
@@ -626,7 +626,7 @@
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
                                                         <h1 class="elementor-heading-title elementor-size-default"><span
-                                                                style="font-size:25px">$</span> {{ $cateroom->price }} <span
+                                                                style="font-size:25px">$</span> {{ number_format($cateroom->price) }} <span
                                                                 style="font-size:20px">/
                                                                 đêm</span></h1>
                                                     </div>
@@ -693,14 +693,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-element elementor-element-5fc47857 nd_options_rotate_text elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-heading"
-                        data-id="5fc47857" data-element_type="widget"
-                        data-settings="{&quot;_position&quot;:&quot;absolute&quot;,&quot;_animation&quot;:&quot;none&quot;}"
-                        data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h2 class="elementor-heading-title elementor-size-default">Định Giá</h2>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-52a77fa4"
@@ -752,10 +745,10 @@
                     <div class="elementor-element elementor-element-9774001 elementor-widget elementor-widget-heading"
                         data-id="9774001" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h4 class="elementor-heading-title elementor-size-default">Bao Gồm Tất Cả</h4>
+                            <h4 class="elementor-heading-title elementor-size-default">Danh sách dịch vụ</h4>
                         </div>
                     </div>
-                    @foreach ($listCaterooms as $cate)
+                    @foreach ($listServices as $service)
                         <div class="elementor-element elementor-element-1c5f5a4 elementor-widget elementor-widget-list"
                             data-id="1c5f5a4" data-element_type="widget" data-widget_type="list.default">
                             <div class="elementor-widget-container">
@@ -765,7 +758,7 @@
                                     <div class="nd_elements_section nd_elements_position_relative">
 
                                         <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                            src="{{ asset('storage/category_rooms' . $cate->image) }}">
+                                            src="{{ asset('storage/category_rooms' . $service->images) }}">
                                         {{-- src="{{asset("storage/category_rooms". $cate->image)}}"> --}}
                                         <div
                                             class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
@@ -774,14 +767,14 @@
                                             <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
                                                 style="width:75%;">
                                                 <h4><span
-                                                        class="nd_elements_list_component_title">{{ $cate->name }}</span>
+                                                        class="nd_elements_list_component_title">{{ $service->name }}</span>
                                                 </h4>
                                             </div>
 
                                             <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
                                                 style="width:25%;">
                                                 <p class="nd_elements_list_component_label">
-                                                    {{ number_format($cate->price, 0, ',', '.') }}
+                                                    {{ number_format($service->price) }}
                                                     vnd</p>
                                                 {{-- {{ number_format($cate->price, 0, ',', '.') }} --}}
                                             </div>
@@ -815,179 +808,6 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="elementor-element elementor-element-b37957d elementor-widget elementor-widget-heading"
-                        data-id="b37957d" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h4 class="elementor-heading-title elementor-size-default">Bao bữa sáng và tối </h4>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-9e10f2a elementor-widget elementor-widget-list"
-                        data-id="9e10f2a" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-
-                            <div class="nd_elements_section nd_elements_list_component">
-
-                                <div class="nd_elements_section nd_elements_position_relative">
-
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="wp-content/uploads/sites/4/2022/05/square1.jpg">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <h4><span class="nd_elements_list_component_title">Luxury Suite</span></h4>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width:20%;">
-                                            <p class="nd_elements_list_component_label">76 $ / ĐÊM</p>
-                                        </div>
-
-
-                                        <div style="height:10px;" class="nd_elements_section"></div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <p class="nd_elements_list_component_description">Mauris et tortor sit amet
-                                                ex
-                                                sagittis</p>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width:20%;">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta"><span>SALE</span></p>
-                                            </a>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-6892ff4 elementor-widget elementor-widget-list"
-                        data-id="6892ff4" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-
-                            <div class="nd_elements_section nd_elements_list_component">
-
-                                <div class="nd_elements_section nd_elements_position_relative">
-
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="wp-content/uploads/sites/4/2022/05/square3.jpg">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <h4><span class="nd_elements_list_component_title">Mini Room</span></h4>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width:20%;">
-                                            <p class="nd_elements_list_component_label">63 $ / ĐÊM</p>
-                                        </div>
-
-
-                                        <div style="height:10px;" class="nd_elements_section"></div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <p class="nd_elements_list_component_description">Mauris et tortor sit amet
-                                                ex
-                                                sagittis</p>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width:20%;">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta"><span>PROMO</span></p>
-                                            </a>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-cf424a0 elementor-widget elementor-widget-list"
-                        data-id="cf424a0" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-
-                            <div class="nd_elements_section nd_elements_list_component">
-
-                                <div class="nd_elements_section nd_elements_position_relative">
-
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="wp-content/uploads/sites/4/2022/05/square-8.jpg">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <h4><span class="nd_elements_list_component_title">Family Suite</span></h4>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width:20%;">
-                                            <p class="nd_elements_list_component_label">93 $ / ĐÊM</p>
-                                        </div>
-
-
-                                        <div style="height:10px;" class="nd_elements_section"></div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <p class="nd_elements_list_component_description">Mauris et tortor sit amet
-                                                ex
-                                                sagittis</p>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width:20%;">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta"><span>KHUYẾN MẠI</span></p>
-                                            </a>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-1777ba0b elementor-widget elementor-widget-spacer"
-                        data-id="1777ba0b" data-element_type="widget" data-widget_type="spacer.default">
-                        <div class="elementor-widget-container">
-                            <div class="elementor-spacer">
-                                <div class="elementor-spacer-inner"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1004,24 +824,19 @@
                     <div class="elementor-element elementor-element-3856a426 elementor-widget elementor-widget-heading"
                         data-id="3856a426" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h3 class="elementor-heading-title elementor-size-default">ƯỚC LƯỢNG</h3>
+                            <h3 class="elementor-heading-title elementor-size-default">Đặt phòng</h3>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-23e12def elementor-widget elementor-widget-heading"
                         data-id="23e12def" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title elementor-size-default">Chi Phí Dịch Vụ Bổ Sung</h1>
+                            <h1 class="elementor-heading-title elementor-size-default">Dành cho các cặp đôi</h1>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-7944326d elementor-widget elementor-widget-heading"
                         data-id="7944326d" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <p class="elementor-heading-title elementor-size-default">Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Duis porttitor tellus vel mauris scelerisque accumsan.
-                                Maecenas
-                                quis nunc sed sapien dignissim pulvinar. Se d at gravida ligula, eget hendrerit nisi.
-                                Pellentesque at congue mauris.
-                                posuere finibus risus.</p>
+                            <p class="elementor-heading-title elementor-size-default">Với những cặp tình nhân hoặc đôi vợ chồng trẻ thì khách sạn tình yêu đã là khái niệm không còn xa lạ. Nhu cầu hâm nóng tình cảm, “làm mới” những trải nghiệm thú vị bên nhau luôn thôi thúc các cặp đôi tìm đến các khách sạn tình yêu, lên kế hoạch cho một buổi hẹn hò đặc biệt cùng người thương.</p>
                         </div>
                     </div>
                     <section
@@ -1098,7 +913,7 @@
             </div>
             <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-91b07c elementor-invisible"
                 data-id="91b07c" data-element_type="column"
-                data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInRight&quot;}">
+                data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInRight&quot;}" id="flatbooking">
                 <div class="elementor-widget-wrap elementor-element-populated">
                     <div class="elementor-background-overlay"></div>
                     <div class="elementor-element elementor-element-7c0be78e elementor-widget elementor-widget-shortcode"
@@ -1357,191 +1172,21 @@
                                                 nd_cc_total_price = nd_cc_total_price + parseInt(value);
                                             })
 
-                                            jQuery("#nd_cc_cc_" + nd_cc_cc_id + " .nd_cc_cc_total_price").append(nd_cc_total_price);
+                                            jQuery("#nd_cc_cc_" + nd_cc_cc_id + " .nd_cc_cc_total_price").append(nd_cc_total_price-50);
 
                                         }
                                     </script>
-
-                                    <div id="nd_cc_section_1" style="width:100%;" class="nd_cc_section_cc">
-
-
-                                        <div id="nd_cc_sub_section_1_1"
-                                            class="nd_cc_sub_section_cc nd_cc_width_100_percentage_important_responsive "
-                                            style="width:50%;">
-
-                                            <p class="nd_options_color_greydark nd_cc_sub_section_name">Số Đêm</p>
-
-
-                                            <script>
-                                                jQuery(function() {
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_sub_menu li ").click(function() {
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_ul li").removeClass(
-                                                            "nd_cc_select_active");
-                                                        var nd_cc_select_data_position_first = jQuery(this).attr("data-position");
-                                                        var nd_cc_select_data_position = parseInt(nd_cc_select_data_position_first) + 1;
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_ul > li:nth-child(" +
-                                                            nd_cc_select_data_position + ")").addClass("nd_cc_select_active");
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_sub_menu").removeClass(
-                                                            "nd_cc_display_block_important");
-
-
-                                                        var nd_cc_select_price = jQuery(this).attr("data-price");
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_current_price_1_1").val(nd_cc_select_price);
-                                                        nd_cc_get_total_price(4062, 50);
-
-
-                                                    });
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_ul li.nd_cc_select_active").click(
-                                                        function() {
-                                                            jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_sub_menu").addClass(
-                                                                "nd_cc_display_block_important");
-                                                        });
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_ul")
-                                                        .mouseenter(function() {
-                                                            jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_sub_menu").addClass(
-                                                                "nd_cc_display_block_important");
-                                                        })
-                                                        .mouseleave(function() {
-                                                            jQuery("#nd_cc_cc_4062 .nd_cc_select_content_1_1 .nd_cc_select_sub_menu").removeClass(
-                                                                "nd_cc_display_block_important");
-                                                        });
-
-                                                });
-                                            </script>
-
-                                            <div class="nd_cc_select_content_1_1">
-                                                <ul class="nd_cc_select_ul">
-
-                                                    <li class="nd_cc_select_active">
-                                                        <img class="nd_cc_select_arrow"
-                                                            src="wp-content/plugins/nd-projects/addons/cost-calculator/include/down-arrow.png">
-                                                        <p>Chọn tùy chọn</p>
-                                                    </li>
-                                                    <li class="">
-
-                                                        <div class="">
-                                                            <p class="nd_options_color_greydark nd_cc_select_name">1 Đêm
-                                                            </p>
-                                                            <h5 class="nd_options_color_grey"></h5>
-                                                        </div>
-                                                    </li>
-                                                    <li class="">
-
-                                                        <div class="">
-                                                            <p class="nd_options_color_greydark nd_cc_select_name">2 Đêm
-                                                            </p>
-                                                            <h5 class="nd_options_color_grey"></h5>
-                                                        </div>
-                                                    </li>
-                                                    <li class="">
-
-                                                        <div class="">
-                                                            <p class="nd_options_color_greydark nd_cc_select_name">3 Đêm
-                                                            </p>
-                                                            <h5 class="nd_options_color_grey"></h5>
-                                                        </div>
-                                                    </li>
-                                                    <li class="">
-
-                                                        <div class="">
-                                                            <p class="nd_options_color_greydark nd_cc_select_name">4 Đêm
-                                                            </p>
-                                                            <h5 class="nd_options_color_grey"></h5>
-                                                        </div>
-                                                    </li>
-                                                    <ul class="nd_cc_select_sub_menu">
-                                                        <li data-position="0" data-price="0" class="">
-                                                            <p>Chọn tùy chọn</p>
-                                                        </li>
-                                                        <li data-price="15" data-position="1" class="">
-
-                                                            <div class="">
-                                                                <p class="nd_options_color_greydark nd_cc_select_name">1
-                                                                    Đêm <span class="nd_cc_select_price">15</span></p>
-                                                                <h5 class="nd_options_color_grey"></h5>
-                                                            </div>
-                                                        </li>
-                                                        <li data-price="20" data-position="2" class="">
-
-                                                            <div class="">
-                                                                <p class="nd_options_color_greydark nd_cc_select_name">2
-                                                                    Đêm <span class="nd_cc_select_price">20</span></p>
-                                                                <h5 class="nd_options_color_grey"></h5>
-                                                            </div>
-                                                        </li>
-                                                        <li data-price="25" data-position="3" class="">
-
-                                                            <div class="">
-                                                                <p class="nd_options_color_greydark nd_cc_select_name">3
-                                                                    Đêm <span class="nd_cc_select_price">25</span></p>
-                                                                <h5 class="nd_options_color_grey"></h5>
-                                                            </div>
-                                                        </li>
-                                                        <li data-price="30" data-position="4" class="">
-
-                                                            <div class="">
-                                                                <p class="nd_options_color_greydark nd_cc_select_name">4
-                                                                    Đêm <span class="nd_cc_select_price">30</span></p>
-                                                                <h5 class="nd_options_color_grey"></h5>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </ul>
-
-
-                                                <input class=" nd_cc_cc_4062_value_price nd_cc_current_price_1_1"
-                                                    name="nd_cc_current_price_1_1" type="hidden" readonly
-                                                    value="0">
-
-
-                                            </div>
+                                <form action="" method="POST">
+                                    @csrf
+                                    <div style="width: 100%;display: flex;justify-content: space-between;padding: 0 14px 0 14px;" class="nd_cc_section_cc">
+                                        <div>
+                                            <p>Chọn ngày đến</p>
+                                            <input type="date" name="check_in">
                                         </div>
-
-                                        <div id="nd_cc_sub_section_1_2"
-                                            class="nd_cc_sub_section_cc nd_cc_width_100_percentage_important_responsive "
-                                            style="width:50%;">
-
-                                            <p class="nd_options_color_greydark nd_cc_sub_section_name">Số người</p>
-
-
-                                            <script>
-                                                jQuery(function() {
-                                                    var handle = jQuery("#nd_cc_cc_4062 #nd_cc_custom_handle_1_2");
-                                                    jQuery("#nd_cc_cc_4062 #nd_cc_slider_1_2").slider({
-                                                        min: 1,
-                                                        max: 10,
-                                                        value: 5,
-                                                        create: function() {
-                                                            handle.text(jQuery(this).slider("value"));
-                                                            nd_cc_get_total_price(4062, 50);
-                                                        },
-                                                        slide: function(event, ui) {
-                                                            handle.text(ui.value);
-                                                            var nd_cc_default_slider_price = 1 * ui.value;
-                                                            jQuery(".nd_cc_current_price_1_2").val(nd_cc_default_slider_price);
-                                                            nd_cc_get_total_price(4062, 50);
-                                                        }
-                                                    });
-                                                });
-                                            </script>
-
-
-                                            <div class="nd_cc_slider_4062" id="nd_cc_slider_1_2">
-                                                <div id="nd_cc_custom_handle_1_2"
-                                                    class="ui-slider-handle  nd_cc_slider_handle_4062 "></div>
-                                                <input class=" nd_cc_cc_4062_value_price nd_cc_current_price_1_2"
-                                                    name="nd_cc_current_price_1_2" type="hidden" readonly
-                                                    value="5">
-                                            </div>
-
-
+                                        <div>
+                                            <p>Chọn ngày trả</p>
+                                            <input type="date" name="check_out">
                                         </div>
-
                                     </div>
 
                                     <div id="nd_cc_section_2" style="width:100%;" class="nd_cc_section_cc">
@@ -1551,7 +1196,7 @@
                                             class="nd_cc_sub_section_cc nd_cc_width_100_percentage_important_responsive "
                                             style="width:50%;">
 
-                                            <p class="nd_options_color_greydark nd_cc_sub_section_name">Loại Phòng</p>
+                                            <p class="nd_options_color_greydark nd_cc_sub_section_name">Chọn Loại Phòng</p>
 
 
                                             <script>
@@ -1602,78 +1247,34 @@
                                                     <li class="nd_cc_select_active">
                                                         <img class="nd_cc_select_arrow"
                                                             src="wp-content/plugins/nd-projects/addons/cost-calculator/include/down-arrow.png">
-                                                        <p>Select Option</p>
+                                                        <p>Chọn loại phòng</p>
                                                     </li>
-                                                    <li class="">
-
-                                                        <div class="">
-                                                            <p class="nd_options_color_greydark nd_cc_select_name">Room
-                                                            </p>
-                                                            <h5 class="nd_options_color_grey"></h5>
-                                                        </div>
-                                                    </li>
-                                                    <li class="">
-
-                                                        <div class="">
-                                                            <p class="nd_options_color_greydark nd_cc_select_name">Suite
-                                                            </p>
-                                                            <h5 class="nd_options_color_grey"></h5>
-                                                        </div>
-                                                    </li>
+                                                    @foreach($listCaterooms as $cateroom)
                                                     <li class="">
 
                                                         <div class="">
                                                             <p class="nd_options_color_greydark nd_cc_select_name">
-                                                                Apartment</p>
-                                                            <h5 class="nd_options_color_grey"></h5>
-                                                        </div>
-                                                    </li>
-                                                    <li class="">
-
-                                                        <div class="">
-                                                            <p class="nd_options_color_greydark nd_cc_select_name">
-                                                                Double
+                                                                {{$cateroom->name}}
                                                             </p>
                                                             <h5 class="nd_options_color_grey"></h5>
                                                         </div>
                                                     </li>
+                                                    @endforeach
                                                     <ul class="nd_cc_select_sub_menu">
                                                         <li data-position="0" data-price="0" class="">
-                                                            <p>Select Option</p>
+                                                            <p>Chọn loại phòng</p>
                                                         </li>
-                                                        <li data-price="5" data-position="1" class="">
+                                                        <?php $n=1;?>
+                                                        @foreach($listCaterooms as $cateroom)
+                                                            <li data-price="{{$cateroom->price}}" data-position="{{$n++}}" class="">
 
-                                                            <div class="">
-                                                                <p class="nd_options_color_greydark nd_cc_select_name">
-                                                                    Room <span class="nd_cc_select_price">5</span></p>
-                                                                <h5 class="nd_options_color_grey"></h5>
-                                                            </div>
-                                                        </li>
-                                                        <li data-price="6" data-position="2" class="">
-
-                                                            <div class="">
-                                                                <p class="nd_options_color_greydark nd_cc_select_name">
-                                                                    Suite <span class="nd_cc_select_price">6</span></p>
-                                                                <h5 class="nd_options_color_grey"></h5>
-                                                            </div>
-                                                        </li>
-                                                        <li data-price="7" data-position="3" class="">
-
-                                                            <div class="">
-                                                                <p class="nd_options_color_greydark nd_cc_select_name">
-                                                                    Apartment <span class="nd_cc_select_price">7</span>
-                                                                </p>
-                                                                <h5 class="nd_options_color_grey"></h5>
-                                                            </div>
-                                                        </li>
-                                                        <li data-price="8" data-position="4" class="">
-
-                                                            <div class="">
-                                                                <p class="nd_options_color_greydark nd_cc_select_name">
-                                                                    Double <span class="nd_cc_select_price">8</span></p>
-                                                                <h5 class="nd_options_color_grey"></h5>
-                                                            </div>
-                                                        </li>
+                                                                <div class="">
+                                                                    <p class="nd_options_color_greydark nd_cc_select_name">
+                                                                        {{$cateroom->name}}<span class="nd_cc_select_price">{{$cateroom->price}}</span></p>
+                                                                    <h5 class="nd_options_color_grey"></h5>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </ul>
 
@@ -1686,152 +1287,22 @@
                                             </div>
                                         </div>
 
-                                        <div id="nd_cc_sub_section_2_2"
-                                            class="nd_cc_sub_section_cc nd_cc_width_100_percentage_important_responsive "
-                                            style="width:50%;">
-
-                                            <p class="nd_options_color_greydark nd_cc_sub_section_name">Hút thuốc</p>
-
-
-                                            <script>
-                                                jQuery(function() {
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_switch_content_2_2 .nd_cc_switch_on").click(function() {
-
-                                                        var nd_cc_switch_enable = jQuery(
-                                                            "#nd_cc_cc_4062 .nd_cc_switch_content_2_2 .nd_cc_switch_on ").hasClass(
-                                                            "nd_cc_switch_active");
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_switch_content_2_2 .nd_cc_switch_off").removeClass(
-                                                            "nd_cc_switch_active");
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_switch_content_2_2 .nd_cc_switch_on").addClass(
-                                                            "nd_cc_switch_active");
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_switch_content_2_2").addClass("nd_cc_switch_content_active");
-
-                                                        if (nd_cc_switch_enable == false) {
-                                                            jQuery("#nd_cc_cc_4062 .nd_cc_current_price_2_2").val(10);
-                                                            nd_cc_get_total_price(4062, 50);
-                                                        }
-
-                                                    });
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_switch_content_2_2 .nd_cc_switch_off").click(function() {
-
-                                                        var nd_cc_switch_enable = jQuery(
-                                                            "#nd_cc_cc_4062 .nd_cc_switch_content_2_2 .nd_cc_switch_off ").hasClass(
-                                                            "nd_cc_switch_active");
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_switch_content_2_2 .nd_cc_switch_on").removeClass(
-                                                            "nd_cc_switch_active");
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_switch_content_2_2 .nd_cc_switch_off").addClass(
-                                                            "nd_cc_switch_active");
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_switch_content_2_2").removeClass(
-                                                            "nd_cc_switch_content_active");
-
-                                                        if (nd_cc_switch_enable == false) {
-                                                            jQuery("#nd_cc_cc_4062 .nd_cc_current_price_2_2").val(0);
-                                                            nd_cc_get_total_price(4062, 50);
-                                                        }
-
-                                                    });
-
-                                                });
-                                            </script>
-
-
-                                            <div class="nd_cc_switch_content_2_2 nd_cc_switch_content_4062 ">
-
-                                                <div
-                                                    class="nd_cc_switch_off nd_cc_switch_active nd_cc_width_50_percentage nd_cc_float_left">
-                                                    <p class="">Được</p>
-                                                </div>
-                                                <div class="nd_cc_switch_on nd_cc_width_50_percentage nd_cc_float_left">
-                                                    <p>Không</p>
-                                                </div>
-
-                                                <input class=" nd_cc_cc_4062_value_price nd_cc_current_price_2_2"
-                                                    name="nd_cc_current_price_2_2" type="hidden" readonly
-                                                    value="0">
-
-                                            </div>
-
-
-                                        </div>
-
                                     </div>
-
-                                    <div id="nd_cc_section_3" style="width:100%;" class="nd_cc_section_cc">
-
-
-                                        <div id="nd_cc_sub_section_3_1"
-                                            class="nd_cc_sub_section_cc nd_cc_width_100_percentage_important_responsive "
-                                            style="width:100%;">
-
-                                            <p class="nd_options_color_greydark nd_cc_sub_section_name">Dịch vụ</p>
-
-
-                                            <script>
-                                                jQuery(function() {
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_tag_content_3_1 .nd_cc_tag_default").click(function() {
-
-                                                        var nd_cc_current_tag_price = jQuery("#nd_cc_cc_4062 .nd_cc_current_price_3_1").val();
-                                                        var nd_cc_tag_multi_price = jQuery(this).attr("data-price");
-
-                                                        if (jQuery(this).hasClass("nd_cc_tag_active")) {
-                                                            jQuery(this).removeClass("nd_cc_tag_active");
-                                                            var nd_cc_final_tag_price = parseInt(nd_cc_current_tag_price) - parseInt(
-                                                                nd_cc_tag_multi_price);
-                                                        } else {
-                                                            jQuery(this).addClass("nd_cc_tag_active");
-                                                            var nd_cc_final_tag_price = parseInt(nd_cc_current_tag_price) + parseInt(
-                                                                nd_cc_tag_multi_price);
-                                                        }
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_current_price_3_1").val(nd_cc_final_tag_price);
-
-                                                        nd_cc_get_total_price(4062, 50);
-
-                                                    });
-
-                                                });
-                                            </script>
-                                            <div class="nd_cc_tag_content_3_1"><a data-price="2"
-                                                    class="nd_cc_tag_default">Bữa
-                                                    sáng<span class="nd_cc_tag_price">2</span></a><a data-price="1"
-                                                    class="nd_cc_tag_default">Lau
-                                                    khô<span class="nd_cc_tag_price">1</span></a><a data-price="3"
-                                                    class="nd_cc_tag_default">Dọn
-                                                    dẹp <span class="nd_cc_tag_price">3</span></a>
-
-                                                <input class=" nd_cc_cc_4062_value_price nd_cc_current_price_3_1"
-                                                    name="nd_cc_current_price_3_1" type="hidden" readonly
-                                                    value="0">
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
                                     <div id="nd_cc_section_price_4062"
                                         class="nd_cc_section_price nd_cc_text_align_left_important_responsive ">
 
-                                        <h1>
-                                            <span>$ </span>
-                                            <span class="nd_cc_cc_total_price">0</span>
-                                        </h1>
-
-                                        <h3></h3>
                                         <p>GIÁ NIÊM YẾT</p>
-
+                                        <h1>
+                                            <span class="nd_cc_cc_total_price">0</span>
+                                            <span>đ</span>
+                                        </h1>
 
                                         <img class="nd_cc_cc_icon_price nd_cc_display_none_responsive"
                                             src="wp-content/uploads/sites/4/2022/05/icon2.png">
 
 
                                     </div>
+                                </form>
                                 </div>
                             </div>
                         </div>
