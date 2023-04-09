@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -133,6 +134,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/editForm/{id}', 'Admin\PropertiesController@editForm')->name('route_BackEnd_properties_Detail');
         Route::post('/editForm/{id}', 'Admin\PropertiesController@saveEdit')->name('route_BackEnd_properties_Update');
         Route::get('/delete/{id}', 'Admin\PropertiesController@destroy')->name('route_BackEnd_properties_Delete');
+    });
+
+    Route::prefix('statistical')->group(function () {
+        Route::get('/', 'Admin\StatisticalController@index')->name('route_BackEnd_Statistical_List');
     });
 
     Route::prefix('/bookings')->group(function () {

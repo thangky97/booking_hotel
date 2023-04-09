@@ -88,12 +88,12 @@
                         </ul>
                     </li> --}}
 
-                    <li><a class="" href="#" aria-expanded="false">
+                    <li><a class="" href="{{ route('route_BackEnd_Statistical_List') }}" aria-expanded="false">
                             <i class="bi bi-bar-chart-line-fill"></i>
                             <span class="nav-text">Thống kê</span>
                         </a>
                     </li>
-                @else
+                @elseif ( Auth::user()->role === 2)
                     <li><a class="" href="{{ route('route_BackEnd_Dashboard') }}" aria-expanded="true">
                             <i class="bi bi-house-door-fill"></i>
                             <span class="nav-text">Dashboard</span>
@@ -156,6 +156,8 @@
                             <span class="nav-text">Voucher</span>
                         </a>
                     </li>
+                @else
+                    hi
                 @endif
             @endif
         </ul>
