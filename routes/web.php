@@ -237,12 +237,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/add', 'Admin\VoucherController@add')->name('route_BackEnd_Voucher_add');
         Route::post('/add', 'Admin\VoucherController@store')->name('route_BackEnd_Voucher_store');
 
-        Route::get('/edit', function () {
-            return view('admin/vouchers/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/vouchers/update');
-        });
+        Route::get('/edit/{id}','Admin\VoucherController@edit')->name('route_BackEnd_Voucher_edit');
+        Route::post('/edit/{id}','Admin\VoucherController@update')->name('route_BackEnd_Voucher_editpost');
+
+
 
         Route::post('/check', 'Admin\VoucherController@check_voucher')->name('route_BackEnd_Voucher_check');
         Route::get('/unset', 'Admin\VoucherController@unset')->name('route_BackEnd_Voucher_unset');

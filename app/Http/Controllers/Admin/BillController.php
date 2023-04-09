@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -22,6 +21,8 @@ use Illuminate\Support\Facades\Session;
 use Symfony\Component\Console\Output\Output;
 
 use function PHPUnit\Framework\isNull;
+session_start();
+
 
 class BillController extends Controller
 {
@@ -584,6 +585,17 @@ class BillController extends Controller
                         'status' => 1
                     ]);
                 }
+                //update voucher
+                $voucher = Session::get('voucher');
+                if(isset($voucher)) {
+                    foreach ($voucher as $value) {
+                        $id = $value['id'];
+                        $limit = $value['limit'] - 1;
+                        Voucher::where('id', $id)->update(['limit' => $limit]);
+                    }
+                    Session::forget('voucher');
+                }
+
             } else {
 
                 $bill_add = Bills::create([
