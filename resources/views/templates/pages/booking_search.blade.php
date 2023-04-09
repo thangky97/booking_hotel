@@ -751,12 +751,12 @@
                                                             </style>
                                     <div id="nd_booking_search_cpt_1_content"
                                         class="nd_booking_float_left nd_booking_width_66_percentage nd_booking_box_sizing_border_box nd_booking_width_100_percentage_responsive">
-                                       
+
                                         <div class="custom-table-room">
                                             <table id="customers">
                                                 <thead>
                                                     <tr>
-                                                        
+
                                                         <th>Loại phòng</th>
                                                         <th>Hình ảnh</th>
                                                         <th>Số người</th>
@@ -787,7 +787,7 @@
                                                 <button type="submit" style="margin-right: 25px">Đặt phòng</button>
                                             </form>
                                         </div>
-                                        
+
 
                                         <div id="nd_booking_archive_search_masonry_container"
                                             class="nd_booking_section nd_booking_position_relative">
@@ -802,7 +802,7 @@
                                                 <div class="nd_booking_section nd_booking_masonry_content">
                                                     <?php $i = 1; ?>
                                                     @foreach ($listRooms as $room)
-                                                        
+
                                                         @foreach ($cateRooms as $index => $item)
                                                             @if ($room->id == $index)
                                                                 <div id="nd_booking_archive_cpt_1_single_5649"

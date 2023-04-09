@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 class BookingController extends Controller
 {
     private $v;
-    
+
     public function __construct()
     {
         $this->v = [];
