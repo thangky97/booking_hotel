@@ -17,7 +17,7 @@ class PropertiesController extends Controller
         $name = $request->get('name');
         if ($name) {
             $properties = Properties::where('name', 'like', '%' . $name . '%')
-                ->paginate(20);
+                ->paginate(10);
         } else {
             $properties = DB::table('properties')->orderBy('name', 'desc')->paginate(10);
         }

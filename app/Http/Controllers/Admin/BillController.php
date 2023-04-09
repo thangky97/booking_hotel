@@ -36,22 +36,46 @@ class BillController extends Controller
     public function index(Request $request)
     {
         $title = 'Danh sách hóa đơn';
-        $name = $request->get('name');
-        $phone = $request->get('phone');
-        if ($name) {
-            $bill = Bills::where('name', 'like', '%' . $name . '%')
-                ->paginate(20);
-        } elseif ($phone) {
-            $bill = Bills::where('phone', 'like', '%' . $phone . '%')
-                ->paginate(20);
+        $booking_id = $request->get('booking_id');
+        $id = $request->get('id');
+        if ($booking_id) {
+            $bill = Bills::where('booking_id', 'like', '%' . $booking_id . '%')
+                ->paginate(10);
+        } elseif ($id) {
+            $bill = Bills::where('id', 'like', '%' . $id . '%')
+                ->paginate(10);
         } else {
             $bill = Bills::with('voucher')
                 ->orderBy('status', 'asc')
-                ->paginate(5);
-                // dd($bill);
+                ->paginate(10);
         }
 
-        return view('admin.bill.index', ['bills' => $bill, 'title' => $title]);
+        return view('admin.bill.index', ['bills' => $bill, 'title' => $title, 'booking_id' => $booking_id, 'id' => $id]);
+    }
+
+    public function bill_detail($id)
+    {
+        $this->v['title'] = 'Chi tiết hóa đơn';
+        $modelBillDetail = new Billdetails();
+        $this->v['bill_detail'] = $modelBillDetail->loadOneBillDetail($id);
+
+        // $this->v['bill_detail'] = Billdetails::with('room')->with('service')->with('bill')->paginate(10);
+        // dd($bill);
+        // $Service = new Service();
+        // $this->v['service'] = $Service->loadAll();
+        // $Cate_rooms = new CategoryRooms();
+        // $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        // $Bookingdetail = new Bookingdetail();
+        // $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
+        $this->v['listRooms'] = Billdetails::with('room');
+        // $this->v['bill_detail'] = Billdetails::select('id', 'service_id', 'room_id', 'bill_id', 'date', 'status');
+        // $booking = Booking::find($id);
+        // $this->v['booking'] = $booking;
+        // $use_date = (strtotime($this->v['booking']['checkout_date']) - strtotime($this->v['booking']['checkin_date'])) / (60 * 60 * 24);
+        // $this->v['use_date'] = $use_date;
+        // $this->v['user'] = Users::find($booking->user_id);
+        // $this->v['count'] = count($this->v['bookingDetails']);
+        return view('admin.bill_detail.index', $this->v);
     }
 
     public function print_order($id)
@@ -479,18 +503,14 @@ class BillController extends Controller
 
     public function bills($id, Request $request)
     {
-
         $Service = new Service();
         $this->v['service'] = $Service->loadAll();
 
         $Service_room = new ServiceRoom();
         $this->v['service_room'] = $Service_room->loadIdBooking($id);
 
-
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
-
-
 
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
@@ -627,13 +647,4 @@ class BillController extends Controller
         return view('admin.bill.bill', $this->v);
     }
 
-    public function edit()
-    {
-        //sửa
-    }
-
-    public function update()
-    {
-        //lưu sửa
-    }
 }

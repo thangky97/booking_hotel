@@ -8,19 +8,24 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
-                        <div class="table-search">
-                            <div class="input-group search-area mb-xxl-0 mb-4">
-                                <input type="text" class="form-control" placeholder="Tìm kiếm">
-                                <span class="input-group-text"><a href="javascript:void(0)"><i
-                                            class="flaticon-381-search-2"></i></a></span>
-                            </div>
+                    <div class="d-flex mb-4 align-items-center flex-wrap">
+                        <div style="margin-right: 50px">
+                            <caption>
+                                <form action="{{ route('route_BackEnd_Bill_List') }}" method="get">
+                                    @csrf
+                                    <input type="search" name="id" value="" class="form-control"
+                                        style="width: 25rem" placeholder="Id hóa đơn">
+                                </form>
+                            </caption>
                         </div>
-                        <div>
-                            <a href="{{ route('route_BackEnd_Rooms_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
-                                    class="fa fa-bed me-2"></i>Thêm mới</a>
-                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                        <div style="margin-right: 50px">
+                            <caption>
+                                <form action="{{ route('route_BackEnd_Bill_List') }}" method="get">
+                                    @csrf
+                                    <input type="search" name="booking_id" value="" class="form-control"
+                                        style="width: 25rem" placeholder="Id đặt phòng">
+                                </form>
+                            </caption>
                         </div>
                     </div>
                     <div class="tab-content">
@@ -37,6 +42,7 @@
                                                         id="checkAll">
                                                 </div>
                                             </th>
+                                            <th>ID hóa đơn</th>
                                             <th>ID đặt phòng</th>
                                             <th>Tổng tiền</th>
                                             <th>Mã voucher</th>
@@ -51,6 +57,9 @@
                                                     <div class="form-check style-1">
                                                         <input class="form-check-input" type="checkbox" value="">
                                                     </div>
+                                                </td>
+                                                <td>
+                                                    <span class="fs-16">#{{ $bill->id }}</span>
                                                 </td>
                                                 <td>
                                                     <span class="fs-16">#{{ $bill->booking_id }}</span>
@@ -81,7 +90,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('route_BackEnd_BillDetail_List', $bill->id) }}"
+                                                    <a href="{{ route('route_BackEnd_Bill_Detail', ['id' => $bill->id]) }}"
                                                         style="margin-left: 10px"><button class="btn btn-primary">Chi
                                                             tiết</button></a>
                                                 </td>

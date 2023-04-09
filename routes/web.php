@@ -26,7 +26,6 @@ Route::get('/123mail', function () {
 });
 Route::get('/rooms/detail/{id}', 'Client\RoomController@detail')->name('route_FrontEnd_Room_Detail');
 
-
 Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
 Route::get('/news/detail/{id}', 'Client\NewController@detail')->name('route_FrontEnd_New_Detail');
 
@@ -167,19 +166,18 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/bills')->group(function () {
-        Route::get('/', 'Admin\BillController@index')->name('route_BackEnd_Bill_List');
         Route::get('/rooms/{id}', 'Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
         Route::get('/services/{id}', 'Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
-
+        
         Route::match(['get', 'post'], '/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
-
+        
         //print_order
         Route::get('/print_order/{id}', 'Admin\BillController@print_order')->name('printOrder');
+        
+        Route::get('/', 'Admin\BillController@index')->name('route_BackEnd_Bill_List');
+        Route::get('/detail/{id}', 'Admin\BillController@bill_detail')->name('route_BackEnd_Bill_Detail');
     });
 
-    Route::prefix('/bill_detail')->group(function () {
-        Route::get('/{id}', 'Admin\BillDetailController@index')->name('route_BackEnd_BillDetail_List');
-    });
 
     Route::prefix('/services')->group(function () {
         Route::get('/', 'Admin\ServiceController@service')->name('route_BackEnd_Service_List');
@@ -239,8 +237,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
         Route::get('/edit/{id}','Admin\VoucherController@edit')->name('route_BackEnd_Voucher_edit');
         Route::post('/edit/{id}','Admin\VoucherController@update')->name('route_BackEnd_Voucher_editpost');
-
-
 
         Route::post('/check', 'Admin\VoucherController@check_voucher')->name('route_BackEnd_Voucher_check');
         Route::get('/unset', 'Admin\VoucherController@unset')->name('route_BackEnd_Voucher_unset');
