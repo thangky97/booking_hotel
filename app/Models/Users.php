@@ -82,4 +82,13 @@ class Users extends Model
             ->update($dataUpdate);
         return $res;
     }
+
+    public function bookingsThisMonth()
+    {
+        $firstDayOfMonth = now()->firstOfMonth()->format('Y-m-d H:i:s');
+        $lastDayOfMonth = now()->lastOfMonth()->format('Y-m-d H:i:s');
+        return Booking::where('staff_id', $this->id)
+            ->whereBetween('created_at', [$firstDayOfMonth, $lastDayOfMonth])
+            ->get();
+    }
 }

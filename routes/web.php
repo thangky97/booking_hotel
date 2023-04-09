@@ -136,10 +136,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/delete/{id}', 'Admin\PropertiesController@destroy')->name('route_BackEnd_properties_Delete');
     });
 
-    Route::prefix('statistical')->group(function () {
-        Route::get('/', 'Admin\StatisticalController@index')->name('route_BackEnd_Statistical_List');
-    });
-
     Route::prefix('/bookings')->group(function () {
         Route::get('/', 'Admin\BookingController@bookings')->name('route_BackEnd_Bookings_List');
         Route::get('/add/{id}', 'Admin\BookingController@add')->name('route_BackEnd_Bookings_Add');

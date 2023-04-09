@@ -139,6 +139,21 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom03">Mật khẩu
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="password" name="password" class="form-control" id="validationCustom03"
+                                                        placeholder="Nhập mật khẩu.." required
+                                                        value="{{ $admin->password }}">
+                                                    @error('password')
+                                                        <div>
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label" for="validationCustom05">Trạng thái
                                                     <span class="text-danger">*</span>
                                                 </label>

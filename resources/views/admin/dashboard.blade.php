@@ -13,8 +13,8 @@
                     <div class="card gradient-1 card-bx">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-auto text-white">
-                                <h2 class="text-white">{{ $totals->total }}</h2>
-                                <span class="fs-18">Số phòng</span>
+                                <h2 class="text-white">{{ $countBookingToday }}</h2>
+                                <span class="fs-18">Phòng đặt hôm nay</span>
                             </div>
                             <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -29,8 +29,8 @@
                     <div class="card gradient-2 card-bx">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-auto text-white">
-                                <h2 class="text-white">{{ $totals->active }}</h2>
-                                <span class="fs-18">Phòng đã sử dụng</span>
+                                <h2 class="text-white">{{ $totalBooking }}</h2>
+                                <span class="fs-18">Đơn chưa thanh toán (trong ngày)</span>
                             </div>
                             <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -46,8 +46,8 @@
                     <div class="card gradient-3 card-bx">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-auto text-white">
-                                <h2 class="text-white">{{ $totals->checkin }}</h2>
-                                <span class="fs-18">Nhận phòng</span>
+                                <h2 class="text-white">{{ $totalPeopleMonth }}</h2>
+                                <span class="fs-18">Số người trong tháng</span>
                             </div>
                             <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -62,8 +62,8 @@
                     <div class="card gradient-4 card-bx">
                         <div class="card-body d-flex align-items-center">
                             <div class="me-auto text-white">
-                                <h2 class="text-white">{{ $totals->checkout }}</h2>
-                                <span class="fs-18">Trả phòng</span>
+                                <h2 class="text-white">{{ number_format($totalMoneyMonth) }}</h2>
+                                <span class="fs-18">Doanh thu (tháng)</span>
                             </div>
                             <svg width="57" height="46" viewBox="0 0 57 46" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -85,7 +85,7 @@
                             <div class="card text-center">
                                 <div class="card-body">
                                     <div id="radialChart" class="radialChart"></div>
-                                    <h2>{{ $totals->noActive }}</h2>
+                                    <h2>{{ $emptyRoom }}</h2>
                                     <span class="fs-16 text-black">Số phòng trống hôm nay</span>
                                 </div>
                             </div>
@@ -142,50 +142,75 @@
                         </div>
                     </div>
                 </div>
+               
                 <div class="col-xl-9 col-xxl-8">
                     <div class="card">
-                        <div class="card-header border-0 d-sm-flex d-block">
+                        {{-- <div class="card-header border-0 d-sm-flex d-block">
                             <div class="me-auto mb-sm-0 mb-3">
-                                <h4 class="card-title mb-2">Thống kê đặt phòng</h4>
-                                <span>12 Zodiac</span>
+                                <h4 class="card-title mb-2">Nhân viên có nhiều đơn nhất tháng</h4>
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex me-5">
-                                    <h3 class="mb-0 me-2">{{ $totals->checkin }}</h3>
-                                    <span>Nhận Phòng</span>
+                        </div> --}}
+                        {{-- <table class="table card-table default-table display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>Tên nhân viên</th>
+                                    <th>Tổng đơn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ( $topUser as $user)
+                                <tr>
+                                    <td>{{ $user['name'] }}</td>
+                                    <td>{{ $user['id'] }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table> --}}
+
+                        <div class="card">
+                            <div class="card-header border-0 d-sm-flex d-block">
+                                <div class="me-auto mb-sm-0 mb-3">
+                                    <h4 class="card-title mb-2">Thống kê đặt phòng</h4>
+                                    <span>12 Zodiac</span>
                                 </div>
-                                <div class="d-flex me-3">
-                                    <h3 class="mb-0 me-2">{{ $totals->checkout }}</h3>
-                                    <span>Trả Phòng</span>
-                                </div>
-                                <div class="dropdown">
-                                    <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
-                                                stroke="#575757" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round"></path>
-                                            <path
-                                                d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
-                                                stroke="#575757" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round"></path>
-                                            <path
-                                                d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
-                                                stroke="#575757" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round"></path>
-                                        </svg>
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"> </a>
-                                        <a class="dropdown-item" href="javascript:void(0);">Edit</a>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex me-5">
+                                        <h3 class="mb-0 me-2">{{ $totals->checkin }}</h3>
+                                        <span>Nhận Phòng</span>
+                                    </div>
+                                    <div class="d-flex me-3">
+                                        <h3 class="mb-0 me-2">{{ $totals->checkout }}</h3>
+                                        <span>Trả Phòng</span>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+                                                    stroke="#575757" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                                <path
+                                                    d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+                                                    stroke="#575757" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                                <path
+                                                    d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+                                                    stroke="#575757" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </svg>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="javascript:void(0);"> </a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <div id="reservationChart" class="reservationChart"></div>
+                            <div class="card-body">
+                                <div id="reservationChart" class="reservationChart"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -193,3 +218,4 @@
             </div>
         </div>
     </div>
+    
