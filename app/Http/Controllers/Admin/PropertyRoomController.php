@@ -20,7 +20,7 @@ class PropertyRoomController extends Controller
     public function propertyrooms()
     {
         $Propertyrooms = new Propertyroom();
-        $this->v['listPropertyrooms'] = $Propertyrooms->loadAll();
+        $this->v['listPropertyrooms'] = $Propertyrooms->loadListWithPager();
         $cateRooms = new CategoryRooms();
         $this->v['listCategoryroom'] = $cateRooms->loadAll();
         $Properties = new Properties();

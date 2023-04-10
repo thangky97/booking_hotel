@@ -157,6 +157,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{$voucher->links('paginate.index')}} 
                     </section>
                 </div>
             </div>

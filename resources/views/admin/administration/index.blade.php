@@ -167,9 +167,10 @@
                                     </tbody>
                                 </table>
                             </div>
-                            {{ $admin_list->links() }}
+                           
                         </div>
                     </div>
+                    {{$admin_list->links('paginate.index')}} 
                 </div>
             </div>
         </div>

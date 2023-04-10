@@ -156,17 +156,13 @@
                             </div>
                         </div>
                     </div>
+                    {{$categoryRoom->links('paginate.index')}} 
                 </section>
             </div>
         </div>
     </div>
 </div>
 
-<br>
-<div class="text-center">
-    {{$categoryRoom->links()}}
-</div>
-<index-cs ref="index_cs"></index-cs>
-</section>
+
 
 @endsection

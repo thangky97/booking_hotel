@@ -552,7 +552,7 @@
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
                                                         <h1 class="elementor-heading-title elementor-size-default"><span
-                                                                style="font-size:25px">$</span> {{ $cateroom->price }} <span
+                                                                style="font-size:25px"></span> {{( $cateroom->price )}}đ <span
                                                                 style="font-size:20px">/
                                                                 đêm</span></h1>
                                                     </div>
@@ -626,7 +626,7 @@
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
                                                         <h1 class="elementor-heading-title elementor-size-default"><span
-                                                                style="font-size:25px">$</span> {{ $cateroom->price }} <span
+                                                                style="font-size:25px"></span> {{ ($cateroom->price) }}đ <span
                                                                 style="font-size:20px">/
                                                                 đêm</span></h1>
                                                     </div>
@@ -765,8 +765,8 @@
                                     <div class="nd_elements_section nd_elements_position_relative">
 
                                         <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                            src="{{ asset('storage/category_rooms' . $cate->image) }}">
-                                        {{-- src="{{asset("storage/category_rooms". $cate->image)}}"> --}}
+                                            src="{{ asset('image/' . $cate->image) }}">
+                                        
                                         <div
                                             class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
 
@@ -782,7 +782,7 @@
                                                 style="width:25%;">
                                                 <p class="nd_elements_list_component_label">
                                                     {{ number_format($cate->price, 0, ',', '.') }}
-                                                    vnd</p>
+                                                    vnđ</p>
                                                 {{-- {{ number_format($cate->price, 0, ',', '.') }} --}}
                                             </div>
 
@@ -801,7 +801,7 @@
                                             <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
                                                 style="width:20%;">
                                                 <a rel="nofollow" target="_blank" href="#">
-                                                    <p class="nd_elements_list_component_cta"><span>PROMO</span></p>
+                                                    <p class="nd_elements_list_component_cta"><span>Tốt Nhất</span></p>
                                                 </a>
                                             </div>
 
@@ -815,171 +815,9 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="elementor-element elementor-element-b37957d elementor-widget elementor-widget-heading"
-                        data-id="b37957d" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h4 class="elementor-heading-title elementor-size-default">Bao bữa sáng và tối </h4>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-9e10f2a elementor-widget elementor-widget-list"
-                        data-id="9e10f2a" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-
-                            <div class="nd_elements_section nd_elements_list_component">
-
-                                <div class="nd_elements_section nd_elements_position_relative">
-
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="wp-content/uploads/sites/4/2022/05/square1.jpg">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <h4><span class="nd_elements_list_component_title">Luxury Suite</span></h4>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width:20%;">
-                                            <p class="nd_elements_list_component_label">76 $ / ĐÊM</p>
-                                        </div>
-
-
-                                        <div style="height:10px;" class="nd_elements_section"></div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <p class="nd_elements_list_component_description">Mauris et tortor sit amet
-                                                ex
-                                                sagittis</p>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width:20%;">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta"><span>SALE</span></p>
-                                            </a>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-6892ff4 elementor-widget elementor-widget-list"
-                        data-id="6892ff4" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-
-                            <div class="nd_elements_section nd_elements_list_component">
-
-                                <div class="nd_elements_section nd_elements_position_relative">
-
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="wp-content/uploads/sites/4/2022/05/square3.jpg">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <h4><span class="nd_elements_list_component_title">Mini Room</span></h4>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width:20%;">
-                                            <p class="nd_elements_list_component_label">63 $ / ĐÊM</p>
-                                        </div>
-
-
-                                        <div style="height:10px;" class="nd_elements_section"></div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <p class="nd_elements_list_component_description">Mauris et tortor sit amet
-                                                ex
-                                                sagittis</p>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width:20%;">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta"><span>PROMO</span></p>
-                                            </a>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-cf424a0 elementor-widget elementor-widget-list"
-                        data-id="cf424a0" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-
-                            <div class="nd_elements_section nd_elements_list_component">
-
-                                <div class="nd_elements_section nd_elements_position_relative">
-
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="wp-content/uploads/sites/4/2022/05/square-8.jpg">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <h4><span class="nd_elements_list_component_title">Family Suite</span></h4>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width:20%;">
-                                            <p class="nd_elements_list_component_label">93 $ / ĐÊM</p>
-                                        </div>
-
-
-                                        <div style="height:10px;" class="nd_elements_section"></div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width:80%;">
-                                            <p class="nd_elements_list_component_description">Mauris et tortor sit amet
-                                                ex
-                                                sagittis</p>
-                                        </div>
-
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width:20%;">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta"><span>KHUYẾN MẠI</span></p>
-                                            </a>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    
+                   
+                    
                     <div class="elementor-element elementor-element-1777ba0b elementor-widget elementor-widget-spacer"
                         data-id="1777ba0b" data-element_type="widget" data-widget_type="spacer.default">
                         <div class="elementor-widget-container">

@@ -11,7 +11,7 @@ class PropertiesController extends Controller
     public function index()
     {
         $title = ' Thuộc tính phòng';
-        $properties = DB::table('properties')->orderBy('name', 'desc')->paginate(100);//phan trang , toi da 5 ban ghi
+        $properties = DB::table('properties')->orderBy('name', 'desc')->paginate(5);//phan trang , toi da 5 ban ghi
         return view('admin.property.index', compact('properties', 'title'));
     }
 

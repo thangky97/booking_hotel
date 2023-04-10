@@ -209,6 +209,7 @@ class BookingController extends Controller
 
     public function bookings_detail($id)
     {
+        $this->v['listUsers'] = DB::table('users')->get();
         $Bookingdetail = new Bookingdetail();
         $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
         $rooms = DB::table('rooms')

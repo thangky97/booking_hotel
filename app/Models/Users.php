@@ -22,10 +22,12 @@ class Users extends Model
         'name',
         'phone',
         'email',
+        'password',
         'address',
         'cccd',
         'date',
         'gender',
+        'image',
         'room_id',
         'status',
     ];

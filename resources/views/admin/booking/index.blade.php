@@ -8,8 +8,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-12">
-                <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+            <section class="content booking Hotel">    
+            <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
                     <div class="card-tabs mt-3 mt-sm-0 mb-xxl-0 mb-4">
+                        
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="tab" href="#All" role="tab">Tất cả</a>
@@ -32,6 +34,7 @@
                         <a href="{{route('route_BackEnd_Bookings_Adduser')}}" class="btn btn-info mb-xxl-0 mb-4"><i class="bi bi-minecart-loaded"></i> Thêm mới</a>
                         <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i class="far fa-file-word me-2"></i>Tạo báo cáo</a>
                     </div>
+                    
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane active show" id="Active">
@@ -224,7 +227,11 @@
                                                 </a>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
-                                                    <a class="dropdown-item" href="">Sửa</a>
+                                                    @if(in_array($item->id,$list))
+                                                    <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Xem Bill</a>
+                                                    @else
+                                                    <a class="dropdown-item" href="{{route('route_BackEnd_Bill_Room',$item->id)}}">Tạo Bill</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </td>
@@ -320,7 +327,11 @@
                                                 </a>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
-                                                    <a class="dropdown-item" href="">Sửa</a>
+                                                    @if(in_array($item->id,$list))
+                                                    <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Xem Bill</a>
+                                                    @else
+                                                    <a class="dropdown-item" href="{{route('route_BackEnd_Bill_Room',$item->id)}}">Tạo Bill</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </td>
@@ -331,8 +342,12 @@
                             </table>
                         </div>
                     </div>
+                    
                 </div>
+                {{$listBookings->links('paginate.index')}}                           
+            </section>
             </div>
         </div>
     </div>
+    
 </div>

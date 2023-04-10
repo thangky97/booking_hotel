@@ -26,7 +26,7 @@ class VoucherController extends Controller
         $this->v['voucher'] = Voucher::where('status', 1)
             ->orderBy('id', 'asc')
 
-            ->paginate(10);
+            ->paginate(5);
         $this->v['title'] = 'Danh sách vouchers';
 
         return view('admin.voucher.index',$this->v);

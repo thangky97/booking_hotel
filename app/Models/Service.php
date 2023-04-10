@@ -17,7 +17,7 @@ class Service extends Model
     {
         $query = DB::table($this->table)
             ->select($this->fillable);
-        $list = $query->paginate(10);
+        $list = $query->paginate(5);
         return $list;
     }
 

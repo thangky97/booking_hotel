@@ -87,6 +87,7 @@
                             </div>
                         </div>
                     </div>
+                    {{$listPropertyrooms->links('paginate.index')}} 
                 </div>
             </div>
         </div>

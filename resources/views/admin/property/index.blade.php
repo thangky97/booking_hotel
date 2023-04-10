@@ -128,17 +128,12 @@
                             </div>
                         </div>
                     </div>
+                    {{$properties->links('paginate.index')}} 
                 </section>
             </div>
         </div>
     </div>
 </div>
 
-<br>
-<div class="text-center">
-    {{$properties->links()}}
-</div>
-<index-cs ref="index_cs"></index-cs>
-</section>
 
 @endsection

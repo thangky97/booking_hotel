@@ -107,7 +107,7 @@
                                             </td>
                                             <td>
                                                 <div class="text-center">
-                                                    <span>{{ $b->price }}$</span>
+                                                    <span>{{ number_format($b->price) }}đ</span>
                                                 </div>
                                             </td>
                                             <td>
@@ -133,17 +133,12 @@
                             </div>
                         </div>
                     </div>
+                    {{$list->links('paginate.index')}} 
                 </section>
             </div>
         </div>
     </div>
 </div>
 
-<br>
-<div class="text-center">
-    {{ $list->links() }}
-</div>
-<index-cs ref="index_cs"></index-cs>
-</section>
 
 @endsection

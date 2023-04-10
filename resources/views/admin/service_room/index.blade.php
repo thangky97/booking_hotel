@@ -87,6 +87,7 @@
                             </div>
                         </div>
                     </div>
+                    {{$listServicerooms->links('paginate.index')}} 
                 </div>
             </div>
         </div>

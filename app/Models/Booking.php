@@ -31,7 +31,7 @@ class Booking extends Model
     {
         $query = DB::table($this->table)
             ->select($this->fillable)->orderBy('id', 'desc')->orderBy('checkin_date', 'asc');
-        $list = $query->paginate(10);
+        $list = $query->paginate(5);
         return $list;
     }
 
