@@ -81,9 +81,6 @@
                                                     <input type="password" name="password" class="form-control"
                                                         id="validationCustom03" placeholder="Nhập mật khẩu.." required
                                                         value="@isset($request['password']){{ $request['password'] }}@endisset">
-                                                    <div class="invalid-feedback">
-                                                        Please enter a password.
-                                                    </div>
                                                     @error('password')
                                                         <div>
                                                             <p class="text-danger">{{ $message }}</p>
