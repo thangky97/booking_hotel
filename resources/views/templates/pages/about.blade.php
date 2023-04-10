@@ -1,6 +1,6 @@
 @extends('templates.layouts.masterabout')
 
-@section('title', 'Về chúng tôi')
+@section('title', 'Giới thiệu - Hotel 12 Zodiac')
 
 @section('content')
     <section
@@ -50,7 +50,7 @@
                                 }
                             </style>
                             <h1 class="elementor-heading-title elementor-size-default">
-                                About
+                                Về chúng tôi
                             </h1>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                                     <span class="elementor-counter-number-suffix">+</span>
                                 </div>
                                 <div class="elementor-counter-title">
-                                    ROOMS &amp; SUITES
+                                    Dịch vụ &amp; Loại phòng
                                 </div>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                         data-id="e8f3b4b" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h3 class="elementor-heading-title elementor-size-default">
-                                RECEPTION 24/7
+                                Tiếp nhận 24/7
                             </h3>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                         data-id="41bd90d8" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h1 class="elementor-heading-title elementor-size-default">
-                                The Best Relax on Vacation
+                                Kỳ nghỉ với những dịch vụ tốt nhất
                             </h1>
                         </div>
                     </div>
@@ -165,11 +165,11 @@
                         data-id="7a50468c" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <p class="elementor-heading-title elementor-size-default">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Phasellus eu maximus ante, eget sollicitudin
-                                metus. Sed fringilla efficitur fringilla.
-                                Vestibulum ante ipsum primis in faucibus orci
-                                luctus et ultrices​
+                                Khách sạn sở hữu một lối kiến trúc mang phong cách Châu Âu sang trọng và vô cùng tinh tế
+                                cùng hệ thống phòng và tiện ích hiện đại, sẵn sàng mang đến dịch vụ đạt chất lượng 4* cao
+                                cấp. Với hệ thống phòng nghỉ được thiết kế tỉ mỉ, khách sạn 12 Zodiac đưa bạn đến một
+                                không gian quý phái, một nơi nghỉ tiên nghi và ấm cúng, đáp ứng đầy đủ nhu cầu của bạn dù
+                                bạn đang trong kỳ nghỉ hay đi công tác
                             </p>
                         </div>
                     </div>
@@ -238,9 +238,7 @@
                                                             <g id="g37" transform="translate(0,-412.66699)"></g>
                                                         </svg>
                                                     </span>
-                                                    <span class="elementor-icon-list-text">In sit amet augue non dui
-                                                        sodales
-                                                        pretium.</span>
+                                                    <span class="elementor-icon-list-text">Dịch vụ chuyên nghiệp</span>
                                                 </li>
                                                 <li class="elementor-icon-list-item">
                                                     <span class="elementor-icon-list-icon">
@@ -296,9 +294,7 @@
                                                             <g id="g37" transform="translate(0,-412.66699)"></g>
                                                         </svg>
                                                     </span>
-                                                    <span class="elementor-icon-list-text">Proin quis elit lacinia arcu
-                                                        suscipit
-                                                        fringilla.</span>
+                                                    <span class="elementor-icon-list-text">Nhân viên có nhiều năm kinh nghiệm</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -367,9 +363,7 @@
                                                             <g id="g37" transform="translate(0,-412.66699)"></g>
                                                         </svg>
                                                     </span>
-                                                    <span class="elementor-icon-list-text">In finibus leo sit amet urna
-                                                        iaculis
-                                                        tincidunt.</span>
+                                                    <span class="elementor-icon-list-text">Dịch vụ thường xuyên được nâng cấp</span>
                                                 </li>
                                                 <li class="elementor-icon-list-item">
                                                     <span class="elementor-icon-list-icon">
@@ -425,9 +419,7 @@
                                                             <g id="g37" transform="translate(0,-412.66699)"></g>
                                                         </svg>
                                                     </span>
-                                                    <span class="elementor-icon-list-text">In sit amet augue non dui
-                                                        sodales
-                                                        pretium.</span>
+                                                    <span class="elementor-icon-list-text">Những trải nghiệm tốt và thư giãn</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -440,11 +432,11 @@
                         data-id="f67bb9e" data-element_type="widget" data-widget_type="button.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-button-wrapper">
-                                <a href="#"
+                                <a href="{{ route('route_FrontEnd_Service')}}"
                                     class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
                                     role="button">
                                     <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">VIEW PRICES</span>
+                                        <span class="elementor-button-text">Đến xem</span>
                                     </span>
                                 </a>
                             </div>
@@ -726,7 +718,7 @@
                         data-id="3657068e" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h4 class="elementor-heading-title elementor-size-default">
-                                Reserve a Room
+                                Đặt phòng
                             </h4>
                         </div>
                     </div>
@@ -734,8 +726,7 @@
                         data-id="32dac9e2" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <p class="elementor-heading-title elementor-size-default">
-                                Nunc diam nulla, commodo sed neque in, dignissim
-                                volutpat orci. Maecenas tempus massa, in feugiat.
+                                Chú ý những điều khoản và điều kiện của chúng tôi
                             </p>
                         </div>
                     </div>
@@ -773,7 +764,7 @@
                         data-id="6ee0115" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h4 class="elementor-heading-title elementor-size-default">
-                                Reach the Hotel
+                                Đến nhận phòng
                             </h4>
                         </div>
                     </div>
@@ -781,8 +772,7 @@
                         data-id="41e9fd8" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <p class="elementor-heading-title elementor-size-default">
-                                Nunc diam nulla, commodo sed neque in, dignissim
-                                volutpat orci. Maecenas tempus massa, in feugiat.
+                                Khi đến bạn đọc số điện thoại để nhận phòng
                             </p>
                         </div>
                     </div>
@@ -820,7 +810,7 @@
                         data-id="681577b" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h4 class="elementor-heading-title elementor-size-default">
-                                Enjoy the Stay
+                                Tận hưởng
                             </h4>
                         </div>
                     </div>
@@ -828,8 +818,7 @@
                         data-id="9661db5" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <p class="elementor-heading-title elementor-size-default">
-                                Nunc diam nulla, commodo sed neque in, dignissim
-                                volutpat orci. Maecenas tempus massa, in feugiat.
+                                Chúng tôi sẵn sàng phục phụ mọi người
                             </p>
                         </div>
                     </div>
@@ -859,7 +848,7 @@
                                         <div class="elementor-widget-container">
                                             <ul class="elementor-icon-list-items">
                                                 <li class="elementor-icon-list-item">
-                                                    <span class="elementor-icon-list-text">ALL INCLUSIVE</span>
+                                                    <span class="elementor-icon-list-text">Bao gồm</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -868,7 +857,7 @@
                                         data-id="17d35f17" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <h3 class="elementor-heading-title elementor-size-default">
-                                                Breakfast
+                                                Bữa sáng
                                             </h3>
                                         </div>
                                     </div>
@@ -876,8 +865,7 @@
                                         data-id="2adbea70" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <p class="elementor-heading-title elementor-size-default">
-                                                Proin at varius arcu. Sed posuere orci
-                                                bibendum pharetra dapibus.
+                                                Các bữa ăn ngon và giàu protein
                                             </p>
                                         </div>
                                     </div>
@@ -885,11 +873,11 @@
                                         data-id="cc4f016" data-element_type="widget" data-widget_type="button.default">
                                         <div class="elementor-widget-container">
                                             <div class="elementor-button-wrapper">
-                                                <a href="#"
+                                                <a href="{{ route('route_FrontEnd_Service')}}"
                                                     class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
                                                     role="button">
                                                     <span class="elementor-button-content-wrapper">
-                                                        <span class="elementor-button-text">MORE INFO</span>
+                                                        <span class="elementor-button-text">Xem thêm</span>
                                                     </span>
                                                 </a>
                                             </div>
@@ -941,7 +929,7 @@
                                         data-id="d041b01" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <h4 class="elementor-heading-title elementor-size-default">
-                                                Smart Key
+                                               Chìa khóa thông minh
                                             </h4>
                                         </div>
                                     </div>
@@ -949,23 +937,8 @@
                                         data-id="36c8e7cf" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <p class="elementor-heading-title elementor-size-default">
-                                                Proin at varius arcu. Sed posuere orci
-                                                bibendum pharetra dapibus.
+                                                Đảm bảo và an toàn
                                             </p>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-613e7360 elementor-align-left elementor-tablet-align-left elementor-mobile-align-center elementor-widget elementor-widget-button"
-                                        data-id="613e7360" data-element_type="widget" data-widget_type="button.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="elementor-button-wrapper">
-                                                <a href="#"
-                                                    class="elementor-button-link elementor-button elementor-size-sm"
-                                                    role="button">
-                                                    <span class="elementor-button-content-wrapper">
-                                                        <span class="elementor-button-text">MORE INFO</span>
-                                                    </span>
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1001,7 +974,7 @@
                                         data-id="b9aa7f4" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <h4 class="elementor-heading-title elementor-size-default">
-                                                Luggage Storage
+                                                Kho hành lý
                                             </h4>
                                         </div>
                                     </div>
@@ -1009,23 +982,8 @@
                                         data-id="c0d1648" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <p class="elementor-heading-title elementor-size-default">
-                                                Proin at varius arcu. Sed posuere orci
-                                                bibendum pharetra dapibus.
+                                                Rộng rãi
                                             </p>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-c3a87e5 elementor-align-left elementor-tablet-align-left elementor-mobile-align-center elementor-widget elementor-widget-button"
-                                        data-id="c3a87e5" data-element_type="widget" data-widget_type="button.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="elementor-button-wrapper">
-                                                <a href="#"
-                                                    class="elementor-button-link elementor-button elementor-size-sm"
-                                                    role="button">
-                                                    <span class="elementor-button-content-wrapper">
-                                                        <span class="elementor-button-text">MORE INFO</span>
-                                                    </span>
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1066,7 +1024,7 @@
                                         data-id="d7f7d7f" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <h4 class="elementor-heading-title elementor-size-default">
-                                                Room Service
+                                                Dịch vụ phòng
                                             </h4>
                                         </div>
                                     </div>
@@ -1074,23 +1032,8 @@
                                         data-id="f65fbc0" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <p class="elementor-heading-title elementor-size-default">
-                                                Proin at varius arcu. Sed posuere orci
-                                                bibendum pharetra dapibus.
+                                                Các tiện nghi đầy đủ
                                             </p>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-1fce927 elementor-align-left elementor-tablet-align-left elementor-mobile-align-center elementor-widget elementor-widget-button"
-                                        data-id="1fce927" data-element_type="widget" data-widget_type="button.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="elementor-button-wrapper">
-                                                <a href="#"
-                                                    class="elementor-button-link elementor-button elementor-size-sm"
-                                                    role="button">
-                                                    <span class="elementor-button-content-wrapper">
-                                                        <span class="elementor-button-text">MORE INFO</span>
-                                                    </span>
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1126,7 +1069,7 @@
                                         data-id="707bda7" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <h4 class="elementor-heading-title elementor-size-default">
-                                                Clean &amp; Hygienic
+                                                Vệ sinh
                                             </h4>
                                         </div>
                                     </div>
@@ -1134,728 +1077,7 @@
                                         data-id="8722917" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
                                             <p class="elementor-heading-title elementor-size-default">
-                                                Proin at varius arcu. Sed posuere orci
-                                                bibendum pharetra dapibus.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-8a8131f elementor-align-left elementor-tablet-align-left elementor-mobile-align-center elementor-widget elementor-widget-button"
-                                        data-id="8a8131f" data-element_type="widget" data-widget_type="button.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="elementor-button-wrapper">
-                                                <a href="#"
-                                                    class="elementor-button-link elementor-button elementor-size-sm"
-                                                    role="button">
-                                                    <span class="elementor-button-content-wrapper">
-                                                        <span class="elementor-button-text">MORE INFO</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section
-        class="elementor-section elementor-top-section elementor-element elementor-element-4dc8785e elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-        data-id="4dc8785e" data-element_type="section"
-        data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
-        <div class="elementor-background-overlay"></div>
-        <div class="elementor-container elementor-column-gap-default">
-            <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-73d60b97"
-                data-id="73d60b97" data-element_type="column">
-                <div class="elementor-widget-wrap"></div>
-            </div>
-            <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-739aac8a"
-                data-id="739aac8a" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-element elementor-element-2948ec6f elementor-widget elementor-widget-heading"
-                        data-id="2948ec6f" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h3 class="elementor-heading-title elementor-size-default">
-                                Best Experience
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-44d4bac4 elementor-star-rating--align-center elementor--star-style-star_unicode elementor-widget elementor-widget-star-rating"
-                        data-id="44d4bac4" data-element_type="widget" data-widget_type="star-rating.default">
-                        <div class="elementor-widget-container">
-                            <style>
-                                /*! elementor - v3.5.6 - 28-02-2022 */
-                                .elementor-star-rating {
-                                    color: #ccd6df;
-                                    font-family: eicons;
-                                    display: inline-block;
-                                }
-
-                                .elementor-star-rating i {
-                                    display: inline-block;
-                                    position: relative;
-                                    font-style: normal;
-                                    cursor: default;
-                                }
-
-                                .elementor-star-rating i:before {
-                                    content: "\e934";
-                                    display: block;
-                                    font-size: inherit;
-                                    font-family: inherit;
-                                    position: absolute;
-                                    overflow: hidden;
-                                    color: #f0ad4e;
-                                    top: 0;
-                                    left: 0;
-                                }
-
-                                .elementor-star-rating .elementor-star-empty:before {
-                                    content: none;
-                                }
-
-                                .elementor-star-rating .elementor-star-1:before {
-                                    width: 10%;
-                                }
-
-                                .elementor-star-rating .elementor-star-2:before {
-                                    width: 20%;
-                                }
-
-                                .elementor-star-rating .elementor-star-3:before {
-                                    width: 30%;
-                                }
-
-                                .elementor-star-rating .elementor-star-4:before {
-                                    width: 40%;
-                                }
-
-                                .elementor-star-rating .elementor-star-5:before {
-                                    width: 50%;
-                                }
-
-                                .elementor-star-rating .elementor-star-6:before {
-                                    width: 60%;
-                                }
-
-                                .elementor-star-rating .elementor-star-7:before {
-                                    width: 70%;
-                                }
-
-                                .elementor-star-rating .elementor-star-8:before {
-                                    width: 80%;
-                                }
-
-                                .elementor-star-rating .elementor-star-9:before {
-                                    width: 90%;
-                                }
-
-                                .elementor-star-rating__wrapper {
-                                    display: -webkit-box;
-                                    display: -ms-flexbox;
-                                    display: flex;
-                                    -webkit-box-align: center;
-                                    -ms-flex-align: center;
-                                    align-items: center;
-                                }
-
-                                .elementor-star-rating__title {
-                                    margin-right: 10px;
-                                }
-
-                                .elementor-star-rating--align-right .elementor-star-rating__wrapper {
-                                    text-align: right;
-                                    -webkit-box-pack: end;
-                                    -ms-flex-pack: end;
-                                    justify-content: flex-end;
-                                }
-
-                                .elementor-star-rating--align-left .elementor-star-rating__wrapper {
-                                    text-align: left;
-                                    -webkit-box-pack: start;
-                                    -ms-flex-pack: start;
-                                    justify-content: flex-start;
-                                }
-
-                                .elementor-star-rating--align-center .elementor-star-rating__wrapper {
-                                    text-align: center;
-                                    -webkit-box-pack: center;
-                                    -ms-flex-pack: center;
-                                    justify-content: center;
-                                }
-
-                                .elementor-star-rating--align-justify .elementor-star-rating__title {
-                                    margin-right: auto;
-                                }
-
-                                @media (max-width: 1024px) {
-                                    .elementor-star-rating-tablet--align-right .elementor-star-rating__wrapper {
-                                        text-align: right;
-                                        -webkit-box-pack: end;
-                                        -ms-flex-pack: end;
-                                        justify-content: flex-end;
-                                    }
-
-                                    .elementor-star-rating-tablet--align-left .elementor-star-rating__wrapper {
-                                        text-align: left;
-                                        -webkit-box-pack: start;
-                                        -ms-flex-pack: start;
-                                        justify-content: flex-start;
-                                    }
-
-                                    .elementor-star-rating-tablet--align-center .elementor-star-rating__wrapper {
-                                        text-align: center;
-                                        -webkit-box-pack: center;
-                                        -ms-flex-pack: center;
-                                        justify-content: center;
-                                    }
-
-                                    .elementor-star-rating-tablet--align-justify .elementor-star-rating__title {
-                                        margin-right: auto;
-                                    }
-                                }
-
-                                @media (max-width: 767px) {
-                                    .elementor-star-rating-mobile--align-right .elementor-star-rating__wrapper {
-                                        text-align: right;
-                                        -webkit-box-pack: end;
-                                        -ms-flex-pack: end;
-                                        justify-content: flex-end;
-                                    }
-
-                                    .elementor-star-rating-mobile--align-left .elementor-star-rating__wrapper {
-                                        text-align: left;
-                                        -webkit-box-pack: start;
-                                        -ms-flex-pack: start;
-                                        justify-content: flex-start;
-                                    }
-
-                                    .elementor-star-rating-mobile--align-center .elementor-star-rating__wrapper {
-                                        text-align: center;
-                                        -webkit-box-pack: center;
-                                        -ms-flex-pack: center;
-                                        justify-content: center;
-                                    }
-
-                                    .elementor-star-rating-mobile--align-justify .elementor-star-rating__title {
-                                        margin-right: auto;
-                                    }
-                                }
-
-                                .last-star {
-                                    letter-spacing: 0;
-                                }
-
-                                .elementor--star-style-star_unicode .elementor-star-rating {
-                                    font-family: Arial, Helvetica, sans-serif;
-                                }
-
-                                .elementor--star-style-star_unicode .elementor-star-rating i:not(.elementor-star-empty):before {
-                                    content: "\002605";
-                                }
-                            </style>
-                            <div class="elementor-star-rating__wrapper">
-                                <div class="elementor-star-rating" title="5/5" itemtype="http://schema.org/Rating"
-                                    itemscope="" itemprop="reviewRating">
-                                    <i class="elementor-star-full">&#9734;</i><i class="elementor-star-full">&#9734;</i><i
-                                        class="elementor-star-full">&#9734;</i><i
-                                        class="elementor-star-full">&#9734;</i><i class="elementor-star-full">&#9734;</i>
-                                    <span itemprop="ratingValue" class="elementor-screen-only">5/5</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-12f20245 elementor-widget elementor-widget-testimonial"
-                        data-id="12f20245" data-element_type="widget" data-widget_type="testimonial.default">
-                        <div class="elementor-widget-container">
-                            <style>
-                                /*! elementor - v3.5.6 - 28-02-2022 */
-                                .elementor-testimonial-wrapper {
-                                    overflow: hidden;
-                                    text-align: center;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-content {
-                                    font-size: 1.3em;
-                                    margin-bottom: 20px;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-name {
-                                    line-height: 1.5;
-                                    display: block;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-job {
-                                    font-size: 0.85em;
-                                    display: block;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta {
-                                    width: 100%;
-                                    line-height: 1;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta-inner {
-                                    display: inline-block;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta .elementor-testimonial-details,
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta .elementor-testimonial-image {
-                                    display: table-cell;
-                                    vertical-align: middle;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta .elementor-testimonial-image img {
-                                    width: 60px;
-                                    height: 60px;
-                                    -webkit-border-radius: 50%;
-                                    border-radius: 50%;
-                                    -o-object-fit: cover;
-                                    object-fit: cover;
-                                    max-width: none;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta.elementor-testimonial-image-position-aside .elementor-testimonial-image {
-                                    padding-right: 15px;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta.elementor-testimonial-image-position-aside .elementor-testimonial-details {
-                                    text-align: left;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta.elementor-testimonial-image-position-top .elementor-testimonial-details,
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta.elementor-testimonial-image-position-top .elementor-testimonial-image {
-                                    display: block;
-                                }
-
-                                .elementor-testimonial-wrapper .elementor-testimonial-meta.elementor-testimonial-image-position-top .elementor-testimonial-image {
-                                    margin-bottom: 20px;
-                                }
-                            </style>
-                            <div class="elementor-testimonial-wrapper">
-                                <div class="elementor-testimonial-content">
-                                    Duis commodo enim dui, ac ultricies justo
-                                    aliquam ut. Sed sed tortor commodo, elementum
-                                    justo ut, dignissi.
-                                </div>
-
-                                <div
-                                    class="elementor-testimonial-meta elementor-has-image elementor-testimonial-image-position-top">
-                                    <div class="elementor-testimonial-meta-inner">
-                                        <div class="elementor-testimonial-image">
-                                            <img width="169" height="169"
-                                                src="../wp-content/uploads/sites/4/2022/03/avatar-4.png"
-                                                class="attachment-full size-full" alt="" loading="lazy" />
-                                        </div>
-
-                                        <div class="elementor-testimonial-details">
-                                            <div class="elementor-testimonial-name">
-                                                Emily Allen
-                                            </div>
-                                            <div class="elementor-testimonial-job">
-                                                CUSTOMERS
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-41bb9219"
-                data-id="41bb9219" data-element_type="column">
-                <div class="elementor-widget-wrap"></div>
-            </div>
-        </div>
-    </section>
-    <section
-        class="elementor-section elementor-top-section elementor-element elementor-element-30e18909 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-        data-id="30e18909" data-element_type="section"
-        data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
-        <div class="elementor-container elementor-column-gap-default">
-            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-695b5983"
-                data-id="695b5983" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-element elementor-element-517a6c35 elementor-widget elementor-widget-heading"
-                        data-id="517a6c35" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h3 class="elementor-heading-title elementor-size-default">
-                                SUMMER PROMOTION
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-9add9c5 elementor-widget elementor-widget-heading"
-                        data-id="9add9c5" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title elementor-size-default">
-                                Check the Mid-Season Promotions
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section
-        class="elementor-section elementor-top-section elementor-element elementor-element-7e45069 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-        data-id="7e45069" data-element_type="section"
-        data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
-        <div class="elementor-container elementor-column-gap-default">
-            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5df1ffe5"
-                data-id="5df1ffe5" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-element elementor-element-54008067 elementor-widget elementor-widget-list"
-                        data-id="54008067" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-                            <div class="nd_elements_section nd_elements_list_component">
-                                <div class="nd_elements_section nd_elements_position_relative">
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="../wp-content/uploads/sites/4/2022/05/square-6.jpg" />
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <h4>
-                                                <span class="nd_elements_list_component_title">Small Room</span>
-                                            </h4>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width: 20%">
-                                            <p class="nd_elements_list_component_label">
-                                                50 $ / night
-                                            </p>
-                                        </div>
-
-                                        <div style="height: 10px" class="nd_elements_section"></div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <p class="nd_elements_list_component_description">
-                                                Mauris et tortor sit amet ex sagittis
-                                                feugiat praesent rutrum, lorem ipsum dolor
-                                                sit amet.
-                                            </p>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 20%">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta">
-                                                    <span>PROMO</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-feba49f elementor-widget elementor-widget-list"
-                        data-id="feba49f" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-                            <div class="nd_elements_section nd_elements_list_component">
-                                <div class="nd_elements_section nd_elements_position_relative">
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="../wp-content/uploads/sites/4/2022/05/square-8.jpg" />
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <h4>
-                                                <span class="nd_elements_list_component_title">Family Suite</span>
-                                            </h4>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width: 20%">
-                                            <p class="nd_elements_list_component_label">
-                                                85 $ / night
-                                            </p>
-                                        </div>
-
-                                        <div style="height: 10px" class="nd_elements_section"></div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <p class="nd_elements_list_component_description">
-                                                Mauris et tortor sit amet ex sagittis
-                                                feugiat praesent rutrum, lorem ipsum dolor
-                                                sit amet.
-                                            </p>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 20%">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta">
-                                                    <span>PROMO</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-b17f2e0 elementor-widget elementor-widget-list"
-                        data-id="b17f2e0" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-                            <div class="nd_elements_section nd_elements_list_component">
-                                <div class="nd_elements_section nd_elements_position_relative">
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="../wp-content/uploads/sites/4/2022/05/square1.jpg" />
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <h4>
-                                                <span class="nd_elements_list_component_title">Garden View</span>
-                                            </h4>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width: 20%">
-                                            <p class="nd_elements_list_component_label">
-                                                74 $ / night
-                                            </p>
-                                        </div>
-
-                                        <div style="height: 10px" class="nd_elements_section"></div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <p class="nd_elements_list_component_description">
-                                                Mauris et tortor sit amet ex sagittis
-                                                feugiat praesent rutrum, lorem ipsum dolor
-                                                sit amet.
-                                            </p>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 20%">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta">
-                                                    <span>SALE</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-279f8f09"
-                data-id="279f8f09" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-element elementor-element-efb8f0b elementor-widget elementor-widget-list"
-                        data-id="efb8f0b" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-                            <div class="nd_elements_section nd_elements_list_component">
-                                <div class="nd_elements_section nd_elements_position_relative">
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="../wp-content/uploads/sites/4/2022/05/square2.jpg" />
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <h4>
-                                                <span class="nd_elements_list_component_title">Apartment</span>
-                                            </h4>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width: 20%">
-                                            <p class="nd_elements_list_component_label">
-                                                37 $ / night
-                                            </p>
-                                        </div>
-
-                                        <div style="height: 10px" class="nd_elements_section"></div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <p class="nd_elements_list_component_description">
-                                                Mauris et tortor sit amet ex sagittis
-                                                feugiat praesent rutrum, lorem ipsum dolor
-                                                sit amet.
-                                            </p>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 20%">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta">
-                                                    <span>SALE</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-8cd8383 elementor-widget elementor-widget-list"
-                        data-id="8cd8383" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-                            <div class="nd_elements_section nd_elements_list_component">
-                                <div class="nd_elements_section nd_elements_position_relative">
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="../wp-content/uploads/sites/4/2022/05/square4.jpg" />
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <h4>
-                                                <span class="nd_elements_list_component_title">Double Room</span>
-                                            </h4>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width: 20%">
-                                            <p class="nd_elements_list_component_label">
-                                                97 $ / night
-                                            </p>
-                                        </div>
-
-                                        <div style="height: 10px" class="nd_elements_section"></div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <p class="nd_elements_list_component_description">
-                                                Mauris et tortor sit amet ex sagittis
-                                                feugiat praesent rutrum, lorem ipsum dolor
-                                                sit amet.
-                                            </p>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 20%">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta">
-                                                    <span>PROMO</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-de814fd elementor-widget elementor-widget-list"
-                        data-id="de814fd" data-element_type="widget" data-widget_type="list.default">
-                        <div class="elementor-widget-container">
-                            <div class="nd_elements_section nd_elements_list_component">
-                                <div class="nd_elements_section nd_elements_position_relative">
-                                    <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                        src="../wp-content/uploads/sites/4/2022/05/square3.jpg" />
-
-                                    <div
-                                        class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <h4>
-                                                <span class="nd_elements_list_component_title">Luxury Suite</span>
-                                            </h4>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
-                                            style="width: 20%">
-                                            <p class="nd_elements_list_component_label">
-                                                64 $ / night
-                                            </p>
-                                        </div>
-
-                                        <div style="height: 10px" class="nd_elements_section"></div>
-
-                                        <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 80%">
-                                            <p class="nd_elements_list_component_description">
-                                                Mauris et tortor sit amet ex sagittis
-                                                feugiat praesent rutrum, lorem ipsum dolor
-                                                sit amet.
-                                            </p>
-                                        </div>
-
-                                        <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
-                                            style="width: 20%">
-                                            <a rel="nofollow" target="_blank" href="#">
-                                                <p class="nd_elements_list_component_cta">
-                                                    <span>PROMO</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section
-        class="elementor-section elementor-top-section elementor-element elementor-element-11a9dd6b elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-        data-id="11a9dd6b" data-element_type="section" data-settings='{"background_background":"classic"}'>
-        <div class="elementor-background-overlay"></div>
-        <div class="elementor-container elementor-column-gap-default">
-            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-18886adc"
-                data-id="18886adc" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <section
-                        class="elementor-section elementor-inner-section elementor-element elementor-element-4f7564f6 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="4f7564f6" data-element_type="section">
-                        <div class="elementor-container elementor-column-gap-default">
-                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3ddbf65b"
-                                data-id="3ddbf65b" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-2042425d elementor-widget elementor-widget-image"
-                                        data-id="2042425d" data-element_type="widget"
-                                        data-widget_type="image.default">
-                                        <div class="elementor-widget-container">
-                                            <img width="150" height="150"
-                                                src="../wp-content/uploads/sites/4/2022/03/icon-8.png"
-                                                class="attachment-full size-full" alt="" loading="lazy"
-                                                srcset="
-                                        http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/03/icon-8.png         150w,
-                                        http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/03/icon-8-100x100.png 100w
-                                      "
-                                                sizes="(max-width: 150px) 100vw, 150px" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5ef69ffd"
-                                data-id="5ef69ffd" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-65115943 elementor-widget elementor-widget-heading"
-                                        data-id="65115943" data-element_type="widget"
-                                        data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <h3 class="elementor-heading-title elementor-size-default">
-                                                Luggage storage always available free of
-                                                charge
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-1b754964 elementor-widget elementor-widget-heading"
-                                        data-id="1b754964" data-element_type="widget"
-                                        data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">
-                                                Lorem ipsum dolor sit amet, tempus iaculis
-                                                duis pretium​ Lorem ipsum dolor sit amet,
-                                                tempus iaculis duis pretium​
+                                                Sạch sẽ và chuyên nghiệp
                                             </p>
                                         </div>
                                     </div>
@@ -1863,25 +1085,6 @@
                             </div>
                         </div>
                     </section>
-                </div>
-            </div>
-            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-f430bbb"
-                data-id="f430bbb" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-element elementor-element-56d5d3bf elementor-align-center elementor-widget elementor-widget-button"
-                        data-id="56d5d3bf" data-element_type="widget" data-widget_type="button.default">
-                        <div class="elementor-widget-container">
-                            <div class="elementor-button-wrapper">
-                                <a href="#"
-                                    class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
-                                    role="button">
-                                    <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">SHOP NOW</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1946,7 +1149,7 @@
                         data-id="37658d4" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h3 class="elementor-heading-title elementor-size-default">
-                                Hotel Contacts
+                                Liên hệ
                             </h3>
                         </div>
                     </div>
@@ -2024,7 +1227,7 @@
                                         </svg>
                                     </span>
                                     <span class="elementor-icon-list-text">
-                                        111 8th Ave, New York U.S.A.</span>
+                                        62 Trương Công Giai, Cầu Giấy, Hà Nội</span>
                                 </li>
                                 <li class="elementor-icon-list-item">
                                     <span class="elementor-icon-list-icon">
@@ -2088,7 +1291,7 @@
                                             <g id="g43" transform="translate(0,-497.99899)"></g>
                                         </svg>
                                     </span>
-                                    <span class="elementor-icon-list-text">Ph +1-202-555-0153
+                                    <span class="elementor-icon-list-text">0931 657 128
                                     </span>
                                 </li>
                                 <li class="elementor-icon-list-item">
@@ -2131,7 +1334,7 @@
                                             <g id="g37" transform="translate(0,-498)"></g>
                                         </svg>
                                     </span>
-                                    <span class="elementor-icon-list-text">info@hotel.com</span>
+                                    <span class="elementor-icon-list-text">12zodiac@hotel.com</span>
                                 </li>
                             </ul>
                         </div>
@@ -2140,11 +1343,11 @@
                         data-id="5015b2ae" data-element_type="widget" data-widget_type="button.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-button-wrapper">
-                                <a href="#"
+                                <a href="{{ route('route_FrontEnd_Contact')}}"
                                     class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
                                     role="button">
                                     <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">CONTACT US</span>
+                                        <span class="elementor-button-text">Liên hệ với chúng tôi</span>
                                     </span>
                                 </a>
                             </div>

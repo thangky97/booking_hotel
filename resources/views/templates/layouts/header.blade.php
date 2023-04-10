@@ -494,11 +494,11 @@
                                                     </li>
                                                     <li id="menu-item-6970"
                                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6970">
-                                                        <a href="/services">Dịch vụ</a>
+                                                        <a href="{{ route('route_FrontEnd_Service')}}">Dịch vụ</a>
                                                     </li>
                                                     <li id="menu-item-6992"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6992">
-                                                        <a href="/about">Giới thiệu</a>
+                                                        <a href="{{ route('route_FrontEnd_About')}}">Giới thiệu</a>
                                                     </li>
                                                     {{-- <li id="menu-item-6970"
                                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6970">
@@ -510,7 +510,7 @@
                                                     </li>
                                                     <li id="menu-item-6990"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6990">
-                                                        <a href="contact">Liên hệ</a>
+                                                        <a href="{{ route('route_FrontEnd_Contact')}}">Liên hệ</a>
                                                     </li>
                                                 </ul>
                                             </div>

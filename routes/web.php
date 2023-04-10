@@ -32,15 +32,11 @@ Route::get('/news/detail/{id}', 'Client\NewController@detail')->name('route_Fron
 
 Route::get('/feedback', 'Client\FeedbackController@feedback')->name('route_FontEnd_Feedback');
 
-Route::get('/contact', function () {
-    return view('templates/pages/contact');
-});
+Route::get('/contact', 'Client\ContactController@index')->name('route_FrontEnd_Contact');
 
 Route::get('/profile/{id}', 'Client\UserController@index')->name('route_FrontEnd_User_Profile');
 
-Route::get('/about', function () {
-    return view('templates/pages/about');
-});
+Route::get('/about', 'Client\AboutController@index')->name('route_FrontEnd_About');
 
 Route::get('/services', 'Client\ServiceController@index')->name('route_FrontEnd_Service');
 
