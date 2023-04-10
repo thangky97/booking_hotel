@@ -315,8 +315,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-461289c"
-                                        data-id="461289c" data-element_type="column">
+                                    <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-461289c" data-id="461289c" data-element_type="column">
 
                                     </div>
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-d72b31a" data-id="d72b31a" data-element_type="column">
@@ -355,27 +354,9 @@
                                                                 </h6>
                                                             </div>
 
-                                                            <div id="nd_options_alert_1_messages" class="nd_options_display_none" style="left: -15px; width: 180px;">
-                                                                <div class="triangle-up" style="margin-top: 15px;">
-                                                                </div>
+                                                            
 
 
-                                                                </div>
-                                                            @else
-                                                                <a href="{{ route('getSignin') }}"><img
-                                                                        alt=""
-                                                                        class="nd_options_margin_right_10 nd_options_position_relative nd_options_display_table_cell nd_options_vertical_align_middle nd_options_border_radius_100_percentage"
-                                                                        width="30"
-                                                                        src="wp-content/plugins/nd-shortcodes/addons/customizer/shortcodes/login/img/avatar.jpg" /></a>
-                                                                <div
-                                                                    class="nd_options_display_table_cell nd_options_vertical_align_middle">
-                                                                    <p
-                                                                        class="nd_options_font_size_12 nd_options_text_align_left">
-                                                                        <a class="nd_options_color_white nd_options_first_font nd_options_position_relative"
-                                                                            href="{{ route('getSignin') }}">Đăng Nhập</a>
-                                                                    </p>
-
-                                                            </div>
 
                                                             @endforeach
                                                             @endif
@@ -392,7 +373,7 @@
                                                                 </div>
 
 
-                                                                </div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -733,9 +714,7 @@
                             <div class="elementor-element elementor-element-85b82e9 elementor-align-right elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="85b82e9" data-element_type="widget" data-widget_type="button.default">
                                 <div class="elementor-widget-container">
                                     <div class="elementor-button-wrapper">
-                                        <a href="#flatbooking"
-                                            class="elementor-button-link elementor-button elementor-size-sm"
-                                            role="button">
+                                        <a href="#flatbooking" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                                             <span class="elementor-button-content-wrapper">
                                                 <span class="elementor-button-text">Đặt Phòng cho Cặp Đôi</span>
                                             </span>

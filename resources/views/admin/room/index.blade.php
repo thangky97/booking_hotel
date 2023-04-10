@@ -186,6 +186,7 @@
                             </div>
                         </div>
                     </div>
+                    {{$list->links('paginate.index')}} 
                 </div>
             </div>
         </div>
