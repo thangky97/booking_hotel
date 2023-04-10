@@ -286,7 +286,7 @@
                                                                                 class="nd_booking_float_left nd_booking_text_align_right">
                                                                                 <h1 id="nd_booking_final_trip_price"
                                                                                     class="nd_options_color_white nd_booking_font_size_50">
-                                                                                    <span>{{$price}}</span>
+                                                                                    <span>{{number_format($price)}}</span>
                                                                                 </h1>
                                                                             </div>
                                                                             <div
