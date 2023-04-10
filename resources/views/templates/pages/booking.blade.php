@@ -476,6 +476,7 @@
                                                                             <table id="customers">
                                                                                 <thead>
                                                                                 <tr>
+                                                                                    <th>STT</th>
                                                                                     <th>Loại phòng</th>
                                                                                     <th>Hình ảnh</th>
                                                                                     <th>Số người</th>
@@ -494,7 +495,7 @@
                                                                                         $arrRoomId = array_merge($roomId,$arrRoomId);
                                                                                         ?>
                                                                                         <tr>
-
+                                                                                            <td>{{$i++}}</td>
                                                                                             <td>{{$item->name}}</td>
                                                                                             <td><img class="me-3" src="{{asset("image/".$item->image)}}"  alt="" style="border-radius:10px;" width="100px" height="100px"></td>
                                                                                             <td>{{$item->adult}}</td>
