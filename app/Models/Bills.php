@@ -70,4 +70,8 @@ class Bills extends Model
             ->update($dataUpdate);
         return $res;
     }
+
+    public function voucher(){
+        return $this->belongsTo(Voucher::class, 'voucher_id');
+    }
 }

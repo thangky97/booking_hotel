@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminRequest;
 use App\Models\Admin;
+use App\Models\Booking;
+use App\Models\Users;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -19,7 +22,7 @@ class AdminController extends Controller
     }
     public function admin()
     {
-        $this->v['title'] = ' Dashboard';
+        $this->v['title'] = 'Dashboard';
 
         $this->v['totals'] = DB::table('bookings')
             ->selectRaw('count(*) as total')
@@ -30,8 +33,57 @@ class AdminController extends Controller
             ->selectRaw("count(checkout_date) as checkout")
             ->first();
 
-        return view("admin/dashboard", $this->v);
+        //Tổng số phòng hôm nay đặt
+        $this->v['countBookingToday'] = DB::table('bookings')
+            ->whereDate('created_at', today())
+            ->count();
+
+        //Tổng tiền theo tháng
+        $this->v['totalMoneyMonth'] = DB::table('bills')
+            ->whereMonth('created_at', '=', date('m'))
+            ->whereYear('created_at', '=', date('Y'))
+            ->sum('total_money');
+
+        //Tổng số ng trong tháng
+        $this->v['totalPeopleMonth'] = DB::table('users')
+            ->whereMonth('created_at', '=', date('m'))
+            ->whereYear('created_at', '=', date('Y'))
+            ->count();
+
+        $today = Carbon::today();
+        //Bao nhiêu đơn chưa thanh toán
+        $this->v['totalBooking'] = Booking::where('status_pay', "0")
+            ->whereDate('created_at', today())
+            ->count();
+
+        $users = Users::all();
+        $this->v['topUser'] = $users->map(function ($user) {
+            $bookings = $user->bookingsThisMonth();
+            $id = $bookings->count();
+            return [
+                'name' => $user->name,
+                'id' => $id
+            ];
+        })->sortByDesc('id')->take(10);
+
+        //Số phòng trống hôm nay
+
+        // $this->v['emptyRoom'] = Rooms::where('status', '1')
+
+        //     ->whereDoesntHave('bookings', function ($query) use ($today) {
+        //         $query->whereDate('check_in', '<=', $today)
+        //             ->whereDate('check_out', '>=', $today);
+        //     })
+        //     ->count();
+
+        $this->v['emptyRoom'] = Booking::where('status_booking', '1')
+            ->whereDate('checkin_date', '<=', $today)
+            ->whereDate('checkout_date', '>=', $today)
+            ->count();
+
+        return view("admin.dashboard", $this->v);
     }
+
 
     public function index(Request $request)
     {
@@ -41,17 +93,17 @@ class AdminController extends Controller
         $email = $request->get('email');
         if ($name) {
             $admin = Admin::where('name', 'like', '%' . $name . '%')
-                ->paginate(20);
+                ->paginate(10);
         } elseif ($phone) {
             $admin = Admin::where('phone', 'like', '%' . $phone . '%')
-                ->paginate(20);
+                ->paginate(10);
         } elseif ($email) {
             $admin = Admin::where('email', 'like', '%' . $email . '%')
-                ->paginate(20);
+                ->paginate(10);
         } else {
             $admin = Admin::select('id', 'name', 'email', 'phone', 'password', 'avatar', 'status', 'role')
                 ->orderBy('status', 'asc')
-                ->paginate(5);
+                ->paginate(10);
         }
 
         return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title],$this->v);
@@ -151,7 +203,7 @@ class AdminController extends Controller
         if ($res == null) {
             return redirect()->route($method_route, ['id' => $id]);
         } elseif ($res == 1) {
-            Session::flash('success','Cập nhật thành công!');
+            Session::flash('success', 'Cập nhật thành công!');
             return redirect()->route('route_BackEnd_Admin_List');
         } else {
             Session::flash('error', 'Cập nhật không thành công!');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Billdetails;
 use App\Models\Booking;
 use App\Models\Bookingdetail;
 use App\Models\CategoryRooms;
@@ -18,10 +19,6 @@ class BillDetailController extends Controller
     public function __construct()
     {
         $this->v = [];
-    }
-    public function index(Request $request)
-    {
-        return view('admin.bill_detail.index');
     }
 
     public function bill_detail($id)
@@ -46,24 +43,4 @@ class BillDetailController extends Controller
         return view('admin.bill_detail.detail', $this->v);
     }
 
-    public function add()
-    {
-        //thêm
-        return view('admin.bill_detail.add');
-    }
-
-    public function store()
-    {
-        //lưu thêm
-    }
-
-    public function edit()
-    {
-        //sửa
-    }
-
-    public function update()
-    {
-        //lưu sửa
-    }
 }

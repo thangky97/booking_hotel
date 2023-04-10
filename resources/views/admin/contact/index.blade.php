@@ -3,26 +3,24 @@
 @section('css')
 @endsection
 @section('content')
-<div class="content-body">
-    <!-- row -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
 
                     <div class="table-search">
                         <div class="input-group search-area mb-xxl-0 mb-4">
                             <input type="text" class="form-control" placeholder="Tìm kiếm">
                             <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
                         </div>
+                        {{--  <div>
+								<a href="{{route('route_BackEnd_Contact_Add')}}" class="btn btn-info mb-xxl-0 mb-4"><i
+									class="fa fa-bed me-2"></i>Thêm mới</a>
+							</div>  --}}
+
                     </div>
-                    {{-- <div>
-								<a href="{{route('route_BackEnd_Contact_Add')}}" class="btn btn-info mb-xxl-0 mb-4"><i class="fa fa-bed me-2"></i>Thêm mới</a>
-                    <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i class="far fa-file-word me-2"></i>Tạo báo cáo</a>
-                </div> --}}
-
-            </div>
-
 
             {{-- thong bao  --}}
             <section class="content booking Hotel">

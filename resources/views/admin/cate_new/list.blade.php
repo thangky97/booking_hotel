@@ -6,12 +6,10 @@
 @section('content')
 
     <div class="content-body">
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
-
                         <div class="table-search">
                             <div class="input-group search-area mb-xxl-0 mb-4">
                                 <input type="text" class="form-control" placeholder="Tìm kiếm">
@@ -20,10 +18,8 @@
                             </div>
                         </div>
                         <div>
-                            <a href="{{ route('route_BackEnd_Category_News_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i
+                            <a href="{{ route('route_BackEnd_Category_News_Add') }}" class="btn btn-info mb-xxl-0 mb-4" style="margin-right: 30px"><i
                                     class="bi bi-newspaper"></i> Thêm mới</a>
-                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a>
                         </div>
 
                     </div>
@@ -34,22 +30,20 @@
                             <?php //Hiển thị thông báo thành công
                             ?>
                             @if (Session::has('success'))
-                                <div class="alert alert-success alert-dismissible" role="alert">
+                                <div class="alert alert-success solid alert-dismissible fade show">
+                                    <span><i class="mdi mdi-check"></i></span>
                                     <strong>{{ Session::get('success') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                        <span class="sr-only">Close</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
                             @endif
                             <?php //Hiển thị thông báo lỗi
                             ?>
                             @if (Session::has('error'))
-                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
+                                    <span><i class="mdi mdi-help"></i></span>
                                     <strong>{{ Session::get('errors') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                        <span class="sr-only">Close</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
                             @endif
@@ -60,9 +54,7 @@
                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        <span class="sr-only">Close</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
                             @endif

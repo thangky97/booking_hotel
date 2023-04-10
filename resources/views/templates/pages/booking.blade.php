@@ -475,7 +475,8 @@
                                                                         <div class="custom-table-room">
                                                                             <table id="customers">
                                                                                 <thead>
-                                                                                <tr>                                   
+                                                                                <tr>
+                                                                                    <th>STT</th>
                                                                                     <th>Loại phòng</th>
                                                                                     <th>Hình ảnh</th>
                                                                                     <th>Số người</th>
@@ -494,7 +495,7 @@
                                                                                         $arrRoomId = array_merge($roomId,$arrRoomId);
                                                                                         ?>
                                                                                         <tr>
-                                                                                            
+                                                                                            <td>{{$i++}}</td>
                                                                                             <td>{{$item->name}}</td>
                                                                                             <td><img class="me-3" src="{{asset("image/".$item->image)}}"  alt="" style="border-radius:10px;" width="100px" height="100px"></td>
                                                                                             <td>{{$item->adult}}</td>
@@ -503,8 +504,8 @@
                                                                                                 localStorage.setItem('priceRoom_{{$item->id}}',{{($item->price)}});
                                                                                                 localStorage.setItem('priceSum',Number(localStorage.getItem('priceSum'))+Number(localStorage.getItem('priceRoom_{{$item->id}}')));
                                                                                             </script>
-                                                                                            <td class="special-box">
-                                                                                                <ul style="display: flex;flex-direction: column; flex-wrap: wrap;align-content: flex-start;" class="special-box-ul">
+                                                                                            <td class="special-box" style="width: 250px">
+                                                                                                <ul style="display: flex;flex-direction: column; flex-wrap: wrap;align-content: flex-start;margin-top: 0px;padding-left: 0px" class="special-box-ul">
                                                                                                     @foreach($listService as $service)
                                                                                                         <li><input type="checkbox" id="checkbox_{{$item->id}}_{{$service->id}}" name="service_id_{{$i-1}}[]" value="{{$service->id}}">{{$service->name}}: {{($service->price)}}đ</li>
                                                                                                         <script>

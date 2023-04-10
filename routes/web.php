@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,6 @@ Route::get('/123mail', function () {
     return view('email/booking');
 });
 Route::get('/rooms/detail/{id}', 'Client\RoomController@detail')->name('route_FrontEnd_Room_Detail');
-
 
 Route::get('/news', 'Client\NewController@index')->name('route_FrontEnd_News');
 Route::get('/news/detail/{id}', 'Client\NewController@detail')->name('route_FrontEnd_New_Detail');
@@ -131,10 +131,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/properties')->group(function () {
-        Route::get('/', 'Admin\PropertiesController@index')
-            ->name('route_BackEnd_properties_List');
-        Route::get('/addForm', 'Admin\PropertiesController@addForm')
-            ->name('route_BackEnd_properties_Add');
+        Route::get('/', 'Admin\PropertiesController@index')->name('route_BackEnd_properties_List');
+        Route::get('/addForm', 'Admin\PropertiesController@addForm')->name('route_BackEnd_properties_Add');
         Route::post('/saveAddForm', 'Admin\PropertiesController@saveAdd')->name('route_BackEnd_properties_saveAdd');
         Route::get('/editForm/{id}', 'Admin\PropertiesController@editForm')->name('route_BackEnd_properties_Detail');
         Route::post('/editForm/{id}', 'Admin\PropertiesController@saveEdit')->name('route_BackEnd_properties_Update');
@@ -172,24 +170,20 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/bills')->group(function () {
-        
-
-        Route::get('/', 'Admin\BillController@index')->name('route_BackEnd_Bill_List');
         Route::get('/rooms/{id}', 'Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
         Route::get('/services/{id}', 'Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
-
+        
         Route::match(['get', 'post'], '/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
-
+        
         //print_order
         Route::get('/print_order/{id}', 'Admin\BillController@print_order')->name('printOrder');
+        
+        Route::get('/', 'Admin\BillController@index')->name('route_BackEnd_Bill_List');
+        Route::get('/detail/{id}', 'Admin\BillController@bill_detail')->name('route_BackEnd_Bill_Detail');
     });
 
-    Route::prefix('/bill_detail')->group(function () {
-        // Route::get('/{id}', 'Admin\BillDetailController@bill_detail')->name('route_BackEnd_BillDetail');
-    });
 
     Route::prefix('/services')->group(function () {
-
         Route::get('/', 'Admin\ServiceController@service')->name('route_BackEnd_Service_List');
         Route::match(['post', 'get'], '/add', 'Admin\ServiceController@service_add')->name('route_BackEnd_Service_Add');
         Route::get('/detail/{id}', 'Admin\ServiceController@service_detail')->name('route_BackEnd_Service_Detail');
@@ -210,7 +204,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('/banner')->group(function () {
-
         Route::get('/', 'Admin\BannerController@banner')->name('route_BackEnd_Banner_List');
         Route::match(['post', 'get'], '/add', 'Admin\BannerController@banner_add')->name('route_BackEnd_Banner_Add');
         Route::get('/detail/{id}', 'Admin\BannerController@banner_detail')->name('route_BackEnd_Banner_Detail');
@@ -246,12 +239,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/add', 'Admin\VoucherController@add')->name('route_BackEnd_Voucher_add');
         Route::post('/add', 'Admin\VoucherController@store')->name('route_BackEnd_Voucher_store');
 
-        Route::get('/edit', function () {
-            return view('admin/vouchers/edit');
-        });
-        Route::post('/update', function () {
-            return view('admin/vouchers/update');
-        });
+        Route::get('/edit/{id}','Admin\VoucherController@edit')->name('route_BackEnd_Voucher_edit');
+        Route::post('/edit/{id}','Admin\VoucherController@update')->name('route_BackEnd_Voucher_editpost');
 
         Route::post('/check', 'Admin\VoucherController@check_voucher')->name('route_BackEnd_Voucher_check');
         Route::get('/unset', 'Admin\VoucherController@unset')->name('route_BackEnd_Voucher_unset');

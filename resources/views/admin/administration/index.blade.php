@@ -48,12 +48,9 @@
                         <div></div>
 
                         <div>
-                            <a href="{{ route('route_BackEnd_Admin_Add') }}" class="btn btn-info mb-xxl-0 mb-4" style="margin-right: 30px"><i
-                                    class="bi bi-person-fill"></i> Thêm mới</a>
-                            {{-- <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a> --}}
+                            <a href="{{ route('route_BackEnd_Admin_Add') }}" class="btn btn-info mb-xxl-0 mb-4"
+                                style="margin-right: 30px"><i class="bi bi-person-fill"></i> Thêm mới</a>
                         </div>
-
                     </div>
                     <div id="msg-box">
                         <?php //Hiển thị thông báo thành công

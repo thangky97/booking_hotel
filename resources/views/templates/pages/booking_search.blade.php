@@ -745,18 +745,17 @@
                                                                     padding-bottom: 12px;
                                                                     text-align: left;
                                                                     background-color:#DDDDDD;
-                                                                    color: white;
                                                                     text-align: center;
                                                                 }
                                                             </style>
                                     <div id="nd_booking_search_cpt_1_content"
                                         class="nd_booking_float_left nd_booking_width_66_percentage nd_booking_box_sizing_border_box nd_booking_width_100_percentage_responsive">
-                                       
+
                                         <div class="custom-table-room">
                                             <table id="customers">
                                                 <thead>
                                                     <tr>
-                                                        
+
                                                         <th>Loại phòng</th>
                                                         <th>Hình ảnh</th>
                                                         <th>Số người</th>
@@ -787,7 +786,7 @@
                                                 <button type="submit" style="margin-right: 25px">Đặt phòng</button>
                                             </form>
                                         </div>
-                                        
+
 
                                         <div id="nd_booking_archive_search_masonry_container"
                                             class="nd_booking_section nd_booking_position_relative">
@@ -802,7 +801,7 @@
                                                 <div class="nd_booking_section nd_booking_masonry_content">
                                                     <?php $i = 1; ?>
                                                     @foreach ($listRooms as $room)
-                                                        
+
                                                         @foreach ($cateRooms as $index => $item)
                                                             @if ($room->id == $index)
                                                                 <div id="nd_booking_archive_cpt_1_single_5649"
@@ -907,10 +906,20 @@
                                                                                         document.getElementById('showSlRoom_{{ $room->id }}').innerHTML = 'SL: ' + localStorage.getItem(
                                                                                             'slRoom_{{ $room->id }}');
                                                                                         localStorage.setItem('countRoom_{{ $room->id }}', 0);
+                                                                                        if (localStorage.getItem('slRoom_{{ $room->id }}') ==1){
+                                                                                            document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#fa3e3e";
+                                                                                            document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                        }else if(localStorage.getItem('slRoom_{{ $room->id }}') ==2){
+                                                                                            document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#fc632a";
+                                                                                            document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                        }else if(localStorage.getItem('slRoom_{{ $room->id }}') ==3){
+                                                                                            document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#ffa90c";
+                                                                                            document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                        }
                                                                                     </script>
                                                                                     <button type="submit"
                                                                                         id="button_quantity_room_{{ $room->id }}"
-                                                                                        style=" border:2px solid #6b6978; background-color: white; color:#6b6978; padding: 10px; font-size: 20px">Đặt
+                                                                                        style=" border:2px solid #6b6978; background-color: white; color:#6b6978; padding: 10px; font-size: 20px;">Đặt
                                                                                         phòng ngay</button>
                                                                                     <script type="text/javascript">
                                                                                         let button_quantity_room_{{ $room->id }} = document.getElementById(
@@ -926,6 +935,16 @@
                                                                                                         'countRoom_{{ $room->id }}')) + 1);
                                                                                                     localStorage.setItem('people', Number(localStorage.getItem('people')) + Number(
                                                                                                         {{ $room->adult }}));
+                                                                                                    if (localStorage.getItem('slRoom_{{ $room->id }}') ==1){
+                                                                                                        document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#fa3e3e";
+                                                                                                        document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                                    }else if(localStorage.getItem('slRoom_{{ $room->id }}') ==2){
+                                                                                                        document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#fc632a";
+                                                                                                        document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                                    }else if(localStorage.getItem('slRoom_{{ $room->id }}') ==3){
+                                                                                                        document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#ffa90c";
+                                                                                                        document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                                    }
                                                                                                     document.getElementById('showpeople').innerHTML = 'Số người: ' + localStorage.getItem('people');
                                                                                                     if (localStorage.getItem('slRoom_{{ $room->id }}') == 0) {
                                                                                                         document.getElementById('showerror_{{ $room->id }}').innerHTML = '{{ $room->name }}' +
@@ -935,7 +954,7 @@
                                                                                                         '<img class="me-3" src="{{asset("image/".$room->image)}}"  alt="" style="border-radius:10px;" width="100px" height="100px">' + '</td>' + '<td>' + '{{ $room->adult }}' + '</td>' + '<td>' +
                                                                                                         '{{ number_format($room->price)}}'+'đ/night' + '</td>' + '<td id="show_count_room_{{ $room->id }}">' +
                                                                                                         localStorage.getItem('countRoom_{{ $room->id }}') + '</td>' + '<td>' +
-                                                                                                        '<a href="javascript:void(0);" style="background-color:red;padding:5px 10px 5px 10px;border-radius:8px;color:white;" onclick="delete{{ $room->id }}Room()">' + 'Xóa' + '</a>' +
+                                                                                                        '<a href="javascript:void(0);" style="background-color:#ff6b6b;padding:5px 10px 5px 10px;border-radius:8px;color:white;" onclick="delete{{ $room->id }}Room()">' + 'Xóa' + '</a>' +
                                                                                                         '</td>';
                                                                                                     saveRoom();
                                                                                                 }
@@ -964,6 +983,16 @@
                                                                                                     'slRoom_{{ $room->id }}');
                                                                                                 localStorage.setItem('countRoom_{{ $room->id }}', Number(localStorage.getItem(
                                                                                                     'countRoom_{{ $room->id }}')) - 1);
+                                                                                                if (localStorage.getItem('slRoom_{{ $room->id }}') ==1){
+                                                                                                    document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#fa3e3e";
+                                                                                                    document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                                }else if(localStorage.getItem('slRoom_{{ $room->id }}') ==2){
+                                                                                                    document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#fc632a";
+                                                                                                    document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                                }else if(localStorage.getItem('slRoom_{{ $room->id }}') ==3){
+                                                                                                    document.getElementById("showSlRoom_{{ $room->id }}").style.backgroundColor = "#ffa90c";
+                                                                                                    document.getElementById("showSlRoom_{{ $room->id }}").style.color = "#fff";
+                                                                                                }
                                                                                                 localStorage.setItem('people', Number(localStorage.getItem('people')) - Number({{ $room->adult }}));
                                                                                                 document.getElementById('showpeople').innerHTML = 'Số người: ' + localStorage.getItem('people');
                                                                                                 saveRoom();

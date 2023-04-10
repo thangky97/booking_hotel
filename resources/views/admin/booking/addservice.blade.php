@@ -1,8 +1,9 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
         <div class="container-fluid">
             <div class="row">
@@ -14,6 +15,18 @@
                                       action="{{route('route_BackEnd_Bookings_Createservice', $id)}}" method="post"
                                       enctype="multipart/form-data">
                                     @csrf
+                                    <div id="msg-box">
+                                        <?php //Hiển thị thông báo thành công
+                                        ?>
+                                        @if (Session::has('success'))
+                                            <div class="alert alert-success solid alert-dismissible fade show">
+                                                <span><i class="mdi mdi-check"></i></span>
+                                                <strong>{{ Session::get('success') }}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                                </button>
+                                            </div>
+                                        @endif
+                                    </div>
                                     <div class="tab-content">
                                         <div
                                             class="tab-pane active show'?>">

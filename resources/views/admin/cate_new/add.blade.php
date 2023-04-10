@@ -16,7 +16,6 @@
                                 </div>
                             </div>
                             <div class="email-right-box ms-0 ms-sm-2 ms-sm-0">
-
                                 <div class="compose-content">
                                     <form action="{{ route('route_BackEnd_Category_News_saveAdd') }}" method="post">
                                         @csrf
@@ -53,9 +52,7 @@
                                                     </div>
                                                 @enderror
                                             </div>
-
                                             <div class="text-start mt-4 mb-3">
-
                                                 <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span
                                                         class="me-2"><i class="fa fa-paper-plane"></i></span>Thêm
                                                     mới</button>

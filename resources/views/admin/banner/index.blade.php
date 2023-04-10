@@ -3,24 +3,23 @@
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
-        <!-- row -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
-
-                        <div class="table-search">
+                        {{-- <div class="table-search">
                             <div class="input-group search-area mb-xxl-0 mb-4">
                                 <input type="text" class="form-control" placeholder="Tìm kiếm">
                                 <span class="input-group-text"><a href="javascript:void(0)"><i
                                             class="flaticon-381-search-2"></i></a></span>
                             </div>
-                        </div>
+                        </div> --}}
+                        <div></div>
                         <div>
-                            <a href="{{ route('route_BackEnd_Banner_Add') }}" class="btn btn-info mb-xxl-0 mb-4"><i class="bi bi-image-fill"></i> Thêm mới</a>
-                            <a href="javascript:void(0);" class="btn btn-primary mb-xxl-0 mb-4"><i
-                                    class="far fa-file-word me-2"></i>Tạo báo cáo</a>
+                            <a href="{{ route('route_BackEnd_Banner_Add') }}" class="btn btn-info mb-xxl-0 mb-4"
+                                style="margin-right: 30px"><i class="bi bi-image-fill"></i> Thêm mới</a>
                         </div>
 
                     </div>
@@ -101,7 +100,6 @@
                                                     <td class="text-center">
                                                         <a href="{{ route('route_BackEnd_Banner_Detail', $b->id) }}"
                                                             class="btn btn-primary ">Sửa</a>
-
                                                     </td>
                                                 </tr>
                                             @endforeach

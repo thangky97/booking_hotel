@@ -1,11 +1,10 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
-        <!-- row -->
         <div class="container-fluid">
-            <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">

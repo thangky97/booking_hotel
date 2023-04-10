@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryNewRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class CategoryNewController extends Controller
 {
     private $v;
@@ -37,7 +36,7 @@ class CategoryNewController extends Controller
 
         $saveCateNews->save();
         return redirect()->route('route_BackEnd_Category_News_List')
-            ->with('success', 'Thêm thành công');
+            ->with('success', 'Thêm thành công!');
     }
 
     public function editForm($id)
@@ -55,15 +54,6 @@ class CategoryNewController extends Controller
 
         $createEdit->save();
         return redirect()->route('route_BackEnd_Category_News_List')
-            ->with('success', 'Sửa thành công');
-    }
-    public function destroy($id)
-    {
-        $delete = Category_new::destroy($id);
-        if (!$delete) {
-            return redirect()->back();
-        }
-        return redirect()->route('route_BackEnd_News_List')
-            ->with('success', 'Xóa thành công');
+            ->with('success', 'Sửa thành công!');
     }
 }

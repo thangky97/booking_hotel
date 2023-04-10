@@ -1,33 +1,36 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
-<div class="content-body">
-    <!-- row -->
-    <div class="container-fluid">
-        <div class="row">
-            <div style="font-size: 23px; font-weight: 600; color:#000 ; margin-bottom: 20px; margin-left: 2px;">Lọc</div>
-            <div class="col-xl-12">
-                <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
-                    <div style="margin-right: 50px">
-                        <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
-                            @csrf
-                            <input type="search" name="name" value="{{ $name }}" class="form-control" style="width: 25rem" placeholder="Tìm kiếm">
-                        </form>
-                    </div>
-                    <div style="margin-right: 50px">
-                        <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
-                            @csrf
-                            <input type="search" name="phone" value="{{ $phone }}" class="form-control" style="width: 25rem" placeholder="Số điện thoại">
-                        </form>
-                    </div>
-                    <div>
-                        <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
-                            @csrf
-                            <input type="search" name="email" value="{{ $email }}" class="form-control" style="width: 25rem" placeholder="Email">
-                        </form>
-                    </div>
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div style="font-size: 23px; font-weight: 600; color:#000 ; margin-bottom: 20px; margin-left: 2px;">Lọc</div>
+                <div class="col-xl-12">
+                    <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+                        <div style="margin-right: 50px">
+                            <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
+                                @csrf
+                                <input type="search" name="name" value="{{ $name }}" class="form-control"
+                                    style="width: 25rem" placeholder="Tìm kiếm">
+                            </form>
+                        </div>
+                        <div style="margin-right: 50px">
+                            <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
+                                @csrf
+                                <input type="search" name="phone" value="{{ $phone }}" class="form-control"
+                                    style="width: 25rem" placeholder="Số điện thoại">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
+                                @csrf
+                                <input type="search" name="email" value="{{ $email }}" class="form-control"
+                                    style="width: 25rem" placeholder="Email">
+                            </form>
+                        </div>
 
                 </div>
                 <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">

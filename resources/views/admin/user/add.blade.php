@@ -1,8 +1,9 @@
-@extends('templates/admin.layoutadmin')
+@extends('templates.admin.layoutadmin')
 @section('title', $title)
 @section('css')
 @endsection
 @section('content')
+
     <div class="content-body">
         <div class="container-fluid">
             <div class="row">
@@ -158,6 +159,21 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom03">Mật khẩu
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="password" name="password" class="form-control"
+                                                        id="validationCustom03" placeholder="Nhập mật khẩu.." required
+                                                        value="@isset($request['password']){{ $request['password'] }}@endisset">
+                                                    @error('password')
+                                                        <div>
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label" for="validationCustom05">Trạng thái
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -176,6 +192,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <input type="text" name="create_at" value="{{strtotime("now")}}" hidden>
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">
                                                     <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span

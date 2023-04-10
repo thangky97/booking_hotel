@@ -33,9 +33,9 @@ class RoomsRequest extends FormRequest
                         $rules = [
                             "name" => "required",
                             // "cate_room" => "required",
-                            // "images" => "required",
+                            "images" => "required|image",
                             // "floor" => "required",
-                           
+
                             "adult" => "required|max:2000",
                             "childrend" => "required",
                             "bed" => "required",
@@ -45,9 +45,9 @@ class RoomsRequest extends FormRequest
                         $rules = [
                             "name" => "required",
                             // "cate_room" => "required",
-                            // "images" => "required",
+                            "images" => "image",
                             // "floor" => "required",
-                            
+
                             "adult" => "required|max:2000",
                             "childrend" => "required",
                             "bed" => "required",
@@ -65,12 +65,14 @@ class RoomsRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Bạn phải nhập tên phòng',
-            // 'floor.required' => 'Bạn phải nhập vị trí tầng',
-            
-            'adult.required' => 'Bạn phải nhập số lượng người lớn',
-            'childrend.max' => 'Bạn phải nhập số lượng trẻ em',
-            'bed.required' => 'Bạn phải nhập số lượng giường',
+            'name.required' => 'Bạn phải nhập tên phòng!',
+            // 'floor.required' => 'Bạn phải nhập vị trí tầng!',
+            'images.required' => 'Bạn chưa chọn ảnh!',
+            'images.image' => 'Bắt buộc phải là ảnh!',
+            'adult.required' => 'Bạn phải nhập số lượng người lớn!',
+            'childrend.required' => 'Bạn phải nhập số lượng trẻ em!',
+            'childrend.max' => 'Bạn phải nhập số lượng trẻ em!',
+            'bed.required' => 'Bạn phải nhập số lượng giường!',
         ];
     }
 }

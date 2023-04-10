@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 class BookingController extends Controller
 {
     private $v;
-    
+
     public function __construct()
     {
         $this->v = [];
@@ -328,7 +328,7 @@ class BookingController extends Controller
             }
         }
         $this->v['listRooms'] = $rooms;
-        $this->v['price'] = $price;
+        $this->v['price'] = $price*(($request->checkout_date-$request->checkin_date)/(60*60*24));
         $Cate_rooms = new Categoryrooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         $this->v['user'] = $user;
