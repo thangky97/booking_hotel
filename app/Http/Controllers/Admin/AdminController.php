@@ -52,7 +52,8 @@ class AdminController extends Controller
 
         $today = Carbon::today();
         //Bao nhiêu đơn chưa thanh toán
-        $this->v['totalBooking'] = Booking::where('status_pay', "0", $today)
+        $this->v['totalBooking'] = Booking::where('status_pay', "0")
+            ->whereDate('created_at', today())
             ->count();
 
         $users = Users::all();

@@ -59,6 +59,14 @@ class BillController extends Controller
         $modelBillDetail = new Billdetails();
         $this->v['bill_detail'] = $modelBillDetail->loadOneBillDetail($id);
 
+
+        $room_service = DB::table('bookings_detail')
+            ->select('bookings_detail.*', 'service_room.service_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
+            ->where('bookings_detail.booking_id', '=', $id)
+            ->where('service_room.booking_id', '=', $id)
+            ->get();
+            // dd($room_service);
         // $this->v['bill_detail'] = Billdetails::with('room')->with('service')->with('bill')->paginate(10);
         // dd($bill);
         // $Service = new Service();
