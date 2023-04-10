@@ -90,12 +90,15 @@
                     <div class="elementor-element elementor-element-40ea0ff0 elementor-widget elementor-widget-heading"
                         data-id="40ea0ff0" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <p class="elementor-heading-title elementor-size-default">Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Duis porttitor tellus vel mauris scelerisque accumsan.
-                                Maecenas
-                                quis nunc sed sapien dignissim pulvinar. Se d at gravida ligula, eget hendrerit nisi.
-                                Pellentesque at congue mauris.
-                                posuere finibus risus.</p>
+                            <p class="elementor-heading-title elementor-size-default">Khách sạn ở ngay
+                                trung tâm phố chỉ 3 phút đi bộ. Lang thang trên những con phố, bạn sẽ có dịp đắm mình
+                                trong di sản văn hóa và những điểm tham quan hấp dẫn, chợ đêm, cửa hàng, quán bar, nhà
+                                hàng và các cửa hàng thời trang. Khách sạn cũng là điểm khởi đầu lý tưởng để bạn có thể
+                                khám phá vẻ đẹp của những điểm đến hấp dẫn lân cận. Chỉ cần đạp xe hoặc di chuyển bằng
+                                dịch vụ xe buýt miễn phí từ khách sạn 12 Zodiac, bạn có thể đến với bãi
+                                biển yên bình cách đó chừng 3.5 km. Là một địa điểm lý tưởng để khám phá vẻ đẹp
+                                của thủ đô, bạn còn có thể dễ dàng đến các điểm thăm quan của thành phố Hà Nội như nhà thờ lớn, công viên nước Hồ Tây. Ngoài ra, khách sạn chỉ cách sân bay quốc tế Hà Nội
+                                tầm 35 phút di chuyển bằng xe buýt hoặc taxi.</p>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-42f8bea7 elementor-align-center elementor-widget elementor-widget-button"
@@ -136,27 +139,25 @@
                                     <div class="elementor-element elementor-element-66a6b036 elementor-widget elementor-widget-heading"
                                         data-id="66a6b036" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
-                                            <h3 class="elementor-heading-title elementor-size-default">vỆ SINH HÀNG NGÀY
+                                            <h3 class="elementor-heading-title elementor-size-default">Chương trình khuyến mãi
                                             </h3>
                                         </div>
                                     </div>
                                     <div class="elementor-element elementor-element-2c657f35 elementor-widget elementor-widget-heading"
                                         data-id="2c657f35" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
-                                            <h1 class="elementor-heading-title elementor-size-default">Dịch vụ
-                                                phòng</h1>
+                                            <h1 class="elementor-heading-title elementor-size-default">Nhanh tay đặt phòng</h1>
                                         </div>
                                     </div>
                                     <div class="elementor-element elementor-element-3b4afdc6 elementor-widget elementor-widget-heading"
                                         data-id="3b4afdc6" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">Lorem ipsum dolor
-                                                sit
-                                                amet, consectetur adipiscing elit. Duis porttitor tellus vel mauris
-                                                scelerisque accumsan. Maecenas quis nunc sed sapien dignissim pulvinar.
-                                                Se d
-                                                at gravida ligula, eget hendrerit nisi. Pellentesque at congue mauris.
-                                                posuere finibus risus.</p>
+                                            <p class="elementor-heading-title elementor-size-default">Khu vực chăm sóc,
+                                                cải thiện sức khỏe bao gồm phòng Spa, phòng tập thể dục. Điều này có
+                                                nghĩa bạn có thể thư giãn, phục hồi năng lượng hoàn hảo sau một ngày dài
+                                                bận rộn.</p>
+                                            <p class="elementor-heading-title elementor-size-default">Khu vui chơi dành riêng cho trẻ đầy thú vị, an toàn; giúp trẻ đắm chìm trong niềm vui, và bạn có thêm thời gian cho bản thân mình.</p>
+                                            <p class="elementor-heading-title elementor-size-default">Phòng họp của khách sạn rộng rãi và sang trọng, đầy đủ hệ thống máy móc thiết bị phục vụ, vì vậy tổ chức bạn có thể tiến hành hội thảo, cuộc họp vô cùng chuyên nghiệp ngay tại khách sạn chúng tôi.</p>
                                         </div>
                                     </div>
                                     <div class="elementor-element elementor-element-327bfeee elementor-widget elementor-widget-heading"
@@ -405,12 +406,12 @@
                         data-id="6e8b6a1" data-element_type="widget" data-widget_type="button.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-button-wrapper">
-                                <a href="#" class="elementor-button-link elementor-button elementor-size-sm"
+                                <p class="elementor-button-link elementor-button elementor-size-sm"
                                     role="button">
                                     <span class="elementor-button-content-wrapper">
                                         <span class="elementor-button-text">Queen Room</span>
                                     </span>
-                                </a>
+                                </p>
                             </div>
                         </div>
                     </div>
