@@ -35,8 +35,11 @@ Route::get('/feedback', 'Client\FeedbackController@feedback')->name('route_FontE
 Route::get('/contact', function () {
     return view('templates/pages/contact');
 });
-
-Route::get('/profile/{id}', 'Client\UserController@index')->name('route_FrontEnd_User_Profile');
+Route::prefix('profile')->group(function () {
+Route::get('/{id}', 'Client\UserController@profile')->name('route_FrontEnd_User_Profile');
+Route::post('/update/profile/{id}', 'Client\UserController@update_profile')->name('route_FrontEnd_User_Update_Profile');
+Route::post('/update/password/{id}', 'Client\UserController@update_password')->name('route_FrontEnd_User_Update_Password');
+});
 
 Route::get('/about', function () {
     return view('templates/pages/about');

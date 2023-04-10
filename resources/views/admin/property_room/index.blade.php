@@ -8,6 +8,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
+                <div style="font-size: 23px; font-weight: 600; color:#000 ; margin-bottom: 20px; margin-left: 2px;">Lọc
+                        </div>
                     <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
                         <div class="table-search">
                             <div class="input-group search-area mb-xxl-0 mb-4">
@@ -119,6 +121,7 @@
                             </div>
                         </div>
                     </div>
+                    {{$listPropertyrooms->links('paginate.index')}} 
                 </div>
             </div>
         </div>

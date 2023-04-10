@@ -106,7 +106,7 @@ class AdminController extends Controller
                 ->paginate(10);
         }
 
-        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title]);
+        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title],$this->v);
     }
 
     public function add(Request $request)

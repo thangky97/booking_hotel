@@ -28,7 +28,7 @@
                             <li><a href="{{ route('route_BackEnd_properties_List') }}">Thuộc tính</a></li>
                             <li><a href="{{ route('route_BackEnd_PropertyRoom_list') }}">Thuộc tính phòng</a></li>
                             <li><a href="{{ route('route_BackEnd_Service_List') }}">Dịch vụ</a></li>
-                            <li><a href="{{ route('route_BackEnd_ServiceRoom_list') }}">Dịch vụ phòng</a></li>
+                            <!-- <li><a href="{{ route('route_BackEnd_ServiceRoom_list') }}">Dịch vụ phòng</a></li> -->
                         </ul>
                     </li>
                     <li><a class="" href="{{ route('route_BackEnd_Bookings_List') }}" aria-expanded="false">

@@ -8,6 +8,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
+                <div style="font-size: 23px; font-weight: 600; color:#000 ; margin-bottom: 20px; margin-left: 2px;">Lọc
+                        </div>
                     <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
                         <div class="d-flex mb-4 flex-wrap">
                             <div style="margin-right: 50px">
@@ -182,6 +184,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{$voucher->links('paginate.index')}} 
                     </section>
                 </div>
             </div>

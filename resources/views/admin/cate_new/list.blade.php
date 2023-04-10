@@ -124,16 +124,11 @@
                                 </div>
                             </div>
                         </div>
+                        {{$category_new->links('paginate.index')}} 
                 </div>
             </div>
         </div>
     </div>
 
-    <br>
-    <div class="text-center">
-        {{ $category_new->links() }}
-    </div>
-    <index-cs ref="index_cs"></index-cs>
-    </section>
 
 @endsection

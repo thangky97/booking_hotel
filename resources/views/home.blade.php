@@ -795,7 +795,7 @@
                                             <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
                                                 style="width:20%;">
                                                 <a rel="nofollow" target="_blank" href="#">
-                                                    <p class="nd_elements_list_component_cta"><span>PROMO</span></p>
+                                                    <p class="nd_elements_list_component_cta"><span>Tốt Nhất</span></p>
                                                 </a>
                                             </div>
 

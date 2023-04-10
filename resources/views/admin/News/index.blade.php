@@ -148,16 +148,12 @@
                                 </div>
                             </div>
                         </div>
+                        {{$news->links('paginate.index')}} 
                 </div>
             </div>
         </div>
     </div>
 
-    <br>
-    <div class="text-center">
-        {{ $news->links() }}
-    </div>
-    <index-cs ref="index_cs"></index-cs>
-    </section>
+  
 
 @endsection

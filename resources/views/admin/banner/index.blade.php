@@ -108,16 +108,11 @@
                                 </div>
                             </div>
                         </div>
+                        {{$list->links('paginate.index')}} 
                 </div>
             </div>
         </div>
     </div>
-
-    <br>
-    <div class="text-center">
-        {{ $list->links() }}
-    </div>
-    <index-cs ref="index_cs"></index-cs>
-    </section>
+   
 
 @endsection
