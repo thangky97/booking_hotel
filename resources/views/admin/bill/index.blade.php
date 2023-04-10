@@ -8,6 +8,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
+                <div style="font-size: 23px; font-weight: 600; color:#000 ; margin-bottom: 20px; margin-left: 2px;">Lọc
+                        </div>
                     <div class="d-flex mb-4 align-items-center flex-wrap">
                         <div style="margin-right: 50px">
                             <caption>
@@ -101,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+                    {{$bills->links('paginate.index')}} 
                 </div>
             </div>
         </div>

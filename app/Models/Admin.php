@@ -46,7 +46,7 @@ class Admin extends Authenticatable
     {
         $query = DB::table($this->table)
             ->select($this->fillable);
-        $list = $query->paginate(10);
+        $list = $query->paginate(2);
         return $list;
     }
 

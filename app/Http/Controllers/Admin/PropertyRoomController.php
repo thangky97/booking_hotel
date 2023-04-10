@@ -21,7 +21,7 @@ class PropertyRoomController extends Controller
     {
         $this->v['title'] = 'Thuộc tính phòng';
         $Propertyrooms = new Propertyroom();
-        $this->v['listPropertyrooms'] = $Propertyrooms->loadAll();
+        $this->v['listPropertyrooms'] = $Propertyrooms->loadListWithPager();
         $cateRooms = new CategoryRooms();
         $this->v['listCategoryroom'] = $cateRooms->loadAll();
         $Properties = new Properties();
