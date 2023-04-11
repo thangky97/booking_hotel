@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Booking Search &#8211; Apartments DEMO</title>
+    <title>Tìm kiếm phòng - Hotel 12Zodiac</title>
     <meta name='robots' content='max-image-preview:large' />
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />
@@ -2738,7 +2738,7 @@
         <div class="nd_booking_alert_msg">
             <img class="nd_booking_float_left" width="12px"
                 src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/03/icon-WHITE-check.svg">
-            <p>Last Rooms available !</p>
+            <p>Ưu đãi hấp dẫn !</p>
         </div>
 
 

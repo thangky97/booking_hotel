@@ -433,11 +433,13 @@
                                                     <li id="menu-item-6986" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6986">
                                                         <a href="{{ route('route_FrontEnd_Room') }}">Loại phòng</a>
                                                     </li>
-                                                    <li id="menu-item-6970" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6970">
-                                                        <a href="/services">Dịch vụ</a>
+                                                    <li id="menu-item-6970"
+                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6970">
+                                                        <a href="{{ route('route_FrontEnd_Service')}}">Dịch vụ</a>
                                                     </li>
-                                                    <li id="menu-item-6992" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6992">
-                                                        <a href="/about">Giới thiệu</a>
+                                                    <li id="menu-item-6992"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6992">
+                                                        <a href="{{ route('route_FrontEnd_About')}}">Giới thiệu</a>
                                                     </li>
                                                     {{-- <li id="menu-item-6970"
                                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6970">
@@ -446,8 +448,9 @@
                                                     <li id="menu-item-7025" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7025">
                                                         <a href="{{ route('route_FrontEnd_News') }}">Tin tức</a>
                                                     </li>
-                                                    <li id="menu-item-6990" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6990">
-                                                        <a href="contact">Liên hệ</a>
+                                                    <li id="menu-item-6990"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6990">
+                                                        <a href="{{ route('route_FrontEnd_Contact')}}">Liên hệ</a>
                                                     </li>
                                                 </ul>
                                             </div>

@@ -71,7 +71,7 @@ class RoomController extends Controller
     //Chi tiết phòng
     public function rooms_detail($id)
     {
-        $this->v['title'] = 'Chi tiết phòng';
+        $this->v['title'] = 'Chi tiết loại phòng';
         $cate_rooms = new CategoryRooms();
         $this->v['cate_rooms'] = $cate_rooms->loadListWithPager();
         $rooms = new Rooms();

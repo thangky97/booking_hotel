@@ -13,19 +13,19 @@
                             <div class="elementor-element elementor-element-c5386d4 elementor-widget elementor-widget-heading"
                                 data-id="c5386d4" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Phone Support</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">Hotline hỗ trợ</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-7533bb9 elementor-widget elementor-widget-heading"
                                 data-id="7533bb9" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">24 HOURS A DAY</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">Hỗ trợ 24/7</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-35dc4c3 elementor-widget elementor-widget-heading"
                                 data-id="35dc4c3" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">+ 01 345 647 745</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">0931 657 128</h2>
                                 </div>
                             </div>
                         </div>
@@ -36,13 +36,13 @@
                             <div class="elementor-element elementor-element-0b0aad2 elementor-widget elementor-widget-heading"
                                 data-id="0b0aad2" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Connect With Us</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">Liên hệ với chúng tôi</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-2d0adf8 elementor-widget elementor-widget-heading"
                                 data-id="2d0adf8" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">SOCIAL MEDIA CHANNELS
+                                    <h2 class="elementor-heading-title elementor-size-default">Các kênh xã hội
                                     </h2>
                                 </div>
                             </div>
@@ -360,31 +360,31 @@
                                     </style>
                                     <div class="elementor-social-icons-wrapper elementor-grid">
                                         <span class="elementor-grid-item">
-                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-0dbd7f3"
+                                            <a href="https://www.instagram.com/" class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-0dbd7f3"
                                                 target="_blank">
                                                 <span class="elementor-screen-only">Instagram</span>
                                                 <i class="fab fa-instagram"></i> </a>
                                         </span>
                                         <span class="elementor-grid-item">
-                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-4365b3e"
+                                            <a href="https://twitter.com/" class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-4365b3e"
                                                 target="_blank">
                                                 <span class="elementor-screen-only">Twitter</span>
                                                 <i class="fab fa-twitter"></i> </a>
                                         </span>
                                         <span class="elementor-grid-item">
-                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-50762a4"
+                                            <a href="https://www.facebook.com/" class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-50762a4"
                                                 target="_blank">
                                                 <span class="elementor-screen-only">Facebook</span>
                                                 <i class="fab fa-facebook"></i> </a>
                                         </span>
                                         <span class="elementor-grid-item">
-                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-5e304a9"
+                                            <a href="https://www.pinterest.com/" class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-5e304a9"
                                                 target="_blank">
                                                 <span class="elementor-screen-only">Pinterest</span>
                                                 <i class="fab fa-pinterest"></i> </a>
                                         </span>
                                         <span class="elementor-grid-item">
-                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-c499b61"
+                                            <a href="https://www.youtube.com/" class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-c499b61"
                                                 target="_blank">
                                                 <span class="elementor-screen-only">Youtube</span>
                                                 <i class="fab fa-youtube"></i> </a>
@@ -400,14 +400,13 @@
                             <div class="elementor-element elementor-element-b593bd3 elementor-widget elementor-widget-heading"
                                 data-id="b593bd3" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Newsletter</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">Đăng ký bản tin</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-7a63de7 elementor-widget elementor-widget-heading"
                                 data-id="7a63de7" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">SIGN UP FOR SPECIAL
-                                        OFFERS</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">Đăng ký nhận khuyến mãi sớm nhất</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-a783af2 elementor-widget elementor-widget-cf7"
@@ -442,9 +441,9 @@
                                                             size="40"
                                                             class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
                                                             aria-required="true" aria-invalid="false"
-                                                            placeholder="Insert your email" /></span></div>
+                                                            placeholder="Nhập email của bạn" /></span></div>
                                                 <div style="width: 40%;float:left;padding-right:10px"><input
-                                                        type="submit" value="SUBSCRIBE"
+                                                        type="submit" value="Đăng ký"
                                                         class="wpcf7-form-control has-spinner wpcf7-submit" /></div>
                                                 <p style="display: none !important;"><label>&#916;
                                                         <textarea name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea>
@@ -477,33 +476,39 @@
                                 <div class="elementor-widget-container">
                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                            <a href="#">
+                                            <a href="/">
 
-                                                <span class="elementor-icon-list-text">Home</span>
+                                                <span class="elementor-icon-list-text">Trang chủ</span>
                                             </a>
                                         </li>
                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                            <a href="#">
+                                            <a href="{{ route('route_FrontEnd_Room') }}">
 
-                                                <span class="elementor-icon-list-text">Services</span>
+                                                <span class="elementor-icon-list-text">Loại phòng</span>
                                             </a>
                                         </li>
                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                            <a href="#">
+                                            <a href="{{ route('route_FrontEnd_Service') }}">
 
-                                                <span class="elementor-icon-list-text">About</span>
+                                                <span class="elementor-icon-list-text">Dịch vụ</span>
                                             </a>
                                         </li>
                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                            <a href="#">
+                                            <a href="{{ route('route_FrontEnd_About') }}">
 
-                                                <span class="elementor-icon-list-text">Booking</span>
+                                                <span class="elementor-icon-list-text">Giới thiệu</span>
                                             </a>
                                         </li>
                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                            <a href="#">
+                                            <a href="{{ route('route_FrontEnd_News') }}">
 
-                                                <span class="elementor-icon-list-text">Contact</span>
+                                                <span class="elementor-icon-list-text">Tin tức</span>
+                                            </a>
+                                        </li>
+                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                            <a href="{{ route('route_FrontEnd_Contact') }}">
+
+                                                <span class="elementor-icon-list-text">Liên hệ</span>
                                             </a>
                                         </li>
                                     </ul>
