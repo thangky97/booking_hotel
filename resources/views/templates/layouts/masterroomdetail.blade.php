@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Room Detail &#8211; 12 Zodiac</title>
+    <title>Chi tiết loại phòng - Hotel 12 Zodiac</title>
     <meta name='robots' content='max-image-preview:large' />
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />
@@ -2654,7 +2654,7 @@
                 <div class="nd_booking_container nd_booking_box_sizing_border_box nd_booking_clearfix">
                     <div id="nd_booking_single_cpt_1_header_image_space_top"
                         class="nd_booking_section nd_booking_height_250" style="text-align: center">
-                        <h2 style="font-size: 50px;color:white;padding-top:150px">CHI TIẾT PHÒNG</h2>
+                        <h2 style="font-size: 50px;color:white;padding-top:150px">CHI TIẾT LOẠI PHÒNG</h2>
                     </div>
 
 

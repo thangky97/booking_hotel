@@ -154,10 +154,10 @@
                                 </figure>
                                 <div class="elementor-image-box-content">
                                     <h4 class="elementor-image-box-title">
-                                        Smart Key
+                                        Chìa khóa
                                     </h4>
                                     <p class="elementor-image-box-description">
-                                        Duis tempor id nul
+                                        Đảm bảo và an toàn
                                     </p>
                                 </div>
                             </div>
@@ -178,10 +178,10 @@
                                 </figure>
                                 <div class="elementor-image-box-content">
                                     <h4 class="elementor-image-box-title">
-                                        Breakfast
+                                        Bữa sáng
                                     </h4>
                                     <p class="elementor-image-box-description">
-                                        Duis tempor id nul
+                                        Dảm bảo và giàu protein
                                     </p>
                                 </div>
                             </div>
@@ -202,10 +202,10 @@
                                 </figure>
                                 <div class="elementor-image-box-content">
                                     <h4 class="elementor-image-box-title">
-                                        Reception
+                                        Vệ sinh
                                     </h4>
                                     <p class="elementor-image-box-description">
-                                        Duis tempor id nul
+                                        Sạch sẽ và chuyên nghiệp
                                     </p>
                                 </div>
                             </div>
@@ -226,10 +226,10 @@
                                 </figure>
                                 <div class="elementor-image-box-content">
                                     <h4 class="elementor-image-box-title">
-                                        Closet
+                                        Kho hành lý
                                     </h4>
                                     <p class="elementor-image-box-description">
-                                        Duis tempor id nul
+                                        rộng rãi
                                     </p>
                                 </div>
                             </div>
@@ -259,7 +259,7 @@
                         data-id="7852d34" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h1 class="elementor-heading-title elementor-size-default">
-                              Khách sạn của chúng tôi có phòng tốt nhất
+                              Chúng tôi có những dịch vụ
                             </h1>
                         </div>
                     </div>
@@ -273,9 +273,6 @@
                                     <div
                                         class="nd_booking_section nd_booking_background_color_fff nd_booking_box_shadow_0_0_15_0_0001">
                                         <div class="nd_booking_section nd_booking_position_relative">
-                                            <a class="nd_booking_position_absolute nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_cursor_pointer nd_booking_top_0 nd_booking_left_0 nd_booking_z_index_9"
-                                                href="../rooms/apartment/index.html"></a>
-
                                             <img alt=""
                                                 class="nd_booking_section nd_booking_postgrid_rooms_single_room_img"
                                                 src="{{ $service->images ? '' . Storage::url($service->images) : '' }}" />
@@ -334,7 +331,7 @@
                         data-id="6b8202df" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h1 class="elementor-heading-title elementor-size-default">
-                                Enjoy &amp; Eat in our Hotel Restaurant
+                                Thưởng thức và ăn uống tại nhà hàng khách sạn của chúng tôi
                             </h1>
                         </div>
                     </div>
@@ -342,10 +339,7 @@
                         data-id="258cee1a" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <p class="elementor-heading-title elementor-size-default">
-                                Cras fringilla sapien in libero ullamcorper
-                                efficitur. Donec interdum nulla quis neque
-                                tristique, id condimentum sapien commodo. Donec
-                                non augue molestie, euismod quam eu, gravida nisl.
+                                Chúng tôi luôn sẵn sàng phục quý khách, những bữa sàng giàu protein, những hồ bơi có view đẹp. Có những nhân viên chuyên nghiệp phục vụ và những con người thân thiện luôn chào mừng bạn đến với khách sạn 12Zodiac
                             </p>
                         </div>
                     </div>
@@ -767,446 +761,6 @@
         </div>
     </section>
     <section
-        class="elementor-section elementor-top-section elementor-element elementor-element-1e60752 elementor-section-content-middle elementor-reverse-tablet elementor-reverse-mobile elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-        data-id="1e60752" data-element_type="section"
-        data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
-        <div class="elementor-container elementor-column-gap-default">
-            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4c7ff792"
-                data-id="4c7ff792" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-element elementor-element-e5464cc elementor-widget elementor-widget-heading"
-                        data-id="e5464cc" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h3 class="elementor-heading-title elementor-size-default">
-                                HOTEL FACILITIES
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-58d7a9a4 elementor-widget elementor-widget-heading"
-                        data-id="58d7a9a4" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title elementor-size-default">
-                                Hotel Best Services
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-69920cd7 elementor-widget elementor-widget-heading"
-                        data-id="69920cd7" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <p class="elementor-heading-title elementor-size-default">
-                                Phasellus enim libero, blandit vel sapien vitae,
-                                condimentum ultricies magna et quisque Lorem ipsum
-                                dolor sit amet, consectetur adipiscing elit. Cras
-                                dignissim sem ut ips.​
-                            </p>
-                        </div>
-                    </div>
-                    <section
-                        class="elementor-section elementor-inner-section elementor-element elementor-element-29fc13b elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="29fc13b" data-element_type="section">
-                        <div class="elementor-container elementor-column-gap-default">
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-f1c86"
-                                data-id="f1c86" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-23dd6279 elementor-widget elementor-widget-heading"
-                                        data-id="23dd6279" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">
-                                                Lorem Ipsum
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-540c4a6c"
-                                data-id="540c4a6c" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-3adb569e elementor-align-left elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                                        data-id="3adb569e" data-element_type="widget"
-                                        data-widget_type="icon-list.default">
-                                        <div class="elementor-widget-container">
-                                            <ul class="elementor-icon-list-items">
-                                                <li class="elementor-icon-list-item">
-                                                    <span class="elementor-icon-list-icon">
-                                                        <svg xmlns:dc="http://purl.org/dc/elements/1.1/"
-                                                            xmlns:cc="http://creativecommons.org/ns#"
-                                                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                                                            xmlns:svg="http://www.w3.org/2000/svg"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                                                            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-                                                            id="Capa_1" x="0px" y="0px"
-                                                            viewBox="0 0 14 14" xml:space="preserve"
-                                                            inkscape:version="0.91 r13725"
-                                                            sodipodi:docname="icon-grey-check.svg" width="14"
-                                                            height="14">
-                                                            <metadata></metadata>
-                                                            <defs id="defs41"></defs>
-                                                            <g id="g3"
-                                                                transform="matrix(0.03281251,0,0,0.03281251,0,1.6765664)"
-                                                                style="
-                                                fill: #5c5c5c;
-                                                fill-opacity: 1;
-                                              ">
-                                                                <g id="g5"
-                                                                    style="
-                                                  fill: #5c5c5c;
-                                                  fill-opacity: 1;
-                                                ">
-                                                                    <path
-                                                                        d="m 421.876,56.307 c -6.548,-6.78 -17.352,-6.968 -24.132,-0.42 -0.142,0.137 -0.282,0.277 -0.42,0.42 L 119.257,334.375 28.923,244.041 c -6.78,-6.548 -17.584,-6.36 -24.132,0.42 -6.388,6.614 -6.388,17.099 0,23.713 l 102.4,102.4 c 6.665,6.663 17.468,6.663 24.132,0 L 421.456,80.44 c 6.78,-6.549 6.968,-17.353 0.42,-24.133 z"
-                                                                        id="path7" inkscape:connector-curvature="0"
-                                                                        style="
-                                                    fill: #5c5c5c;
-                                                    fill-opacity: 1;
-                                                  ">
-                                                                    </path>
-                                                                </g>
-                                                            </g>
-                                                            <g id="g9" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g11" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g13" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g15" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g17" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g19" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g21" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g23" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g25" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g27" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g29" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g31" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g33" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g35" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g37" transform="translate(0,-412.66699)"></g>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="elementor-icon-list-text">Cons Samet si</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8bf0f6"
-                                data-id="8bf0f6" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-d0f1524 elementor-widget elementor-widget-heading"
-                                        data-id="d0f1524" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">
-                                                Sil abat
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section
-                        class="elementor-section elementor-inner-section elementor-element elementor-element-36815c60 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="36815c60" data-element_type="section">
-                        <div class="elementor-container elementor-column-gap-default">
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-539a154d"
-                                data-id="539a154d" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-6a214792 elementor-widget elementor-widget-heading"
-                                        data-id="6a214792" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">
-                                                Dolor Sit Amet
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-248d91e8"
-                                data-id="248d91e8" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-6008c20d elementor-align-left elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                                        data-id="6008c20d" data-element_type="widget"
-                                        data-widget_type="icon-list.default">
-                                        <div class="elementor-widget-container">
-                                            <ul class="elementor-icon-list-items">
-                                                <li class="elementor-icon-list-item">
-                                                    <span class="elementor-icon-list-icon">
-                                                        <svg xmlns:dc="http://purl.org/dc/elements/1.1/"
-                                                            xmlns:cc="http://creativecommons.org/ns#"
-                                                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                                                            xmlns:svg="http://www.w3.org/2000/svg"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                                                            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-                                                            id="Capa_1" x="0px" y="0px"
-                                                            viewBox="0 0 14 14" xml:space="preserve"
-                                                            inkscape:version="0.91 r13725"
-                                                            sodipodi:docname="icon-grey-check.svg" width="14"
-                                                            height="14">
-                                                            <metadata></metadata>
-                                                            <defs id="defs41"></defs>
-                                                            <g id="g3"
-                                                                transform="matrix(0.03281251,0,0,0.03281251,0,1.6765664)"
-                                                                style="
-                                                fill: #5c5c5c;
-                                                fill-opacity: 1;
-                                              ">
-                                                                <g id="g5"
-                                                                    style="
-                                                  fill: #5c5c5c;
-                                                  fill-opacity: 1;
-                                                ">
-                                                                    <path
-                                                                        d="m 421.876,56.307 c -6.548,-6.78 -17.352,-6.968 -24.132,-0.42 -0.142,0.137 -0.282,0.277 -0.42,0.42 L 119.257,334.375 28.923,244.041 c -6.78,-6.548 -17.584,-6.36 -24.132,0.42 -6.388,6.614 -6.388,17.099 0,23.713 l 102.4,102.4 c 6.665,6.663 17.468,6.663 24.132,0 L 421.456,80.44 c 6.78,-6.549 6.968,-17.353 0.42,-24.133 z"
-                                                                        id="path7" inkscape:connector-curvature="0"
-                                                                        style="
-                                                    fill: #5c5c5c;
-                                                    fill-opacity: 1;
-                                                  ">
-                                                                    </path>
-                                                                </g>
-                                                            </g>
-                                                            <g id="g9" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g11" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g13" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g15" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g17" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g19" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g21" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g23" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g25" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g27" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g29" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g31" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g33" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g35" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g37" transform="translate(0,-412.66699)"></g>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="elementor-icon-list-text">Lorem Ipsm dolor</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-13c89a7c"
-                                data-id="13c89a7c" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-77cf0174 elementor-widget elementor-widget-heading"
-                                        data-id="77cf0174" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">
-                                                Dolor Sit Amet
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section
-                        class="elementor-section elementor-inner-section elementor-element elementor-element-17d1cae9 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="17d1cae9" data-element_type="section">
-                        <div class="elementor-container elementor-column-gap-default">
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-acf8c07"
-                                data-id="acf8c07" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-22960d6f elementor-widget elementor-widget-heading"
-                                        data-id="22960d6f" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">
-                                                Dolor Sit Amet
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-6a60e414"
-                                data-id="6a60e414" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-79d3de elementor-align-left elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                                        data-id="79d3de" data-element_type="widget" data-widget_type="icon-list.default">
-                                        <div class="elementor-widget-container">
-                                            <ul class="elementor-icon-list-items">
-                                                <li class="elementor-icon-list-item">
-                                                    <span class="elementor-icon-list-icon">
-                                                        <svg xmlns:dc="http://purl.org/dc/elements/1.1/"
-                                                            xmlns:cc="http://creativecommons.org/ns#"
-                                                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                                                            xmlns:svg="http://www.w3.org/2000/svg"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                                                            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-                                                            id="Capa_1" x="0px" y="0px"
-                                                            viewBox="0 0 14 14" xml:space="preserve"
-                                                            inkscape:version="0.91 r13725"
-                                                            sodipodi:docname="icon-grey-check.svg" width="14"
-                                                            height="14">
-                                                            <metadata></metadata>
-                                                            <defs id="defs41"></defs>
-                                                            <g id="g3"
-                                                                transform="matrix(0.03281251,0,0,0.03281251,0,1.6765664)"
-                                                                style="
-                                                fill: #5c5c5c;
-                                                fill-opacity: 1;
-                                              ">
-                                                                <g id="g5"
-                                                                    style="
-                                                  fill: #5c5c5c;
-                                                  fill-opacity: 1;
-                                                ">
-                                                                    <path
-                                                                        d="m 421.876,56.307 c -6.548,-6.78 -17.352,-6.968 -24.132,-0.42 -0.142,0.137 -0.282,0.277 -0.42,0.42 L 119.257,334.375 28.923,244.041 c -6.78,-6.548 -17.584,-6.36 -24.132,0.42 -6.388,6.614 -6.388,17.099 0,23.713 l 102.4,102.4 c 6.665,6.663 17.468,6.663 24.132,0 L 421.456,80.44 c 6.78,-6.549 6.968,-17.353 0.42,-24.133 z"
-                                                                        id="path7" inkscape:connector-curvature="0"
-                                                                        style="
-                                                    fill: #5c5c5c;
-                                                    fill-opacity: 1;
-                                                  ">
-                                                                    </path>
-                                                                </g>
-                                                            </g>
-                                                            <g id="g9" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g11" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g13" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g15" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g17" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g19" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g21" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g23" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g25" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g27" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g29" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g31" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g33" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g35" transform="translate(0,-412.66699)"></g>
-                                                            <g id="g37" transform="translate(0,-412.66699)"></g>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="elementor-icon-list-text">Lorem Ipsm dolor</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-52caa776"
-                                data-id="52caa776" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-23323270 elementor-widget elementor-widget-heading"
-                                        data-id="23323270" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">
-                                                Samir Salus
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <div class="elementor-element elementor-element-1ef8a70b elementor-align-left elementor-widget elementor-widget-button"
-                        data-id="1ef8a70b" data-element_type="widget" data-widget_type="button.default">
-                        <div class="elementor-widget-container">
-                            <div class="elementor-button-wrapper">
-                                <a href="#"
-                                    class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
-                                    role="button">
-                                    <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">CONTACT</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-617f71d"
-                data-id="617f71d" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <section
-                        class="elementor-section elementor-inner-section elementor-element elementor-element-5737712e elementor-section-full_width elementor-section-height-default elementor-section-height-default"
-                        data-id="5737712e" data-element_type="section">
-                        <div class="elementor-container elementor-column-gap-default">
-                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-1b9b3dba"
-                                data-id="1b9b3dba" data-element_type="column"
-                                data-settings='{"background_background":"classic"}'>
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-background-overlay"></div>
-                                    <div class="elementor-element elementor-element-35051395 elementor-widget elementor-widget-heading"
-                                        data-id="35051395" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <h3 class="elementor-heading-title elementor-size-default">
-                                                Sanitation
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-569e8de1 elementor-widget elementor-widget-heading"
-                                        data-id="569e8de1" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <h6 class="elementor-heading-title elementor-size-default">
-                                                LOREM IPSUM
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-6a620b05 elementor-widget elementor-widget-image"
-                                        data-id="6a620b05" data-element_type="widget" data-widget_type="image.default">
-                                        <div class="elementor-widget-container">
-                                            <img width="738" height="942"
-                                                src="../wp-content/uploads/sites/4/2022/03/img-16.jpg"
-                                                class="attachment-full size-full" alt="" loading="lazy"
-                                                srcset="
-                                        http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/03/img-16.jpeg         738w,
-                                        http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/03/img-16-235x300.jpeg 235w,
-                                        http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/03/img-16-600x766.jpeg 600w
-                                      "
-                                                sizes="(max-width: 738px) 100vw, 738px" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-75ae3f50"
-                                data-id="75ae3f50" data-element_type="column"
-                                data-settings='{"background_background":"classic"}'>
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-background-overlay"></div>
-                                    <div class="elementor-element elementor-element-61206b5b elementor-widget elementor-widget-image"
-                                        data-id="61206b5b" data-element_type="widget" data-widget_type="image.default">
-                                        <div class="elementor-widget-container">
-                                            <img width="738" height="942"
-                                                src="../wp-content/uploads/sites/4/2022/03/img-15-1.jpg"
-                                                class="attachment-full size-full" alt="" loading="lazy"
-                                                srcset="
-                                        http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/03/img-15-1.jpeg         738w,
-                                        http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/03/img-15-1-235x300.jpeg 235w,
-                                        http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/03/img-15-1-600x766.jpeg 600w
-                                      "
-                                                sizes="(max-width: 738px) 100vw, 738px" />
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-4f58bba6 elementor-widget elementor-widget-heading"
-                                        data-id="4f58bba6" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <h3 class="elementor-heading-title elementor-size-default">
-                                                Disinfection
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-element-281583f elementor-widget elementor-widget-heading"
-                                        data-id="281583f" data-element_type="widget" data-widget_type="heading.default">
-                                        <div class="elementor-widget-container">
-                                            <h6 class="elementor-heading-title elementor-size-default">
-                                                LOREM IPSUM
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section
         class="elementor-section elementor-top-section elementor-element elementor-element-25127a70 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
         data-id="25127a70" data-element_type="section"
         data-settings='{"background_background":"classic","stretch_section":"section-stretched"}'>
@@ -1226,12 +780,10 @@
                                 </figure>
                                 <div class="elementor-image-box-content">
                                     <h3 class="elementor-image-box-title">
-                                        Reception 24 h
+                                        Lễ tân 24/7
                                     </h3>
                                     <p class="elementor-image-box-description">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Ut elit tellus, luctus nec
-                                        ullamcorper mattis, pulvinar dapibus leo.
+                                        Luôn có người trực khi bạn cần hỗ trợ
                                     </p>
                                 </div>
                             </div>
@@ -1254,12 +806,10 @@
                                 </figure>
                                 <div class="elementor-image-box-content">
                                     <h3 class="elementor-image-box-title">
-                                        Meeting Room
+                                        Phòng
                                     </h3>
                                     <p class="elementor-image-box-description">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Ut elit tellus, luctus nec
-                                        ullamcorper mattis, pulvinar dapibus leo.
+                                        Phòng có đủ tiện nghi, đem đến trải nghiệm tốt nhất
                                     </p>
                                 </div>
                             </div>

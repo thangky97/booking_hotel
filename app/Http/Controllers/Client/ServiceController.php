@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
     public function index(Request $request) {
-        $title = '12Zodiac - Dịch vụ';
+        $title = 'Dịch vụ - Hotel 12Zodiac';
         $services = Service::select('name', 'images', 'status')
         ->where('status', '=', 1)
         ->get();

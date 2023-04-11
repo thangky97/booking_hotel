@@ -1,30 +1,15 @@
 @extends('templates.layouts.masterhome')
 
-@section('title', 'Phòng')
+@section('title', 'Danh sách loại phòng - Hotel 12Zodiac')
 
 @section('content')
 
 
     <div id="nd_booking_single_cpt_4_all_rooms" class="nd_booking_width_100_percentage nd_booking_float_left">
         <div class="nd_booking_section nd_booking_height_50"></div>
-
-        <div id="nd_booking_single_cpt_4_all_rooms_stars" class="nd_booking_section nd_booking_text_align_center">
-            <img alt="" class="nd_booking_margin_right_5" width="15"
-                src="../../wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg" /><img alt=""
-                class="nd_booking_margin_right_5" width="15"
-                src="../../wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg" /><img alt=""
-                class="nd_booking_margin_right_5" width="15"
-                src="../../wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg" /><img alt=""
-                class="nd_booking_margin_right_5" width="15"
-                src="../../wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg" /><img alt=""
-                class="nd_booking_margin_right_5" width="15"
-                src="../../wp-content/plugins/nd-booking/templates/icon-star-full-grey.svg" />
-        </div>
-
-        <div class="nd_booking_section nd_booking_height_15"></div>
         <h1 id="nd_booking_single_cpt_4_all_rooms_title"
             class="nd_booking_text_align_center nd_booking_color_greydark nd_booking_font_size_55 nd_booking_font_size_40_all_iphone nd_booking_line_height_40_important_all_iphone nd_options_first_font nd_booking_word_wrap_break_word">
-            <span style="text-transform: capitalize">Danh sách phòng</span>
+            <span style="text-transform: capitalize">Danh sách loại phòng</span>
         </h1>
         <div class="nd_booking_section nd_booking_height_30"></div>
 
@@ -110,9 +95,12 @@
                             </div>
 
                             <div class="nd_booking_section nd_booking_height_20"></div>
-                            <p>
-                                {{$cateroom->description}}
-                            </p>
+                            <div>
+
+                                <p>
+                                    {{$cateroom->description}}
+                                </p>
+                            </div>
                             <div class="nd_booking_section nd_booking_height_20"></div>
                             <a style="border: 2px solid #444444; color: #444444"
                                 href="{{ route('route_FrontEnd_Room_RoomDetail', $cateroom->id) }}"

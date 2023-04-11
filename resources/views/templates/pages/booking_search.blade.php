@@ -50,7 +50,7 @@
                                     font-size: 59px
                                 }
                             </style>
-                            <h1 class="elementor-heading-title elementor-size-default">Search</h1>
+                            <h1 class="elementor-heading-title elementor-size-default">Tìm kiếm</h1>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-f23c8c7 elementor-widget elementor-widget-steps"
@@ -68,7 +68,7 @@
                                                 class=" nd_booking_border_1_solid_white nd_booking_bg_greydark nd_booking_bg_custom_color nd_booking_border_1_solid_greydark_important nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">
                                                 1</h1>
                                             <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text"
-                                                href="#">Search</a>
+                                                href="#">Tìm kiếm</a>
                                         </li>
                                         <li id="nd_booking_vc_steps_booking"
                                             class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
@@ -76,7 +76,7 @@
                                                 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">
                                                 2</h1>
                                             <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text"
-                                                href="#">Booking</a>
+                                                href="#">Đặt phòng</a>
                                         </li>
                                         <li id="nd_booking_vc_steps_checkout"
                                             class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
@@ -84,7 +84,7 @@
                                                 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">
                                                 3</h1>
                                             <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text"
-                                                href="#">Checkout</a>
+                                                href="#">Thanh toán</a>
                                         </li>
                                         <li id="nd_booking_vc_steps_thankyou"
                                             class="nd_booking_display_inline_block nd_booking_margin_right_20 nd_booking_margin_left_20">
@@ -92,7 +92,7 @@
                                                 class=" nd_booking_border_1_solid_white nd_booking_width_20 nd_booking_height_20 nd_booking_line_height_20 nd_booking_font_size_10 nd_options_second_font nd_booking_display_inline_block nd_booking_border_radius_100_percentage nd_options_color_white nd_booking_margin_right_10">
                                                 4</h1>
                                             <a class="nd_options_color_white nd_booking_font_size_12 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase nd_booking_cursor_text"
-                                                href="#">Thank You</a>
+                                                href="#">Cảm ơn</a>
                                         </li>
 
                                     </ul>
@@ -117,27 +117,19 @@
                         data-id="e7cb453" data-element_type="widget" data-widget_type="shortcode.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-shortcode">
-
-
                                 <div class="nd_booking_section">
-
                                     <div id="nd_booking_search_cpt_1_sidebar"
                                         class="nd_booking_float_left nd_booking_width_33_percentage nd_booking_box_sizing_border_box nd_booking_width_100_percentage_responsive">
 
 
                                         <!--START FORM-->
-
-
                                         <div
                                             class="nd_booking_section nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
-
                                             <form action="{{ route('route_FontEnd_BookingSearch_Search') }}"
                                                 method="post">
                                                 @csrf
                                                 <div id="nd_booking_search_main_bg"
                                                     class="nd_booking_section nd_booking_bg_greydark nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
-
-
                                                     <!--branches-->
                                                     <div id="nd_booking_search_cpt_1_form_branches"
                                                         class="  nd_booking_width_100_percentage nd_booking_float_left nd_booking_padding_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
@@ -147,12 +139,7 @@
                                                             <li class="nd_booking_branch_select_active">
                                                                 <h3 class="nd_options_color_white">
                                                                     Lựa Chọn Của Bạn</h3>
-                                                                <img class="nd_booking_branch_ul_1_arrow" alt=""
-                                                                    width="12"
-                                                                    src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/inc/shortcodes/include/search-results/icon-down-arrow-white.svg">
                                                             </li>
-
-
                                                         </ul>
 
                                                         <style>
@@ -622,7 +609,7 @@
                                                     <div class="">
                                                         <!--submit button-->
                                                         <input
-                                                            style=" border:2px solid #6b6978; color:#6b6978;margin-left:90px"
+                                                            style=" border:2px solid #6b6978; color:#ffffff;margin-left:90px"
                                                             class=" nd_booking_float_left nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_background_color_transparent_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2 "
                                                             type="submit" value="Tìm Kiếm">
                                                     </div>

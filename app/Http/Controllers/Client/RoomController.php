@@ -29,7 +29,7 @@ class RoomController extends Controller
         $this->v['listRooms'] = $rooms;
         $cate_rooms = new CategoryRooms();
         $this->v['listCaterooms'] = $cate_rooms->loadAll();
-        $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
+        $this->v['title'] = 'Tìm kiếm phòng - Hotel 12Zodiac';
         return view('templates.pages.booking_search', $this->v);
     }
 
@@ -88,7 +88,7 @@ class RoomController extends Controller
         $this->v['check_in'] = strtotime($request->check_in);
         $this->v['check_out'] = strtotime($request->check_out);
         $this->v['people'] = $people;
-        $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
+        $this->v['title'] = 'Tìm Kiếm Phòng - 12zodiac';
         return view('templates.pages.booking_search', $this->v);
     }
 
@@ -127,7 +127,7 @@ class RoomController extends Controller
         $this->v['room'] = $room;
         $property = new Properties();
         $this->v['listProperty'] = $property->loadAll();
-        $this->v['title'] = 'Chi tiết phòng';
+        $this->v['title'] = 'Chi tiết loại phòng';
         return view('templates.pages.room_detail', $this->v);
     }
 
@@ -154,8 +154,8 @@ class RoomController extends Controller
     public function cateroom(Request $request){
         $cateroom = new CategoryRooms();
         $this->v['listCaterooms'] = $cateroom->loadAll();
-        $this->v['title'] = 'Danh sách phòng';
-        return view('templates/pages/room', $this->v);
+        $this->v['title'] = 'Danh sách loại phòng';
+        return view('templates.pages.room', $this->v);
     }
 }
 
