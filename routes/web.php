@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
  */
 //cong thanh toan
-Route::post('/vnpay_payment','paymentController@vnpay_payment');
-Route::get('/thanks','paymentController@thanks');
+Route::post('/vnpay_payment', 'paymentController@vnpay_payment');
+Route::get('/thanks', 'paymentController@thanks');
 
 Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
 
@@ -34,14 +34,18 @@ Route::get('/feedback', 'Client\FeedbackController@feedback')->name('route_FontE
 
 Route::get('/contact', 'Client\ContactController@index')->name('route_FrontEnd_Contact');
 
-Route::get('/profile/{id}', 'Client\UserController@index')->name('route_FrontEnd_User_Profile');
+Route::prefix('profile')->group(function () {
+    Route::get('/{id}', 'Client\UserController@profile')->name('route_FrontEnd_User_Profile');
+    Route::post('/update/profile/{id}', 'Client\UserController@update_profile')->name('route_FrontEnd_User_Update_Profile');
+    Route::post('/update/password/{id}', 'Client\UserController@update_password')->name('route_FrontEnd_User_Update_Password');
+});
 
 Route::get('/about', 'Client\AboutController@index')->name('route_FrontEnd_About');
 
 Route::get('/services', 'Client\ServiceController@index')->name('route_FrontEnd_Service');
 
-Route::post('/autobooking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking');//Giỏ hàng
-Route::post('/booking', 'Client\BookingController@booking')->name('route_FontEnd_Booking_Booking');//Giỏ hàng
+Route::post('/autobooking', 'Client\BookingController@autobooking')->name('route_FontEnd_Booking_autoBooking'); //Giỏ hàng
+Route::post('/booking', 'Client\BookingController@booking')->name('route_FontEnd_Booking_Booking'); //Giỏ hàng
 Route::post('/checkout', 'Client\BookingController@createbooking')->name('route_FontEnd_Booking_createBooking');
 
 
@@ -72,7 +76,7 @@ Route::get('404', 'ErrorController@error404')->name('404');
 Route::get('403', 'ErrorController@error403')->name('403');
 
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-   
+
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
 
     Route::prefix('/profile')->group(function () {
@@ -165,12 +169,12 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::prefix('/bills')->group(function () {
         Route::get('/rooms/{id}', 'Admin\BillController@bill_room')->name('route_BackEnd_Bill_Room');
         Route::get('/services/{id}', 'Admin\BillController@bill_service')->name('route_BackEnd_Bill_Service');
-        
+
         Route::match(['get', 'post'], '/{id}', 'App\Http\Controllers\Admin\BillController@bills')->name('route_BackEnd_Bill');
-        
+
         //print_order
         Route::get('/print_order/{id}', 'Admin\BillController@print_order')->name('printOrder');
-        
+
         Route::get('/', 'Admin\BillController@index')->name('route_BackEnd_Bill_List');
         Route::get('/detail/{id}', 'Admin\BillController@bill_detail')->name('route_BackEnd_Bill_Detail');
     });
@@ -232,8 +236,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/add', 'Admin\VoucherController@add')->name('route_BackEnd_Voucher_add');
         Route::post('/add', 'Admin\VoucherController@store')->name('route_BackEnd_Voucher_store');
 
-        Route::get('/edit/{id}','Admin\VoucherController@edit')->name('route_BackEnd_Voucher_edit');
-        Route::post('/edit/{id}','Admin\VoucherController@update')->name('route_BackEnd_Voucher_editpost');
+        Route::get('/edit/{id}', 'Admin\VoucherController@edit')->name('route_BackEnd_Voucher_edit');
+        Route::post('/edit/{id}', 'Admin\VoucherController@update')->name('route_BackEnd_Voucher_editpost');
 
         Route::post('/check', 'Admin\VoucherController@check_voucher')->name('route_BackEnd_Voucher_check');
         Route::get('/unset', 'Admin\VoucherController@unset')->name('route_BackEnd_Voucher_unset');
