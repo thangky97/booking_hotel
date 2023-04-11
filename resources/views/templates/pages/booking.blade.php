@@ -289,17 +289,9 @@
                                                             <div
                                                                 class="nd_booking_float_left nd_booking_width_66_percentage nd_booking_width_100_percentage_responsive nd_booking_padding_left_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
 
-
-                                                                <div
-                                                                    class="nd_booking_booking_alert_login_register nd_booking_section nd_booking_bg_red nd_booking_padding_5_10 nd_booking_box_sizing_border_box">
-                                                                    <p class="nd_options_color_white">Bạn đang đặt phòng với tư cách là khách, hãy <a target="_blank"
-                                                                                  class="nd_options_color_white nd_booking_border_bottom_1_solid_white"
-                                                                                  href="{{route('getSignin')}}" style="font-weight: bold;text-decoration:underline;">ĐĂNG NHẬP</a>
-                                                                        hoặc <a target="_blank"
-                                                                              class="nd_options_color_white nd_booking_border_bottom_1_solid_white"
-                                                                              href="{{route('getSignup')}}" style="font-weight: bold;text-decoration:underline;">TẠO TÀI KHOẢN</a>
-                                                                        nếu bạn muốn lưu đặt phòng của bạn trên tài khoản của bạn</p>
-                                                                </div>
+                                                                
+                                                                
+                                                                
                                                                 <hr style="margin: 30px 0 30px 0">
                                                                 <div
                                                                     class="nd_booking_section nd_booking_margin_top_50_responsive">
