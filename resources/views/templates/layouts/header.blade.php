@@ -305,9 +305,9 @@
                                                 <div class="elementor-widget-container">
                                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                                            <a href="{{ route('route_FontEnd_BookingSearch') }}">
+                                                            <a href="{{ route('route_FrontEnd_Service') }}">
 
-                                                                <span class="elementor-icon-list-text">Đặt phòng</span>
+                                                                <span class="elementor-icon-list-text">Dịch vụ</span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -324,9 +324,8 @@
                                                 <div class="elementor-widget-container">
                                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                                            <a href="{{ route('route_FontEnd_Feedback') }}">
-
-                                                                <span class="elementor-icon-list-text">Đánh giá</span>
+                                                            <a href="{{ route('route_FrontEnd_Room') }}">
+                                                                <span class="elementor-icon-list-text">Đặt phòng</span>
                                                             </a>
                                                         </li>
                                                     </ul>

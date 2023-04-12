@@ -302,7 +302,7 @@
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
                                                 <p class="elementor-heading-title elementor-size-default">
-                                                    12zodiac@hotel.com
+                                                    hotel.12zodiac@gmail.com
                                                 </p>
                                             </div>
                                         </div>

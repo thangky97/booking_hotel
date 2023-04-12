@@ -83,10 +83,12 @@
                                             <div
                                                 class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
                                                 <div style="display: flex">
-                                                    <p style="border-left-color:#444444"
+                                                    <p style="border-left-color:#444444; padding-right: 15px"
                                                         class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                        {{ $new->date }}
-                                                        <p style="letter-spacing: normal; " class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
+                                                        {{ date('d', strtotime($new->date)) }},
+                                                        {{ date('m', strtotime($new->date)) }}, 
+                                                        {{ date('Y', strtotime($new->date)) }}
+                                                        <p style="letter-spacing: normal; color: #ca2929; font-weight: 500 " class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
                                                             @if ($new->cate_new)
                                                                 <span>{{ $new->cate_new->name }}</span>
                                                             @else

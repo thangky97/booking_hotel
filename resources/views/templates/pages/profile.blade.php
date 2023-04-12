@@ -309,7 +309,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <p>Mọi thắc mắc về đơn đặt phòng , quý khách vui lòng liên hệ lại đường dây nóng <i class="text-primary">0359410281</i> hoặc mail tới địa chỉ <i class="text-primary">hotel.12zodiac@gmail.com </i>để được hỗ trợ !</p>
+                        <p>Mọi thắc mắc về đơn đặt phòng , quý khách vui lòng liên hệ lại đường dây nóng <i class="text-primary">0931 657 128</i> hoặc email <i class="text-primary">hotel.12zodiac@gmail.com </i>để được hỗ trợ !</p>
                     </div>
 
                 </div>

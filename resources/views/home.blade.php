@@ -97,7 +97,8 @@
                                 khám phá vẻ đẹp của những điểm đến hấp dẫn lân cận. Chỉ cần đạp xe hoặc di chuyển bằng
                                 dịch vụ xe buýt miễn phí từ khách sạn 12 Zodiac, bạn có thể đến với bãi
                                 biển yên bình cách đó chừng 3.5 km. Là một địa điểm lý tưởng để khám phá vẻ đẹp
-                                của thủ đô, bạn còn có thể dễ dàng đến các điểm thăm quan của thành phố Hà Nội như nhà thờ lớn, công viên nước Hồ Tây. Ngoài ra, khách sạn chỉ cách sân bay quốc tế Hà Nội
+                                của thủ đô, bạn còn có thể dễ dàng đến các điểm thăm quan của thành phố Hà Nội như nhà thờ
+                                lớn, công viên nước Hồ Tây. Ngoài ra, khách sạn chỉ cách sân bay quốc tế Hà Nội
                                 tầm 35 phút di chuyển bằng xe buýt hoặc taxi.</p>
                         </div>
                     </div>
@@ -105,7 +106,7 @@
                         data-id="42f8bea7" data-element_type="widget" data-widget_type="button.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-button-wrapper">
-                                <a href="#"
+                                <a href="{{ route('route_FrontEnd_About') }}"
                                     class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
                                     role="button">
                                     <span class="elementor-button-content-wrapper">
@@ -139,14 +140,16 @@
                                     <div class="elementor-element elementor-element-66a6b036 elementor-widget elementor-widget-heading"
                                         data-id="66a6b036" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
-                                            <h3 class="elementor-heading-title elementor-size-default">Chương trình khuyến mãi
+                                            <h3 class="elementor-heading-title elementor-size-default">Chương trình khuyến
+                                                mãi
                                             </h3>
                                         </div>
                                     </div>
                                     <div class="elementor-element elementor-element-2c657f35 elementor-widget elementor-widget-heading"
                                         data-id="2c657f35" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
-                                            <h1 class="elementor-heading-title elementor-size-default">Nhanh tay đặt phòng</h1>
+                                            <h1 class="elementor-heading-title elementor-size-default">Nhanh tay đặt phòng
+                                            </h1>
                                         </div>
                                     </div>
                                     <div class="elementor-element elementor-element-3b4afdc6 elementor-widget elementor-widget-heading"
@@ -156,8 +159,13 @@
                                                 cải thiện sức khỏe bao gồm phòng Spa, phòng tập thể dục. Điều này có
                                                 nghĩa bạn có thể thư giãn, phục hồi năng lượng hoàn hảo sau một ngày dài
                                                 bận rộn.</p>
-                                            <p class="elementor-heading-title elementor-size-default">Khu vui chơi dành riêng cho trẻ đầy thú vị, an toàn; giúp trẻ đắm chìm trong niềm vui, và bạn có thêm thời gian cho bản thân mình.</p>
-                                            <p class="elementor-heading-title elementor-size-default">Phòng họp của khách sạn rộng rãi và sang trọng, đầy đủ hệ thống máy móc thiết bị phục vụ, vì vậy tổ chức bạn có thể tiến hành hội thảo, cuộc họp vô cùng chuyên nghiệp ngay tại khách sạn chúng tôi.</p>
+                                            <p class="elementor-heading-title elementor-size-default">Khu vui chơi dành
+                                                riêng cho trẻ đầy thú vị, an toàn; giúp trẻ đắm chìm trong niềm vui, và bạn
+                                                có thêm thời gian cho bản thân mình.</p>
+                                            <p class="elementor-heading-title elementor-size-default">Phòng họp của khách
+                                                sạn rộng rãi và sang trọng, đầy đủ hệ thống máy móc thiết bị phục vụ, vì vậy
+                                                tổ chức bạn có thể tiến hành hội thảo, cuộc họp vô cùng chuyên nghiệp ngay
+                                                tại khách sạn chúng tôi.</p>
                                         </div>
                                     </div>
                                     <div class="elementor-element elementor-element-327bfeee elementor-widget elementor-widget-heading"
@@ -222,7 +230,7 @@
                                                                     data-lazyload="//www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/revslider/public/assets/assets/transparent.png"
                                                                     data-bg="p:center bottom;f:contain;" data-no-retina>
                                                                 <!--
-                -->
+                    -->
                                                                 <rs-group id="slider-11-slide-28-layer-9"
                                                                     data-type="group" data-rsp_ch="on"
                                                                     data-xy="x:c;xo:-150px;y:30px;" data-text="w:normal;"
@@ -233,7 +241,7 @@
                                                                     data-frame_999="o:0;st:w;sR:6600;sA:9000;"
                                                                     style="z-index:14;">
                                                                     <!--
-                    -->
+                        -->
                                                                     <rs-layer id="slider-11-slide-28-layer-7"
                                                                         data-type="shape" data-rsp_ch="on"
                                                                         data-xy="x:c;y:c;" data-text="w:normal;"
@@ -255,7 +263,7 @@
                                                                     </rs-layer>
                                                                     <!--
 
-                    -->
+                        -->
                                                                     <rs-layer id="slider-11-slide-28-layer-8"
                                                                         data-type="text" data-color="#ffffff"
                                                                         data-rsp_ch="on" data-xy="x:c;y:c;yo:-70px;"
@@ -272,7 +280,7 @@
                                                                     </rs-layer>
                                                                     <!--
 
-                    -->
+                        -->
                                                                     <rs-layer id="slider-11-slide-28-layer-10"
                                                                         data-type="text" data-color="#ffffff"
                                                                         data-rsp_ch="on" data-xy="x:c;y:c;"
@@ -294,7 +302,7 @@
                                                                     </rs-layer>
                                                                     <!--
 
-                    -->
+                        -->
                                                                     <rs-layer id="slider-11-slide-28-layer-11"
                                                                         data-type="text" data-color="#ffffff"
                                                                         data-rsp_ch="on" data-xy="x:c;y:c;yo:71px;"
@@ -311,15 +319,15 @@
                                                                         SELECTED ROOMS
                                                                     </rs-layer>
                                                                     <!--
-                -->
+                    -->
                                                                 </rs-group>
                                                                 <!--
-            -->
+                -->
                                                             </rs-slide>
                                                         </rs-slides>
                                                         <rs-static-layers>
                                                             <!--
-            -->
+                -->
                                                         </rs-static-layers>
                                                     </rs-module>
                                                     <script type="text/javascript">
@@ -384,7 +392,7 @@
                     <div class="elementor-element elementor-element-59a0b92a elementor-widget elementor-widget-heading"
                         data-id="59a0b92a" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title elementor-size-default">Các tiện nghi nổi bật</h1>
+                            <h1 class="elementor-heading-title elementor-size-default">Các tiện ích nổi bật</h1>
                         </div>
                     </div>
                 </div>
@@ -405,8 +413,7 @@
                         data-id="6e8b6a1" data-element_type="widget" data-widget_type="button.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-button-wrapper">
-                                <p class="elementor-button-link elementor-button elementor-size-sm"
-                                    role="button">
+                                <p class="elementor-button-link elementor-button elementor-size-sm" role="button">
                                     <span class="elementor-button-content-wrapper">
                                         <span class="elementor-button-text">Every Room</span>
                                     </span>
@@ -425,7 +432,7 @@
                     <div class="elementor-element elementor-element-3317044 elementor-widget elementor-widget-heading"
                         data-id="3317044" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title elementor-size-default">Các tiện nghi nổi bật đang có</h1>
+                            <h1 class="elementor-heading-title elementor-size-default">Các tiện ích nổi bật đang có</h1>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-8052f79 elementor-widget elementor-widget-heading"
@@ -456,7 +463,7 @@
 
                                                 <div class="nd_booking_section nd_booking_position_relative">
 
-                                                    
+
 
                                                     <img alt=""
                                                         class="nd_booking_section nd_booking_postgrid_rooms_single_room_img"
@@ -517,7 +524,7 @@
                     <div class="elementor-element elementor-element-27c41a60 elementor-widget elementor-widget-heading"
                         data-id="27c41a60" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h3 class="elementor-heading-title elementor-size-default">GIÁ PHÒNG CỦA CHÚNG TÔI</h3>
+                            <h3 class="elementor-heading-title elementor-size-default">GIÁ LOẠI PHÒNG CỦA CHÚNG TÔI</h3>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-43a9c92d elementor-widget elementor-widget-heading"
@@ -531,7 +538,7 @@
                         data-id="461b0a5e" data-element_type="section">
                         <div class="elementor-container elementor-column-gap-default">
                             @foreach ($listCaterooms as $index => $cateroom)
-                                @if($index<4)
+                                @if ($index < 4)
                                     @if ($index == 0 || $index == 1)
                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-29ee155f"
                                             data-id="29ee155f" data-element_type="column"
@@ -551,7 +558,8 @@
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
                                                         <h1 class="elementor-heading-title elementor-size-default"><span
-                                                                style="font-size:25px">$</span> {{ number_format($cateroom->price)}} <span
+                                                                style="font-size:25px">$</span>
+                                                            {{ number_format($cateroom->price) }} <span
                                                                 style="font-size:20px">/
                                                                 đêm</span></h1>
                                                     </div>
@@ -625,7 +633,8 @@
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
                                                         <h1 class="elementor-heading-title elementor-size-default"><span
-                                                                style="font-size:25px">$</span> {{ number_format($cateroom->price) }} <span
+                                                                style="font-size:25px">$</span>
+                                                            {{ number_format($cateroom->price) }} <span
                                                                 style="font-size:20px">/
                                                                 đêm</span></h1>
                                                     </div>
@@ -835,7 +844,10 @@
                     <div class="elementor-element elementor-element-7944326d elementor-widget elementor-widget-heading"
                         data-id="7944326d" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <p class="elementor-heading-title elementor-size-default">Với những cặp tình nhân hoặc đôi vợ chồng trẻ thì khách sạn tình yêu đã là khái niệm không còn xa lạ. Nhu cầu hâm nóng tình cảm, “làm mới” những trải nghiệm thú vị bên nhau luôn thôi thúc các cặp đôi tìm đến các khách sạn tình yêu, lên kế hoạch cho một buổi hẹn hò đặc biệt cùng người thương.</p>
+                            <p class="elementor-heading-title elementor-size-default">Với những cặp tình nhân hoặc đôi vợ
+                                chồng trẻ thì khách sạn tình yêu đã là khái niệm không còn xa lạ. Nhu cầu hâm nóng tình cảm,
+                                “làm mới” những trải nghiệm thú vị bên nhau luôn thôi thúc các cặp đôi tìm đến các khách sạn
+                                tình yêu, lên kế hoạch cho một buổi hẹn hò đặc biệt cùng người thương.</p>
                         </div>
                     </div>
                     <section
@@ -849,7 +861,7 @@
                                         data-id="a3bbdaf" data-element_type="widget" data-widget_type="button.default">
                                         <div class="elementor-widget-container">
                                             <div class="elementor-button-wrapper">
-                                                <a href="#"
+                                                <a href="{{ route('route_FrontEnd_Contact') }}"
                                                     class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
                                                     role="button">
                                                     <span class="elementor-button-content-wrapper">
@@ -891,9 +903,8 @@
 
                                                         <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
                                                             style="width:80%;">
-                                                            <p class="nd_elements_list_component_description">+ 01 476
-                                                                568
-                                                                746</p>
+                                                            <p class="nd_elements_list_component_description">0931 657 128
+                                                            </p>
                                                         </div>
 
 
@@ -912,7 +923,8 @@
             </div>
             <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-91b07c elementor-invisible"
                 data-id="91b07c" data-element_type="column"
-                data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInRight&quot;}" id="flatbooking">
+                data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInRight&quot;}"
+                id="flatbooking">
                 <div class="elementor-widget-wrap elementor-element-populated">
                     <div class="elementor-background-overlay"></div>
                     <div class="elementor-element elementor-element-7c0be78e elementor-widget elementor-widget-shortcode"
@@ -1150,164 +1162,85 @@
                                     }
                                 </style>
 
-                                <div id="nd_cc_cc_4062" class="nd_cc_section">
+                                <script>
+                                    function nd_cc_get_total_price(nd_cc_cc_id, nd_cc_cc_min_price) {
 
-                                    <script>
-                                        function nd_cc_get_total_price(nd_cc_cc_id, nd_cc_cc_min_price) {
+                                        var nd_cc_cc_id = nd_cc_cc_id;
+                                        var nd_cc_cc_min_price = nd_cc_cc_min_price;
 
-                                            var nd_cc_cc_id = nd_cc_cc_id;
-                                            var nd_cc_cc_min_price = nd_cc_cc_min_price;
+                                        jQuery("#nd_cc_cc_" + nd_cc_cc_id + " .nd_cc_cc_total_price").empty();
 
-                                            jQuery("#nd_cc_cc_" + nd_cc_cc_id + " .nd_cc_cc_total_price").empty();
+                                        var map = {};
+                                        jQuery(".nd_cc_cc_" + nd_cc_cc_id + "_value_price").each(function() {
+                                            map[jQuery(this).attr("name")] = jQuery(this).val();
+                                        });
 
-                                            var map = {};
-                                            jQuery(".nd_cc_cc_" + nd_cc_cc_id + "_value_price").each(function() {
-                                                map[jQuery(this).attr("name")] = jQuery(this).val();
-                                            });
+                                        var nd_cc_total_price = nd_cc_cc_min_price;
+                                        jQuery.each(map, function(key, value) {
 
-                                            var nd_cc_total_price = nd_cc_cc_min_price;
-                                            jQuery.each(map, function(key, value) {
+                                            nd_cc_total_price = nd_cc_total_price + parseInt(value);
+                                        })
 
-                                                nd_cc_total_price = nd_cc_total_price + parseInt(value);
-                                            })
+                                        jQuery("#nd_cc_cc_" + nd_cc_cc_id + " .nd_cc_cc_total_price").append(nd_cc_total_price - 50);
 
-                                            jQuery("#nd_cc_cc_" + nd_cc_cc_id + " .nd_cc_cc_total_price").append(nd_cc_total_price-50);
-
-                                        }
-                                    </script>
-                                <form action="" method="POST">
+                                    }
+                                </script>
+                                <form action="{{ route('route_FontEnd_Booking_autoBooking') }}" method="POST">
                                     @csrf
-                                    <div style="width: 100%;display: flex;justify-content: space-between;padding: 0 14px 0 14px;" class="nd_cc_section_cc">
+                                    <div
+                                        style="width: 100%;display: flex;justify-content: space-between;padding: 0 14px 0 14px;">
                                         <div>
                                             <p>Chọn ngày đến</p>
-                                            <input type="date" name="check_in">
+                                            <input type="date" name="check_in" style="width: 200px"
+                                                value="{{ date('Y-m-d', strtotime('now')) }}">
                                         </div>
                                         <div>
                                             <p>Chọn ngày trả</p>
-                                            <input type="date" name="check_out">
+                                            <input type="date" name="check_out" style="width: 200px"
+                                                value="{{ date('Y-m-d', strtotime('now') + 60 * 60 * 24) }}">
                                         </div>
                                     </div>
-
-                                    <div id="nd_cc_section_2" style="width:100%;" class="nd_cc_section_cc">
-
-
-                                        <div id="nd_cc_sub_section_2_1"
-                                            class="nd_cc_sub_section_cc nd_cc_width_100_percentage_important_responsive "
-                                            style="width:50%;">
-
-                                            <p class="nd_options_color_greydark nd_cc_sub_section_name">Chọn Loại Phòng</p>
-
-
-                                            <script>
-                                                jQuery(function() {
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_sub_menu li ").click(function() {
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_ul li").removeClass(
-                                                            "nd_cc_select_active");
-                                                        var nd_cc_select_data_position_first = jQuery(this).attr("data-position");
-                                                        var nd_cc_select_data_position = parseInt(nd_cc_select_data_position_first) + 1;
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_ul > li:nth-child(" +
-                                                            nd_cc_select_data_position + ")").addClass("nd_cc_select_active");
-
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_sub_menu").removeClass(
-                                                            "nd_cc_display_block_important");
-
-
-                                                        var nd_cc_select_price = jQuery(this).attr("data-price");
-                                                        jQuery("#nd_cc_cc_4062 .nd_cc_current_price_2_1").val(nd_cc_select_price);
-                                                        nd_cc_get_total_price(4062, 50);
-
-
-                                                    });
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_ul li.nd_cc_select_active").click(
-                                                        function() {
-                                                            jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_sub_menu").addClass(
-                                                                "nd_cc_display_block_important");
-                                                        });
-
-                                                    jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_ul")
-                                                        .mouseenter(function() {
-                                                            jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_sub_menu").addClass(
-                                                                "nd_cc_display_block_important");
-                                                        })
-                                                        .mouseleave(function() {
-                                                            jQuery("#nd_cc_cc_4062 .nd_cc_select_content_2_1 .nd_cc_select_sub_menu").removeClass(
-                                                                "nd_cc_display_block_important");
-                                                        });
-
-                                                });
-                                            </script>
-
-                                            <div class="nd_cc_select_content_2_1">
-                                                <ul class="nd_cc_select_ul">
-
-                                                    <li class="nd_cc_select_active">
-                                                        <img class="nd_cc_select_arrow"
-                                                            src="wp-content/plugins/nd-projects/addons/cost-calculator/include/down-arrow.png">
-                                                        <p>Chọn loại phòng</p>
-                                                    </li>
-                                                    @foreach($listCaterooms as $cateroom)
-                                                    <li class="">
-
-                                                        <div class="">
-                                                            <p class="nd_options_color_greydark nd_cc_select_name">
-                                                                {{$cateroom->name}}
-                                                            </p>
-                                                            <h5 class="nd_options_color_grey"></h5>
-                                                        </div>
-                                                    </li>
-                                                    @endforeach
-                                                    <ul class="nd_cc_select_sub_menu">
-                                                        <li data-position="0" data-price="0" class="">
-                                                            <p>Chọn loại phòng</p>
-                                                        </li>
-                                                        <?php $n=1;?>
-                                                        @foreach($listCaterooms as $cateroom)
-                                                            <li data-price="{{$cateroom->price}}" data-position="{{$n++}}" class="">
-
-                                                                <div class="">
-                                                                    <p class="nd_options_color_greydark nd_cc_select_name">
-                                                                        {{$cateroom->name}}<span class="nd_cc_select_price">{{$cateroom->price}}</span></p>
-                                                                    <h5 class="nd_options_color_grey"></h5>
-                                                                </div>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </ul>
-
-
-                                                <input class=" nd_cc_cc_4062_value_price nd_cc_current_price_2_1"
-                                                    name="nd_cc_current_price_2_1" type="hidden" readonly
-                                                    value="0">
-
-
-                                            </div>
+                                    <div
+                                        style="width: 100%;display: flex;justify-content: space-between;padding: 0 14px 0 14px;">
+                                        <div>
+                                            <p>Chọn loại phòng</p>
+                                            <select id="mySelect" name="price" style="width: 200px"
+                                                onchange="myFunction()">
+                                                <option value="">Chọn loại phòng</option>
+                                                @foreach ($listCaterooms as $cateroom)
+                                                    <option value="{{ $cateroom->price }}">{{ $cateroom->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-
+                                        <div style="padding-top: 28px;padding-right: 140px" id="showButton">
+                                        </div>
                                     </div>
                                     <div id="nd_cc_section_price_4062"
                                         class="nd_cc_section_price nd_cc_text_align_left_important_responsive ">
 
                                         <p>GIÁ NIÊM YẾT</p>
                                         <h1>
-                                            <span class="nd_cc_cc_total_price">0</span>
+                                            <span id="showPrice">0</span>
                                             <span>đ</span>
                                         </h1>
 
                                         <img class="nd_cc_cc_icon_price nd_cc_display_none_responsive"
                                             src="wp-content/uploads/sites/4/2022/05/icon2.png">
-
-
                                     </div>
                                 </form>
-                                </div>
+                                <script>
+                                    function myFunction() {
+                                        var x = document.getElementById("mySelect").value;
+                                        document.getElementById("showPrice").innerHTML = x;
+                                        document.getElementById("showButton").innerHTML = '<button type="submit">' + 'Gửi' + '</button>';
+                                    }
+                                </script>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <section
@@ -1337,248 +1270,67 @@
                         <div class="elementor-widget-container">
 
                             <div class="nd_elements_section nd_elements_masonry_content nd_elements_posgrid_widget_l4">
-                                <div
-                                    class=" nd_elements_width_33_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_background_color_fff nd_elements_border_1_solid_grey">
-
-                                        <a href="new-website/index.html"><img class="nd_elements_section" alt=""
-                                                src="wp-content/uploads/sites/4/2022/05/blog1.jpg"></a>
-
-
+                                @foreach ($listNews as $index => $new)
+                                    @if ($index < 3)
                                         <div
-                                            class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
-
-
-                                            <p style="border-left-color:#444444"
-                                                class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                THÁNG 3, NGÀY 14, NĂM 2022
-                                            </p>
-                                            <div class="nd_elements_section nd_elements_height_15"></div>
-
-                                            <a class="nd_elements_section" href="new-website/index.html">
-                                                <h3
-                                                    class="nd_elements_font_size_23 nd_elements_posgrid_widget_l4_title nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                    <strong>Trang web mới</strong>
-                                                </h3>
-                                            </a>
-                                            <div class="nd_elements_section nd_elements_height_20"></div>
-                                            <p
-                                                class="nd_elements_font_size_15 nd_elements_section nd_elements_margin_0_important nd_elements_posgrid_widget_l4_excerpt nd_elements_line_height_2">
-                                                Phasellus enim libero, blandit vel sapien vitae, condimentum ultricies
-                                                magna
-                                                et. Quisque euismod orci utet.</p>
-                                            <div class="nd_elements_section nd_elements_height_20"></div>
-
-                                            <a class="nd_options_color_white nd_elements_font_size_13 nd_elements_posgrid_widget_l4_button nd_elements_letter_spacing_1 nd_elements_line_height_1 nd_elements_padding_10_20"
-                                                style="background-color:#444444;"
-                                                href="new-website/index.html"><strong>ĐỌC THÊM</strong></a>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div
-                                    class=" nd_elements_width_33_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div class="nd_elements_section nd_elements_position_relative">
-
-                                        <a href="quote-post/index.html"><img class="nd_elements_section" alt=""
-                                                src="wp-content/uploads/sites/4/2022/03/blog-9-1.jpg"></a>
-
-                                        <div
-                                            class="nd_elements_position_absolute nd_elements_left_0 nd_elements_height_100_percentage nd_elements_width_100_percentage nd_elements_padding_20_iphone nd_elements_padding_40 nd_elements_box_sizing_border_box">
+                                            class=" nd_elements_width_33_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
 
                                             <div
-                                                class="nd_elements_display_table nd_elements_width_100_percentage nd_elements_height_100_percentage nd_elements_text_align_center">
+                                                class="nd_elements_section nd_elements_background_color_fff nd_elements_border_1_solid_grey">
+
+                                                <a href="new-website/index.html"><img class="nd_elements_section"
+                                                        alt="" src="{{ asset('storage/' . $new->images) }}"></a>
+
 
                                                 <div
-                                                    class="nd_elements_display_table_cell nd_elements_vertical_align_middle">
+                                                    class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
 
-                                                    <a class="nd_elements_section" href="quote-post/index.html">
+
+                                                    <div style="display: flex">
+                                                        <p style="border-left-color:#444444; padding-right: 15px"
+                                                        class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
+                                                        {{ date('d', strtotime($new->date)) }},
+                                                        {{ date('m', strtotime($new->date)) }}, 
+                                                        {{ date('Y', strtotime($new->date)) }}
+                                                        <p style="letter-spacing: normal; color: #ca2929; font-weight: 500 " class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
+                                                            @if ($new->cate_new)
+                                                                <span>{{ $new->cate_new->name }}</span>
+                                                            @else
+                                                                <span>Không có danh mục</span>
+                                                            @endif
+                                                        </p>
+                                                    </p>
+                                                    </div>
+                                                    <div class="nd_elements_section nd_elements_height_15"></div>
+
+                                                    <a class="nd_elements_section" href="new-website/index.html">
                                                         <h3
-                                                            class="nd_options_color_white nd_elements_font_size_23 nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_30 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                            Theo dõi khách sạn sang trọng của chúng tôi</h3>
+                                                            class="nd_elements_font_size_23 nd_elements_posgrid_widget_l4_title nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
+                                                            <strong>{{ $new->title }}</strong>
+                                                        </h3>
                                                     </a>
                                                     <div class="nd_elements_section nd_elements_height_20"></div>
                                                     <p
-                                                        class="nd_options_color_white nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13 nd_elements_text_transform_uppercase nd_elements_line_height_13 ">
-                                                        12 Zodiacs</p>
-                                                    <div class="nd_elements_section nd_elements_height_10"></div>
-                                                    <img loading="lazy" alt="" class="" width="25"
-                                                        height="25"
-                                                        src="wp-content/plugins/nd-elements/widgets/postgrid/layout/img/quote-icon.png">
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div
-                                    class=" nd_elements_width_33_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div class="nd_elements_section nd_elements_position_relative">
-
-                                        <div class="nd_elements_section nd_elements_position_relative">
-
-                                            <a href="relax-zone/index.html"><img class="nd_elements_section"
-                                                    alt="" src="wp-content/uploads/sites/4/2022/05/blog3.jpg"></a>
-
-                                            <div style="background: -webkit-linear-gradient(top, #1c1c1c00 40%,#1c1c1ccc 100%)"
-                                                class="nd_elements_position_absolute nd_elements_left_0 nd_elements_height_100_percentage nd_elements_width_100_percentage nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
-
-                                                <div
-                                                    class="nd_elements_position_absolute nd_elements_bottom_40 nd_elements_bottom_20_iphone">
-
-                                                    <p style="border-left-color:#fff;"
-                                                        class="nd_options_color_white nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                        Ngày 14, 2022
+                                                        class="nd_elements_font_size_15 nd_elements_section nd_elements_margin_0_important nd_elements_posgrid_widget_l4_excerpt nd_elements_line_height_2">
+                                                        {{ $new->description }}
                                                     </p>
-                                                    <div class="nd_elements_section nd_elements_height_15"></div>
+                                                    <div class="nd_elements_section nd_elements_height_20"></div>
 
-                                                    <a class="nd_elements_section" href="relax-zone/index.html">
-                                                        <h3
-                                                            class="nd_options_color_white nd_elements_font_size_23 nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                            <strong>Khu thư giãn</strong>
-                                                        </h3>
-                                                    </a>
-
-                                                </div>
-
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div
-                                    class=" nd_elements_width_33_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div
-                                        class="nd_elements_section nd_elements_background_color_fff nd_elements_border_1_solid_grey">
-
-                                        <a href="around-us/index.html"><img class="nd_elements_section" alt=""
-                                                src="wp-content/uploads/sites/4/2022/05/blog2.jpg"></a>
-
-
-                                        <div
-                                            class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
-
-
-                                            <p style="border-left-color:#6b6978"
-                                                class="nd_elements_posgrid_widget_l4_date nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                Ngày 14, 2022
-                                            </p>
-                                            <div class="nd_elements_section nd_elements_height_15"></div>
-
-                                            <a class="nd_elements_section" href="around-us/index.html">
-                                                <h3
-                                                    class="nd_elements_font_size_23 nd_elements_posgrid_widget_l4_title nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                    <strong>Xung quanh chúng ta</strong>
-                                                </h3>
-                                            </a>
-                                            <div class="nd_elements_section nd_elements_height_20"></div>
-                                            <p
-                                                class="nd_elements_font_size_15 nd_elements_section nd_elements_margin_0_important nd_elements_posgrid_widget_l4_excerpt nd_elements_line_height_2">
-                                                Phasellus enim libero, blandit vel sapien vitae, condimentum ultricies
-                                                magna
-                                                et. Quisque euismod orci utet.</p>
-                                            <div class="nd_elements_section nd_elements_height_20"></div>
-
-                                            <a class="nd_options_color_white nd_elements_font_size_13 nd_elements_posgrid_widget_l4_button nd_elements_letter_spacing_1 nd_elements_line_height_1 nd_elements_padding_10_20"
-                                                style="background-color:#6b6978;"
-                                                href="around-us/index.html"><strong>ĐỌC THÊM</strong></a>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div
-                                    class=" nd_elements_width_33_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div class="nd_elements_section nd_elements_position_relative">
-
-                                        <div class="nd_elements_section nd_elements_position_relative">
-
-                                            <a href="daily-walk/index.html"><img class="nd_elements_section"
-                                                    alt=""
-                                                    src="wp-content/uploads/sites/4/2022/03/blog-10.jpg"></a>
-
-                                            <div style="background: -webkit-linear-gradient(top, #1c1c1c00 40%,#1c1c1ccc 100%)"
-                                                class="nd_elements_position_absolute nd_elements_left_0 nd_elements_height_100_percentage nd_elements_width_100_percentage nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
-
-                                                <div
-                                                    class="nd_elements_position_absolute nd_elements_bottom_40 nd_elements_bottom_20_iphone">
-
-                                                    <p style="border-left-color:#fff;"
-                                                        class="nd_options_color_white nd_elements_margin_0_important nd_elements_padding_0 nd_elements_letter_spacing_1 nd_elements_font_size_13  nd_elements_line_height_13 nd_elements_padding_left_15 nd_elements_border_left_style_solid nd_elements_border_width_2">
-                                                        Ngày 14, 2022
-                                                    </p>
-                                                    <div class="nd_elements_section nd_elements_height_15"></div>
-
-                                                    <a class="nd_elements_section" href="daily-walk/index.html">
-                                                        <h3
-                                                            class="nd_options_color_white nd_elements_font_size_23 nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                            <strong>Đi bộ hàng ngày</strong>
-                                                        </h3>
-                                                    </a>
-
-                                                </div>
-
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div
-                                    class=" nd_elements_width_33_percentage nd_elements_width_100_percentage_iphone nd_elements_width_50_percentage_ipad nd_elements_float_left nd_elements_masonry_item nd_elements_padding_15 nd_elements_box_sizing_border_box">
-
-                                    <div class="nd_elements_section nd_elements_position_relative">
-
-                                        <a href="link-post/index.html"><img class="nd_elements_section" alt=""
-                                                src="wp-content/uploads/sites/4/2022/03/blog-6.jpg"></a>
-
-                                        <div
-                                            class="nd_elements_position_absolute nd_elements_left_0 nd_elements_height_100_percentage nd_elements_width_100_percentage nd_elements_padding_20_iphone nd_elements_padding_40 nd_elements_box_sizing_border_box">
-
-                                            <div
-                                                class="nd_elements_display_table nd_elements_width_100_percentage nd_elements_height_100_percentage nd_elements_text_align_center">
-
-                                                <div
-                                                    class="nd_elements_display_table_cell nd_elements_vertical_align_middle">
-
-                                                    <a class="nd_elements_section" href="http://www.nicdark.com/">
-                                                        <h3
-                                                            class="nd_options_color_white nd_elements_font_size_23 nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
-                                                            www.nicdark.com</h3>
-                                                    </a>
-                                                    <div class="nd_elements_section nd_elements_height_10"></div>
-                                                    <img loading="lazy" alt="" class="" width="25"
-                                                        height="25"
-                                                        src="wp-content/plugins/nd-elements/widgets/postgrid/layout/img/icon-link.png">
-
+                                                    <a class="nd_options_color_white nd_elements_font_size_13 nd_elements_posgrid_widget_l4_button nd_elements_letter_spacing_1 nd_elements_line_height_1 nd_elements_padding_10_20"
+                                                        style="background-color:#444444;"
+                                                        href="{{ route('route_FrontEnd_New_Detail', $new->id) }}"><strong>ĐỌC
+                                                            THÊM</strong></a>
                                                 </div>
 
                                             </div>
 
                                         </div>
-
-                                    </div>
-
-                                </div>
+                                    @endif
+                                @endforeach
                             </div>
+                            {{-- <div style="text-align:center">
+                                <a href="{{route('route_FrontEnd_News')}}">Xem thêm</a>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-7db97b8 elementor-widget elementor-widget-customcss"

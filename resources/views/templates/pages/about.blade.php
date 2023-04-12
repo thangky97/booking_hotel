@@ -1334,7 +1334,7 @@
                                             <g id="g37" transform="translate(0,-498)"></g>
                                         </svg>
                                     </span>
-                                    <span class="elementor-icon-list-text">12zodiac@hotel.com</span>
+                                    <span class="elementor-icon-list-text">hotel.12zodiac@gmail.com</span>
                                 </li>
                             </ul>
                         </div>

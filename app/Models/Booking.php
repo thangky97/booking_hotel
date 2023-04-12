@@ -22,6 +22,7 @@ class Booking extends Model
         'checkin_date',
         'checkout_date',
         'people',
+        'money_paid',
         'status_booking',
         'status_pay',
         'staff_id',

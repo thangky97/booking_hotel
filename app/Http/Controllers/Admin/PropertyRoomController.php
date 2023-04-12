@@ -19,7 +19,7 @@ class PropertyRoomController extends Controller
     }
     public function propertyrooms()
     {
-        $this->v['title'] = 'Thuộc tính phòng';
+        $this->v['title'] = 'Thuộc tính loại phòng';
         $Propertyrooms = new Propertyroom();
         $this->v['listPropertyrooms'] = $Propertyrooms->loadListWithPager();
         $cateRooms = new CategoryRooms();
@@ -31,7 +31,7 @@ class PropertyRoomController extends Controller
 
     public function add()
     {
-        $this->v['title'] = 'Thêm thuộc tính phòng';
+        $this->v['title'] = 'Thêm thuộc tính loại phòng';
         $Property_rooms = new Propertyroom();
         $cateRooms = new CategoryRooms();
         $this->v['listCategoryroom'] = $cateRooms->loadAll();
@@ -59,7 +59,7 @@ class PropertyRoomController extends Controller
 
     public function edit($id, Request $request)
     {
-        $this->v['title'] = 'Sửa thuộc tính phòng';
+        $this->v['title'] = 'Sửa thuộc tính loại phòng';
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
         $this->v['idNotChecked'] = explode(',', Propertyroom::find($id)->properties_id);

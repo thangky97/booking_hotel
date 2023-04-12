@@ -4,8 +4,6 @@
 @endsection
 @section('content')
 
-
-
     <div class="content-body">
         <div class="container-fluid">
             <div class="row">
@@ -98,10 +96,10 @@
                                             </th>
                                             <th>Tên</th>
                                             <th class="h5 text-center">Email</th>
-                                            <th class="h5 text-center">Phone</th>
-                                            <th class="h5 text-center">Role</th>
-                                            <th class="h5 text-center">Status</th>
-                                            <th class="h5 text-center bg-none">Action</th>
+                                            <th class="h5 text-center">Số điện thoại</th>
+                                            <th class="h5 text-center">Quyền</th>
+                                            <th class="h5 text-center">Trạng thái</th>
+                                            <th class="h5 text-center bg-none">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -134,10 +132,8 @@
                                                 <td class="text-center">
                                                     @if ($admin->role === 1)
                                                         Admin
-                                                    @elseif ($admin->role === 2)
-                                                        Nhân viên
                                                     @else
-                                                        User
+                                                        Nhân viên
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
@@ -150,24 +146,19 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
-                                                    <div>
-
-                                                        <a href="{{ route('route_BackEnd_Admin_Edit', ['id' => $admin->id]) }}"
-                                                            class="btn btn-primary shadow btn-xs sharp me-1"><i
-                                                                class="fa fa-pencil-alt"></i></a>
-                                                        {{-- <a href="{{ route('route_BackEnd_Admin_Add')}}" class="btn btn-danger shadow btn-xs sharp"><i
-                                                                class="fa fa-trash"></i></a> --}}
-                                                    </div>
+                                                    <a
+                                                        href="{{ route('route_BackEnd_Admin_Edit', ['id' => $admin->id]) }}"><button
+                                                            class="btn btn-primary">Sửa</button></a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                           
+
                         </div>
                     </div>
-                    {{$admin_list->links('paginate.index')}} 
+                    {{ $admin_list->links('paginate.index') }}
                 </div>
             </div>
         </div>
