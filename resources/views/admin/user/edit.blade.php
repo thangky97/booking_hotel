@@ -145,7 +145,7 @@
                                                 <div class="col-lg-6">
                                                     <input type="password" name="password" class="form-control" id="validationCustom03"
                                                         placeholder="Nhập mật khẩu.." required
-                                                        value="{{ $admin->password }}">
+                                                        value="{{ $users->password }}">
                                                     @error('password')
                                                         <div>
                                                             <p class="text-danger">{{ $message }}</p>

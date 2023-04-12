@@ -378,14 +378,13 @@
                     <div class="elementor-element elementor-element-5b282b8b elementor-widget elementor-widget-heading"
                         data-id="5b282b8b" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h3 class="elementor-heading-title elementor-size-default">GIẢM GIÁ MÙA HÈ</h3>
+                            <h3 class="elementor-heading-title elementor-size-default">ĐẦY ĐỦ TIỆN NGHI</h3>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-59a0b92a elementor-widget elementor-widget-heading"
                         data-id="59a0b92a" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title elementor-size-default">Khuyến mại hàng tháng tốt
-                                nhất</h1>
+                            <h1 class="elementor-heading-title elementor-size-default">Các tiện nghi nổi bật</h1>
                         </div>
                     </div>
                 </div>
@@ -409,7 +408,7 @@
                                 <p class="elementor-button-link elementor-button elementor-size-sm"
                                     role="button">
                                     <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">Queen Room</span>
+                                        <span class="elementor-button-text">Every Room</span>
                                     </span>
                                 </p>
                             </div>
@@ -426,7 +425,7 @@
                     <div class="elementor-element elementor-element-3317044 elementor-widget elementor-widget-heading"
                         data-id="3317044" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title elementor-size-default">{{ $listProperties[0]->name }}</h1>
+                            <h1 class="elementor-heading-title elementor-size-default">Các tiện nghi nổi bật đang có</h1>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-8052f79 elementor-widget elementor-widget-heading"
@@ -457,12 +456,11 @@
 
                                                 <div class="nd_booking_section nd_booking_position_relative">
 
-                                                    <a class="nd_booking_position_absolute nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_cursor_pointer nd_booking_top_0 nd_booking_left_0 nd_booking_z_index_9"
-                                                        href="rooms/small-room/index.html"></a>
+                                                    
 
                                                     <img alt=""
                                                         class="nd_booking_section nd_booking_postgrid_rooms_single_room_img"
-                                                        src="wp-content/uploads/sites/4/2022/05/room1-720x720.jpg">
+                                                        src="{{ asset('storage/' . $property->image) }}">
 
                                                     <div
                                                         class="nd_booking_bg_greydark_alpha_gradient_3 nd_booking_position_absolute nd_booking_left_0 nd_booking_height_100_percentage nd_booking_width_100_percentage nd_booking_padding_30 nd_booking_box_sizing_border_box">
@@ -759,7 +757,7 @@
                                     <div class="nd_elements_section nd_elements_position_relative">
 
                                         <img class="nd_elements_position_absolute nd_elements_position_initial_iphone nd_elements_top_0 nd_elements_left_0 nd_elements_list_component_image"
-                                            src="{{ asset('storage/category_rooms' . $service->images) }}">
+                                            src="{{ asset('storage/' . $service->images) }}">
                                         {{-- src="{{asset("storage/category_rooms". $cate->image)}}"> --}}
                                         <div
                                             class="nd_elements_section nd_elements_list_component_content nd_elements_padding_0_iphone_important">
