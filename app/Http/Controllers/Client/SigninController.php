@@ -44,13 +44,24 @@ class SigninController extends Controller
                     $profile[] = array(
                         'id' => $user_profile->id,
                         'name' => $user_profile->name,
-
+                        'phone' => $user_profile->phone,
+                        'email' => $user_profile->email,
+                        'address' => $user_profile->address,
+                        'gender' => $user_profile->gender,
+                        'date' => $user_profile->date,
+                        'cccd' => $user_profile->cccd,
                     );
                     Session::put('user_profile', $profile);
                 } else {
                     $profile[] = array(
                         'id' => $user_profile->id,
                         'name' => $user_profile->name,
+                        'phone' => $user_profile->phone,
+                        'email' => $user_profile->email,
+                        'address' => $user_profile->address,
+                        'gender' => $user_profile->gender,
+                        'date' => $user_profile->date,
+                        'cccd' => $user_profile->cccd,
                     );
                     Session::put('user_profile', $profile);
                 }
