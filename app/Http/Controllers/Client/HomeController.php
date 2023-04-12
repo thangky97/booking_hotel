@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\CategoryRooms;
+use App\Models\News;
 use App\Models\Properties;
 use App\Models\Rooms;
 use App\Models\Service;
@@ -42,6 +43,8 @@ class HomeController extends Controller
         $this->v['listProperty_rooms'] = $property_rooms;
         $Properties = new Properties();
         $this->v['listProperties'] = $Properties->loadAll();
+        $News = new News();
+        $this->v['listNews'] = $News->loadAll();
         $Services = new Service();
         $this->v['listServices'] = $Services->loadAll();
         $this->v['listCaterooms'] = CategoryRooms::select('id', 'name', 'image', 'price', 'status')->where('status', '=', 1)->get();
