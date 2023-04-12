@@ -41,11 +41,11 @@
     <table>
         <thead>
             <tr>
-                <th>Room</th>
-                <th>Kind of Room</th>
-                <th>Service</th>
-                <th>Service Charge</th>
-                <th>Total</th>
+                <th>Phòng</th>
+                <th>Loại Phòng</th>
+                <th>Dịch Vụ</th>
+                <th>Phí dịch vụ</th>
+                <th>Tổng</th>
             </tr>
         </thead>
         <tbody>
@@ -114,7 +114,7 @@
     </table>
     <div style="text-align:center;">
         <div class="me-10 mb-sm-0 mb-3">
-            <h3 class="mb-2">Tổng thanh toán</h3>
+            <h3 class="mb-2">Tổng hóa đơn</h3>
             <hr style="width:10%;">
             <h3 class="mb-0 card-title" style="color: blue;"><b><var>{{number_format($total_money_room_service)}}đ</var></b></h3>
         </div>

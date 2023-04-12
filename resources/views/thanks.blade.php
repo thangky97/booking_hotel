@@ -16,7 +16,7 @@
             <div class="text-center">
                 <h1>Thank You !</h1>
                 <p>Chúng tôi đã gửi thông tin đến địa chỉ email của bạn. Xin vui lòng kiểm tra!!!  </p>
-                <button class="btn btn-outline-success">Về trang chủ</button>
+                <button class="btn btn-outline-success"><a href="{{route('route_FrontEnd_Home')}}">Về trang chủ</a> </button>
             </div>
         </div>
 @endsection

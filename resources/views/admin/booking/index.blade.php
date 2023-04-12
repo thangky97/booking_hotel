@@ -76,18 +76,14 @@
                                 <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                     <thead>
                                         <tr>
-                                            <th class="bg-none">
-                                                <div class="form-check style-1">
-                                                    <input class="form-check-input" type="checkbox" value="" id="checkAll">
-                                                </div>
-                                            </th>
+                                            
                                             <th class="h5 text-center">STT</th>
                                             <th class="h5 text-center">Khách hàng</th>
                                             <th class="h5 text-center">Ngày đặt</th>
                                             <th class="h5 text-center">Ngày trả</th>
                                             <th class="h5 text-center">Người</th>
                                             <th class="h5 text-center w180">Thanh toán</th>
-                                            <th class="h5 text-center">Nhân viên</th>
+                                            <th class="h5 text-center">Thanh toán(VNPAY)</th>
                                             <th class="h5 text-center">Hành động</th>
                                         </tr>
                                     </thead>
@@ -96,11 +92,7 @@
                                         @foreach($listBookings as $index => $item)
                                         @if($item->status_booking==1)
                                         <tr>
-                                            <td class="text-center">
-                                                <div class="form-check style-1">
-                                                    <input class="form-check-input" type="checkbox" value="">
-                                                </div>
-                                            </td>
+                                            
                                             <td class="text-center">
                                                 {{$i++}}
                                             </td>
@@ -140,15 +132,14 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">
-                                                <p style="width: 150px">
-                                                    @if($item->staff_id==1)
-                                                    {{'Nguyễn Đình Huân'}}
-                                                    @elseif($item->staff_id==2)
-                                                    {{'Nguyễn Văn Linh'}}
-                                                    @else
-                                                    {{'Đinh Trung Nguyên'}}
-                                                    @endif
-                                                </p>
+                                                
+                                                @if(empty($item->money_paid))
+                                                <p style="width: 150px" class="text-primary">Tại quầy</p>;
+                                                @else
+                                                <p style="width: 150px" class="text-danger"><i>{{number_format($item->money_paid)}}đ</i></p>;
+                                                @endif
+
+                                                
                                             </td>
                                             <td class="text-center">
                                                 <div class="dropdown dropstart">

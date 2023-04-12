@@ -27,10 +27,10 @@ class BookingController extends Controller
         $arrRooms = explode(",", $request->rooms);
         $caterooms = new CategoryRooms();
         $arrCateRoom = array();
-        foreach ($caterooms->loadAll() as $item){
-            foreach ($arrRooms as $index => $i){
-                if ($i!="null"){
-                    if (($index+1)==$item->id && $i>0){
+        foreach ($caterooms->loadAll() as $item) {
+            foreach ($arrRooms as $index => $i) {
+                if ($i != "null") {
+                    if (($index + 1) == $item->id && $i > 0) {
                         $arrCate = array($item->id => $i);
                         $arrCateRoom = $arrCate + $arrCateRoom;
                     }
@@ -66,13 +66,13 @@ class BookingController extends Controller
         $listRoomwork = array_unique($arrRoomworks);
         $roomNotWorks = array();
         $priceRoom = 0;
-        foreach ($arrCateRoom as $index => $item){
+        foreach ($arrCateRoom as $index => $item) {
             $roomNotWork = DB::table('rooms')
                 ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
-                ->select('rooms.id','rooms.cate_room','category_rooms.image','rooms.adult','rooms.bed','category_rooms.price','category_rooms.name')
-                ->where('cate_room','=',$index)
+                ->select('rooms.id', 'rooms.cate_room', 'category_rooms.image', 'rooms.adult', 'rooms.bed', 'category_rooms.price', 'category_rooms.name')
+                ->where('cate_room', '=', $index)
                 ->paginate($item)->items();
-            $roomNotWorks = array_merge($roomNotWork,$roomNotWorks);
+            $roomNotWorks = array_merge($roomNotWork, $roomNotWorks);
         }
         $this->v['checkin'] = $check_in;
         $this->v['checkout'] = $check_out;
@@ -84,7 +84,6 @@ class BookingController extends Controller
         $this->v['listCaterooms'] = $cate_rooms->loadAll();
         $this->v['title'] = '12 Zodiac - Tìm Kiếm Phòng';
         return view('templates.pages.booking', $this->v);
-
     }
 
     public function autobooking(Request $request)
@@ -174,166 +173,538 @@ class BookingController extends Controller
 
     public function createBooking(Request $request)
     {
-        $user = Users::create($request->all());
-        $booking = Booking::create([
-            'user_id' => $user->id,
-            'checkin_date' => date("Y-m-d", $request->checkin_date),
-            'checkout_date' => date("Y-m-d", $request->checkout_date),
-            'people' => $request->people,
-            'status_booking' => 0,
-            'status_pay' => 0,
-        ]);
-        $roomCreates = explode(",", $request->room_id);
-        foreach ($roomCreates as $index => $item) {
-            $bookingDetail = Bookingdetail::create([
-                'booking_id' => $booking->id,
-                'room_id' => $item,
-                'status' => 1,
-            ]);
-            if ($index == 0) {
-                if ($request->service_id_1) {
-                    $service_id = implode(',', $request->service_id_1);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 1) {
-                if ($request->service_id_2) {
-                    $service_id = implode(',', $request->service_id_2);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 2) {
-                if ($request->service_id_3) {
-                    $service_id = implode(',', $request->service_id_3);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 3) {
-                if ($request->service_id_4) {
-                    $service_id = implode(',', $request->service_id_4);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 4) {
-                if ($request->service_id_5) {
-                    $service_id = implode(',', $request->service_id_5);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 5) {
-                if ($request->service_id_6) {
-                    $service_id = implode(',', $request->service_id_6);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 6) {
-                if ($request->service_id_7) {
-                    $service_id = implode(',', $request->service_id_7);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 7) {
-                if ($request->service_id_8) {
-                    $service_id = implode(',', $request->service_id_8);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 8) {
-                if ($request->service_id_9) {
-                    $service_id = implode(',', $request->service_id_9);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 9) {
-                if ($request->service_id_10) {
-                    $service_id = implode(',', $request->service_id_10);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 10) {
-                if ($request->service_id_11) {
-                    $service_id = implode(',', $request->service_id_11);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 11) {
-                if ($request->service_id_12) {
-                    $service_id = implode(',', $request->service_id_12);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 12) {
-                if ($request->service_id_13) {
-                    $service_id = implode(',', $request->service_id_13);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 13) {
-                if ($request->service_id_14) {
-                    $service_id = implode(',', $request->service_id_14);
-                } else {
-                    $service_id = null;
-                }
-            }
-            if ($index == 14) {
-                if ($request->service_id_15) {
-                    $service_id = implode(',', $request->service_id_15);
-                } else {
-                    $service_id = null;
-                }
-            }
-            Serviceroom::create([
-                'booking_id' => $booking->id,
-                'room_id' => $item,
-                'service_id' => $service_id,
-                'status' => 1
-            ]);
-        }
-        $rooms = DB::table('rooms')
-            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
-            ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
-            ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
-            ->select('category_rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')
-            ->where('service_room.booking_id', '=', $booking->id)
-            ->get();
 
-        $price = 0;
-        foreach ($rooms as $item) {
-            $price = $item->price + $price;
-        }
-        $arrService = array();
-        foreach ($rooms as $item) {
-            $arrService = array_merge($arrService, explode(',', $item->service_id));
-        }
-        $Service = new Service();
-        $this->v['listServices'] = $Service->loadAll();
-        foreach ($arrService as $item) {
-            foreach ($this->v['listServices'] as $service) {
-                if ($item == $service->id) {
-                    $price = $price + $service->price;
+        $name = $request->name;
+        $phone = $request->phone;
+        $email = $request->email;
+        $address = $request->address;
+        $gender = $request->gender;
+        $date = $request->date;
+        $cccd = $request->cccd;
+
+        $user_profile = DB::table('users')
+            ->where('email', '=', $email)
+            ->first();
+
+        if (empty($user_profile)) {
+            $user = Users::create($request->all());
+            
+            $booking = Booking::create([
+                'user_id' => $user->id,
+                'checkin_date' => date("Y-m-d", $request->checkin_date),
+                'checkout_date' => date("Y-m-d", $request->checkout_date),
+                'people' => $request->people,
+                'status_booking' => 0,
+                'status_pay' => 0,
+            ]);
+            $roomCreates = explode(",", $request->room_id);
+            foreach ($roomCreates as $index => $item) {
+                $bookingDetail = Bookingdetail::create([
+                    'booking_id' => $booking->id,
+                    'room_id' => $item,
+                    'status' => 1,
+                ]);
+                if ($index == 0) {
+                    if ($request->service_id_1) {
+                        $service_id = implode(',', $request->service_id_1);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 1) {
+                    if ($request->service_id_2) {
+                        $service_id = implode(',', $request->service_id_2);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 2) {
+                    if ($request->service_id_3) {
+                        $service_id = implode(',', $request->service_id_3);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 3) {
+                    if ($request->service_id_4) {
+                        $service_id = implode(',', $request->service_id_4);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 4) {
+                    if ($request->service_id_5) {
+                        $service_id = implode(',', $request->service_id_5);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 5) {
+                    if ($request->service_id_6) {
+                        $service_id = implode(',', $request->service_id_6);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 6) {
+                    if ($request->service_id_7) {
+                        $service_id = implode(',', $request->service_id_7);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 7) {
+                    if ($request->service_id_8) {
+                        $service_id = implode(',', $request->service_id_8);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 8) {
+                    if ($request->service_id_9) {
+                        $service_id = implode(',', $request->service_id_9);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 9) {
+                    if ($request->service_id_10) {
+                        $service_id = implode(',', $request->service_id_10);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 10) {
+                    if ($request->service_id_11) {
+                        $service_id = implode(',', $request->service_id_11);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 11) {
+                    if ($request->service_id_12) {
+                        $service_id = implode(',', $request->service_id_12);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 12) {
+                    if ($request->service_id_13) {
+                        $service_id = implode(',', $request->service_id_13);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 13) {
+                    if ($request->service_id_14) {
+                        $service_id = implode(',', $request->service_id_14);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                if ($index == 14) {
+                    if ($request->service_id_15) {
+                        $service_id = implode(',', $request->service_id_15);
+                    } else {
+                        $service_id = null;
+                    }
+                }
+                Serviceroom::create([
+                    'booking_id' => $booking->id,
+                    'room_id' => $item,
+                    'service_id' => $service_id,
+                    'status' => 1
+                ]);
+            }
+            $rooms = DB::table('rooms')
+                ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+                ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
+                ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
+                ->select('category_rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')
+                ->where('service_room.booking_id', '=', $booking->id)
+                ->get();
+
+            $price = 0;
+            $price_use = 0;
+            foreach ($rooms as $item) {
+                $price = ($item->price + $price);
+                $price_use = $price * (($request->checkout_date - $request->checkin_date) / (60 * 60 * 24));
+            }
+            $arrService = array();
+            foreach ($rooms as $item) {
+                $arrService = array_merge($arrService, explode(',', $item->service_id));
+            }
+            $Service = new Service();
+            $this->v['listServices'] = $Service->loadAll();
+            foreach ($arrService as $item) {
+                foreach ($this->v['listServices'] as $service) {
+                    if ($item == $service->id) {
+                        $price_use = $price_use + $service->price;
+                    }
                 }
             }
+
+            $this->v['listRooms'] = $rooms;
+            $this->v['price'] = $price_use;
+            $Cate_rooms = new Categoryrooms();
+            $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+            $this->v['user'] = $user;
+            dd($this->v['user']);
+            die;
+            $this->v['booking'] = $booking;
+            $this->v['title'] = 'Thanh toán';
+        } else {
+            if ($cccd == null) {
+                Users::where('email', $email)->update(['name' => $name, 'phone' => $phone, 'email' => $user_profile->email, 'address' => $address, 'gender' => $gender, 'date' => $date, 'cccd' => $user_profile->cccd]);
+                $user = new Users();
+
+                $booking = Booking::create([
+                    'user_id' => $user_profile->id,
+                    'checkin_date' => date("Y-m-d", $request->checkin_date),
+                    'checkout_date' => date("Y-m-d", $request->checkout_date),
+                    'people' => $request->people,
+                    'status_booking' => 0,
+                    'status_pay' => 0,
+                ]);
+                $roomCreates = explode(",", $request->room_id);
+                foreach ($roomCreates as $index => $item) {
+                    $bookingDetail = Bookingdetail::create([
+                        'booking_id' => $booking->id,
+                        'room_id' => $item,
+                        'status' => 1,
+                    ]);
+                    if ($index == 0) {
+                        if ($request->service_id_1) {
+                            $service_id = implode(',', $request->service_id_1);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 1) {
+                        if ($request->service_id_2) {
+                            $service_id = implode(',', $request->service_id_2);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 2) {
+                        if ($request->service_id_3) {
+                            $service_id = implode(',', $request->service_id_3);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 3) {
+                        if ($request->service_id_4) {
+                            $service_id = implode(',', $request->service_id_4);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 4) {
+                        if ($request->service_id_5) {
+                            $service_id = implode(',', $request->service_id_5);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 5) {
+                        if ($request->service_id_6) {
+                            $service_id = implode(',', $request->service_id_6);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 6) {
+                        if ($request->service_id_7) {
+                            $service_id = implode(',', $request->service_id_7);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 7) {
+                        if ($request->service_id_8) {
+                            $service_id = implode(',', $request->service_id_8);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 8) {
+                        if ($request->service_id_9) {
+                            $service_id = implode(',', $request->service_id_9);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 9) {
+                        if ($request->service_id_10) {
+                            $service_id = implode(',', $request->service_id_10);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 10) {
+                        if ($request->service_id_11) {
+                            $service_id = implode(',', $request->service_id_11);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 11) {
+                        if ($request->service_id_12) {
+                            $service_id = implode(',', $request->service_id_12);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 12) {
+                        if ($request->service_id_13) {
+                            $service_id = implode(',', $request->service_id_13);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 13) {
+                        if ($request->service_id_14) {
+                            $service_id = implode(',', $request->service_id_14);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 14) {
+                        if ($request->service_id_15) {
+                            $service_id = implode(',', $request->service_id_15);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    Serviceroom::create([
+                        'booking_id' => $booking->id,
+                        'room_id' => $item,
+                        'service_id' => $service_id,
+                        'status' => 1
+                    ]);
+                }
+                $rooms = DB::table('rooms')
+                    ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+                    ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
+                    ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
+                    ->select('category_rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')
+                    ->where('service_room.booking_id', '=', $booking->id)
+                    ->get();
+
+                $price = 0;
+                $price_use = 0;
+                foreach ($rooms as $item) {
+                    $price = ($item->price + $price);
+                    $price_use = $price * (($request->checkout_date - $request->checkin_date) / (60 * 60 * 24));
+                }
+                $arrService = array();
+                foreach ($rooms as $item) {
+                    $arrService = array_merge($arrService, explode(',', $item->service_id));
+                }
+                $Service = new Service();
+                $this->v['listServices'] = $Service->loadAll();
+                foreach ($arrService as $item) {
+                    foreach ($this->v['listServices'] as $service) {
+                        if ($item == $service->id) {
+                            $price_use = $price_use + $service->price;
+                        }
+                    }
+                }
+
+                $this->v['listRooms'] = $rooms;
+                $this->v['price'] = $price_use;
+                $Cate_rooms = new Categoryrooms();
+                $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+                $this->v['user'] = $user->loadOne($user_profile->id);
+
+                $this->v['booking'] = $booking;
+                $this->v['title'] = 'Thanh toán';
+            } else {
+                
+                
+                if ($request->hasFile('cccd') && $request->file('cccd')->isValid()) {
+                    $cccd_update = $this->uploadFile($request->file('cccd'));
+                    
+                    Users::where('email', $email)->update(['name' => $name, 'phone' => $phone, 'email' => $user_profile->email, 'address' => $address, 'gender' => $gender, 'date' => $date, 'cccd' => $cccd_update]);
+                } else {
+                    
+                    Users::where('email', $email)->update(['name' => $name, 'phone' => $phone, 'email' => $user_profile->email, 'address' => $address, 'gender' => $gender, 'date' => $date, 'cccd' => 'profile/' . $cccd]);
+                }
+
+
+                $user = new Users();
+                $booking = Booking::create([
+                    'user_id' => $user_profile->id,
+                    'checkin_date' => date("Y-m-d", $request->checkin_date),
+                    'checkout_date' => date("Y-m-d", $request->checkout_date),
+                    'people' => $request->people,
+                    'status_booking' => 0,
+                    'status_pay' => 0,
+                ]);
+                $roomCreates = explode(",", $request->room_id);
+                foreach ($roomCreates as $index => $item) {
+                    $bookingDetail = Bookingdetail::create([
+                        'booking_id' => $booking->id,
+                        'room_id' => $item,
+                        'status' => 1,
+                    ]);
+                    if ($index == 0) {
+                        if ($request->service_id_1) {
+                            $service_id = implode(',', $request->service_id_1);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 1) {
+                        if ($request->service_id_2) {
+                            $service_id = implode(',', $request->service_id_2);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 2) {
+                        if ($request->service_id_3) {
+                            $service_id = implode(',', $request->service_id_3);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 3) {
+                        if ($request->service_id_4) {
+                            $service_id = implode(',', $request->service_id_4);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 4) {
+                        if ($request->service_id_5) {
+                            $service_id = implode(',', $request->service_id_5);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 5) {
+                        if ($request->service_id_6) {
+                            $service_id = implode(',', $request->service_id_6);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 6) {
+                        if ($request->service_id_7) {
+                            $service_id = implode(',', $request->service_id_7);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 7) {
+                        if ($request->service_id_8) {
+                            $service_id = implode(',', $request->service_id_8);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 8) {
+                        if ($request->service_id_9) {
+                            $service_id = implode(',', $request->service_id_9);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 9) {
+                        if ($request->service_id_10) {
+                            $service_id = implode(',', $request->service_id_10);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 10) {
+                        if ($request->service_id_11) {
+                            $service_id = implode(',', $request->service_id_11);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 11) {
+                        if ($request->service_id_12) {
+                            $service_id = implode(',', $request->service_id_12);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 12) {
+                        if ($request->service_id_13) {
+                            $service_id = implode(',', $request->service_id_13);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 13) {
+                        if ($request->service_id_14) {
+                            $service_id = implode(',', $request->service_id_14);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    if ($index == 14) {
+                        if ($request->service_id_15) {
+                            $service_id = implode(',', $request->service_id_15);
+                        } else {
+                            $service_id = null;
+                        }
+                    }
+                    Serviceroom::create([
+                        'booking_id' => $booking->id,
+                        'room_id' => $item,
+                        'service_id' => $service_id,
+                        'status' => 1
+                    ]);
+                }
+                $rooms = DB::table('rooms')
+                    ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+                    ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
+                    ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
+                    ->select('category_rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')
+                    ->where('service_room.booking_id', '=', $booking->id)
+                    ->get();
+
+                $price = 0;
+                $price_use = 0;
+                foreach ($rooms as $item) {
+                    $price = ($item->price + $price);
+                    $price_use = $price * (($request->checkout_date - $request->checkin_date) / (60 * 60 * 24));
+                }
+                $arrService = array();
+                foreach ($rooms as $item) {
+                    $arrService = array_merge($arrService, explode(',', $item->service_id));
+                }
+                $Service = new Service();
+                $this->v['listServices'] = $Service->loadAll();
+                foreach ($arrService as $item) {
+                    foreach ($this->v['listServices'] as $service) {
+                        if ($item == $service->id) {
+                            $price_use = $price_use + $service->price;
+                        }
+                    }
+                }
+
+                $this->v['listRooms'] = $rooms;
+                $this->v['price'] = $price_use;
+                $Cate_rooms = new Categoryrooms();
+                $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+                $this->v['user'] = $user->loadOne($user_profile->id);
+                $this->v['booking'] = $booking;
+                $this->v['title'] = 'Thanh toán';
+            }
         }
-        $this->v['listRooms'] = $rooms;
-        $this->v['price'] = $price*(($request->checkout_date-$request->checkin_date)/(60*60*24));
-        $Cate_rooms = new Categoryrooms();
-        $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-        $this->v['user'] = $user;
-        $this->v['booking'] = $booking;
-        $this->v['title'] = 'Thanh toán';
+
         return view('templates/pages/checkout', $this->v);
+    }
+    public function uploadFile($file)
+    {
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        return $file->storeAs('profile', $fileName, 'public');
     }
 }

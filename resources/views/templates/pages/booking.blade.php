@@ -290,7 +290,12 @@
                                                                 class="nd_booking_float_left nd_booking_width_66_percentage nd_booking_width_100_percentage_responsive nd_booking_padding_left_15 nd_booking_padding_0_responsive nd_booking_box_sizing_border_box">
 
                                                                 
-                                                                
+                                                                @if((Session::get('user_profile')==null))                                                        
+                                                                <p class="nd_options_color_black">Bạn đang đặt phòng với tư cách là khách, hãy <a target="_blank" class="nd_options_color_red nd_booking_border_bottom_1_solid_white" href="{{route('getSignin')}}" style="font-weight: bold;text-decoration:underline;">ĐĂNG NHẬP</a>
+                                                                    hoặc <a target="_blank" class="nd_options_color_red nd_booking_border_bottom_1_solid_white" href="{{route('getSignup')}}" style="font-weight: bold;text-decoration:underline;">TẠO TÀI KHOẢN</a>
+                                                                    nếu bạn muốn lưu đặt phòng của bạn trên tài khoản của bạn</p>
+                                                            
+                                                                @endif
                                                                 
                                                                 <hr style="margin: 30px 0 30px 0">
                                                                 <div
@@ -462,7 +467,7 @@
                                                                     </style>
                                                                 <div class="nd_booking_section">
                                                                     <form method="post"
-                                                                          action="{{ route('route_FontEnd_Booking_createBooking') }}">
+                                                                          action="{{ route('route_FontEnd_Booking_createBooking') }}" enctype="multipart/form-data">
                                                                         @csrf
                                                                         <div class="custom-table-room">
                                                                             <table id="customers">
@@ -542,54 +547,94 @@
                                                                         <input name="people" value="{{$peoples}}" hidden>
                                                                         <input name="room_id" value="{{implode(",", $arrRoomId)}}" hidden>
                                                                         <h1 style="margin: 40px 0 30px 0">Nhập thông tin khách hàng</h1>
-                                                                        <div id="nd_booking_booking_form_name_container"
-                                                                             class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                        @if(Session::get('user_profile'))
+                                                                        @foreach(Session::get('user_profile') as $profile)
+
+                                                                        <div id="nd_booking_booking_form_name_container" class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
                                                                             <p>Họ và tên *</p>
                                                                             <div class="nicdark_section nicdark_height_5">
                                                                             </div>
-                                                                            <input class="nd_booking_section"
-                                                                                   id="nd_booking_booking_form_name"
-                                                                                   name="name"
-                                                                                   type="text">
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_name" name="name" type="text" value="{{ $profile['name'] }}">
                                                                         </div>
-                                                                        <div id="nd_booking_booking_form_phone_container"
-                                                                             class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                        <div id="nd_booking_booking_form_phone_container" class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
                                                                             <p>Số điện thoại *</p>
                                                                             <div class="nicdark_section nicdark_height_5">
                                                                             </div>
-                                                                            <input class="nd_booking_section"
-                                                                                   id="nd_booking_booking_form_phone"
-                                                                                   name="phone"
-                                                                                   type="text">
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_phone" name="phone" type="text" value="{{ $profile['phone'] }}">
                                                                         </div>
-                                                                        <div
-                                                                            class="nd_booking_section nd_booking_height_20">
+                                                                        <div class="nd_booking_section nd_booking_height_20">
                                                                         </div>
-                                                                        <div id="nd_booking_booking_form_email_container"
-                                                                             class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                        <div id="nd_booking_booking_form_email_container" class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
                                                                             <p>Email *</p>
                                                                             <div class="nicdark_section nicdark_height_5">
                                                                             </div>
-                                                                            <input class="nd_booking_section"
-                                                                                   id="nd_booking_booking_form_email"
-                                                                                   name="email"
-                                                                                   type="text">
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_email" name="email" type="text" readonly value="{{ $profile['email'] }}">
                                                                         </div>
-                                                                        <div
-                                                                            class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                        <div class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
                                                                             <p>Địa chỉ *</p>
                                                                             <div class="nicdark_section nicdark_height_5">
                                                                             </div>
-                                                                            <input class="nd_booking_section"
-                                                                                   id="nd_booking_booking_form_address"
-                                                                                   name="address"
-                                                                                   type="text">
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_address" name="address" type="text" value="{{ $profile['address'] }}">
                                                                         </div>
-                                                                        <div
-                                                                            class="nd_booking_section nd_booking_height_20">
+                                                                        <div class="nd_booking_section nd_booking_height_20">
                                                                         </div>
-                                                                        <div
-                                                                            class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                        <div class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                            <p>Giới tính *</p>
+                                                                            <div class="nicdark_section nicdark_height_5">
+                                                                            </div>
+                                                                            <select name="gender" class="nd_booking_section">
+                                                                                <option data-display="Chọn giới tính">Chọn giới tính</option>
+                                                                                <option value="1" <?php if ($profile['gender'] == 1) : ?>selected <?php endif ?>>Nữ</option>
+                                                                                <option value="2" <?php if ($profile['gender'] == 2) : ?>selected <?php endif ?>>Nam</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                            <p>Ngày sinh *</p>
+                                                                            <div class="nicdark_section nicdark_height_5">
+                                                                            </div>
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_zip" name="date" type="date" value="{{ $profile['date'] }}">
+                                                                        </div>
+                                                                        <div class="nd_booking_section nd_booking_height_20  ">
+                                                                        </div>
+                                                                        <div id="nd_booking_booking_form_coupon_container" class="nd_booking_width_100_percentage  nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                            <p>Căn cước công dân/ Chứng minh thứ *</p>
+                                                                            <div class="nicdark_section nicdark_height_5">
+                                                                            </div>
+                                                                            <img id="cccd" src="{{ asset('storage/'.$profile['cccd'])}}" alt="your image" style="max-width: 200px; height:100px; margin-bottom: 10px;" class="rounded profile-img me-4" />
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_coupon" name="cccd" type="file" multiple>
+                                                                        </div>
+                                                                        @endforeach
+                                                                        @endif
+                                                                        @if(!isset($profile))
+                                                                        <div id="nd_booking_booking_form_name_container" class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                            <p>Họ và tên *</p>
+                                                                            <div class="nicdark_section nicdark_height_5">
+                                                                            </div>
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_name" name="name" type="text">
+                                                                        </div>
+                                                                        <div id="nd_booking_booking_form_phone_container" class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                            <p>Số điện thoại *</p>
+                                                                            <div class="nicdark_section nicdark_height_5">
+                                                                            </div>
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_phone" name="phone" type="text">
+                                                                        </div>
+                                                                        <div class="nd_booking_section nd_booking_height_20">
+                                                                        </div>
+                                                                        <div id="nd_booking_booking_form_email_container" class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                            <p>Email *</p>
+                                                                            <div class="nicdark_section nicdark_height_5">
+                                                                            </div>
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_email" name="email" type="text">
+                                                                        </div>
+                                                                        <div class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                            <p>Địa chỉ *</p>
+                                                                            <div class="nicdark_section nicdark_height_5">
+                                                                            </div>
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_address" name="address" type="text">
+                                                                        </div>
+                                                                        <div class="nd_booking_section nd_booking_height_20">
+                                                                        </div>
+                                                                        <div class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_right_10 nd_booking_box_sizing_border_box nd_booking_float_left">
                                                                             <p>Giới tính *</p>
                                                                             <div class="nicdark_section nicdark_height_5">
                                                                             </div>
@@ -599,29 +644,21 @@
                                                                                 <option value="1">Nam</option>
                                                                             </select>
                                                                         </div>
-                                                                        <div
-                                                                            class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                        <div class="nd_booking_width_50_percentage nd_booking_width_100_percentage_all_iphone nd_booking_padding_0_all_iphone nd_booking_padding_left_10 nd_booking_box_sizing_border_box nd_booking_float_left">
                                                                             <p>Ngày sinh *</p>
                                                                             <div class="nicdark_section nicdark_height_5">
                                                                             </div>
-                                                                            <input class="nd_booking_section"
-                                                                                   id="nd_booking_booking_form_zip"
-                                                                                   name="date"
-                                                                                   type="date">
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_zip" name="date" type="date">
                                                                         </div>
-                                                                        <div
-                                                                            class="nd_booking_section nd_booking_height_20  ">
+                                                                        <div class="nd_booking_section nd_booking_height_20  ">
                                                                         </div>
-                                                                        <div id="nd_booking_booking_form_coupon_container"
-                                                                             class="nd_booking_width_100_percentage  nd_booking_box_sizing_border_box nd_booking_float_left">
+                                                                        <div id="nd_booking_booking_form_coupon_container" class="nd_booking_width_100_percentage  nd_booking_box_sizing_border_box nd_booking_float_left">
                                                                             <p>Căn cước công dân/ Chứng minh thứ *</p>
                                                                             <div class="nicdark_section nicdark_height_5">
                                                                             </div>
-                                                                            <input class="nd_booking_section"
-                                                                                   id="nd_booking_booking_form_coupon"
-                                                                                   name="cccd"
-                                                                                   type="file">
+                                                                            <input class="nd_booking_section" id="nd_booking_booking_form_coupon" name="cccd" type="file">
                                                                         </div>
+                                                                        @endif
                                                                         <div
                                                                             class="nd_booking_section nd_booking_height_20">
                                                                         </div>
@@ -643,17 +680,6 @@
                                                                         <div>
                                                                             <button type="submit">Gửi</button>
                                                                         </div>
-{{--                                                                        <script>--}}
-{{--                                                                            var confrim= document.getElementById('confrim')--}}
-{{--                                                                            confrim.onclick = function (){--}}
-{{--                                                                                if (this.checked){--}}
-{{--                                                                                    document.getElementById('showbutton').innerHTML = '<input id="nd_booking_submit_go_to_checkout" class="nd_booking_display_none nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" value="CHECKOUT">';--}}
-{{--                                                                                }--}}
-{{--                                                                                else{--}}
-{{--                                                                                    document.getElementById('showbutton').innerHTML = '<div id="nd_booking_submit_go_to_checkout" class="nd_booking_display_none nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bolder nd_booking_letter_spacing_2 nd_booking_padding_15_35_important">'+'CHECKOUT'+'</div>';--}}
-{{--                                                                                }--}}
-{{--                                                                            }--}}
-{{--                                                                        </script>--}}
                                                                     </form>
 
                                                                 </div>

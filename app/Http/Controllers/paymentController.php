@@ -3,13 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Bookingdetail;
+use App\Models\CategoryRooms;
+use App\Models\Rooms;
+use App\Models\Service;
+use App\Models\ServiceRoom;
+use App\Models\Users;
 use App\Models\Vnpay;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class paymentController extends Controller
 {
-    //
+    private $v;
+
+    public function __construct()
+    {
+        $this->v = [];
+    }
     public function thanks(){
         if (isset($_GET['vnp_Amount'])){
 
@@ -32,7 +44,103 @@ class paymentController extends Controller
 
         }
         if ($_GET['vnp_TransactionStatus'] === '00' && $_GET['vnp_ResponseCode'] === '00') {
-            Booking::where('id',$_GET['vnp_TxnRef'])->update(['status_pay'=>'1','status_booking'=>'1']);
+            Booking::where('id',$_GET['vnp_TxnRef'])->update(['status_pay'=>'1','status_booking'=>'1','money_paid'=>$_GET['vnp_Amount']/100]);
+            $id =$_GET['vnp_TxnRef'];
+            
+            $mail = DB::table('bookings')
+            ->select('bookings.id', 'users.email', 'users.name')
+            ->leftJoin('users', 'users.id', '=', 'bookings.user_id')
+            ->where('bookings.id', '=', $_GET['vnp_TxnRef'])
+            ->get();
+            
+        foreach ($mail as $index => $tt_user) {
+            $this->v['email_user'] = $tt_user->email;
+            
+        }
+        
+        $room_service = DB::table('bookings_detail')
+            ->select('bookings_detail.*', 'service_room.service_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
+            ->where('bookings_detail.booking_id', '=', $id)
+            ->where('service_room.booking_id', '=', $id)
+            ->get();
+        $this->v['room_service'] = $room_service;
+
+        $Service = new Service();
+        $this->v['service'] = $Service->loadAll();
+
+        $Service_room = new ServiceRoom();
+        $this->v['service_room'] = $Service_room->loadIdBooking($id);
+
+        $Bookingdetail = new Bookingdetail();
+        $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
+
+        $Rooms = new Rooms();
+        $this->v['listRooms'] = $Rooms->loadAll();
+
+        $booking = Booking::find($id);
+        $this->v['booking'] = $booking;
+        
+
+        $this->v['user'] = Users::find($booking->user_id);
+
+        $use_date = (strtotime($this->v['booking']['checkout_date']) - strtotime($this->v['booking']['checkin_date'])) / (60 * 60 * 24);
+        $this->v['use_date'] = $use_date;
+
+        $Cate_rooms = new CategoryRooms();
+        $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+
+        $money_room = 0; //tổng tiền phòng
+        foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
+            foreach (($this->v['listRooms']) as $index => $room) {
+                if ($bk_dt->room_id == $room->id) {
+                    foreach (($this->v['listCaterooms']) as $index => $cate_room) {
+                        if ($room->cate_room == $cate_room->id) {
+                            foreach (explode(',', $cate_room->price) as $index => $price) {
+                                $money_room += $price;
+                            }
+                        }
+                    }
+                }
+            };
+        };
+        $money_service = 0; //tổng tiền dịch vụ
+        foreach (($this->v['bookingDetails']) as $index => $bk_dt) {
+            foreach (($this->v['listRooms']) as $index => $room) {
+                if ($bk_dt->room_id == $room->id) {
+                    foreach ($this->v['service_room'] as $index => $ser_room) {
+                        if ($bk_dt->room_id == $ser_room->room_id) {
+                            $s_r = explode(',', $ser_room->service_id);
+                            foreach ($this->v['service'] as $index => $ser) {
+
+                                foreach ($s_r as $inx => $sr_id) {
+                                    if ($sr_id == $ser->id) {
+                                        $money_service += array_sum(explode(',', $inx > 0 ? ',' . $ser->price : $ser->price));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //tổng tiền phòng
+        $total_money_room = $money_room * $use_date;
+        $this->v['total_money_room'] = $total_money_room;
+        //tổng tiền dịch vụ
+        $total_money_service = $money_service;
+        $this->v['total_money_service'] = $total_money_service;
+        //tổng tất cả
+        $total_money_room_sv = $total_money_room + $total_money_service;
+        $this->v['total_money_room_service'] = $total_money_room_sv;
+
+        $this->v['user'] = Users::find($booking->user_id);
+
+        $name_email = '12 Zodiac';
+        Mail::send('email.booking', $this->v, function ($email) {
+            $email->subject('Your Booking Information');
+            $email->to($this->v['email_user'], '12 Zodiac - Hotel');
+        });
         }
         return view('thanks');
     }
