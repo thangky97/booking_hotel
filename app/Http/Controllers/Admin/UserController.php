@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -117,6 +118,9 @@ class UserController extends Controller
 
         unset( $params['cols']['_token']);
         $params['cols']['id'] = $id;
+        if (!is_null($params['cols']['password'])) {
+            $params['cols']['password'] = Hash::make($params['cols']['password']);
+        }
 
         $modelUser = new Users();
         $res = $modelUser->saveUpdate($params);

@@ -106,7 +106,7 @@ class AdminController extends Controller
                 ->paginate(10);
         }
 
-        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title],$this->v);
+        return view('admin.administration.index', ['admin_list' => $admin, 'name' => $name, 'phone' => $phone, 'email' => $email, 'title' => $title], $this->v);
     }
 
     public function add(Request $request)
@@ -197,6 +197,9 @@ class AdminController extends Controller
 
         unset($params['cols']['_token']);
         $params['cols']['id'] = $id;
+        if (!is_null($params['cols']['password'])) {
+            $params['cols']['password'] = Hash::make($params['cols']['password']);
+        }
 
         $modelAdmin = new Admin();
         $res = $modelAdmin->saveUpdate($params);
