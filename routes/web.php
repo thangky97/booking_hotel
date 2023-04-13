@@ -82,9 +82,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::prefix('/profile')->group(function () {
         Route::get('/edit/{id}', 'Admin\ProfileController@edit')->name('route_BackEnd_Profile_Edit');
         Route::post('/update/{id}', 'Admin\ProfileController@update')->name('route_BackEnd_Profile_Update');
+        Route::post('/updatePassword/{id}', 'Admin\ProfileController@update_password')->name('route_BackEnd_Admin_Update_Password');
     });
 
     Route::get('/list', 'Admin\AdminController@index')->name('route_BackEnd_Admin_List');
+    Route::get('/employees/statistical/{id}', 'Admin\AdminController@employee_statistical')->name('route_BackEnd_Admin_Employee_Statistical');
     Route::match(['get', 'post'], '/add', 'Admin\AdminController@add')->name('route_BackEnd_Admin_Add');
     Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('route_BackEnd_Admin_Edit');
     Route::post('/update/{id}', 'Admin\AdminController@update')->name('route_BackEnd_Admin_Update');

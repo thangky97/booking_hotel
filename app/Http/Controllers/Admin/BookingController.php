@@ -41,13 +41,13 @@ class BookingController extends Controller
             $arrBills = $arrBill_bk + $arrBills;
         }
         $this->v['list'] = $arrBills;
-        $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
+        $this->v['title'] = 'Đơn đặt phòng';
         return view('admin.booking.index', $this->v);
     }
 
     public function add($id)
     {
-        $this->v['listEmployees'] = DB::table('admin')->get();
+        $this->v['listEmployees'] = DB::table('admin')->where('role','=',2)->orderBy('id','asc')->get();
         $Rooms = new Rooms();
         $this->v['listRooms'] = $Rooms->loadAll();
         $Cate_rooms = new Categoryrooms();

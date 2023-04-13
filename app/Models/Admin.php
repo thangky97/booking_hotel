@@ -45,7 +45,7 @@ class Admin extends Authenticatable
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable);
+            ->select($this->fillable)->orderBy('id', 'desc');
         $list = $query->paginate(2);
         return $list;
     }

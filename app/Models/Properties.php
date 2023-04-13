@@ -22,7 +22,7 @@ class Properties extends Model
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable);
+            ->select($this->fillable)->orderBy('id', 'desc');
         $list = $query->paginate(5);
         return $list;
     }

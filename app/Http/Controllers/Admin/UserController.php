@@ -34,7 +34,7 @@ class UserController extends Controller
             $users = Users::where('email','like','%'.$email.'%')
         ->paginate(10);
         } else{
-            $users = Users::select('id', 'name', 'email', 'phone', 'password', 'address', 'cccd', 'date', 'gender', 'status')
+            $users = Users::select('id', 'name', 'email', 'phone', 'password', 'address', 'cccd', 'date', 'gender', 'status')->orderBy('id','desc')
         ->paginate(10);
         }   
 
