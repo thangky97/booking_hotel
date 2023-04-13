@@ -33,6 +33,7 @@ Route::get('/news/detail/{id}', 'Client\NewController@detail')->name('route_Fron
 Route::get('/feedback', 'Client\FeedbackController@feedback')->name('route_FontEnd_Feedback');
 
 Route::get('/contact', 'Client\ContactController@index')->name('route_FrontEnd_Contact');
+Route::post('/contact', 'Client\ContactController@add')->name('route_BackEnd_Contact_Add');
 
 Route::prefix('profile')->group(function () {
     Route::get('/{id}', 'Client\UserController@profile')->name('route_FrontEnd_User_Profile');
@@ -210,12 +211,12 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/remove/{id}', 'Admin\BannerController@banner_remove')->name('route_BackEnd_Banner_Remove');
     });
 
-    Route::prefix('/contact')->group(function () {
-        Route::get('/', 'Admin\ContactController@index')->name('route_BackEnd_Contact_List');
-        Route::get('/detail/{id}', 'Admin\ContactController@editForm')->name('route_BackEnd_Contact_Detail');
-        Route::post('/detail/{id}', 'Admin\ContactController@saveEdit')->name('route_BackEnd_Contact_Update');
-        Route::get('/remove/{id}', 'Admin\ContactController@destroy')->name('route_BackEnd_Contact_Remove');
-    });
+//    Route::prefix('/contact')->group(function () {
+//        Route::get('/', 'Admin\ContactController@index')->name('route_BackEnd_Contact_List');
+//        Route::get('/detail/{id}', 'Admin\ContactController@editForm')->name('route_BackEnd_Contact_Detail');
+//        Route::post('/detail/{id}', 'Admin\ContactController@saveEdit')->name('route_BackEnd_Contact_Update');
+//        Route::get('/remove/{id}', 'Admin\ContactController@destroy')->name('route_BackEnd_Contact_Remove');
+//    });
 
     Route::prefix('/news')->group(function () {
         Route::get('/', 'Admin\NewsController@index')->name('route_BackEnd_News_List');
@@ -243,5 +244,9 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
         Route::post('/check', 'Admin\VoucherController@check_voucher')->name('route_BackEnd_Voucher_check');
         Route::get('/unset', 'Admin\VoucherController@unset')->name('route_BackEnd_Voucher_unset');
+    });
+    Route::prefix('/contact')->group(function () {
+        Route::get('/', 'Client\contactController@list')->name('route_BackEnd_Contact_List');
+        Route::get('/detail/{id}', 'Client\ContactController@detail')->name('route_BackEnd_Contact_Detail');
     });
 });

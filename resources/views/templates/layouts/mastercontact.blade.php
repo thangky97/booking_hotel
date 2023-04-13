@@ -85,6 +85,9 @@
             background: none !important;
             padding: 0 !important;
         }
+        .text-danger {
+            color:red;
+        }
     </style>
     <link rel='stylesheet' id='wp-block-library-css'
         href='http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-includes/css/dist/block-library/style.min.css?ver=5.9.2'
