@@ -192,7 +192,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <input type="text" name="create_at" value="{{strtotime("now")}}" hidden>
+                                            <input type="text" name="create_at" value="{{date("Y-m-d",strtotime("now"))}}" hidden>
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">
                                                     <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span
@@ -200,7 +200,7 @@
                                                         mới</button>
                                                     <div class="btn btn-danger light btn-sl-sm"><span class="me-2"><i
                                                                 class="fa fa-times"></i></span><a
-                                                            href="{{ route('route_BackEnd_Users_List') }}">Quay Lại</a>
+                                                            href="{{ route('route_BackEnd_Users_List') }}">Hủy</a>
                                                     </div>
                                                 </div>
                                             </div>

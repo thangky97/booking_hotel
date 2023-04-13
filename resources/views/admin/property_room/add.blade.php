@@ -122,7 +122,7 @@
                     <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i
                                 class="fa fa-paper-plane"></i></span>Thêm mới</button>
                     <a href="{{ route('route_BackEnd_PropertyRoom_list') }}" class="btn btn-danger light btn-sl-sm"><span
-                            class="me-2"><i class="fa fa-times"></i></span>Hủy thêm mới</a>
+                            class="me-2"><i class="fa fa-times"></i></span>Hủy</a>
                 </div>
             </form>
         </section>

@@ -126,7 +126,7 @@
                                                             class="fa fa-paper-plane"></i></span>Lưu</button>
                                                 <div class="btn btn-danger light btn-sl-sm"><span class="me-2"><i
                                                             class="fa fa-times"></i></span><a
-                                                        href="{{ route('route_BackEnd_Voucher_index') }}">Quay Lại</a></div>
+                                                        href="{{ route('route_BackEnd_Voucher_index') }}">Hủy</a></div>
                                             </div>
                                         </div>
                                     </form>

@@ -48,6 +48,7 @@
                                         Nội Dung: <br> {{$contact->content}}
                                     </span>
 
+
                                 </div>
                             </div>
                         </div>
