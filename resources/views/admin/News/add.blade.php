@@ -57,9 +57,11 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="col-md-3 col-sm-4 control-label">Người đăng<span class="text-danger"> *</span></label>
+                                            <label for="" class="col-md-3 col-sm-4 control-label">Người đăng<span
+                                                    class="text-danger"> *</span></label>
                                             <div class="col-md-9 col-sm-8">
-                                                <select name="admin_id" id="admin_id" value="" class="wide form-control">
+                                                <select name="admin_id" id="admin_id" value=""
+                                                    class="wide form-control">
                                                     <option value="">Người đăng</option>
                                                     @foreach ($admin as $a)
                                                         <option value="{{ $a->id }}">{{ $a->name }}</option>
@@ -88,7 +90,8 @@
                                             <label for="" class="col-md-3 col-sm-4 control-label">Danh mục bài
                                                 viết<span class="text-danger"> *</span></label>
                                             <div class="col-md-9 col-sm-8">
-                                                <select name="cate_id" id="cate_id" value="" class="wide form-control">
+                                                <select name="cate_id" id="cate_id" value=""
+                                                    class="wide form-control">
                                                     <option value="">Danh mục bài viết</option>
                                                     @foreach ($category_new as $c)
                                                         <option value="{{ $c->id }}">{{ $c->name }}</option>
@@ -140,19 +143,16 @@
                                                 mới</button>
                                             <button class="btn btn-danger light btn-sl-sm" type="button"><span
                                                     class="me-2"><i class="fa fa-times"></i></span><a
-                                                    href="{{ route('route_BackEnd_News_List') }}">Quay Lại</a></button>
+                                                    href="{{ route('route_BackEnd_News_List') }}">Hủy</a></button>
                                         </div>
                                     </form>
-
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-        <!-- Main content -->
-    @endsection
+    </div>
+    <!-- Main content -->
+@endsection

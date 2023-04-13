@@ -191,8 +191,7 @@
                                                             class="fa fa-paper-plane"></i></span>Lưu</button>
                                                 <a href="{{ route('route_BackEnd_Rooms_List') }}"><button
                                                         class="btn btn-danger light btn-sl-sm" type="button"><span
-                                                            class="me-2"><i class="fa fa-times"></i></span> Quay
-                                                        Lại</button></a>
+                                                            class="me-2"><i class="fa fa-times"></i></span>Hủy</button></a>
                                             </div>
                                         </div>
                                     </form>

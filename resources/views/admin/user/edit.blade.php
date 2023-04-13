@@ -183,7 +183,7 @@
                                                 <div class="col-lg-8 ms-auto">
                                                     <button type="submit" class="btn btn-primary">Lưu</button>
                                                     <a href="{{ route('route_BackEnd_Users_List') }}"
-                                                        class="btn btn-info">Hủy</a>
+                                                        class="btn btn-danger light btn-sl-sm">Hủy</a>
                                                 </div>
                                             </div>
                                         </div>

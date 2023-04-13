@@ -175,7 +175,7 @@
                                                         
                                                     </div>
                                                     <button class="btn btn-primary" type="submit">Lưu</button>
-                                                    <a class="btn btn-info" href="{{ route('route_BackEnd_Dashboard') }}">Hủy</a>
+                                                    <a class="btn btn-danger light btn-sl-sm" href="{{ route('route_BackEnd_Dashboard') }}">Hủy</a>
                                                 </form>
                                             </div>
                                         </div>

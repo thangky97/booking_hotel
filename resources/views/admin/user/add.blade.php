@@ -200,7 +200,7 @@
                                                         mới</button>
                                                     <div class="btn btn-danger light btn-sl-sm"><span class="me-2"><i
                                                                 class="fa fa-times"></i></span><a
-                                                            href="{{ route('route_BackEnd_Users_List') }}">Quay Lại</a>
+                                                            href="{{ route('route_BackEnd_Users_List') }}">Hủy</a>
                                                     </div>
                                                 </div>
                                             </div>

@@ -104,7 +104,7 @@
                                                 class="fa fa-paper-plane"></i></span>Lưu</button>
                                     <button class="btn btn-danger light btn-sl-sm" type="button"><span class="me-2"><i
                                                 class="fa fa-times"></i></span><a
-                                            href="{{ route('route_BackEnd_Categoryrooms_List') }}">Quay Lại</a></button>
+                                            href="{{ route('route_BackEnd_Categoryrooms_List') }}">Hủy</a></button>
                                 </div>
                             </div>
                         </div>

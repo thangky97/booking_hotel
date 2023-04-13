@@ -168,8 +168,7 @@
                                                     <button type="submit" class="btn btn-primary">Thêm mới</button>
                                                     <button class="btn btn-danger light btn-sl-sm" type="button"><span
                                                         class="me-2"><i class="fa fa-times"></i></span><a
-                                                        href="{{ route('route_BackEnd_Admin_List') }}">Quay
-                                                        Lại</a></button>
+                                                        href="{{ route('route_BackEnd_Admin_List') }}">Hủy</a></button>
                                                 </div>
                                             </div>
                                         </div>

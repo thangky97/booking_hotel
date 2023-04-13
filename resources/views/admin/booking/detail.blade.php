@@ -131,7 +131,7 @@
                         <div class="text-end" style="margin-right: 30px">
                             <div class="btn btn-danger light btn-sl-sm" style="width: 17%"><span class="me-2"><i
                                 class="fa fa-times"></i></span><a
-                            href="{{ route('route_BackEnd_Bookings_List') }}">Quay Lại</a>
+                            href="{{ route('route_BackEnd_Bookings_List') }}">Hủy</a>
                     </div>
                         </div>
                         <hr style="margin-left: 15px; margin-right: 15px">

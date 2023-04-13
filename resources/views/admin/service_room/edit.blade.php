@@ -112,7 +112,7 @@
 
             <div class="text-start mt-4 mb-3">
                 <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i class="fa fa-paper-plane"></i></span>Cập nhập</button>
-                <a href="{{route('route_BackEnd_ServiceRoom_list')}}" class="btn btn-danger light btn-sl-sm"><span class="me-2"><i class="fa fa-times"></i></span>Quay lại</a>
+                <a href="{{route('route_BackEnd_ServiceRoom_list')}}" class="btn btn-danger light btn-sl-sm"><span class="me-2"><i class="fa fa-times"></i></span>Hủy</a>
             </div>
         </form>
     </section>
