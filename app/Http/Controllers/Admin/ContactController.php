@@ -16,7 +16,7 @@ class ContactController extends Controller
     }
     public function index()
     {
-        $this->v['contact'] = DB::table('contact')->orderBy('name','asc')->paginate(10);
+        $this->v['contact'] = DB::table('contact')->orderBy('name','desc')->paginate(10);
         $this ->v['title'] = 'Danh sách liên hệ';
         return view('admin.contact.index', $this->v);
 

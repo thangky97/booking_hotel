@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminRequest;
 use App\Models\Admin;
+use App\Models\Bills;
 use App\Models\Booking;
+use App\Models\CategoryRooms;
 use App\Models\Users;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -212,6 +214,34 @@ class AdminController extends Controller
             Session::flash('error', 'Cập nhật không thành công!');
             return redirect()->route($method_route, ['id' => $id]);
         }
+    }
+    public function employee_statistical($id,Request $request)
+    {
+        $this->v['employees'] = DB::table('admin')->where('id','=',$id)->first();
+        $this->v['listUsers'] = DB::table('users')->get();
+        $Cate_rooms = new CategoryRooms();
+        $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        $this->v['bookingEmployeesMonth'] = DB::table('bookings')
+        ->where('staff_id','=',$id)
+        ->whereMonth('created_at', '=', date('m'))
+        ->whereYear('created_at', '=', date('Y'))
+        ->orderBy('id','desc')
+        ->paginate(50);
+        $this->v['bookingEmployeesFulltime'] = DB::table('bookings')
+        ->where('staff_id','=',$id)
+        ->orderBy('id','desc')
+        ->paginate(10);
+       
+        $bills = new Bills();
+        $arrBills = array();
+        foreach ($bills->loadAll() as $index => $bill_bk) {
+            $arrBill_bk = array($index => $bill_bk->booking_id);
+            $arrBills = $arrBill_bk + $arrBills;
+        }
+        $this->v['list'] = $arrBills;
+        $this->v['title'] = 'Thống kê đơn đã xử lí';
+        
+        return view('admin.administration.employees', $this->v);
     }
 
 

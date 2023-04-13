@@ -16,7 +16,7 @@ class ServiceRoom extends Model
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable);
+            ->select($this->fillable)->orderBy('id', 'asc');
         $list = $query->paginate(10);
         return $list;
     }

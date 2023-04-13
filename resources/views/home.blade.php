@@ -720,8 +720,7 @@
                                     <div class="elementor-element elementor-element-1d9c1922 elementor-widget elementor-widget-heading"
                                         data-id="1d9c1922" data-element_type="widget" data-widget_type="heading.default">
                                         <div class="elementor-widget-container">
-                                            <p class="elementor-heading-title elementor-size-default">QUẢNG CÁO CHỚP
-                                                NHOÁNG
+                                            <p class="elementor-heading-title elementor-size-default">DỊCH VỤ
                                             </p>
                                         </div>
                                     </div>
@@ -775,15 +774,14 @@
                                             <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
                                                 style="width:75%;">
                                                 <h4><span
-                                                        class="nd_elements_list_component_title">{{ $service->name }}</span>
+                                                        class="nd_elements_list_component_title"><i>{{ $service->name }}</i></span>
                                                 </h4>
                                             </div>
 
                                             <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important nd_elements_text_align_right nd_elements_text_align_left_iphone"
                                                 style="width:25%;">
                                                 <p class="nd_elements_list_component_label">
-                                                    {{ number_format($service->price) }}
-                                                    vnd</p>
+                                                    {{ number_format($service->price) }}đ</p>
                                                 {{-- {{ number_format($cate->price, 0, ',', '.') }} --}}
                                             </div>
 
@@ -793,17 +791,19 @@
 
                                             <div class="nd_elements_float_left nd_elements_width_100_percentage_iphone_important"
                                                 style="width:80%;">
-                                                <p class="nd_elements_list_component_description">Mauris et tortor sit
-                                                    amet ex
-                                                    sagittis</p>
+                                                <p class="nd_elements_list_component_description">Dịch vụ mặc định sử dụng theo trọn gói thời gian ở!</p>
                                             </div>
 
 
                                             <div class="nd_elements_float_left nd_elements_margin_top_20_iphone nd_elements_text_align_right nd_elements_text_align_left_iphone nd_elements_width_100_percentage_iphone_important"
                                                 style="width:20%;">
-                                                <a rel="nofollow" target="_blank" href="#">
+                                                
+                                                    @if($service->price >= 500000)
+                                                    <p class="nd_elements_list_component_cta "><span style="color: yellow;">Nổi Bật</span></p>
+                                                    @else
                                                     <p class="nd_elements_list_component_cta"><span>Tốt Nhất</span></p>
-                                                </a>
+                                                    @endif
+                                                
                                             </div>
 
 

@@ -19,7 +19,7 @@ class PropertiesController extends Controller
             $properties = Properties::where('name', 'like', '%' . $name . '%')
                 ->paginate(10);
         } else {
-            $properties = DB::table('properties')->orderBy('name', 'desc')->paginate(10);
+            $properties = DB::table('properties')->orderBy('id', 'desc')->paginate(10);
         }
         return view('admin.property.index', compact('properties', 'title', 'name'));
     }
