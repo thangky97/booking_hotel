@@ -7,6 +7,7 @@ use App\Http\Requests\RoomsRequest;
 use App\Models\CategoryRooms;
 use App\Models\Rooms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class RoomController extends Controller
@@ -26,10 +27,26 @@ class RoomController extends Controller
             $this->v['list'] = Rooms::where('name', 'like', '%' . $name . '%')
                 ->paginate(10);
         } else {
-            $rooms = new rooms();
-            $this->v['list'] = $rooms->loadListWithPager();
+            $rooms = DB::table('rooms')
+                ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
+                ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
+                ->select('rooms.*', 'bookings.checkin_date', 'bookings.checkout_date')
+                ->get();
+            $arrRoomworks = array();
+            foreach ($rooms as $index => $room) {
+                if (strtotime($room->checkin_date) < strtotime('now') && strtotime($room->checkout_date) > strtotime('now')) {
+                    $arrRoom = array($index => $room->id);
+                    $arrRoomworks = $arrRoom + $arrRoomworks;
+                }
+                if (strtotime($room->checkin_date) == strtotime('now') || strtotime($room->checkout_date) == strtotime('now')) {
+                    $arrRoom = array($index => $room->id);
+                    $arrRoomworks = $arrRoom + $arrRoomworks;
+                }
+            }
         }
-
+        $Listrooms = new rooms();
+        $this->v['list'] = $Listrooms->loadListWithPager();
+        $this->v['roomWork'] = $arrRoomworks;
         $cate_rooms = new CategoryRooms();
         $this->v['loai_phong'] = $cate_rooms->loadListWithPager();
 
