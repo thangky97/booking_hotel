@@ -192,7 +192,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <input type="text" name="create_at" value="{{strtotime("now")}}" hidden>
+                                            <input type="text" name="create_at" value="{{date("Y-m-d",strtotime("now"))}}" hidden>
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">
                                                     <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span
