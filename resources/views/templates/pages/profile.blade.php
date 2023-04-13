@@ -80,19 +80,19 @@
             </div>
             @endif
             @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                <span class="sr-only">Close</span>
-                            </button>
-                        </div>
-                        @endif
-            
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            @endif
+
             <div class="bg-white shadow rounded-lg d-block d-sm-flex">
                 <div class="profile-tab-nav border-right">
                     <div class="p-4">
@@ -206,7 +206,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Mật khẩu cũ</label>
-                                        <input type="password" name="password" class="form-control" value="@isset($request['password']){{ $request['password'] }}@endisset" >
+                                        <input type="password" name="password" class="form-control" value="@isset($request['password']){{ $request['password'] }}@endisset">
                                     </div>
                                 </div>
                             </div>
@@ -214,13 +214,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Mật khẩu mới</label>
-                                        <input type="password" name="new_password" class="form-control" value="@isset($request['new_password']){{ $request['new_password'] }}@endisset" id="password" >
+                                        <input type="password" name="new_password" class="form-control" value="@isset($request['new_password']){{ $request['new_password'] }}@endisset" id="password">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Xác nhận mật khẩu</label>
-                                        <input type="password" class="form-control" value="@isset($request['new_password']){{ $request['new_password'] }}@endisset" id="confirm_password" >
+                                        <input type="password" class="form-control" value="@isset($request['new_password']){{ $request['new_password'] }}@endisset" id="confirm_password">
                                     </div>
                                 </div>
                             </div>
@@ -242,8 +242,8 @@
                                         <th>Ngày Trả</th>
                                         <th>Số Người</th>
                                         <th>Thanh Toán</th>
-                                        <th>Nhân Viên</th>
-                                        <th>Tổng tiền</th>
+                                        <th>Thanh Toán(VNPAY)</th>
+                                        <th>Xuất Bill</th>
 
                                     </tr>
                                 </thead>
@@ -281,22 +281,18 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <p style="width: 150px">
-                                                @if($bk_history->staff_id==1)
-                                                {{'Huy Hoàng'}}
-                                                @elseif($bk_history->staff_id==2)
-                                                {{'Nguyễn Văn Linh'}}
-                                                @else
-                                                {{'Đinh Trung Nguyên'}}
-                                                @endif
-                                            </p>
+                                            @if(empty($bk_history->money_paid))
+                                            <p style="width: 150px" class="text-primary">Tại quầy</p>
+                                            @else
+                                            <p style="width: 150px" class="text-danger"><i>{{number_format($bk_history->money_paid)}}đ</i></p>
+                                            @endif
                                         </td>
                                         <td class="text-center">
                                             <i>
                                                 <p class="text-danger " style="font-weight: bold;">
                                                     @foreach($bills as $bill_mn)
                                                     @if($bill_mn->booking_id == $bk_history->id)
-                                                    {{number_format($bill_mn->total_money)}} vnđ
+                                                    {{number_format($bill_mn->total_money)}}đ
                                                     @endif
                                                     @endforeach
                                                 </p>

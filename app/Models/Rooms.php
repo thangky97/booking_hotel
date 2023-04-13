@@ -17,7 +17,7 @@ class Rooms extends Model
     public function loadListWithPager($param = [])
     {
         $query = DB::table($this->table)
-            ->select($this->fillable);
+            ->select($this->fillable)->orderBy('cate_room', 'asc');
         $list = $query->paginate(10);
         return $list;
     }

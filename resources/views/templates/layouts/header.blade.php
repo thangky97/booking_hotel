@@ -305,35 +305,31 @@
                                                 <div class="elementor-widget-container">
                                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                                            <a href="{{ route('route_FontEnd_BookingSearch') }}">
-
-                                                                <span class="elementor-icon-list-text">Đặt phòng</span>
-                                                            </a>
+                                                        <span class="elementor-icon-list-text">Tư vấn</span>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-461289c" data-id="461289c" data-element_type="column">
-
-                                    </div>
+                                    
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-d72b31a" data-id="d72b31a" data-element_type="column">
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-9e1d9be elementor-icon-list--layout-inline elementor-align-right elementor-tablet-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="9e1d9be" data-element_type="widget" data-widget_type="icon-list.default">
                                                 <div class="elementor-widget-container">
                                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                                            <a href="{{ route('route_FontEnd_Feedback') }}">
-
-                                                                <span class="elementor-icon-list-text">Đánh giá</span>
-                                                            </a>
+                                                            
+                                        
+                                                            <span class="elementor-icon-list-text">035 941 0281</span>
+                                                            
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div></div>
                                     <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-cddffe5" data-id="cddffe5" data-element_type="column" style="width: 65%">
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-c003c9a elementor-widget elementor-widget-shortcode" data-id="c003c9a" data-element_type="widget" data-widget_type="shortcode.default">

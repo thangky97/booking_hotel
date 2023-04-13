@@ -49,12 +49,10 @@
                                         </svg></a>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li class="dropdown-item"><i class="fa fa-user-circle text-primary me-2"></i>
-                                            View profile</li>
-                                        <li class="dropdown-item"><i class="fa fa-users text-primary me-2"></i> Add to
-                                            btn-close friends</li>
-                                        <li class="dropdown-item"><i class="fa fa-plus text-primary me-2"></i> Add to
-                                            group</li>
-                                        <li class="dropdown-item"><i class="fa fa-ban text-primary me-2"></i> Block</li>
+                                            Hồ sơ cá nhân</li>
+                                        <li class="dropdown-item"><i class="fa fa-users text-primary me-2"></i> Thêm tài khoản</li>
+                                        
+                                        <li class="dropdown-item"><i class="fa fa-ban text-primary me-2"></i> Khóa tài khoản</li>
                                     </ul>
                                 </div>
                             </div>
@@ -73,25 +71,42 @@
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item"><a href="#profile-settings" data-bs-toggle="tab" class="nav-link active show">Tài khoản của bạn</a>
                                     </li>
+                                    <li class="nav-item"><a href="#password-settings" data-bs-toggle="tab" class="nav-link show">Thay đổi mật khẩu</a>
+                                    </li>
                                 </ul>
                                 <div id="msg-box" class="mt-3">
                                     <?php //Hiển thị thông báo thành công
                                     ?>
-                                    @if (Session::has('success'))
-                                    <div class="alert alert-success solid alert-dismissible fade show">
-                                        <span><i class="mdi mdi-check"></i></span>
+                                    @if ( Session::has('success') )
+                                    <div class="alert alert-success alert-dismissible" role="alert">
                                         <strong>{{ Session::get('success') }}</strong>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            <span class="sr-only">Close</span>
                                         </button>
                                     </div>
                                     @endif
                                     <?php //Hiển thị thông báo lỗi
                                     ?>
-                                    @if (Session::has('error'))
-                                    <div class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
-                                        <span><i class="mdi mdi-help"></i></span>
-                                        <strong>{{ Session::get('errors') }}</strong>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                    @if ( Session::has('error') )
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <strong>{{ Session::get('error') }}</strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            <span class="sr-only">Close</span>
+                                        </button>
+                                    </div>
+                                    @endif
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            <span class="sr-only">Close</span>
                                         </button>
                                     </div>
                                     @endif
@@ -153,7 +168,7 @@
                                                             <input type="hidden" placeholder="Nhập mật khẩu..." name="password" class="form-control" value="{{ $user->password }}">
 
                                                         </div>
-                                                        
+
 
                                                     </div>
                                                     <div class="row">
@@ -172,8 +187,53 @@
                                                             </div>
                                                             @enderror
                                                         </div>
-                                                        
+
                                                     </div>
+                                                    <button class="btn btn-primary" type="submit">Lưu</button>
+                                                    <a class="btn btn-info" href="{{ route('route_BackEnd_Dashboard') }}">Hủy</a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="password-settings" class="tab-pane fade active ">
+                                        <div class="pt-5">
+                                            <div class="settings-form">
+                                                <form action="{{route('route_BackEnd_Admin_Update_Password',$user->id)}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="row ">
+                                                        <div class="mb-3 col-md-6">
+                                                            <label class="form-label">Mật khẩu cũ</label>
+                                                            <span class="text-danger">*</span>
+                                                            <input type="password" name="password" class="form-control" value="@isset($request['password']){{ $request['password'] }}@endisset">
+                                                            @error('password')
+                                                            <div>
+                                                                <p class="text-danger">{{ $message }}</p>
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
+                                                        <div class="mb-3 col-md-6">
+                                                            <label class="form-label">Mật khẩu mới</label>
+                                                            <span class="text-danger">*</span>
+                                                            <input type="password" name="new_password" class="form-control" value="@isset($request['new_password']){{ $request['new_password'] }}@endisset" id="password">
+                                                            @error('new_password')
+                                                            <div>
+                                                                <p class="text-danger">{{ $message }}</p>
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="mb-3 col-md-6">
+                                                            <label class="form-label">Xác nhận mật khẩu</label>
+                                                            <span class="text-danger">*</span>
+                                                            <input type="password" class="form-control" value="@isset($request['new_password']){{ $request['new_password'] }}@endisset" id="confirm_password">
+
+                                                        </div>
+
+
+                                                    </div>
+
                                                     <button class="btn btn-primary" type="submit">Lưu</button>
                                                     <a class="btn btn-info" href="{{ route('route_BackEnd_Dashboard') }}">Hủy</a>
                                                 </form>
@@ -204,6 +264,21 @@
                                         </div>
                                     </div>
                                 </div> --}}
+                            <script>
+                                var password = document.getElementById("password"),
+                                    confirm_password = document.getElementById("confirm_password");
+
+                                function validatePassword() {
+                                    if (password.value != confirm_password.value) {
+                                        confirm_password.setCustomValidity("Mật khẩu mới không khớp!");
+                                    } else {
+                                        confirm_password.setCustomValidity("");
+                                    }
+                                }
+
+                                password.onchange = validatePassword;
+                                confirm_password.onkeyup = validatePassword;
+                            </script>
                         </div>
                     </div>
                 </div>

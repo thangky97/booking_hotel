@@ -20,7 +20,7 @@
                                     <a class="nav-link active" data-bs-toggle="tab" href="#Active" role="tab">Còn hạn</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#Canceled" role="tab">Hết hạn</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#Canceled" role="tab">Không sử dụng</a>
                                 </li>
                             </ul>
                         </div>
@@ -76,7 +76,7 @@
                                 <table class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl " id="guestTable-all">
                                     <thead>
                                         <tr>
-                                            
+
                                             <th class="h5 text-center">STT</th>
                                             <th class="h5 text-center">Khách hàng</th>
                                             <th class="h5 text-center">Ngày đặt</th>
@@ -92,7 +92,7 @@
                                         @foreach($listBookings as $index => $item)
                                         @if($item->status_booking==1)
                                         <tr>
-                                            
+
                                             <td class="text-center">
                                                 {{$i++}}
                                             </td>
@@ -132,14 +132,14 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">
-                                                
+
                                                 @if(empty($item->money_paid))
-                                                <p style="width: 150px" class="text-primary">Tại quầy</p>;
+                                                <p style="width: 150px" class="text-primary">Tại quầy</p>
                                                 @else
-                                                <p style="width: 150px" class="text-danger"><i>{{number_format($item->money_paid)}}đ</i></p>;
+                                                <p style="width: 150px" class="text-danger"><i>{{number_format($item->money_paid)}}đ</i></p>
                                                 @endif
 
-                                                
+
                                             </td>
                                             <td class="text-center">
                                                 <div class="dropdown dropstart">
@@ -167,6 +167,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            {{$listBookings->links('paginate.index')}}
                         </div>
                         <div class="tab-pane fade" id="All">
                             <div class="table-responsive">
@@ -183,9 +184,9 @@
                                             <th class="h5 text-center">Ngày đặt</th>
                                             <th class="h5 text-center">Ngày trả</th>
                                             <th class="h5 text-center">Người</th>
-                                            <th class="h5 text-center">Loại phòng</th>
-                                            <th class="h5 text-center">Thanh toán</th>
-                                            <th class="h5 text-center">Nhân viên</th>
+                                            <th class="h5 text-center">Thanh Toán</th>
+                                            <th class="h5 text-center">Thanh Toán(VNPAY)</th>
+                                            <th class="h5 text-center">Hành Động</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -231,15 +232,11 @@
                                                 </span>
                                             </td>
                                             <td class="text-center">
-                                                <p style="width: 150px">
-                                                    @if($item->staff_id==1)
-                                                    {{'Nguyễn Đình Huân'}}
-                                                    @elseif($item->staff_id==2)
-                                                    {{'Nguyễn Văn Linh'}}
-                                                    @else
-                                                    {{'Đinh Trung Nguyên'}}
-                                                    @endif
-                                                </p>
+                                                @if(empty($item->money_paid))
+                                                <p style="width: 150px" class="text-primary">Tại quầy</p>
+                                                @else
+                                                <p style="width: 150px" class="text-danger"><i>{{number_format($item->money_paid)}}đ</i></p>
+                                                @endif
                                             </td>
                                             <td class="text-center">
                                                 <div class="dropdown dropstart">
@@ -265,6 +262,7 @@
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
                         <div class="tab-pane fade" id="Canceled">
                             <div class="table-responsive">
@@ -280,10 +278,10 @@
                                             <th class="h5 text-center">Khách hàng</th>
                                             <th class="h5 text-center">Ngày đặt</th>
                                             <th class="h5 text-center">Ngày trả</th>
-                                            <th class="h5 text-center">Người</th>
-                                            <th class="h5 text-center">Loại phòng</th>
-                                            <th class="h5 text-center">Thanh toán</th>
-                                            <th class="h5 text-center">Nhân viên</th>
+                                            <th class="h5 text-center">Người</th>                                         
+                                            <th class="h5 text-center">Thanh Toán</th>
+                                            <th class="h5 text-center">Thanh Toán(VNPAY)</th>
+                                            <th class="h5 text-center">Hành Động</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -329,16 +327,9 @@
                                                     <?= $item->status_pay == 0 ? '<span class="badge light badge-success">Đã thanh toán</span>' : '<span class="badge light badge-warning">Chưa thanh toán</span>' ?>
                                                 </span>
                                             </td>
-                                            <td class="text-center">
-                                                <p style="width: 150px">
-                                                    @if($item->staff_id==1)
-                                                    {{'Nguyễn Đình Huân'}}
-                                                    @elseif($item->staff_id==2)
-                                                    {{'Nguyễn Văn Linh'}}
-                                                    @else
-                                                    {{'Đinh Trung Nguyên'}}
-                                                    @endif
-                                                </p>
+                                            <td class="text-center">                                          
+                                                <p style="width: 150px" class="text-danger"><i>Lỗi thanh toán VNPAY</i></p>
+
                                             </td>
                                             <td class="text-center">
                                                 <div class="dropdown dropstart">
@@ -365,10 +356,11 @@
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
 
                     </div>
-                    {{$listBookings->links('paginate.index')}}
+
                 </section>
             </div>
         </div>

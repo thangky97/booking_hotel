@@ -34,7 +34,7 @@ class VoucherController extends Controller
                 ->paginate(10);
         } else {
             $this->v['voucher'] = Voucher::select('id', 'name', 'code', 'discount', 'limit', 'date_start', 'date_end', 'status')
-            ->orderBy('id', 'asc')
+            ->orderBy('id', 'desc')
             ->paginate(10);
         }
 
