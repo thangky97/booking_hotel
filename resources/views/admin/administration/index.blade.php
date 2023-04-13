@@ -4,8 +4,6 @@
 @endsection
 @section('content')
 
-
-
 <div class="content-body">
     <div class="container-fluid">
         <div class="row">
@@ -86,28 +84,30 @@
                         <div class="table-responsive">
                             <table class="table card-table  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
 
-                                <thead>
-                                    <tr>
-                                        <th class="bg-none h5 text-center">STT
-                                        </th>
-                                        <th>Tên</th>
-                                        <th class="h5 text-center">Email</th>
-                                        <th class="h5 text-center">Phone</th>
-                                        <th class="h5 text-center">Role</th>
-                                        <th class="h5 text-center">Status</th>
-                                        <th class="h5 text-center bg-none">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($admin_list as $index => $admin)
-                                    <tr>
-                                        <td class="text-center text-primary">
-                                            {{ $index + 1 }}
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="concierge-bx">
-                                                <img class="me-3 rounded" src="{{ asset($admin->avatar) ? '' . Storage::url($admin->avatar) : $admin->name }}" alt="">
-                                                <div>
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-none h5 text-center">STT
+                                            </th>
+                                            <th>Tên</th>
+                                            <th class="h5 text-center">Email</th>
+                                            <th class="h5 text-center">Số điện thoại</th>
+                                            <th class="h5 text-center">Quyền</th>
+                                            <th class="h5 text-center">Trạng thái</th>
+                                            <th class="h5 text-center bg-none">Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($admin_list as $index => $admin)
+                                            <tr>
+                                                <td class="text-center text-primary">
+                                                    {{ $index + 1 }}
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="concierge-bx">
+                                                        <img class="me-3 rounded"
+                                                            src="{{ asset($admin->avatar) ? '' . Storage::url($admin->avatar) : $admin->name }}"
+                                                            alt="">
+                                                        <div>
 
                                                     <h4 class="mt-1 pt-3"><a class="text-black" href="">{{ $admin->name }}</a></h4>
                                                 </div>

@@ -87,7 +87,7 @@
         <section class="container-fluid">
             <form action="{{ route('route_BackEnd_PropertyRoom_create') }}" method="post" class="row">
                 @csrf
-                <h1>Thông tin thuộc tính phòng</h1>
+                <h3>Sửa thuộc tính loại phòng</h3>
                 <label for="date" class="col-5 col-form-label">Tên phòng</label>
                 <div class="col-0">
                     <select name="cate_room" class="form-select form-select-lg mb-3" value=""

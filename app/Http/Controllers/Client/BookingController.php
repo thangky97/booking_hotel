@@ -88,12 +88,14 @@ class BookingController extends Controller
 
     public function autobooking(Request $request)
     {
+        $cateRoom = DB::table('category_rooms')->select('*')->where('price','=',$request->price)->get()->first();
         $check_in = strtotime($request->check_in);
         $check_out = strtotime($request->check_out);
         $rooms = DB::table('rooms')
             ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
             ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
-            ->select('rooms.id', 'bookings.checkin_date', 'bookings.checkout_date')
+            ->select('rooms.id', 'rooms.cate_room', 'bookings.checkin_date', 'bookings.checkout_date')
+            ->where('rooms.cate_room','=',$cateRoom->id)
             ->get();
         $arrRoomworks = array();
         foreach ($rooms as $index => $room) {
@@ -114,55 +116,30 @@ class BookingController extends Controller
                 $arrRoomworks = $arrRoom + $arrRoomworks;
             }
         }
-        if ($request->people) {
-            $people = $request->people;
-            $this->v['peoples'] = $request->people;
-        } else {
-            $people = "1";
-            $this->v['peoples'] = "1";
-        }
-        $Rooms = new Rooms();
-        $listRoomwork = array_unique($arrRoomworks);
-        $r = 0;
-        $filterRoom = array();
-        foreach ($Rooms->loadOrderDescPeople() as $item) {
-            if (empty(in_array($item->id, $listRoomwork))) {
-                if ($people > $item->adult) {
-                    $people = $people - $item->adult;
-                    $room = array($r => $item->id);
-                    $filterRoom = $filterRoom + $room;
-                    $r++;
-                    continue;
-                }
-                if ($people == $item->adult) {
-                    $room = array($r => $item->id);
-                    $filterRoom = $filterRoom + $room;
-                    $people = 0;
-                    $r++;
-                }
+        $roomWork = array_unique($arrRoomworks);
+        $lishRoom = DB::table('rooms')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->select('rooms.id')
+            ->where('rooms.cate_room','=',$cateRoom->id)
+            ->where('category_rooms.id','=',$cateRoom->id)
+            ->get();
+        $count=1;
+        foreach ($lishRoom as $room){
+            if (!in_array($room->id,$roomWork)&&$count==1){
+                $roomChoose = $room->id;
+                $count=0;
             }
         }
-        if ($people > 0) {
-            foreach ($Rooms->loadOrderAscPeople() as $item) {
-                if ($people > 0) {
-                    if (empty(in_array($item->id, $listRoomwork))) {
-                        if (empty(in_array($item->id, $filterRoom))) {
-                            $room = array($r => $item->id);
-                            $filterRoom = $filterRoom + $room;
-                            $people = 0;
-                            $r++;
-                        }
-                    }
-                }
-            }
+        if (empty($roomChoose)){
+            return redirect()->route('route_FrontEnd_Home');
         }
-        $this->v['checkin'] = $check_in;
-        $this->v['checkout'] = $check_out;
         $this->v['listRooms'] = DB::table('rooms')
             ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
-            ->select('rooms.*', 'category_rooms.name', 'category_rooms.price', 'category_rooms.image')
-            ->get();
-        $this->v['filterRoom'] = $filterRoom;
+            ->select('rooms.id','rooms.cate_room','category_rooms.image','rooms.adult','rooms.bed','category_rooms.price','category_rooms.name')
+            ->where('rooms.id','=',$roomChoose)->get();
+        $this->v['checkin'] = $check_in;
+        $this->v['checkout'] = $check_out;
+        $this->v['peoples'] = $request->people;
         $services = new Service();
         $this->v['listService'] = $services->loadAll();
         $cate_rooms = new CategoryRooms();

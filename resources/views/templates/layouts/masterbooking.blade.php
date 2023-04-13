@@ -2662,35 +2662,6 @@
         </div>
         <!--END header 6-->
 
-
-
-        <div
-            class="nd_tds_display_none_responsive nd_tds_right_30 nd_tds_bottom_30 nd_tds_position_fixed nd_tds_z_index_99">
-
-            <span style="top:1px; left:16px; font-size:10px; line-height:10px; border-radius:0px; padding:3px 5px;"
-                class="nd_tds_position_absolute nd_tds_color_fff_important nd_tds_background_color_3">NEW</span>
-
-            <a href="https://1.envato.market/WLRW3" target="_blank"
-                class="nd_tds_text_align_center nd_tds_width_65 nd_tds_float_left nd_tds_height_65 nd_tds_display_table nd_tds_font_size_25 nd_tds_line_height_25 nd_tds_color_fff_important nd_tds_border_radius_100_percentage nd_tds_background_color_1 nd_tds_box_shadow_0_0_20_000_015 nd_options_second_font">
-                <span
-                    class="nd_tds_position_absolute nd_tds_top_22 nd_tds_left_13 nd_tds_font_size_8 nd_tds_line_height_8">$</span>
-                <span style="padding-top:7px;"
-                    class="nd_tds_display_table_cell nd_tds_vertical_align_middle nd_tds_padding_left_5">54</span>
-            </a>
-        </div>
-
-        <div style="right:80px;"
-            class="nd_tds_display_none_responsive nd_tds_bottom_30 nd_tds_position_fixed nd_tds_z_index_99">
-            <a target="_blank"
-                class="nd_tds_border_radius_100_percentage nd_tds_width_35 nd_tds_height_35 nd_tds_float_left nd_tds_background_color_2 nd_tds_box_shadow_0_0_20_000_015"
-                href="https://1.envato.market/WLRW3">
-                <img class="nd_tds_position_absolute nd_tds_left_10 nd_tds_top_10" width="15px"
-                    src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-theme-demos-switcher/addons/fixed-img/img/envato.png">
-            </a>
-        </div>
-
-
-
         <!--start nd_options_container-->
         <div class="nd_options_container nd_options_clearfix">
 
@@ -2766,7 +2737,7 @@
         <div class="nd_booking_alert_msg">
             <img class="nd_booking_float_left" width="12px"
                 src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hotel/wp-content/uploads/sites/2/2022/03/icon-WHITE-check.svg">
-            <p>You are Booking at the BEST PRICE</p>
+            <p>Nhiều ưu đãi hấp dẫn trong tháng này!</p>
         </div>
 
 

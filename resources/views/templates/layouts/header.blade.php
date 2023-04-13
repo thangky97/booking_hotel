@@ -305,7 +305,10 @@
                                                 <div class="elementor-widget-container">
                                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                                        <span class="elementor-icon-list-text">Tư vấn</span>
+                                                            <a href="{{ route('route_FrontEnd_Service') }}">
+
+                                                                <span class="elementor-icon-list-text">Dịch vụ</span>
+                                                            </a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -319,10 +322,9 @@
                                                 <div class="elementor-widget-container">
                                                     <ul class="elementor-icon-list-items elementor-inline-items">
                                                         <li class="elementor-icon-list-item elementor-inline-item">
-                                                            
-                                        
-                                                            <span class="elementor-icon-list-text">035 941 0281</span>
-                                                            
+                                                            <a href="{{ route('route_FrontEnd_Room') }}">
+                                                                <span class="elementor-icon-list-text">Đặt phòng</span>
+                                                            </a>
                                                         </li>
                                                     </ul>
                                                 </div>

@@ -199,6 +199,9 @@ class AdminController extends Controller
 
         unset($params['cols']['_token']);
         $params['cols']['id'] = $id;
+        if (!is_null($params['cols']['password'])) {
+            $params['cols']['password'] = Hash::make($params['cols']['password']);
+        }
 
         $modelAdmin = new Admin();
         $res = $modelAdmin->saveUpdate($params);

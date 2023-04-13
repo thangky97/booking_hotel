@@ -9,7 +9,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Form Validation</h4>
+                            <h4 class="card-title">Thêm</h4>
                         </div>
                         <div id="msg-box">
                             <?php //Hiển thị thông báo thành công
@@ -136,7 +136,6 @@
                                                         <option data-display="Chọn quyền" value="">Chọn quyền</option>
                                                         <option value="1">Admin</option>
                                                         <option value="2">Nhân viên</option>
-                                                        {{-- <option value="0">Người dùng</option> --}}
                                                     </select>
                                                     @error('role')
                                                         <div>
@@ -167,6 +166,10 @@
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">
                                                     <button type="submit" class="btn btn-primary">Thêm mới</button>
+                                                    <button class="btn btn-danger light btn-sl-sm" type="button"><span
+                                                        class="me-2"><i class="fa fa-times"></i></span><a
+                                                        href="{{ route('route_BackEnd_Admin_List') }}">Quay
+                                                        Lại</a></button>
                                                 </div>
                                             </div>
                                         </div>

@@ -26,4 +26,11 @@ class News extends Model
     public function admin_name(){
         return$this->belongsTo(Admin::class, 'admin_id');
     }
+    public function loadAll($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable)->orderBy('id', 'desc');
+        $list = $query->get();
+        return $list;
+    }
 }
