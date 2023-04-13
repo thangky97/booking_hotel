@@ -1032,7 +1032,7 @@
             border-color: #f1f1f1;
             border-radius: 0px;
             border-style: solid;
-            padding: 10px 20px;
+            padding: 6px 20px;
             -webkit-appearance: none;
             color: #5c5c5c !important;
 

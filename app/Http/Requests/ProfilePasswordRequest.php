@@ -47,8 +47,8 @@ class ProfilePasswordRequest extends FormRequest
     public function messages()
     {
         return [
-            'password.require' => 'Mật khẩu bắt buộc nhập',
-            'new_password.require' => 'Mật khẩu mới bắt buộc nhập',
+            'password.required' => 'Mật khẩu bắt buộc nhập',
+            'new_password.required' => 'Mật khẩu mới bắt buộc nhập',
             'new_password.min' => 'Mật khẩu mới tối thiểu 6 ký tự',
             'new_password.max' => 'Mật khẩu mới tối đa 32 ký tự',
             'new_password.different' => 'Mật khẩu mới phải khác mật khẩu cũ'

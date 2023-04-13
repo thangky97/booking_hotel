@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfilePasswordRequest;
+use App\Http\Requests\ProfileRequest;
 use App\Models\Bills;
 use App\Models\CategoryRooms;
 use App\Models\Users;
@@ -36,7 +37,7 @@ class UserController extends Controller
         $this->v['title'] = 'Hồ sơ cá nhân';
         return view('templates.pages.profile', $this->v);
     }
-    public function update_profile($id, Request $request)
+    public function update_profile($id, ProfileRequest $request)
     {
         $method_route = "route_FrontEnd_User_Profile";
         $params = [];
@@ -54,10 +55,10 @@ class UserController extends Controller
         if ($res == null) {
             return redirect()->route($method_route, ['id' => $id]);
         } elseif ($res == 1) {
-            Session::flash('success', 'Cập nhật thông tin hồ sơ thành công !');
+            Session::flash('success', 'Cập nhật thông tin hồ sơ thành công!');
             return redirect()->route($method_route, ['id' => $id]);
         } else {
-            Session::flash('error', 'Lỗi cập nhật thông tin hồ sơ !');
+            Session::flash('error', 'Cập nhật thông tin hồ sơ thất bại!');
             return redirect()->route($method_route, ['id' => $id]);
         }
     }
@@ -77,14 +78,14 @@ class UserController extends Controller
             if ($res == null) {
                 return redirect()->route($method_route, ['id' => $id]);
             } elseif ($res == 1) {
-                Session::flash('success', 'Cập nhật mật khẩu thành công !');
+                Session::flash('success', 'Cập nhật mật khẩu thành công!');
                 return redirect()->route($method_route, ['id' => $id]);
             } else {
-                Session::flash('error', 'Lỗi cập nhật mật khẩu');
+                Session::flash('error', 'Cập nhật mật khẩu thất bại!');
                 return redirect()->route($method_route, ['id' => $id]);
             }
         } else {
-            Session::flash('error', 'Mật khẩu cũ không chính xác !');
+            Session::flash('error', 'Mật khẩu cũ không chính xác!');
             return redirect()->route($method_route, ['id' => $id]);
         }
     }

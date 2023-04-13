@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>12 Zodiac - Đăng ký</title>
+    <title>Đăng ký - Hotel 12Zodiac</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -74,10 +74,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @error('name')
+                                                    <div>
+                                                        <p class="text-danger font-size-14">{{ $message }}</p>
                                                     </div>
-                                                    <!-- End Form Group -->
+                                                @enderror
+                                                    </div>
 
-                                                    <!-- Form Group -->
                                                     <div class="form-group pb-1">
                                                         <div
                                                             class="js-form-message js-focus-state border border-width-2 border-color-8 rounded-sm">
@@ -100,6 +103,11 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @error('email')
+                                                    <div>
+                                                        <p class="text-danger font-size-14">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
                                                     </div>
                                                     <!-- End Form Group -->
                                                     <div class="form-group pb-1">
@@ -112,7 +120,7 @@
                                                                 <select name="gender"
                                                                     class="default-select wide form-control"
                                                                     id="validationCustom05">
-                                                                    <option data-display="Chọn giới tính">Giới tính
+                                                                    <option data-display="Chọn giới tính" value="">Giới tính
                                                                     </option>
                                                                     <option value="1">Nam</option>
                                                                     <option value="2">Nữ</option>
@@ -125,6 +133,11 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @error('gender')
+                                                    <div>
+                                                        <p class="text-danger font-size-14">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
                                                     </div>
                                                     <!-- Form Group -->
                                                     <div class="form-group pb-1">
@@ -152,6 +165,11 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @error('password')
+                                                    <div>
+                                                        <p class="text-danger font-size-14">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
                                                     </div>
                                                     <div class="form-group pb-1">
                                                         <div
@@ -174,9 +192,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @error('phone')
+                                                    <div>
+                                                        <p class="text-danger font-size-14">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
                                                     </div>
 
-                                                    <!-- End Form Group -->
                                                     <div class="">
                                                         <button type="submit"
                                                             class="btn btn-md btn-block btn-blue-1 rounded-xs font-weight-bold transition-3d-hover">Đăng
@@ -186,7 +208,7 @@
                                             </div>
                                         </div>
                                         <div class="card-footer p-0">
-                                            <div class="card-footer__top border-bottom border-color-8 py-3">
+                                            {{-- <div class="card-footer__top border-bottom border-color-8 py-3">
                                                 <div class="text-center mt-2 mb-4 pb-1">
                                                     <span class="d-block text-gray-1 fontsize-14">or</span>
                                                 </div>
@@ -202,7 +224,7 @@
                                                         Twitter
                                                     </a>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="card-footer__bottom p-4 text-center font-size-14">
                                                 <span class="text-gray-1">Đã có tài khoản?</span>
                                                 <a class="font-weight-bold" href="{{ route('getSignin') }}">Đăng

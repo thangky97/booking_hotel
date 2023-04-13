@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -14,7 +15,7 @@ class SignupController extends Controller
         return view('templates.pages.auth.sign_up');
     }
 
-    public function postSignup(Request $request) {
+    public function postSignup(RegisterRequest $request) {
 
         $method_route = "getSignup";
 
@@ -33,10 +34,10 @@ class SignupController extends Controller
             if ($res == null) {
                 return  redirect()->route($method_route);
             } elseif ($res > 0) {
-                Session::flash('success','Đăng ký');
+                Session::flash('success','Đăng ký tài khoản thành công');
                 return redirect()->route('getSignin');
             } else {
-                Session::flash('error','Lỗi đăng ký tài khoản ');
+                Session::flash('error','Đăng ký tài khoản thất bại');
                 return redirect()->route($method_route);
             }
         }
