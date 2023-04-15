@@ -9,7 +9,8 @@ use mysql_xdevapi\Table;
 class Vnpay extends Model
 {
     use HasFactory;
-    public $timestamps = FALSE;
+
+    public $timestamps = false;
     protected $table = 'vnpay';
     protected $fillable = [
 
