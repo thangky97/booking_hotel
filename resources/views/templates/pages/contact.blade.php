@@ -92,83 +92,74 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="elementor-element elementor-element-c6a25fa elementor-widget elementor-widget-cf7"
-                             >
-                            <div >
+                        <div class="elementor-element elementor-element-c6a25fa elementor-widget elementor-widget-cf7">
+                            <div>
                                 <div class="nd_elements_cf7_component">
-                                    <div role="form"  lang="en-US"
-                                        dir="ltr">
+                                    <div role="form" lang="en-US" dir="ltr">
                                         @if (Session::has('success'))
-                                            <div class="alert alert-success solid alert-dismissible fade show">
+                                            <div class="alert alert-success solid alert-dismissible fade show" style="color: #fff; background: #37D159; border-color: #37D159; border-radius: 1.375rem; padding: 0.5rem 1.5rem; border: 1px solid transparent;">
                                                 <span><i class="mdi mdi-check"></i></span>
                                                 <strong>{{ Session::get('success') }}</strong>
 
                                             </div>
                                         @else
-                                        <form
-                                            action="{{route('route_BackEnd_Contact_Add')}}"
-                                            method="post"
-                                           >
-                                        @csrf
-                                            <p>
-                                                <span class="wpcf7-form-control-wrap name-tx"><input type="text"
-                                                        name="name" value="" size="40"
-                                                        class="wpcf7-form-control wpcf7-text" aria-invalid="false"
-                                                        placeholder="Tên" /></span>
-                                            @error('name')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                            @enderror
+                                            <form action="{{ route('route_BackEnd_Contact_Add') }}" method="post">
+                                                @csrf
+                                                <p>
+                                                    <span class="wpcf7-form-control-wrap name-tx"><input type="text"
+                                                            name="name" value="" size="40"
+                                                            class="wpcf7-form-control wpcf7-text" aria-invalid="false"
+                                                            placeholder="Tên" /></span>
+                                                    @error('name')
+                                                    <div>
+                                                        <p class="text-danger" style="color: red">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
                                                 <br />
                                                 <span class="wpcf7-form-control-wrap email-634"><input type="email"
                                                         name="email" value="" placeholder="Email" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email"
                                                         aria-invalid="false" /></span>
-                                            @error('email')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                            @enderror
-                                            <br />
+                                                @error('email')
+                                                    <div>
+                                                        <p class="text-danger" style="color: red">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
+                                                <br />
                                                 <span class="wpcf7-form-control-wrap email-634"><input type="text"
                                                         name="phone" value="" placeholder="Số điện thoại"
                                                         size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email"
                                                         aria-invalid="false" /></span>
-                                            @error('phone')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                            @enderror
-                                            <br />
+                                                @error('phone')
+                                                    <div>
+                                                        <p class="text-danger" style="color: red">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
+                                                <br />
                                                 <span class="wpcf7-form-control-wrap email-634"><input type="text"
-                                                        name="title" value="" placeholder="Tiêu đề"
-                                                        size="40"
+                                                        name="title" value="" placeholder="Tiêu đề" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email"
                                                         aria-invalid="false" /></span>
-                                            @error('title')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                            @enderror
-                                            <br />
+                                                @error('title')
+                                                    <div>
+                                                        <p class="text-danger" style="color: red">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
+                                                <br />
                                                 <span class="wpcf7-form-control-wrap textarea-120">
-                                                    <textarea name="content" cols="40" rows="8" class="wpcf7-form-control wpcf7-textarea"
-                                                        aria-invalid="false" placeholder="Nội dung"></textarea>
+                                                    <textarea name="content" cols="40" rows="8" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
+                                                        placeholder="Nội dung"></textarea>
                                                 </span>
-                                            @error('content')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                            @enderror
-                                            <br />
-                                                <input type="submit" value="Gửi"
-                                                    />
-                                            </p>
-
-
-                                        </form>
+                                                @error('content')
+                                                    <div>
+                                                        <p class="text-danger" style="color: red">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
+                                                <br />
+                                                <input type="submit" value="Gửi" />
+                                                </p>
+                                            </form>
                                         @endif
                                     </div>
                                 </div>
@@ -194,7 +185,9 @@
                                 </style>
                                 <div class="elementor-custom-embed">
                                     <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14895.879706651303!2d105.78916183544312!3d21.03388927820622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab491747765b%3A0xa9f8ea5ceb74424e!2zNjIgUC4gVHLGsMahbmcgQ8O0bmcgR2lhaSwgROG7i2NoIFbhu41uZywgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1681295404442!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14895.879706651303!2d105.78916183544312!3d21.03388927820622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab491747765b%3A0xa9f8ea5ceb74424e!2zNjIgUC4gVHLGsMahbmcgQ8O0bmcgR2lhaSwgROG7i2NoIFbhu41uZywgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1681295404442!5m2!1svi!2s"
+                                        width="600" height="450" style="border:0;" allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                                         title="62 Trương Công Giai - Cầu Giấy - Hà Nội"
                                         aria-label="62 Trương Công Giai - Cầu Giấy - Hà Nội"></iframe>
                                 </div>
@@ -212,7 +205,7 @@
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
                                                 <p class="elementor-heading-title elementor-size-default">
-                                                    Địa chỉ :
+                                                    Địa chỉ:
                                                 </p>
                                             </div>
                                         </div>
@@ -240,7 +233,7 @@
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
                                                 <p class="elementor-heading-title elementor-size-default">
-                                                    Số điện thoại :
+                                                    Số điện thoại:
                                                 </p>
                                             </div>
                                         </div>
@@ -274,7 +267,7 @@
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
                                                 <p class="elementor-heading-title elementor-size-default">
-                                                    Thành phố :
+                                                    Thành phố:
                                                 </p>
                                             </div>
                                         </div>
@@ -303,7 +296,7 @@
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
                                                 <p class="elementor-heading-title elementor-size-default">
-                                                    Email :
+                                                    Email:
                                                 </p>
                                             </div>
                                         </div>

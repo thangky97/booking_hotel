@@ -28,22 +28,19 @@ class ContactController extends Controller
     }
     public function add(Request $request){
         $rules = [
-
                 'name' => 'required',
                 'email' => 'required',
                 'phone' => 'required',
                 'content' => 'required',
                 'title' => 'required'
-
         ];
 
         $messages =[
-            'name.required' => 'Nhập tên!',
-            'email.required' => 'Nhập email!',
-
-            'phone.required' => 'Nhập phone!',
-            'content.required' => 'Nhập nội dung!',
-            'title.required' => 'Nhập tiêu đề!',
+            'name.required' => 'Không được bỏ trống tên!',
+            'email.required' => 'Không được bỏ trống email!',
+            'phone.required' => 'Không được bỏ trống phone!',
+            'content.required' => 'Không được bỏ trống nội dung!',
+            'title.required' => 'Không được bỏ trống tiêu đề!',
         ];
         $validatedData = $request->validate($rules,$messages);
 
@@ -58,11 +55,8 @@ class ContactController extends Controller
             ) ;
             $data->save();
 
-
             return redirect()->route('route_FrontEnd_Contact')
-                ->with('success', 'Gửi liên hệ thành công!');
-
-
+                ->with('success', 'Gửi thành công! Chúng tôi sẽ phản hồi sớm nhất');
     }
     public function detail($id){
         $this ->v['title'] = 'Chi tiết liên hệ';

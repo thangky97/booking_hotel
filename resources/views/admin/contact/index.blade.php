@@ -82,9 +82,8 @@
                                             <th class="text-center">Email</th>
                                             <th class="text-center">Số điện thoại</th>
                                             <th class="text-center">Tiêu đề</th>
-
                                             <th class="text-center">Trạng thái</th>
-                                            <th class="text-center"></th>
+                                            <th class="text-center">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -117,18 +116,19 @@
                                             </td>
 
                                             <td class="text-center">
-                                                @if ($c->status === 1)
-                                                <span class="text-success">Đã Xem</span>
+                                                @if ($c->status == 1)
+                                                <span class="text-success">Đã liên hệ</span>
                                                 @else
-                                                <span class="text-warning">Chưa Xem</span>
+                                                <span class="text-warning">Chưa liên hệ</span>
                                                 @endif
                                             </td>
-                                            <td>
-                                                <a href="{{route('route_BackEnd_Contact_Detail',$c->id)}}">Check</a>
+                                            <td class="text-center">
+                                                <a href="{{route('route_BackEnd_Contact_Detail',$c->id)}}">Chi tiết</a>
                                             </td>
 
                                         </tr>
                                         @endforeach
+                                       
                                     </tbody>
                                 </table>
                             </div>

@@ -50,6 +50,10 @@
 
 
                                 </div>
+                                <button class="btn btn-danger light btn-sl-sm mt-4" type="button"><span
+                                    class="me-2"><i class="fa fa-times"></i></span><a
+                                    href="{{ route('route_BackEnd_Contact_List') }}">Quay
+                                    Lại</a></button>
                             </div>
                         </div>
                     </div>
@@ -57,5 +61,4 @@
             </div>
         </div>
     </div>
-
 @endsection

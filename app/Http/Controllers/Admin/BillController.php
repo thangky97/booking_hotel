@@ -61,23 +61,26 @@ class BillController extends Controller
         $this->v['bill_detail'] = $modelBillDetail->loadOneBillDetail($id);
 
 
-        $bill = DB::table('bills')
+        $this->v['bill'] = DB::table('bills')
             ->leftJoin('bookings', 'bookings.id', '=', 'bills.booking_id')
             ->leftJoin('bookings_detail', 'bookings_detail.booking_id', '=', 'bills.booking_id')
             ->leftJoin('bill_detail', 'bill_detail.bill_id', '=', 'bills.id')
             ->leftJoin('rooms', 'rooms.id', '=', 'bookings_detail.room_id')
+            // ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.id')
             ->leftJoin('service_room', 'service_room.room_id', '=', 'rooms.id')
             ->select('bookings_detail.*', 'service_room.service_id')
+            ->select('rooms.name', 'rooms.cate_room', 'bookings.people', 'bookings.checkin_date', 'bookings.checkout_date', )
             ->where('bills.booking_id', '=', $booking_id)
             ->where('bills.id', '=', $id)
+
             ->distinct()
             ->get();
-        dd($bill);
+        // dd($this->v['bill']);
             // dd($room_service);
         // $this->v['bill_detail'] = Billdetails::with('room')->with('service')->with('bill')->paginate(10);
         // dd($bill);
-        // $Service = new Service();
-        // $this->v['service'] = $Service->loadAll();
+        $service = new Service();
+        $this->v['listService'] = $service->loadAll();
         // $Cate_rooms = new CategoryRooms();
         // $this->v['listCaterooms'] = $Cate_rooms->loadAll();
         // $Bookingdetail = new Bookingdetail();

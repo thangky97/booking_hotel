@@ -42,11 +42,11 @@
                                                 <span class="fs-16">#{{ $bill_detail->id }}</span>
                                             </td>
                                             <td>
-                                                @foreach ($listRooms as $lp)
+                                                {{-- @foreach ($listRooms as $lp)
                                                     @if ($bill_detail->room == $lp->room_id)
                                                         <p class="text-black">{{ $lp->name }}</p>
                                                     @endif
-                                                @endforeach
+                                                @endforeach --}}
                                             </td>
                                             <td>
                                                 <div>
@@ -55,7 +55,22 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <span class="fs-16">{{ $bill_detail->room_id }}</span>
+                                                    <span class="fs-16">
+                                                        {{-- {{ $bill_detail->room_id }} --}}
+                                                        {{-- @if ($bill->people)
+                                                                <span>{{ $bill->people }}</span>
+                                                            @else
+                                                                <span>Không có người đăng</span>
+                                                            @endif --}}
+                                                        {{-- <?php $service_ids = explode(',', $item->service_id); ?>
+                                                        @foreach ($service_ids as $service)
+                                                            @foreach ($listService as $service)
+                                                            @if ($service->service_id == $service->id)
+                                                                {{ $service->name }}<br>
+                                                            @endif
+                                                        @endforeach
+                                                        @endforeach --}}
+                                                    </span>
                                                 </div>
                                             </td>
                                             <td>
