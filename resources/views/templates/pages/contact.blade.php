@@ -3,6 +3,7 @@
 @section('title', 'Liên hệ')
 
 @section('content')
+
     <div class="elementor-section-wrap">
         <section
             class="elementor-section elementor-top-section elementor-element elementor-element-df26b5c elementor-section-stretched elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -92,69 +93,83 @@
                             </div>
                         </div>
                         <div class="elementor-element elementor-element-c6a25fa elementor-widget elementor-widget-cf7"
-                            data-id="c6a25fa" data-element_type="widget" data-widget_type="cf7.default">
-                            <div class="elementor-widget-container">
+                             >
+                            <div >
                                 <div class="nd_elements_cf7_component">
-                                    <div role="form" class="wpcf7" id="wpcf7-f489-p1680-o1" lang="en-US"
+                                    <div role="form"  lang="en-US"
                                         dir="ltr">
-                                        <div class="screen-reader-response">
-                                            <p role="status" aria-live="polite" aria-atomic="true"></p>
-                                            <ul></ul>
-                                        </div>
-                                        <form
-                                            action="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/contact-2/#wpcf7-f489-p1680-o1"
-                                            method="post" class="wpcf7-form init" novalidate="novalidate"
-                                            data-status="init">
-                                            <div style="display: none">
-                                                <input type="hidden" name="_wpcf7" value="489" />
-                                                <input type="hidden" name="_wpcf7_version" value="5.5.6" />
-                                                <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f489-p1680-o1" />
-                                                <input type="hidden" name="_wpcf7_container_post" value="1680" />
-                                                <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+                                        @if (Session::has('success'))
+                                            <div class="alert alert-success solid alert-dismissible fade show">
+                                                <span><i class="mdi mdi-check"></i></span>
+                                                <strong>{{ Session::get('success') }}</strong>
+
                                             </div>
+                                        @else
+                                        <form
+                                            action="{{route('route_BackEnd_Contact_Add')}}"
+                                            method="post"
+                                           >
+                                        @csrf
                                             <p>
                                                 <span class="wpcf7-form-control-wrap name-tx"><input type="text"
                                                         name="name" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text" aria-invalid="false"
-                                                        placeholder="Tên" /></span><br />
+                                                        placeholder="Tên" /></span>
+                                            @error('name')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                            @enderror
+                                                <br />
                                                 <span class="wpcf7-form-control-wrap email-634"><input type="email"
                                                         name="email" value="" placeholder="Email" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email"
-                                                        aria-invalid="false" /></span><br />
+                                                        aria-invalid="false" /></span>
+                                            @error('email')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                            @enderror
+                                            <br />
                                                 <span class="wpcf7-form-control-wrap email-634"><input type="text"
                                                         name="phone" value="" placeholder="Số điện thoại"
                                                         size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email"
-                                                        aria-invalid="false" /></span><br />
+                                                        aria-invalid="false" /></span>
+                                            @error('phone')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                            @enderror
+                                            <br />
                                                 <span class="wpcf7-form-control-wrap email-634"><input type="text"
                                                         name="title" value="" placeholder="Tiêu đề"
                                                         size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email"
-                                                        aria-invalid="false" /></span><br />
+                                                        aria-invalid="false" /></span>
+                                            @error('title')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                            @enderror
+                                            <br />
                                                 <span class="wpcf7-form-control-wrap textarea-120">
-                                                    <textarea name="textarea-120" cols="40" rows="8" class="wpcf7-form-control wpcf7-textarea"
+                                                    <textarea name="content" cols="40" rows="8" class="wpcf7-form-control wpcf7-textarea"
                                                         aria-invalid="false" placeholder="Nội dung"></textarea>
-                                                </span><br />
+                                                </span>
+                                            @error('content')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                            @enderror
+                                            <br />
                                                 <input type="submit" value="Gửi"
-                                                    class="wpcf7-form-control has-spinner wpcf7-submit" />
+                                                    />
                                             </p>
-                                            <p style="display: none !important">
-                                                <label>&#916;
-                                                    <textarea name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea>
-                                                </label><input type="hidden" id="ak_js_1" name="_wpcf7_ak_js"
-                                                    value="204" />
-                                                <script>
-                                                    document
-                                                        .getElementById("ak_js_1")
-                                                        .setAttribute(
-                                                            "value",
-                                                            new Date().getTime()
-                                                        );
-                                                </script>
-                                            </p>
-                                            <div class="wpcf7-response-output" aria-hidden="true"></div>
+
+
                                         </form>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

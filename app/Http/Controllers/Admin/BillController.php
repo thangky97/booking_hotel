@@ -55,17 +55,24 @@ class BillController extends Controller
 
     public function bill_detail($id)
     {
+        $booking_id = Bills::find($id)->booking_id;
         $this->v['title'] = 'Chi tiết hóa đơn';
         $modelBillDetail = new Billdetails();
         $this->v['bill_detail'] = $modelBillDetail->loadOneBillDetail($id);
 
 
-        $room_service = DB::table('bookings_detail')
+        $bill = DB::table('bills')
+            ->leftJoin('bookings', 'bookings.id', '=', 'bills.booking_id')
+            ->leftJoin('bookings_detail', 'bookings_detail.booking_id', '=', 'bills.booking_id')
+            ->leftJoin('bill_detail', 'bill_detail.bill_id', '=', 'bills.id')
+            ->leftJoin('rooms', 'rooms.id', '=', 'bookings_detail.room_id')
+            ->leftJoin('service_room', 'service_room.room_id', '=', 'rooms.id')
             ->select('bookings_detail.*', 'service_room.service_id')
-            ->leftJoin('service_room', 'service_room.room_id', '=', 'bookings_detail.room_id')
-            ->where('bookings_detail.booking_id', '=', $id)
-            ->where('service_room.booking_id', '=', $id)
+            ->where('bills.booking_id', '=', $booking_id)
+            ->where('bills.id', '=', $id)
+            ->distinct()
             ->get();
+        dd($bill);
             // dd($room_service);
         // $this->v['bill_detail'] = Billdetails::with('room')->with('service')->with('bill')->paginate(10);
         // dd($bill);
@@ -216,37 +223,37 @@ class BillController extends Controller
             text-align: center;
         }
         i {
-            font-size : 12px;            
+            font-size : 12px;
         }
         table {
             border-collapse: collapse;
             width: 100%;
           }
-          
+
           td, th {
             border: 1px solid #dddddd;
             text-align: center;
             padding: 0 8px 8px 8px;
           }
-          
+
           tr:nth-child(even) {
             background-color: #dddddd;
           }
         </style>';
         $output .= '
-        
+
         <h2>Hóa đơn thanh toán</h2>
-        
+
         <i>Khách hàng :' . $this->v['user']['name'] . '</i><br>
         <i style="text-align:right;">Số điện thoại :' . $this->v['user']['phone'] . '</i><br>
         <i >Email :' . $this->v['user']['email'] . '</i><br>
         <i ">Địa chỉ :' . $this->v['user']['address'] . '</i>
 
         <div>
-                           
+
                             <h5 > <i class="far fa-calendar-minus scale3 me-3"></i>Thời gian sử dụng: ' . (date("d/m/Y", strtotime($this->v['booking']['checkin_date']))) . ' - ' . (date("d/m/Y", strtotime($this->v['booking']['checkout_date']))) . '</h5>
                         </div>
-        
+
         <table>
                                 <thead>
                                     <tr>
@@ -255,7 +262,7 @@ class BillController extends Controller
                                         <th >Dịch vụ</th>
                                         <th>Phí dịch vụ</th>
                                         <th >Tổng</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>';
@@ -271,7 +278,7 @@ class BillController extends Controller
                             <tr>
                             <td>
                                 <div class="guest-bx">
-                                    
+
                                     <img src="" alt="">
                                     <div>
                                         <h4 class="mb-0 mt-1"><a class="text-black" href="">' . $room->name . '</a></h4>
@@ -295,7 +302,7 @@ class BillController extends Controller
                                 }
                             }
 
-                            $output .= '  
+                            $output .= '
                             </td>
                             <td>';
                             $money = 0;
@@ -312,7 +319,7 @@ class BillController extends Controller
                             $output .= ' <span class="text-primary d-block guest-bx">' . number_format($money) . 'đ<br></span>';
 
                             $output .= '
-                            
+
                             </td>
                             <td>
                                 <div>
@@ -332,8 +339,8 @@ class BillController extends Controller
                             $output .= '<span class="text-danger d-block guest-bx">' . number_format($total) . 'đ</span>
                                 </div>
                             </td>
-                            
-                            
+
+
                         </tr>
                                 ';
                         }
@@ -343,11 +350,11 @@ class BillController extends Controller
         }
 
 
-        $output .= ' 
-                                        
-                                            
-                                       
-                                   
+        $output .= '
+
+
+
+
                                 </tbody>
                             </table>
                             <div style="text-align:center;">

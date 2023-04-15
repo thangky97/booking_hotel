@@ -82,9 +82,9 @@
                                             <th class="text-center">Email</th>
                                             <th class="text-center">Số điện thoại</th>
                                             <th class="text-center">Tiêu đề</th>
-                                            <th class="text-center">Nội dung</th>
+
                                             <th class="text-center">Trạng thái</th>
-                                            <th class="text-center">Hành động</th>
+                                            <th class="text-center"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -115,22 +115,18 @@
                                                     <span>{{ $c->title }}</span>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span>{{ $c->content }}</span>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                @if ($c->status === 1)
-                                                <span class="text-success">Đã liên hệ</span>
-                                                @else
-                                                <span class="text-warning">Chưa liên hệ</span>
-                                                @endif
-                                            </td>
 
                                             <td class="text-center">
-                                                <a href="{{ route('route_BackEnd_Contact_Detail', $c->id) }}" style="margin-left: 10px"><button class="btn btn-primary">Sửa</button></a>
+                                                @if ($c->status === 1)
+                                                <span class="text-success">Đã Xem</span>
+                                                @else
+                                                <span class="text-warning">Chưa Xem</span>
+                                                @endif
                                             </td>
+                                            <td>
+                                                <a href="{{route('route_BackEnd_Contact_Detail',$c->id)}}">Check</a>
+                                            </td>
+
                                         </tr>
                                         @endforeach
                                     </tbody>
