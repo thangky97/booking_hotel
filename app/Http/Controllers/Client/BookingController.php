@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BookingRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\Booking;
 use App\Models\Bookingdetail;
 use App\Models\CategoryRooms;
@@ -150,7 +152,7 @@ class BookingController extends Controller
 
     public function createBooking(Request $request)
     {
-
+        
         $name = $request->name;
         $phone = $request->phone;
         $email = $request->email;
@@ -159,12 +161,15 @@ class BookingController extends Controller
         $date = $request->date;
         $cccd = $request->cccd;
 
+
         $user_profile = DB::table('users')
             ->where('email', '=', $email)
             ->first();
 
         if (empty($user_profile)) {
+            
             $user = Users::create($request->all());
+            
             
             $booking = Booking::create([
                 'user_id' => $user->id,
@@ -332,6 +337,7 @@ class BookingController extends Controller
             $this->v['title'] = 'Thanh toán';
         } else {
             if ($cccd == null) {
+                
                 Users::where('email', $email)->update(['name' => $name, 'phone' => $phone, 'email' => $user_profile->email, 'address' => $address, 'gender' => $gender, 'date' => $date, 'cccd' => $user_profile->cccd]);
                 $user = new Users();
 
@@ -500,7 +506,6 @@ class BookingController extends Controller
                 $this->v['title'] = 'Thanh toán';
             } else {
                 
-                
                 if ($request->hasFile('cccd') && $request->file('cccd')->isValid()) {
                     $cccd_update = $this->uploadFile($request->file('cccd'));
                     
@@ -509,7 +514,6 @@ class BookingController extends Controller
                     
                     Users::where('email', $email)->update(['name' => $name, 'phone' => $phone, 'email' => $user_profile->email, 'address' => $address, 'gender' => $gender, 'date' => $date, 'cccd' => 'profile/' . $cccd]);
                 }
-
 
                 $user = new Users();
                 $booking = Booking::create([
@@ -677,7 +681,7 @@ class BookingController extends Controller
             }
         }
 
-        return view('templates/pages/checkout', $this->v);
+        return view('templates.pages.checkout', $this->v);
     }
     public function uploadFile($file)
     {
