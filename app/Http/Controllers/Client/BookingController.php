@@ -331,8 +331,7 @@ class BookingController extends Controller
             $Cate_rooms = new Categoryrooms();
             $this->v['listCaterooms'] = $Cate_rooms->loadAll();
             $this->v['user'] = $user;
-            dd($this->v['user']);
-            die;
+           
             $this->v['booking'] = $booking;
             $this->v['title'] = 'Thanh toán';
         } else {

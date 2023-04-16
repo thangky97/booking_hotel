@@ -81,7 +81,6 @@ class paymentController extends Controller
         $booking = Booking::find($id);
         $this->v['booking'] = $booking;
         
-
         $this->v['user'] = Users::find($booking->user_id);
 
         $use_date = (strtotime($this->v['booking']['checkout_date']) - strtotime($this->v['booking']['checkin_date'])) / (60 * 60 * 24);

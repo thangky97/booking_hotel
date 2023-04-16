@@ -152,10 +152,13 @@
                                                     </a>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
+                                                        <?php $today = date("Y/m/d", strtotime("now")) ?>
+                                                        @if(strtotime($item->checkout_date) <= strtotime($today)) 
                                                         @if(in_array($item->id,$list))
                                                         <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Xem Bill</a>
                                                         @else
                                                         <a class="dropdown-item" href="{{route('route_BackEnd_Bill_Room',$item->id)}}">Tạo Bill</a>
+                                                        @endif
                                                         @endif
 
                                                     </div>
