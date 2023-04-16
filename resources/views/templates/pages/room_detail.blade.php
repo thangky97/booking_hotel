@@ -159,7 +159,7 @@
             <div id="nd_booking_single_cpt_1_services_content" class="nd_booking_section">
                 <div class="nd_booking_section nd_booking_height_40"></div>
                 <div class="nd_booking_section">
-                    <h2 class="nd_booking_word_wrap_break_word"><span style="text-transform: capitalize;">Thuộc tính</span></h2>
+                    <h2 class="nd_booking_word_wrap_break_word"><span style="text-transform: capitalize;">Tiện ích</span></h2>
                 </div>
                 <div class="nd_booking_section nd_booking_height_20"></div>
                 <?php $propertyWork = explode(',', $room->properties_id); ?>
@@ -527,7 +527,7 @@
                         </div>
                         <input
                             class="nd_options_color_white nd_booking_width_100_percentage nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_bg_yellow nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2"
-                            type="submit" value="Đặt phòng">
+                            type="submit" value="Tìm phòng">
                     </div>
                     <!--END button-->
 

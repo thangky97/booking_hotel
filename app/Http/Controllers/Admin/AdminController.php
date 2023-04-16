@@ -8,6 +8,7 @@ use App\Models\Admin;
 use App\Models\Bills;
 use App\Models\Booking;
 use App\Models\CategoryRooms;
+use App\Models\Rooms;
 use App\Models\Users;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -41,15 +42,24 @@ class AdminController extends Controller
             ->count();
 
         //Tổng tiền theo tháng
+        $this->v['totalMoneyToday'] = DB::table('bills')
+            ->whereDate('created_at', today())
+            ->sum('total_money');
+
+        $this->v['countBookingMonth'] = DB::table('bookings')
+            ->whereMonth('created_at', '=', date('m'))
+            ->whereYear('created_at', '=', date('Y'))
+            ->count();
+
+        //Tổng tiền theo tháng
         $this->v['totalMoneyMonth'] = DB::table('bills')
             ->whereMonth('created_at', '=', date('m'))
             ->whereYear('created_at', '=', date('Y'))
             ->sum('total_money');
 
-        //Tổng số ng trong tháng
-        $this->v['totalPeopleMonth'] = DB::table('users')
-            ->whereMonth('created_at', '=', date('m'))
-            ->whereYear('created_at', '=', date('Y'))
+        //Bao nhiêu đơn đã thanh toán
+        $this->v['totalBookingPay'] = Booking::where('status_pay', "1")
+            ->whereDate('created_at', today())
             ->count();
 
         $today = Carbon::today();
@@ -78,11 +88,24 @@ class AdminController extends Controller
         //     })
         //     ->count();
 
-        $this->v['emptyRoom'] = Booking::where('status_booking', '1')
-            ->whereDate('checkin_date', '<=', $today)
-            ->whereDate('checkout_date', '>=', $today)
-            ->count();
-
+        $countRoom = DB::table('rooms')->count();
+        $rooms = DB::table('rooms')
+            ->leftjoin('bookings_detail', 'bookings_detail.room_id', '=', 'rooms.id')
+            ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
+            ->select('rooms.*', 'bookings.checkin_date', 'bookings.checkout_date')
+            ->get();
+        $count=0;
+        foreach ($rooms as $index => $room) {
+            if (strtotime($room->checkin_date) < strtotime('now') && strtotime($room->checkout_date) > strtotime('now')) {
+                $count++;
+            }
+            if (strtotime($room->checkin_date) == strtotime('now') || strtotime($room->checkout_date) == strtotime('now')) {
+                $count++;
+            }
+        }
+        $this->v['countRoom'] = $countRoom;
+        $this->v['count'] = $count;
+        $this->v['emptyRoom'] = $countRoom - $count;
         return view("admin.dashboard", $this->v);
     }
 
@@ -231,7 +254,7 @@ class AdminController extends Controller
         ->where('staff_id','=',$id)
         ->orderBy('id','desc')
         ->paginate(10);
-       
+
         $bills = new Bills();
         $arrBills = array();
         foreach ($bills->loadAll() as $index => $bill_bk) {
@@ -240,7 +263,7 @@ class AdminController extends Controller
         }
         $this->v['list'] = $arrBills;
         $this->v['title'] = 'Thống kê đơn đã xử lí';
-        
+
         return view('admin.administration.employees', $this->v);
     }
 
