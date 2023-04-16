@@ -494,8 +494,7 @@
                                                                                                                 value="{{ $service->id }}">{{ $service->name }}:
                                                                                                             {{ $service->price }}đ
                                                                                                         </li>
-                                                                                                        <blade
-                                                                                                            ___scripts_4___ />
+
                                                                                                     @endforeach
                                                                                                 </ul>
                                                                                             </td>

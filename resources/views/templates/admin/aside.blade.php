@@ -79,6 +79,11 @@
                             <span class="nav-text">Voucher</span>
                         </a>
                     </li>
+                    <li><a class="" href="{{ route('route_BackEnd_Statistical') }}" aria-expanded="false">
+                            <i class="bi bi-bar-chart-fill"></i>
+                            <span class="nav-text">Thống kê</span>
+                        </a>
+                    </li>
                     {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-050-info"></i>
                             <span class="nav-text">Bài đăng</span>
@@ -152,6 +157,11 @@
                 <li><a class="" href="{{ route('route_BackEnd_Voucher_index') }}" aria-expanded="false">
                         <i class="bi bi-gift-fill"></i>
                         <span class="nav-text">Voucher</span>
+                    </a>
+                </li>
+                <li><a class="" href="{{ route('route_BackEnd_Statistical') }}" aria-expanded="false">
+                        <i class="bi bi-bar-chart-fill"></i>
+                        <span class="nav-text">Thống kê</span>
                     </a>
                 </li>
                 @endif
