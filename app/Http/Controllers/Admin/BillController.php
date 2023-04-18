@@ -56,43 +56,63 @@ class BillController extends Controller
     public function bill_detail($id)
     {
         $booking_id = Bills::find($id)->booking_id;
-        $this->v['title'] = 'Chi tiết hóa đơn';
-        $modelBillDetail = new Billdetails();
-        $this->v['bill_detail'] = $modelBillDetail->loadOneBillDetail($id);
-
-
-        $this->v['bill'] = DB::table('bills')
-            ->leftJoin('bookings', 'bookings.id', '=', 'bills.booking_id')
-            ->leftJoin('bookings_detail', 'bookings_detail.booking_id', '=', 'bills.booking_id')
-            ->leftJoin('bill_detail', 'bill_detail.bill_id', '=', 'bills.id')
-            ->leftJoin('rooms', 'rooms.id', '=', 'bookings_detail.room_id')
-            // ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.id')
-            ->leftJoin('service_room', 'service_room.room_id', '=', 'rooms.id')
-            ->select('bookings_detail.*', 'service_room.service_id')
-            ->select('rooms.name', 'rooms.cate_room', 'bookings.people', 'bookings.checkin_date', 'bookings.checkout_date', )
-            ->where('bills.booking_id', '=', $booking_id)
-            ->where('bills.id', '=', $id)
-
-            ->distinct()
+        $this->v['listUsers'] = DB::table('users')->get();
+        $this->v['bill'] = Bills::find($id);
+        $vouchers = new Voucher();
+        $this->v['vouchers'] = $vouchers->loadAll();
+        $Bookingdetail = new Bookingdetail();
+        $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($booking_id);
+        $rooms = DB::table('rooms')
+            ->leftjoin('category_rooms', 'category_rooms.id', '=', 'rooms.cate_room')
+            ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
+            ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
+            ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')
+            ->where('service_room.booking_id','=',$booking_id)
             ->get();
-        // dd($this->v['bill']);
-            // dd($room_service);
-        // $this->v['bill_detail'] = Billdetails::with('room')->with('service')->with('bill')->paginate(10);
-        // dd($bill);
-        $service = new Service();
-        $this->v['listService'] = $service->loadAll();
-        // $Cate_rooms = new CategoryRooms();
-        // $this->v['listCaterooms'] = $Cate_rooms->loadAll();
-        // $Bookingdetail = new Bookingdetail();
-        // $this->v['bookingDetails'] = $Bookingdetail->loadIdBooking($id);
-        $this->v['listRooms'] = Billdetails::with('room');
-        // $this->v['bill_detail'] = Billdetails::select('id', 'service_id', 'room_id', 'bill_id', 'date', 'status');
-        // $booking = Booking::find($id);
-        // $this->v['booking'] = $booking;
-        // $use_date = (strtotime($this->v['booking']['checkout_date']) - strtotime($this->v['booking']['checkin_date'])) / (60 * 60 * 24);
-        // $this->v['use_date'] = $use_date;
-        // $this->v['user'] = Users::find($booking->user_id);
-        // $this->v['count'] = count($this->v['bookingDetails']);
+
+        $price = 0;
+        foreach ($rooms as $item) {
+            $price = $item->price + $price;
+        }
+        $arrService = array();
+        foreach ($rooms as $item){
+            $arrService = array_merge($arrService,explode(',' ,$item->service_id));
+        }
+        $Service = new Service();
+        $this->v['listServices'] = $Service->loadAll();
+        foreach ($arrService as $item){
+            foreach ($this->v['listServices'] as $service){
+                if ($item == $service->id){
+                    $price = $price + $service->price;
+                }
+            }
+        }
+        $this->v['listRooms'] = $rooms;
+        $this->v['price'] = $price;
+        $booking = Booking::find($booking_id);
+        $this->v['booking'] = $booking;
+        $this->v['user'] = Users::find($booking->user_id);
+        $Cate_rooms = new Categoryrooms();
+        $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        $Service = new Service();
+        $this->v['listServices'] = $Service->loadAll();
+        $history = DB::table('bookings')
+            ->where('bookings.user_id', '=', $this->v['user']['id'])
+            ->where('bookings.id', '!=', $booking_id)
+            ->orderByDesc('bookings.checkin_date')
+            ->get();
+        $this->v['history'] = $history;
+        $bills = new Bills();
+        $arrBills = array();
+        foreach ($bills->loadAll() as $index => $bill_bk) {
+            $arrBill_bk = array($index => $bill_bk->booking_id);
+            $arrBills = $arrBill_bk + $arrBills;
+        }
+        $this->v['list'] = $arrBills;
+
+        $this->v['title'] = 'Chi tiết hóa đơn';
+
+
         return view('admin.bill_detail.index', $this->v);
     }
 

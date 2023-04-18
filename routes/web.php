@@ -79,6 +79,8 @@ Route::get('403', 'ErrorController@error403')->name('403');
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/dashboard', 'Admin\AdminController@admin')->name('route_BackEnd_Dashboard');
+    Route::get('/statistical', 'Admin\StatisticalController@index')->name('route_BackEnd_Statistical');
+    Route::post('/statistical', 'Admin\StatisticalController@month')->name('route_BackEnd_Statistical_Month');
 
     Route::prefix('/profile')->group(function () {
         Route::get('/edit/{id}', 'Admin\ProfileController@edit')->name('route_BackEnd_Profile_Edit');
