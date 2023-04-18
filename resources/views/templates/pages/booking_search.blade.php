@@ -770,7 +770,10 @@
                                                     value="{{ date('Y-m-d', $check_out) }}" hidden>
                                                 <input type="text" name="people" value="{{ $people }}" hidden>
                                                 <input type="text" id="postDataRoom" name="rooms" hidden>
-                                                <button type="submit" style="margin-right: 25px">Đặt phòng</button>
+                                                <div id="showbutton">
+
+                                                </div>
+{{--                                                <button type="submit" style="margin-right: 25px">Đặt phòng</button>--}}
                                             </form>
                                         </div>
 
@@ -949,14 +952,17 @@
                                                                                             if (localStorage.getItem('people') >= Number({{ $people }}) && localStorage.getItem('people') <=
                                                                                                 {{ (int) $people + 3 }}) {
                                                                                                 document.getElementById("showpeople").style.color = 'green';
+                                                                                                document.getElementById("showbutton").innerHTML = '<button type="submit" style="margin-right: 25px">Đặt phòng</button>';
                                                                                             } else {
                                                                                                 document.getElementById("showpeople").style.color = 'red';
                                                                                                 if (localStorage.getItem('people') < Number({{ $people }})) {
                                                                                                     document.getElementById('showpeople').innerHTML = 'Số người: ' + localStorage.getItem('people') +
                                                                                                         '<br>' + 'Số lượng người chưa đủ!';
+                                                                                                    document.getElementById("showbutton").innerHTML = '';
                                                                                                 } else {
                                                                                                     document.getElementById('showpeople').innerHTML = 'Số người: ' + localStorage.getItem('people') +
                                                                                                         '<br>' + 'Số lượng người đã lớn hơn số lượng đặt!';
+                                                                                                    document.getElementById("showbutton").innerHTML = '';
                                                                                                 }
                                                                                             }
                                                                                         };
@@ -993,14 +999,17 @@
                                                                                             if (localStorage.getItem('people') >= Number({{ $people }}) && localStorage.getItem('people') <=
                                                                                                 {{ (int) $people + 3 }}) {
                                                                                                 document.getElementById("showpeople").style.color = 'green';
+                                                                                                document.getElementById("showbutton").innerHTML = '<button type="submit" style="margin-right: 25px">Đặt phòng</button>';
                                                                                             } else {
                                                                                                 document.getElementById("showpeople").style.color = 'red';
                                                                                                 if (localStorage.getItem('people') < Number({{ $people }})) {
                                                                                                     document.getElementById('showpeople').innerHTML = 'Số người: ' + localStorage.getItem('people') +
                                                                                                         '<br>' + 'Số lượng người chưa đủ!';
+                                                                                                    document.getElementById("showbutton").innerHTML = '';
                                                                                                 } else {
                                                                                                     document.getElementById('showpeople').innerHTML = 'Số người: ' + localStorage.getItem('people') +
                                                                                                         '<br>' + 'Số lượng người đã lớn hơn số lượng đặt!';
+                                                                                                    document.getElementById("showbutton").innerHTML = '';
                                                                                                 }
                                                                                             }
                                                                                         }
