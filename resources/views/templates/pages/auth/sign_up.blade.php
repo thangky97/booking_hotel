@@ -44,11 +44,27 @@
                                         method="post">
                                         @csrf
                                         <div class="card-header text-center">
-                                            <h3 class="h5 mb-0 font-weight-semi-bold">Đăng ký</h3>
+                                            <h3 class="h5 mb-0 font-weight-semi-bold">Đăng ký <a href="{{route('route_FrontEnd_Home')}}"> <i>12 Zodiac</i></a></h3>
                                         </div>
                                         <!-- End Header -->
                                         <div class="card-body pt-5 pb-4">
-
+                                        @if ( Session::has('success') )
+                                            <div class="alert alert-success alert-dismissible" role="alert">
+                                                <strong>{{ Session::get('success') }}</strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    <span class="sr-only">Close</span>
+                                                </button>
+                                            </div>
+                                            @endif
+                                            <?php //Hiển thị thông báo lỗi
+                                            ?>
+                                            @if ( Session::has('error') )
+                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                <strong>{{ Session::get('error') }}</strong>
+                                                
+                                            </div>
+                                            @endif
                                             <div class="tab-content">
                                                 <div class="tab-pane fade active show" id="pills-one-code-sample"
                                                     role="tabpanel" aria-labelledby="pills-one-code-sample-tab">

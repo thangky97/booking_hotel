@@ -152,11 +152,13 @@
                                                     </a>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item" href="{{route('route_BackEnd_Bookings_Detail',$item->id)}}">Chi tiết</a>
-                                                        @if(in_array($item->id,$list))
-                                                        <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Xem Bill</a>
-                                                        @else
-                                                        <a class="dropdown-item" href="{{route('route_BackEnd_Bill_Room',$item->id)}}">Tạo Bill</a>
-                                                        @endif
+                                                        <?php $today = date("Y/m/d", strtotime("now")) ?>
+                                                        @if(strtotime($item->checkout_date) <= strtotime($today)) @if(in_array($item->id,$list))
+                                                            <a class="dropdown-item" href="{{route('route_BackEnd_Bill',$item->id)}}">Xem Bill</a>
+                                                            @else
+                                                            <a class="dropdown-item" href="{{route('route_BackEnd_Bill_Room',$item->id)}}">Tạo Bill</a>
+                                                            @endif
+                                                            @endif
 
                                                     </div>
                                                 </div>
@@ -228,14 +230,21 @@
                                             </td>
                                             <td class="text-center">
                                                 <span class="fs-16">
-                                                    <?= $item->status_pay == 0 ? '<span class="badge light badge-success">Đã thanh toán</span>' : '<span class="badge light badge-danger">Chưa thanh toán</span>' ?>
-                                                </span>
+                                                    @if($item->status_booking ==0)
+                                                    <span class="badge light badge-warning">Đã Hủy</span>
+                                                    @else
+                                                    <?= $item->status_pay == 1 ? '<span class="badge light badge-success">Đã thanh toán</span>' : '<span class="badge light badge-warning">Chưa thanh toán</span>' ?>
+                                                    @endif </span>
                                             </td>
                                             <td class="text-center">
+                                                @if($item->status_booking ==0)
+                                                <p style="width: 150px" class="text-danger"><i>Lỗi thanh toán VNPAY</i></p>
+                                                @else
                                                 @if(empty($item->money_paid))
                                                 <p style="width: 150px" class="text-primary">Tại quầy</p>
                                                 @else
                                                 <p style="width: 150px" class="text-danger"><i>{{number_format($item->money_paid)}}đ</i></p>
+                                                @endif
                                                 @endif
                                             </td>
                                             <td class="text-center">
@@ -278,7 +287,7 @@
                                             <th class="h5 text-center">Khách hàng</th>
                                             <th class="h5 text-center">Ngày đặt</th>
                                             <th class="h5 text-center">Ngày trả</th>
-                                            <th class="h5 text-center">Người</th>                                         
+                                            <th class="h5 text-center">Người</th>
                                             <th class="h5 text-center">Thanh Toán</th>
                                             <th class="h5 text-center">Thanh Toán(VNPAY)</th>
                                             <th class="h5 text-center">Hành Động</th>
@@ -324,10 +333,10 @@
                                             </td>
                                             <td class="text-center">
                                                 <span class="fs-16">
-                                                    <?= $item->status_pay == 0 ? '<span class="badge light badge-success">Đã thanh toán</span>' : '<span class="badge light badge-warning">Chưa thanh toán</span>' ?>
+                                                    <span class="badge light badge-warning">Đã hủy</span>
                                                 </span>
                                             </td>
-                                            <td class="text-center">                                          
+                                            <td class="text-center">
                                                 <p style="width: 150px" class="text-danger"><i>Lỗi thanh toán VNPAY</i></p>
 
                                             </td>

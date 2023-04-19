@@ -81,7 +81,6 @@ class paymentController extends Controller
         $booking = Booking::find($id);
         $this->v['booking'] = $booking;
         
-
         $this->v['user'] = Users::find($booking->user_id);
 
         $use_date = (strtotime($this->v['booking']['checkout_date']) - strtotime($this->v['booking']['checkin_date'])) / (60 * 60 * 24);
@@ -138,7 +137,7 @@ class paymentController extends Controller
 
         $name_email = '12 Zodiac';
         Mail::send('email.booking', $this->v, function ($email) {
-            $email->subject('Your Booking Information');
+            $email->subject('Đơn đặt phòng của bạn!');
             $email->to($this->v['email_user'], '12 Zodiac - Hotel');
         });
         }

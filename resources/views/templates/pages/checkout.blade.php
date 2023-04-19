@@ -530,13 +530,11 @@
                                                                         <h4>
                                                                             <a class="nd_booking_outline_0 nd_booking_padding_10_0 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_font_size_14 nd_booking_display_inline_block nd_options_second_font nd_options_color_greydark"
                                                                                 href="#nd_booking_checkout_payment_3_tab">
-                                                                                THANH TOÁN KHI ĐẾN</a>
+                                                                                </a>
                                                                             <div
                                                                                     class="nd_options_display_table_cell nd_options_vertical_align_middle    ">
                                                                                 <a class="nd_options_margin_right_20 nd_options__font "
-                                                                                   href="#">LƯU ý: Yêu cầu này không
-                                                                                    phải là đặt phòng mà là một yêu cầu đơn
-                                                                                    giản, chúng tôi sẽ liên hệ với bạn.</a>
+                                                                                   href="#">Lưu ý: Khi thanh toán xong hãy để ý điện thoại khi nhân viên khách sạn gọi lại để xác nhận đặt phòng.</a>
                                                                             </div>
                                                                         </h4>
 
@@ -616,5 +614,5 @@
                                 </div>
                             </div>
                         </section>
-
+                        
                     @endsection

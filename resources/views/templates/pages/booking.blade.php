@@ -555,7 +555,7 @@
                                                                                     <input class="nd_booking_section"
                                                                                         id="nd_booking_booking_form_name"
                                                                                         name="name" type="text"
-                                                                                        value="{{ $profile['name'] }}">
+                                                                                        value="{{ $profile['name'] }}" required/>
                                                                                         @error('name')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -571,7 +571,7 @@
                                                                                     <input class="nd_booking_section"
                                                                                         id="nd_booking_booking_form_phone"
                                                                                         name="phone" type="text"
-                                                                                        value="{{ $profile['phone'] }}">
+                                                                                        value="{{$profile['phone'] }}" require/>
                                                                                         @error('phone')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -591,7 +591,7 @@
                                                                                         id="nd_booking_booking_form_email"
                                                                                         name="email" type="text"
                                                                                         readonly
-                                                                                        value="{{ $profile['email'] }}">
+                                                                                        value="{{ $profile['email'] }}" require/>
                                                                                         @error('email')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -607,7 +607,7 @@
                                                                                     <input class="nd_booking_section"
                                                                                         id="nd_booking_booking_form_address"
                                                                                         name="address" type="text"
-                                                                                        value="{{ $profile['address'] }}">
+                                                                                        value="{{ $profile['address'] }}" require/>
                                                                                         @error('address')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -624,7 +624,7 @@
                                                                                         class="nicdark_section nicdark_height_5">
                                                                                     </div>
                                                                                     <select name="gender"
-                                                                                        class="nd_booking_section">
+                                                                                        class="nd_booking_section" require>
                                                                                         <option
                                                                                             data-display="Chọn giới tính" value="">
                                                                                             Chọn giới tính</option>
@@ -650,7 +650,7 @@
                                                                                     <input class="nd_booking_section"
                                                                                         id="nd_booking_booking_form_zip"
                                                                                         name="date" type="date"
-                                                                                        value="{{ $profile['date'] }}">
+                                                                                        value="{{ $profile['date'] }}" require/>
                                                                                         @error('date')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -675,7 +675,7 @@
                                                                                     <input class="nd_booking_section"
                                                                                         id="nd_booking_booking_form_coupon"
                                                                                         name="cccd" type="file"
-                                                                                        multiple>
+                                                                                        multiple />
                                                                                         @error('cccd')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -693,7 +693,7 @@
                                                                                 </div>
                                                                                 <input class="nd_booking_section"
                                                                                     id="nd_booking_booking_form_name"
-                                                                                    name="name" type="text">
+                                                                                    name="name" type="text" require/>
                                                                                     @error('name')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -708,7 +708,7 @@
                                                                                 </div>
                                                                                 <input class="nd_booking_section"
                                                                                     id="nd_booking_booking_form_phone"
-                                                                                    name="phone" type="text">
+                                                                                    name="phone" type="text" require/>
                                                                                     @error('phone')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -726,7 +726,7 @@
                                                                                 </div>
                                                                                 <input class="nd_booking_section"
                                                                                     id="nd_booking_booking_form_email"
-                                                                                    name="email" type="text">
+                                                                                    name="email" type="text" require/>
                                                                                     @error('email')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -741,7 +741,7 @@
                                                                                 </div>
                                                                                 <input class="nd_booking_section"
                                                                                     id="nd_booking_booking_form_address"
-                                                                                    name="address" type="text">
+                                                                                    name="address" type="text" require/>
                                                                                     @error('address')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -758,7 +758,7 @@
                                                                                     class="nicdark_section nicdark_height_5">
                                                                                 </div>
                                                                                 <select name="gender"
-                                                                                    class="nd_booking_section">
+                                                                                    class="nd_booking_section" require>
                                                                                     <option data-display="Chọn giới tính" value="">
                                                                                         Chọn giới tính</option>
                                                                                     <option value="0">Nữ</option>
@@ -778,7 +778,7 @@
                                                                                 </div>
                                                                                 <input class="nd_booking_section"
                                                                                     id="nd_booking_booking_form_zip"
-                                                                                    name="date" type="date">
+                                                                                    name="date" type="date" require/>
                                                                                     @error('date')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -796,7 +796,7 @@
                                                                                 </div>
                                                                                 <input class="nd_booking_section"
                                                                                     id="nd_booking_booking_form_coupon"
-                                                                                    name="cccd" type="file">
+                                                                                    name="cccd" type="file"/>
                                                                                     @error('cccd')
                                                                                         <div>
                                                                                             <p class="text-danger">{{ $message }}</p>
@@ -810,7 +810,7 @@
                                                                                 class="nd_booking_margin_0 nd_booking_section">
                                                                                 <input
                                                                                     class="nd_booking_float_left nd_booking_margin_top_8 nd_booking_margin_right_10"
-                                                                                    id="confrim" type="checkbox">
+                                                                                    id="confrim" type="checkbox"/>
                                                                                 <a class="nd_booking_float_left"
                                                                                     target="_blank">Xác nhận *</a>
                                                                             </p>
