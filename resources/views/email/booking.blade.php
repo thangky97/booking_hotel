@@ -23,12 +23,22 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+        .title{
+            display: block;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
 
-    <h2 style="text-align: center;">Đơn đặt phòng</h2>
+
+    <div class="title">
+        <a href=""><img width="120" src="https://i.imgur.com/kUDwLHN.png" title="logo" alt="logo"></a>
+        <h2 style="text-align: center;">Đơn đặt phòng</h2>
+    </div>
+
+
     <i>Khách hàng :{{$user->name}}</i><br>
     <i style="text-align:right;">Số điện thoại :{{$user->phone}}</i><br>
     <i>Email :{{$user->email}}</i><br>
@@ -36,7 +46,9 @@
 
     <div>
 
-        <h5> <i class="far fa-calendar-minus scale3 me-3"></i>Thời gian sử dụng: {{$format = date("d/m/Y",strtotime($booking->checkin_date))}} - {{$format = date("d/m/Y",strtotime($booking->checkout_date))}}</h5>
+        <h5> <i class="far fa-calendar-minus scale3 me-3"></i>Thời gian sử dụng: {{$format =
+            date("d/m/Y",strtotime($booking->checkin_date))}} - {{$format =
+            date("d/m/Y",strtotime($booking->checkout_date))}}</h5>
     </div>
     <table>
         <thead>
@@ -57,7 +69,8 @@
 
             <tr>
                 <td style="color: black;"> <b>{{$room->name}}</b></td>
-                <td><b>{{$cateRoom->name}}</b><br><i style="color: #006600;">({{number_format($cateRoom->price)}}đ)</i></td>
+                <td><b>{{$cateRoom->name}}</b><br><i style="color: #006600;">({{number_format($cateRoom->price)}}đ)</i>
+                </td>
                 <td style="color: #0099FF;">
                     <?php $s_r = explode(',', $room_sv->service_id); ?>
                     @foreach ($service as $ser)
@@ -116,7 +129,8 @@
         <div class="me-10 mb-sm-0 mb-3">
             <h3 class="mb-2">Tổng hóa đơn</h3>
             <hr style="width:10%;">
-            <h3 class="mb-0 card-title" style="color: blue;"><b><var>{{number_format($total_money_room_service)}}đ</var></b></h3>
+            <h3 class="mb-0 card-title" style="color: blue;">
+                <b><var>{{number_format($total_money_room_service)}}đ</var></b></h3>
         </div>
     </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BookingRequest;
+use App\Http\Requests\UserBookingRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\Booking;
 use App\Models\Bookingdetail;
@@ -150,7 +151,7 @@ class BookingController extends Controller
         return view('templates.pages.booking', $this->v);
     }
 
-    public function createBooking(Request $request)
+    public function createBooking(UserBookingRequest $request)
     {
         
         $name = $request->name;

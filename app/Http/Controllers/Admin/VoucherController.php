@@ -101,6 +101,7 @@ class VoucherController extends Controller
         $voucher = Voucher::where('code', $data['voucher'])
             ->where('date_end', '>=', $now)
             ->where('status', 1)
+            ->where('limit','>', 0)
             ->first();
         if ($voucher) {
             $voucher_count = $voucher->count();

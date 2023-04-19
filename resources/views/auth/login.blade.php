@@ -49,6 +49,23 @@
                                     <h4 class="text-center mb-4">Đăng nhập vào 12 Zodiac</h4>
                                     <form action="{{ route('postLogin') }}" method="post">
                                         @csrf
+                                        @if ( Session::has('success') )
+                                            <div class="alert alert-success alert-dismissible" role="alert">
+                                                <strong>{{ Session::get('success') }}</strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    <span class="sr-only">Close</span>
+                                                </button>
+                                            </div>
+                                            @endif
+                                            <?php //Hiển thị thông báo lỗi
+                                            ?>
+                                            @if ( Session::has('error') )
+                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                <strong>{{ Session::get('error') }}</strong>
+                                                
+                                            </div>
+                                            @endif
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Email</strong>
                                                 <span class="text-danger">*</span></label>

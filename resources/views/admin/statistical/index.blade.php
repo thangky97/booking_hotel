@@ -65,8 +65,8 @@
                             </div>
                             <div>
                                 <form action="{{route('route_BackEnd_Statistical_Month')}}" method="POST" style="float: right;margin: 40px 40px 0 0;">
-                                    @csrf
-                                    <select name="month">
+                                    @csrf                                 
+                                    <select name="month" style="padding: 5px;border-radius: 4px 0 0 4px;font-family: 'Courier New', Courier, monospace;">
                                         @for($i=1;$i<=12;$i++)
                                             @if($i==$monthToday)
                                                 <option value="{{$i}}" selected="selected">Tháng {{$i}}</option>
@@ -75,7 +75,7 @@
                                             @endif
                                         @endfor
                                     </select>
-                                    <button type="submit" style="padding-right: 5px;padding-left: 5px; background-color: #b2afaf">Gửi</button>
+                                    <button type="submit" style="padding: 5px;border-radius: 0 4px 4px 0; background-color:#663366;color:white;border: none;font-family: 'Courier New', Courier, monospace;">Lọc</button>
                                 </form>
                             </div>
                         </div>
@@ -413,7 +413,7 @@
             options:{
                 title:{
                     display:true,
-                    text:'Thông kế đơn đặt trong năm',
+                    text:'Thông kế doanh thu trong năm',
                     fontSize:25
                 },
                 legend:{

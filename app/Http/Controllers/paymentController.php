@@ -137,7 +137,7 @@ class paymentController extends Controller
 
         $name_email = '12 Zodiac';
         Mail::send('email.booking', $this->v, function ($email) {
-            $email->subject('Your Booking Information');
+            $email->subject('Đơn đặt phòng của bạn!');
             $email->to($this->v['email_user'], '12 Zodiac - Hotel');
         });
         }

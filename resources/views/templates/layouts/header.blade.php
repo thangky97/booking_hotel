@@ -717,7 +717,7 @@
                                     <div class="elementor-button-wrapper">
                                         <a href="/#flatbooking" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                                             <span class="elementor-button-content-wrapper">
-                                                <span class="elementor-button-text">Đặt Phòng cho Cặp Đôi</span>
+                                                <span class="elementor-button-text">Đặt Phòng Ngay</span>
                                             </span>
                                         </a>
                                     </div>

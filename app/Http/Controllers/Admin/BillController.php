@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Session;
 use Symfony\Component\Console\Output\Output;
 
 use function PHPUnit\Framework\isNull;
+
 session_start();
 
 
@@ -67,7 +69,7 @@ class BillController extends Controller
             ->leftjoin('service_room', 'service_room.room_id', '=', 'rooms.id')
             ->leftjoin('bookings', 'bookings.id', '=', 'service_room.booking_id')
             ->select('rooms.name', 'rooms.cate_room', 'rooms.images', 'rooms.adult', 'category_rooms.description', 'service_room.room_id', 'service_room.id', 'rooms.bed', 'category_rooms.price', 'service_room.service_id', 'service_room.booking_id')
-            ->where('service_room.booking_id','=',$booking_id)
+            ->where('service_room.booking_id', '=', $booking_id)
             ->get();
 
         $price = 0;
@@ -75,14 +77,14 @@ class BillController extends Controller
             $price = $item->price + $price;
         }
         $arrService = array();
-        foreach ($rooms as $item){
-            $arrService = array_merge($arrService,explode(',' ,$item->service_id));
+        foreach ($rooms as $item) {
+            $arrService = array_merge($arrService, explode(',', $item->service_id));
         }
         $Service = new Service();
         $this->v['listServices'] = $Service->loadAll();
-        foreach ($arrService as $item){
-            foreach ($this->v['listServices'] as $service){
-                if ($item == $service->id){
+        foreach ($arrService as $item) {
+            foreach ($this->v['listServices'] as $service) {
+                if ($item == $service->id) {
                     $price = $price + $service->price;
                 }
             }
@@ -389,7 +391,7 @@ class BillController extends Controller
                                                     <h3 class="mb-0 card-title" style="color: blue;"><b><var>' . number_format($total_money_room_sv) . 'đ</var></b></h3>
                                                     <h3 class="mb-0 card-title" style="color: blue;"><b><var>-' . number_format($voucher_price) . 'đ</var></b></h3>
                                                     <hr style="width:20%;" >
-                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>' . number_format($bill_mn_view_pdf) . 'đ</var></b></h3>
+                                                    <h3 class="mb-0 card-title" style="color: blue;"><b><var>' . number_format($total_money_room_sv - $voucher_price) . 'đ</var></b></h3>
                                                 </div>
                                             </div>
         ';
@@ -601,6 +603,8 @@ class BillController extends Controller
         $this->v['total_money_room'] = $total_money_room;
         $total_money_service = $money_service;
         $this->v['total_money_service'] = $total_money_service;
+        $total_money_room_sv = $total_money_room + $total_money_service;
+        $this->v['total_money_room_service'] = $total_money_room_sv;
 
 
         $room_service = DB::table('bookings_detail')
@@ -643,17 +647,6 @@ class BillController extends Controller
                         'status' => 1
                     ]);
                 }
-                //update voucher
-                $voucher = Session::get('voucher');
-                if(isset($voucher)) {
-                    foreach ($voucher as $value) {
-                        $id = $value['id'];
-                        $limit = $value['limit'] - 1;
-                        Voucher::where('id', $id)->update(['limit' => $limit]);
-                    }
-                    Session::forget('voucher');
-                }
-
             } else {
 
                 $bill_add = Bills::create([
@@ -675,14 +668,26 @@ class BillController extends Controller
             }
         }
         $bill_mn = new Bills();
+        $bill_vc = $bill_mn->loadIdBookings($id);
         $this->v['bill_mn'] = $bill_mn->loadIdBookings($id);
+
         $voucher = new Voucher();
-        $this->v['voucher'] = $voucher->loadOne($request->voucher);
+        $this->v['voucher'] = $voucher->loadOne($bill_vc->voucher_id);
+
+
         $this->v['title'] = 'Bills';
         $this->v['user'] = Users::find($booking->user_id);
         $this->v['count'] = count($this->v['bookingDetails']);
-
+        //update voucher
+        $voucher = Session::get('voucher');
+        if (isset($voucher)) {
+            foreach ($voucher as $value) {
+                $id = $value['id'];
+                $limit = $value['limit'] - 1;
+                Voucher::where('id', $id)->update(['limit' => $limit]);
+            }
+            Session::forget('voucher');
+        }
         return view('admin.bill.bill', $this->v);
     }
-
 }

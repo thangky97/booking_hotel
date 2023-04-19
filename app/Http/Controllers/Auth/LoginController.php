@@ -25,13 +25,18 @@ class LoginController extends Controller
 
     public function postLogin(LoginRequest $request)
     {
+        $method_route = 'getLogin';
         $data = $request->all();
         $email = $data['email'];
         $password = $data['password'];
 
+
         if (Auth::attempt(['email' => $email ,'password' => $password])) {
 
             return redirect()->route('route_BackEnd_Dashboard');
+        }else {
+            Session::flash('error', 'Sai tài khoản hoặc mật khẩu');
+            return redirect()->route($method_route);
         }
 
         return redirect()->route('getLogin');
