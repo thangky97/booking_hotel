@@ -94,15 +94,19 @@ class AdminController extends Controller
             ->leftjoin('bookings', 'bookings.id', '=', 'bookings_detail.booking_id')
             ->select('rooms.*', 'bookings.checkin_date', 'bookings.checkout_date')
             ->get();
-        $count=0;
+        $arrRoomworks = array();
         foreach ($rooms as $index => $room) {
             if (strtotime($room->checkin_date) < strtotime('now') && strtotime($room->checkout_date) > strtotime('now')) {
-                $count++;
+                $arrRoom = array($index => $room->id);
+                $arrRoomworks = $arrRoom + $arrRoomworks;
             }
             if (strtotime($room->checkin_date) == strtotime('now') || strtotime($room->checkout_date) == strtotime('now')) {
-                $count++;
+                $arrRoom = array($index => $room->id);
+                $arrRoomworks = $arrRoom + $arrRoomworks;
             }
         }
+        $arr =  array_unique($arrRoomworks);
+        $count = count($arr);
         $this->v['countRoom'] = $countRoom;
         $this->v['count'] = $count;
         $this->v['emptyRoom'] = $countRoom - $count;
