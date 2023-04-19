@@ -495,22 +495,21 @@
                                                                                                             {{ $service->price }}đ
                                                                                                         </li>
                                                                                                         <script>
-                                                                                                        var checkbox_{{$item->id}}_{{$service->id}}= document.getElementById('checkbox_{{$item->id}}_{{$service->id}}')
-                                                                                                        checkbox_{{$item->id}}_{{$service->id}}.onclick = function (){
-                                                                                                            if (this.checked){
-                                                                                                                localStorage.setItem('priceRoom_{{$item->id}}',Number(localStorage.getItem('priceRoom_{{$item->id}}')) + Number({{($service->price)}}));
-                                                                                                                localStorage.setItem('priceSum', Number(localStorage.getItem('priceSum'))+Number({{($service->price)}}));
-                                                                                                                showpicesum()
+                                                                                                            var checkbox_{{$item->id}}_{{$service->id}}= document.getElementById('checkbox_{{$item->id}}_{{$service->id}}')
+                                                                                                            checkbox_{{$item->id}}_{{$service->id}}.onclick = function (){
+                                                                                                                if (this.checked){
+                                                                                                                    localStorage.setItem('priceRoom_{{$item->id}}',Number(localStorage.getItem('priceRoom_{{$item->id}}')) + Number({{($service->price)}}));
+                                                                                                                    localStorage.setItem('priceSum', Number(localStorage.getItem('priceSum'))+Number({{($service->price)}}));
+                                                                                                                    showpicesum()
+                                                                                                                }
+                                                                                                                else{
+                                                                                                                    localStorage.setItem('priceRoom_{{$item->id}}',Number(localStorage.getItem('priceRoom_{{$item->id}}')) - Number({{($service->price)}}));
+                                                                                                                    localStorage.setItem('priceSum', Number(localStorage.getItem('priceSum'))-Number({{($service->price)}}));
+                                                                                                                    showpicesum()
+                                                                                                                }
+                                                                                                                showpice{{$item->id}}()
                                                                                                             }
-                                                                                                            else{
-                                                                                                                localStorage.setItem('priceRoom_{{$item->id}}',Number(localStorage.getItem('priceRoom_{{$item->id}}')) - Number({{($service->price)}}));
-                                                                                                                localStorage.setItem('priceSum', Number(localStorage.getItem('priceSum'))-Number({{($service->price)}}));
-                                                                                                                showpicesum()
-                                                                                                            }
-                                                                                                            showpice{{$item->id}}()
-                                                                                                        }
-                                                                                                    </script>
-
+                                                                                                        </script>
                                                                                                     @endforeach
                                                                                                 </ul>
                                                                                             </td>
@@ -527,7 +526,7 @@
                                                                                     @endforeach
                                                                                 </tbody>
                                                                             </table>
-                                                                            <div id="showpricesum"></div>
+                                                                            <div id="showpricesum" style="color: #0c85d0;font-size: 20px"></div>
                                                                             <script>
                                                                                 function showpicesum() {
                                                                                     document.getElementById('showpricesum').innerHTML = 'Tổng tiền: ' + localStorage.getItem('priceSum') + ' đ';
