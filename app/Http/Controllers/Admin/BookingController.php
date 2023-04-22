@@ -45,6 +45,31 @@ class BookingController extends Controller
         return view('admin.booking.index', $this->v);
     }
 
+    public function cancelbooking($id)
+    {
+        $book = Booking::find($id);
+        if(date("Y",strtotime($book->checkin_date))>2020){
+            $check_in = $book->checkin_date;
+            $check_out = $book->checkout_date;
+            DB::table('bookings')
+                ->where('id',$id)
+                ->update(['status_booking'=>'2','checkin_date'=>date('Y-m-d',strtotime($check_in.'- 3 year')),'checkout_date'=>date('Y-m-d',strtotime($check_out.'- 3 year'))]);
+        }
+        $this->v['listUsers'] = DB::table('users')->get();
+        $Cate_rooms = new Categoryrooms();
+        $this->v['listCaterooms'] = $Cate_rooms->loadAll();
+        $Bookings = new Booking();
+        $this->v['listBookings'] = $Bookings->loadListWithPager();
+        $bills = new Bills();
+        $arrBills = array();
+        foreach ($bills->loadAll() as $index => $bill_bk) {
+            $arrBill_bk = array($index => $bill_bk->booking_id);
+            $arrBills = $arrBill_bk + $arrBills;
+        }
+        $this->v['list'] = $arrBills;
+        $this->v['title'] = 'Đơn đặt phòng';
+        return view('admin.booking.index', $this->v);
+    }
     public function add($id)
     {
         $this->v['listEmployees'] = DB::table('admin')->where('role','=',2)->orderBy('id','asc')->get();
@@ -267,9 +292,15 @@ class BookingController extends Controller
 
     public function updatepay($id, Request $request)
     {
-        $Booking = Booking::find($id);
-        $Booking->status_pay = $request->status_pay;
-        $Booking->save();
+        if ($request->status_pay){
+            $Booking = Booking::find($id);
+            $Booking->status_pay = $request->status_pay;
+            $Booking->save();
+        }elseif ($request->status_cccd){
+            DB::table('bookings')
+                ->where('id',$id)
+                ->update(['status_cccd'=>'1']);
+        }
         return redirect()->route('route_BackEnd_Bookings_List');
     }
 
@@ -554,7 +585,7 @@ class BookingController extends Controller
     public function history($id)
     {
 
-        
+
         $this->v['user'] = Users::find($id);
         $Cate_rooms = new Categoryrooms();
         $this->v['listCaterooms'] = $Cate_rooms->loadAll();
@@ -572,7 +603,7 @@ class BookingController extends Controller
         $this->v['list'] = $arrBills;
 
         $this->v['title'] = 'Lịch sử đặt phòng';
-        
+
         return view('admin.booking.history', $this->v);
     }
 }

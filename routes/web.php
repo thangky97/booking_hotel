@@ -152,6 +152,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/createservice/{id}', 'Admin\BookingController@createservice')->name('route_BackEnd_Bookings_Createservice');
         Route::get('/detail/{id}', 'Admin\BookingController@bookings_detail')->name('route_BackEnd_Bookings_Detail');
         Route::post('/updatepay/{id}', 'Admin\BookingController@updatepay')->name('route_BackEnd_Bookings_Updatepay');
+        Route::get('/cancel/{id}', 'Admin\BookingController@cancelbooking')->name('route_BackEnd_Bookings_Cancelbooking');
 
         Route::post('/updateservice/{id}', 'Admin\BookingController@updateservice')->name('route_BackEnd_Bookings_Updateservice');
         Route::get('/history/{id}', 'App\Http\Controllers\Admin\BookingController@history')->name('route_BackEnd_Bookings_History');
