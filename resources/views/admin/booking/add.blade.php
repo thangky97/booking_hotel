@@ -275,7 +275,7 @@
                                                             class="tab-pane <?= $cate_room->id == 1 ? 'active show' : 'fade' ?>"
                                                             id="{{$cate_room->sort}}">
                                                             <h3>Giá phòng: {{$cate_room->price}}$</h3>
-                                                            <p>Mô tả: {{$cate_room->description}}</p>
+                                                            
                                                             <div class="table-responsive">
                                                                 <table
                                                                     class="table card-table default-table display mb-4 dataTablesCard table-responsive-xl "

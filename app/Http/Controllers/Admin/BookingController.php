@@ -513,7 +513,7 @@ class BookingController extends Controller
 
         $name_email = '12 Zodiac';
         Mail::send('email.booking', $this->v, function ($email) {
-            $email->subject('Your Booking Information');
+            $email->subject('Đơn đặt phòng của bạn!');
             $email->to($this->v['email_user'], '12 Zodiac - Hotel');
         });
         return redirect()->route('route_BackEnd_Bookings_List')->with('success', 'Đặt phòng thành công!');
