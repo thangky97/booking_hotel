@@ -73,66 +73,72 @@
                                 <div class="table-responsive">
                                     <table class="table card-table display">
                                         <thead>
-                                            <tr>
-                                                <th class="h5 text-center">STT</th>
-                                                <th class="h5 text-center">Tên phòng</th>
-                                                <th class="h5 text-center">Loại phòng</th>
-                                                <th class="h5 text-center">Dịch vụ</th>
-                                                <th class="h5 text-center">Hành động</th>
-                                            </tr>
+                                        <tr>
+                                            <th class="h5 text-center">STT</th>
+                                            <th class="h5 text-center">Tên phòng</th>
+                                            <th class="h5 text-center">Loại phòng</th>
+                                            <th class="h5 text-center">Dịch vụ</th>
+                                            <th class="h5 text-center">Hành động</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $i = 1; ?>
-                                            @foreach ($listRooms as $index => $item)
-                                                @foreach ($listCaterooms as $cate)
-                                                    @if ($item->cate_room == $cate->id)
-                                                        <tr>
-                                                            <td class="text-center">{{ $i++ }}</td>
-                                                            <td class="text-center">
-                                                                <div class="guest-bx" style="justify-content: center;">
-                                                                    <div>
-                                                                        <h4 class="mb-0 mt-1"><a class="text-black"
-                                                                                href="">{{ $item->name }}</a>
-                                                                        </h4>
-                                                                    </div>
+                                        <?php $i = 1; ?>
+                                        @foreach ($listRooms as $index => $item)
+                                            @foreach ($listCaterooms as $cate)
+                                                @if ($item->cate_room == $cate->id)
+                                                    <tr>
+                                                        <td class="text-center">{{ $i++ }}</td>
+                                                        <td class="text-center">
+                                                            <div class="guest-bx" style="justify-content: center;">
+                                                                <div>
+                                                                    <h4 class="mb-0 mt-1"><a class="text-black"
+                                                                                             href="">{{ $item->name }}</a>
+                                                                    </h4>
                                                                 </div>
-                                                            </td>
-                                                            <td class="text-center">{{ $cate->name }}</td>
-                                                            <td class="text-center">
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">{{ $cate->name }}</td>
+                                                        <td class="text-center">
                                                                 <?php $service_ids = explode(',', $item->service_id); ?>
-                                                                @foreach ($listServices as $service)
-                                                                    @foreach ($service_ids as $service_id)
-                                                                        @if ($service->id == $service_id)
-                                                                            {{ $service->name }}<br>
-                                                                        @endif
-                                                                    @endforeach
+                                                            @foreach ($listServices as $service)
+                                                                @foreach ($service_ids as $service_id)
+                                                                    @if ($service->id == $service_id)
+                                                                        {{ $service->name }}<br>
+                                                                    @endif
                                                                 @endforeach
-                                                            </td>
-                                                            <td class="text-center">
-                                                                @if ($item->service_id)
-                                                                    <a
-                                                                        href="{{ route('route_BackEnd_Bookings_Editservice', $item->id) }}"><button
-                                                                            class="btn btn-primary">Sửa</button></a>
-                                                                @else
-                                                                    <a
-                                                                        href="{{ route('route_BackEnd_Bookings_Editservice', $item->id) }}"><button
-                                                                            class="btn btn-success">Thêm</button></a>
-                                                                @endif
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-                                                @endforeach
+                                                            @endforeach
+                                                        </td>
+                                                        <td class="text-center">
+                                                            @if ($item->service_id)
+                                                                <a
+                                                                    href="{{ route('route_BackEnd_Bookings_Editservice', $item->id) }}"><button
+                                                                        class="btn btn-primary">Sửa</button></a>
+                                                            @else
+                                                                <a
+                                                                    href="{{ route('route_BackEnd_Bookings_Editservice', $item->id) }}"><button
+                                                                        class="btn btn-success">Thêm</button></a>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endif
                                             @endforeach
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="text-end" style="margin-right: 30px">
-                            <div class="btn btn-danger light btn-sl-sm" style="width: 17%"><span class="me-2"><i
-                                class="fa fa-times"></i></span><a
-                            href="{{ route('route_BackEnd_Bookings_List') }}">Hủy</a>
-                    </div>
+                        <div>
+                            <div class="text-end" style="margin-right: 30px">
+                                <div class="btn btn-primary light btn-sl-sm" style="width: 17%; margin-right: 10px"><span class="me-2"><i
+                                            class="fa fa-times"></i></span><a
+                                        href="{{ route('route_BackEnd_Bookings_List') }}">Quay lại</a>
+                                </div>
+                                <div class="btn btn-danger light btn-sl-sm" style="width: 17%"><span class="me-2"><i
+                                            class="fa fa-times"></i></span><a
+                                        href="{{ route('route_BackEnd_Bookings_Cancelbooking',$booking->id) }}">Hủy đơn</a>
+                                </div>
+                            </div>
                         </div>
                         <hr style="margin-left: 15px; margin-right: 15px">
                         <div class="card-body">
@@ -158,7 +164,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <img src="{{ asset('admin/images/profile/10.jpg') }}" alt=""
-                                    class="rounded profile-img me-4">
+                                     class="rounded profile-img me-4">
                                 <div>
                                     <h5 class="text-primary">#Khách hàng</h5>
                                     <h4 class="mb-0">{{ $user->name }}</h4>
@@ -188,112 +194,112 @@
                     </div>
                     <div class="table-responsive">
                         <table class="table card-table  display mb-4 dataTablesCard booking-table table-responsive-lg "
-                            id="guestTable-all">
+                               id="guestTable-all">
                             <thead>
-                                <tr>
-                                    <th class="bg-none">
-                                        <div class="form-check style-1">
-                                            <input class="form-check-input" type="checkbox" value="" id="checkAll">
-                                        </div>
-                                    </th>
-                                    <th>Khách Hàng</th>
-                                    <th>Ngày Đặt</th>
-                                    <th>Ngày Trả</th>
-                                    <th>Số Người</th>
-                                    <th>Thanh Toán</th>
-                                    <th>Nhân Viên</th>
-                                    <th class="bg-none">Hành Động</th>
-                                </tr>
+                            <tr>
+                                <th class="bg-none">
+                                    <div class="form-check style-1">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkAll">
+                                    </div>
+                                </th>
+                                <th>Khách Hàng</th>
+                                <th>Ngày Đặt</th>
+                                <th>Ngày Trả</th>
+                                <th>Số Người</th>
+                                <th>Thanh Toán</th>
+                                <th>Nhân Viên</th>
+                                <th class="bg-none">Hành Động</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @foreach ($history as $bk_history)
-                                    <tr>
-                                        <td>
-                                            <div class="form-check style-1">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                            </div>
-                                        </td>
+                            @foreach ($history as $bk_history)
+                                <tr>
+                                    <td>
+                                        <div class="form-check style-1">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                        </div>
+                                    </td>
 
-                                        <td>
-                                            <p>
-                                                @foreach ($listUsers as $user_bk)
+                                    <td>
+                                        <p>
+                                            @foreach ($listUsers as $user_bk)
                                                     <?php if ($bk_history->user_id == $user_bk->id) {
-                                                        echo $user_bk->name;
-                                                    } ?>
-                                                @endforeach
-                                            </p>
-                                        </td>
-                                        <td>
-                                            <div style="width: 100px">
-                                                <h6>{{ $bk_history->checkin_date }}</h6>
-                                                <span class="fs-14">08:29 AM</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div style="width: 100px">
-                                                <h6>{{ $bk_history->checkout_date }}</h6>
-                                                <span class="fs-14">08:29 AM</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p>{{ $bk_history->people }}</p>
-                                        </td>
+                                                    echo $user_bk->name;
+                                                } ?>
+                                            @endforeach
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 100px">
+                                            <h6>{{ $bk_history->checkin_date }}</h6>
+                                            <span class="fs-14">08:29 AM</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="width: 100px">
+                                            <h6>{{ $bk_history->checkout_date }}</h6>
+                                            <span class="fs-14">08:29 AM</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p>{{ $bk_history->people }}</p>
+                                    </td>
 
-                                        <td>
+                                    <td>
                                             <span class="fs-16">
                                                 <?= $bk_history->status_pay == 1 ? '<span class="badge light badge-success">Đã thanh toán</span>' : '<span class="badge light badge-danger">Chưa thanh toán</span>' ?>
                                             </span>
-                                        </td>
-                                        <td>
-                                            <p style="width: 150px">
-                                                @if ($bk_history->staff_id == 1)
-                                                    {{ 'Huy Hoàng' }}
-                                                @elseif($bk_history->staff_id == 2)
-                                                    {{ 'Nguyễn Văn Linh' }}
-                                                @else
-                                                    {{ 'Đinh Trung Nguyên' }}
-                                                @endif
-                                            </p>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="dropdown dropstart">
-                                                <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown"
-                                                    aria-expanded="false">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
-                                                            stroke="#262626" stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                        <path
-                                                            d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
-                                                            stroke="#262626" stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                        <path
-                                                            d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
-                                                            stroke="#262626" stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg>
-                                                </a>
-                                                <div class="dropdown-menu">
+                                    </td>
+                                    <td>
+                                        <p style="width: 150px">
+                                            @if ($bk_history->staff_id == 1)
+                                                {{ 'Huy Hoàng' }}
+                                            @elseif($bk_history->staff_id == 2)
+                                                {{ 'Nguyễn Văn Linh' }}
+                                            @else
+                                                {{ 'Đinh Trung Nguyên' }}
+                                            @endif
+                                        </p>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="dropdown dropstart">
+                                            <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown"
+                                               aria-expanded="false">
+                                                <svg width="24" height="24" viewBox="0 0 24 24"
+                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
+                                                        stroke="#262626" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path
+                                                        d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
+                                                        stroke="#262626" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path
+                                                        d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
+                                                        stroke="#262626" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item"
+                                                   href="{{ route('route_BackEnd_Bookings_Detail', $bk_history->id) }}">Chi
+                                                    tiết</a>
+                                                @if (in_array($bk_history->id, $list))
                                                     <a class="dropdown-item"
-                                                        href="{{ route('route_BackEnd_Bookings_Detail', $bk_history->id) }}">Chi
-                                                        tiết</a>
-                                                    @if (in_array($bk_history->id, $list))
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('route_BackEnd_Bill', $bk_history->id) }}">Xem
-                                                            Bill</a>
-                                                    @else
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('route_BackEnd_Bill_Room', $bk_history->id) }}">Tạo
-                                                            Bill</a>
-                                                    @endif
+                                                       href="{{ route('route_BackEnd_Bill', $bk_history->id) }}">Xem
+                                                        Bill</a>
+                                                @else
+                                                    <a class="dropdown-item"
+                                                       href="{{ route('route_BackEnd_Bill_Room', $bk_history->id) }}">Tạo
+                                                        Bill</a>
+                                                @endif
 
-                                                </div>
                                             </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

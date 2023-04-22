@@ -23,6 +23,7 @@ class Booking extends Model
         'checkout_date',
         'people',
         'money_paid',
+        'status_cccd',
         'status_booking',
         'status_pay',
         'staff_id',
