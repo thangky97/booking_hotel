@@ -1,4 +1,4 @@
-@extends('templates.layouts.masterbookingsearch')
+@extends('templates.layouts.master')
 
 @section('title', $title)
 

@@ -42,7 +42,7 @@
                 <div class="nd_booking_section nd_booking_padding_15 nd_booking_box_sizing_border_box">
                     <div class="nd_booking_section nd_booking_border_1_solid_grey nd_booking_bg_white">
                         <div class="nd_booking_section nd_booking_position_relative">
-                            <img alt="" class="nd_booking_section"
+                            <img alt="" class="nd_booking_section" style="height: 200px;"
                                 src="{{asset("image/".$cateroom->image)}}" />
 
                             <div
@@ -85,7 +85,7 @@
                                     </p>
                                     <img alt=""
                                         class="nd_booking_margin_right_10 nd_booking_margin_left_20 nd_booking_display_table_cell nd_booking_vertical_align_middle"
-                                        width="20"
+                                        width="20" 
                                         src="../../wp-content/plugins/nd-booking/addons/visual/rooms/layout/icon-plan-grey.svg" />
                                     <p
                                         class="nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">

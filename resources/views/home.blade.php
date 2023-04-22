@@ -838,7 +838,7 @@
                     <div class="elementor-element elementor-element-23e12def elementor-widget elementor-widget-heading"
                         data-id="23e12def" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title elementor-size-default">Dành cho các cặp đôi</h1>
+                            <h1 class="elementor-heading-title elementor-size-default">Đặt phòng nhanh</h1>
                         </div>
                     </div>
                     <div class="elementor-element elementor-element-7944326d elementor-widget elementor-widget-heading"
@@ -1278,8 +1278,8 @@
                                             <div
                                                 class="nd_elements_section nd_elements_background_color_fff nd_elements_border_1_solid_grey">
 
-                                                <a href="new-website/index.html"><img class="nd_elements_section"
-                                                        alt="" src="{{ asset('storage/' . $new->images) }}"></a>
+                                                <a href="{{ route('route_FrontEnd_New_Detail', $new->id) }}"><img class="nd_elements_section"
+                                                        alt="" src="{{ asset('storage/' . $new->images) }}" style="height: 200px;"></a>
 
 
                                                 <div
@@ -1303,14 +1303,28 @@
                                                     </div>
                                                     <div class="nd_elements_section nd_elements_height_15"></div>
 
-                                                    <a class="nd_elements_section" href="new-website/index.html">
-                                                        <h3
+                                                    <a class="nd_elements_section" href="{{ route('route_FrontEnd_New_Detail', $new->id) }}">
+                                                        <h3 style="width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    height: 75px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;"
                                                             class="nd_elements_font_size_23 nd_elements_posgrid_widget_l4_title nd_elements_word_break_break_word nd_elements_font_size_20_iphone nd_elements_line_height_23 nd_elements_margin_0_important nd_elements_letter_spacing_1">
                                                             <strong>{{ $new->title }}</strong>
                                                         </h3>
                                                     </a>
                                                     <div class="nd_elements_section nd_elements_height_20"></div>
-                                                    <p
+                                                    <p style="width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    height: 75px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;"
                                                         class="nd_elements_font_size_15 nd_elements_section nd_elements_margin_0_important nd_elements_posgrid_widget_l4_excerpt nd_elements_line_height_2">
                                                         {{ $new->description }}
                                                     </p>
