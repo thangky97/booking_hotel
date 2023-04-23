@@ -49,11 +49,25 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" name="cccd" class="form-control"
+                                                    {{-- <input type="number" name="cccd" class="form-control"
                                                            placeholder="Nhập số cccd..." value="{{$usernew->cccd}}">
                                                     <div class="invalid-feedback">
                                                         Please enter a password.
+                                                    </div> --}}
+
+                                                    <div class="form-file">
+                                                        <input type="file" name="images"
+                                                            class="form-file-input form-control">
+                                                        @if (isset($usernew) && $usernew->cccd)
+                                                            <img src="{{ asset($usernew->cccd ? '' . Storage::url($usernew->cccd) : $usernew->name) }}"
+                                                                alt="{{ $usernew->name }}" width="100">
+                                                        @endif
                                                     </div>
+                                                    {{-- @error('cccd')
+                                                        <div>
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        </div>
+                                                    @enderror --}}
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">

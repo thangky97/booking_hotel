@@ -8,6 +8,7 @@
 
     <title>Giới thiệu - Hotel 12Zodiac</title>
     <meta name='robots' content='max-image-preview:large' />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('admin/images/favicon.png') }}" />
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />
     <link rel="alternate" type="application/rss+xml" title="Apartments DEMO &raquo; Feed"

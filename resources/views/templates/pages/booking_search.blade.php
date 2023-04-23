@@ -53,7 +53,7 @@
                             <h1 class="elementor-heading-title elementor-size-default">Tìm kiếm</h1>
                         </div>
                     </div>
-                    <div class="elementor-element elementor-element-f23c8c7 elementor-widget elementor-widget-steps"
+                    {{-- <div class="elementor-element elementor-element-f23c8c7 elementor-widget elementor-widget-steps"
                         data-id="f23c8c7" data-element_type="widget" data-widget_type="steps.default">
                         <div class="elementor-widget-container">
 
@@ -100,7 +100,7 @@
                                 <!--end steps-->
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

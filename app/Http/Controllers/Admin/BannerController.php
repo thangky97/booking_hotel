@@ -75,7 +75,7 @@ class BannerController extends Controller
 
     public function banner_detail($id)
     {
-        $this->v['title'] = ' Chi tiết banner';
+        $this->v['title'] = 'Sửa banner';
         $banner = new Banner();
         $objItem = $banner->loadOne($id);
         $this->v['objItem'] = $objItem;

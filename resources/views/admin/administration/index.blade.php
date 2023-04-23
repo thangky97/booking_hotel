@@ -15,7 +15,7 @@
                         <caption>
                             <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
                                 @csrf
-                                <input type="search" name="name" value="{{ $name }}" class="form-control" style="width: 25rem" placeholder="Tên">
+                                <input type="search" name="name" value="{{ $name }}" class="form-control" style="width: 24rem" placeholder="Tên">
                             </form>
                         </caption>
                         {{-- <span class="input-group-text"><a href="javascript:void(0)"><i
@@ -25,7 +25,7 @@
                         <caption>
                             <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
                                 @csrf
-                                <input type="search" name="phone" value="{{ $phone }}" class="form-control" style="width: 25rem" placeholder="Số điện thoại">
+                                <input type="search" name="phone" value="{{ $phone }}" class="form-control" style="width: 24rem" placeholder="Số điện thoại">
                             </form>
                         </caption>
                     </div>
@@ -34,7 +34,7 @@
                         <caption>
                             <form action="{{ route('route_BackEnd_Admin_List') }}" method="get">
                                 @csrf
-                                <input type="search" name="email" value="{{ $email }}" class="form-control" style="width: 25rem" placeholder="Email">
+                                <input type="search" name="email" value="{{ $email }}" class="form-control" style="width: 24rem" placeholder="Email">
                             </form>
                         </caption>
                     </div>

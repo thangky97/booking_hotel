@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Category_new;
+use App\Models\CategoryRooms;
 use App\Models\News;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -24,12 +25,11 @@ class NewController extends Controller
     public function detail($id, Request $request)
     {    
         $cateNew = Category_new::where('status', '=', 1)->find($id);
-        // $adminNew = Admin::where('status', '=', 1)->find($id);
         $new = News::where('status', '=', 1)->find($id);
-        $services = Service::where('status', '=', 1)
+        $cateRoom = CategoryRooms::where('status', '=', 1)
         ->paginate(4);
         
-        return view('templates.pages.new_detail', compact('cateNew', 'new', 'services'));
+        return view('templates.pages.new_detail', compact('cateNew', 'new', 'cateRoom'));
     }
 
 }

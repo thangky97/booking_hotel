@@ -20,7 +20,7 @@ class RoomController extends Controller
     //Danh sách phòng
     public function rooms(Request $request)
     {
-        $this->v['title'] = ' Phòng';
+        $this->v['title'] = 'Danh sách phòng';
 
         $name = $request->get('name');
         if ($name) {

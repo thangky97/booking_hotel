@@ -17,7 +17,7 @@ class ServiceController extends Controller
     }
     public function service(Request $request)
     {
-        $this->v['title'] = 'Dịch Vụ';
+        $this->v['title'] = 'Danh sách dịch vụ';
 
         $name = $request->get('name');
         if ($name) {
@@ -87,7 +87,7 @@ class ServiceController extends Controller
 
     public function service_detail($id)
     {
-        $this->v['title'] = 'Chi tiết dịch vụ';
+        $this->v['title'] = 'Sửa dịch vụ';
         $service = new Service();
         $objItem = $service->loadOne($id);
         $this->v['objItem'] = $objItem;

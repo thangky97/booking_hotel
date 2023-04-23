@@ -310,10 +310,10 @@
                         data-id="32ab02cd" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
                             <h3 class="elementor-heading-title elementor-size-default">
-                                Dịch vụ</h3>
+                                Loại phòng</h3>
                         </div>
                     </div>
-                    @foreach ($services as $service)
+                    @foreach ($cateRoom as $item)
                         <section
                             class="elementor-section elementor-inner-section elementor-element elementor-element-e5267ee elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                             data-id="e5267ee" data-element_type="section">
@@ -327,7 +327,7 @@
                                             <div class="elementor-widget-container">
                                                 <a href="#">
                                                     <img width="800" height="800"
-                                                        src="{{ $service->images ? '' . Storage::url($service->images) : '' }}"
+                                                        src="{{ $item->image ? '' . Storage::url($item->image) : '' }}"
                                                         class="attachment-large size-large" alt="" loading="lazy"
                                                         sizes="(max-width: 800px) 100vw, 800px" /> </a>
                                             </div>
@@ -342,7 +342,7 @@
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
                                                 <h3 class="elementor-heading-title elementor-size-default">
-                                                    {{ $service->name }}</h3>
+                                                    {{ $item->name }}</h3>
                                             </div>
                                         </div>
                                         <div class="elementor-element elementor-element-42fcfa76 elementor-align-left elementor-tablet-align-left elementor-widget elementor-widget-button"
