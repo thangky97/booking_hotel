@@ -159,11 +159,11 @@
                         <span class="nav-text">Voucher</span>
                     </a>
                 </li>
-                <li><a class="" href="{{ route('route_BackEnd_Statistical') }}" aria-expanded="false">
+                {{-- <li><a class="" href="{{ route('route_BackEnd_Statistical') }}" aria-expanded="false">
                         <i class="bi bi-bar-chart-fill"></i>
                         <span class="nav-text">Thống kê</span>
                     </a>
-                </li>
+                </li> --}}
                 @endif
             @endif
         </ul>

@@ -113,7 +113,7 @@ class BookingController extends Controller
             $user->cccd = '';
         }
 
-        $this->v['title'] = '12 Zodiac - Đơn đặt phòng';
+        $this->v['title'] = 'Thêm đơn đặt phòng';
         return redirect()->route('route_BackEnd_Bookings_Add', $userID)->with('success', 'Thêm thành công! Tiếp tục đặt phòng');
     }
 

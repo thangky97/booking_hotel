@@ -56,6 +56,11 @@ Route::get('/sign-up', 'Client\SignupController@getSignup')->name('getSignup');
 Route::post('/sign-up', 'Client\SignupController@postSignup')->name('postSignup');
 Route::get('/logout', 'Client\SigninController@logout')->name('logoutUser');
 
+Route::get('/forget-password', 'Client\SigninController@forgetPassword')->name('forgetPassword');
+Route::post('/forget-password', 'Client\SigninController@postforgetPassword')->name('postforgetPassword');
+Route::get('/get-password/{id}', 'Client\SigninController@getPassword')->name('getPassword');
+Route::post('/get-password/{id}', 'Client\SigninController@postPassword')->name('postPassword');
+
 Route::get('/booking_search', 'Client\RoomController@index')->name('route_FontEnd_BookingSearch'); //tìm kiếm phòng
 Route::post('/booking_search', 'Client\RoomController@search')->name('route_FontEnd_BookingSearch_Search'); //Tìm kiếm phòng theo order booking
 Route::get('/booking_search/{id}', 'Client\RoomController@search_cate')->name('route_FontEnd_BookingSearch_SearchCate'); //Tìm kiếm phòng theo loại phòng

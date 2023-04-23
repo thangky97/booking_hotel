@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@yield('title') &#8211; Hotel 12Zodiac</title>
+    <title>@yield('title') - Hotel 12Zodiac</title>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('admin/images/favicon.png') }}" />
     <meta name='robots' content='max-image-preview:large' />
     <link rel="alternate" type="application/rss+xml" title="Apartments DEMO &raquo; Feed"
         href="{{ asset('feed/index.html') }}" />

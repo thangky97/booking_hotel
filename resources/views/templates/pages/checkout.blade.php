@@ -483,7 +483,7 @@
                                                             <div class="nd_booking_section nd_booking_height_40"></div>
 
 
-                                                            <h1>Lựa chọn hình thức thanh toán :</h1>
+                                                            <h1>Thanh toán qua VNPAY</h1>
                                                             <div class="nd_booking_section nd_booking_height_30"></div>
 
 
@@ -499,12 +499,12 @@
 
                                                                     <li id="nd_booking_bt_payment"
                                                                         class="nd_booking_display_inline_block nd_booking_margin_right_20">
-                                                                        <h4>
+                                                                        {{-- <h4>
                                                                             <a class="nd_booking_outline_0 nd_booking_padding_10_0 nd_booking_letter_spacing_2 nd_booking_font_weight_lighter nd_booking_font_size_14 nd_booking_display_inline_block nd_options_second_font nd_options_color_greydark"
                                                                                 href="#nd_booking_checkout_payment_2_tab">
                                                                                 THANH TOÁN VNPAY</a>
 
-                                                                        </h4>
+                                                                        </h4> --}}
                                                                         <form
                                                                                 action="{{url('/vnpay_payment')}}"
                                                                                 method="post">
@@ -521,7 +521,7 @@
                                                                             <input
                                                                                     class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important"
                                                                                     type="submit" id="" name="redirect"
-                                                                                    value="SEND REQUEST">
+                                                                                    value="THANH TOÁN">
                                                                         </form>
                                                                     </li>
 

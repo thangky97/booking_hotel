@@ -14,21 +14,21 @@
                             <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
                                 @csrf
                                 <input type="search" name="name" value="{{ $name }}" class="form-control"
-                                    style="width: 25rem" placeholder="Tìm kiếm">
+                                    style="width: 24rem" placeholder="Tìm kiếm">
                             </form>
                         </div>
                         <div style="margin-right: 50px">
                             <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
                                 @csrf
                                 <input type="search" name="phone" value="{{ $phone }}" class="form-control"
-                                    style="width: 25rem" placeholder="Số điện thoại">
+                                    style="width: 24rem" placeholder="Số điện thoại">
                             </form>
                         </div>
                         <div>
                             <form action="{{ route('route_BackEnd_Users_List') }}" method="get">
                                 @csrf
                                 <input type="search" name="email" value="{{ $email }}" class="form-control"
-                                    style="width: 25rem" placeholder="Email">
+                                    style="width: 24rem" placeholder="Email">
                             </form>
                         </div>
 

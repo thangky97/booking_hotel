@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Booking Page &#8211; Apartments DEMO</title>
+    <title>Đặt phòng khách sạn - Hotel 12Zodiac</title>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('admin/images/favicon.png') }}" />
     <meta name='robots' content='max-image-preview:large' />
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />
