@@ -17,10 +17,10 @@
 {{--                                    <a class="nav-link" data-bs-toggle="tab" href="#All" role="tab">Tất cả</a>--}}
 {{--                                </li>--}}
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#Active" role="tab">Còn hạn</a>
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#Active" role="tab">Hoạt động</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#Canceled" role="tab">Không sử dụng</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#Canceled" role="tab">Đã hủy</a>
                                 </li>
                             </ul>
                         </div>
@@ -83,8 +83,8 @@
                                             <th class="h5 text-center">Ngày trả</th>
                                             <th class="h5 text-center">Người</th>
                                             <th class="h5 text-center">Cccd</th>
-                                            <th class="h5 text-center w180">Thanh toán</th>
-                                            <th class="h5 text-center">Thanh toán</th>
+                                            <th class="h5 text-center w180">TT Thanh toán</th>
+                                            <th class="h5 text-center">TT VNPAY </th>
                                             <th class="h5 text-center">Hành động</th>
                                         </tr>
                                     </thead>
@@ -135,7 +135,7 @@
                                                 <form action="{{route('route_BackEnd_Bookings_Updatepay',$item->id)}}" method="post">
                                                     @csrf
                                                     <input name="status_pay" value="1" hidden>
-                                                    <button type="submit" onclick="return confirm('Đơn hàng đã thanh toán ?')" class="btn btn-danger w180">Chưa thanh toán</button>
+                                                    <button type="submit" onclick="return confirm('Đơn hàng đã thanh toán ?')" class="btn btn-danger w180">Thanh toán</button>
 
                                                 </form>
                                                 @else

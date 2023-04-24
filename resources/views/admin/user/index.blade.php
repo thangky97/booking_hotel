@@ -123,8 +123,8 @@
                                                 <span class="fs-16">{{ $user->phone }}</span>
                                             </div>
                                         </td>
-                                        <td class="text-center">
-                                            <img class="" width="90" src="{{ asset($user->cccd) ? '' . Storage::url($user->cccd) : $user->name }}" alt="">
+                                        <td class="text-center" >
+                                            <img  width="90" height="50" src="{{ asset($user->cccd) ? '' . Storage::url($user->cccd) : $user->name }}" alt="" >
                                         </td>
                                         <td class="text-center">
                                             <div>
