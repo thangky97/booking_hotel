@@ -292,6 +292,8 @@ class BookingController extends Controller
 
     public function updatepay($id, Request $request)
     {
+        $cccd = $request->status_cccd;
+       
         if ($request->status_pay){
             $Booking = Booking::find($id);
             $Booking->status_pay = $request->status_pay;
@@ -299,7 +301,7 @@ class BookingController extends Controller
         }elseif ($request->status_cccd){
             DB::table('bookings')
                 ->where('id',$id)
-                ->update(['status_cccd'=>'1']);
+                ->update(['status_cccd'=>$cccd]);
         }
         return redirect()->route('route_BackEnd_Bookings_List');
     }
@@ -544,7 +546,7 @@ class BookingController extends Controller
 
         $name_email = '12 Zodiac';
         Mail::send('email.booking', $this->v, function ($email) {
-            $email->subject('Your Booking Information');
+            $email->subject('Đơn đặt phòng của bạn!');
             $email->to($this->v['email_user'], '12 Zodiac - Hotel');
         });
         return redirect()->route('route_BackEnd_Bookings_List')->with('success', 'Đặt phòng thành công!');

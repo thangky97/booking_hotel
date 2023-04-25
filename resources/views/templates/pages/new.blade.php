@@ -79,7 +79,7 @@
 
                                             <a href="{{ route('route_FrontEnd_New_Detail', ['id' => $new->id]) }}"><img
                                                     class="nd_elements_section" alt=""
-                                                    src="{{ $new->images ? '' . Storage::url($new->images) : '' }}"></a>
+                                                    src="{{ $new->images ? '' . Storage::url($new->images) : '' }}" style="height: 200px;"></a>
                                             <div
                                                 class="nd_elements_section nd_elements_padding_40 nd_elements_padding_20_iphone nd_elements_box_sizing_border_box">
                                                 <div style="display: flex">
@@ -282,7 +282,7 @@
                                                 data-elementor-lightbox-slideshow="a133a37"
                                                 data-elementor-lightbox-title="square1"
                                                 e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NzA2MSwidXJsIjoiaHR0cDpcL1wvd3d3Lm5pY2Rhcmt0aGVtZXMuY29tXC90aGVtZXNcL2hvdGVsLWJvb2tpbmdcL3dwXC9kZW1vXC9hcGFydG1lbnRzXC93cC1jb250ZW50XC91cGxvYWRzXC9zaXRlc1wvNFwvMjAyMlwvMDVcL3NxdWFyZTEuanBlZyIsInNsaWRlc2hvdyI6ImExMzNhMzcifQ%3D%3D"
-                                                href='http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square1.jpeg'><img
+                                                href=''><img
                                                     width="150" height="150"
                                                     src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square1-150x150.jpeg"
                                                     class="attachment-thumbnail size-thumbnail" alt=""
@@ -297,7 +297,7 @@
                                                 data-elementor-lightbox-slideshow="a133a37"
                                                 data-elementor-lightbox-title="square2"
                                                 e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NzA2MiwidXJsIjoiaHR0cDpcL1wvd3d3Lm5pY2Rhcmt0aGVtZXMuY29tXC90aGVtZXNcL2hvdGVsLWJvb2tpbmdcL3dwXC9kZW1vXC9hcGFydG1lbnRzXC93cC1jb250ZW50XC91cGxvYWRzXC9zaXRlc1wvNFwvMjAyMlwvMDVcL3NxdWFyZTIuanBlZyIsInNsaWRlc2hvdyI6ImExMzNhMzcifQ%3D%3D"
-                                                href='http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square2.jpeg'><img
+                                                href=''><img
                                                     width="150" height="150"
                                                     src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square2-150x150.jpeg"
                                                     class="attachment-thumbnail size-thumbnail" alt=""
@@ -312,7 +312,7 @@
                                                 data-elementor-lightbox-slideshow="a133a37"
                                                 data-elementor-lightbox-title="square4"
                                                 e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NzA2NCwidXJsIjoiaHR0cDpcL1wvd3d3Lm5pY2Rhcmt0aGVtZXMuY29tXC90aGVtZXNcL2hvdGVsLWJvb2tpbmdcL3dwXC9kZW1vXC9hcGFydG1lbnRzXC93cC1jb250ZW50XC91cGxvYWRzXC9zaXRlc1wvNFwvMjAyMlwvMDVcL3NxdWFyZTQuanBlZyIsInNsaWRlc2hvdyI6ImExMzNhMzcifQ%3D%3D"
-                                                href='http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square4.jpeg'><img
+                                                href=''><img
                                                     width="150" height="150"
                                                     src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square4-150x150.jpeg"
                                                     class="attachment-thumbnail size-thumbnail" alt=""
@@ -327,7 +327,7 @@
                                                 data-elementor-lightbox-slideshow="a133a37"
                                                 data-elementor-lightbox-title="square3"
                                                 e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NzA2MywidXJsIjoiaHR0cDpcL1wvd3d3Lm5pY2Rhcmt0aGVtZXMuY29tXC90aGVtZXNcL2hvdGVsLWJvb2tpbmdcL3dwXC9kZW1vXC9hcGFydG1lbnRzXC93cC1jb250ZW50XC91cGxvYWRzXC9zaXRlc1wvNFwvMjAyMlwvMDVcL3NxdWFyZTMuanBlZyIsInNsaWRlc2hvdyI6ImExMzNhMzcifQ%3D%3D"
-                                                href='http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square3.jpeg'><img
+                                                href=''><img
                                                     width="150" height="150"
                                                     src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square3-150x150.jpeg"
                                                     class="attachment-thumbnail size-thumbnail" alt=""
@@ -342,7 +342,7 @@
                                                 data-elementor-lightbox-slideshow="a133a37"
                                                 data-elementor-lightbox-title="square-9"
                                                 e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NzE4MiwidXJsIjoiaHR0cDpcL1wvd3d3Lm5pY2Rhcmt0aGVtZXMuY29tXC90aGVtZXNcL2hvdGVsLWJvb2tpbmdcL3dwXC9kZW1vXC9hcGFydG1lbnRzXC93cC1jb250ZW50XC91cGxvYWRzXC9zaXRlc1wvNFwvMjAyMlwvMDVcL3NxdWFyZS05LmpwZyIsInNsaWRlc2hvdyI6ImExMzNhMzcifQ%3D%3D"
-                                                href='http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square-9.jpg'><img
+                                                href=''><img
                                                     width="150" height="150"
                                                     src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square-9-150x150.jpg"
                                                     class="attachment-thumbnail size-thumbnail" alt=""
@@ -357,7 +357,7 @@
                                                 data-elementor-lightbox-slideshow="a133a37"
                                                 data-elementor-lightbox-title="square-5"
                                                 e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NzE4MywidXJsIjoiaHR0cDpcL1wvd3d3Lm5pY2Rhcmt0aGVtZXMuY29tXC90aGVtZXNcL2hvdGVsLWJvb2tpbmdcL3dwXC9kZW1vXC9hcGFydG1lbnRzXC93cC1jb250ZW50XC91cGxvYWRzXC9zaXRlc1wvNFwvMjAyMlwvMDVcL3NxdWFyZS01LmpwZyIsInNsaWRlc2hvdyI6ImExMzNhMzcifQ%3D%3D"
-                                                href='http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square-5.jpg'><img
+                                                href=''><img
                                                     width="150" height="150"
                                                     src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/uploads/sites/4/2022/05/square-5-150x150.jpg"
                                                     class="attachment-thumbnail size-thumbnail" alt=""

@@ -130,7 +130,15 @@
                     <img alt="" class="" width="40"
                         src="http://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/apartments/wp-content/plugins/nd-booking/templates/icon-plan-grey.svg">
                     <div class="nd_booking_section nd_booking_height_5"></div>
-                    <p class="">50 m2</p>
+                    <p class="">@if($room->cate_room ==1)
+                                            {{'50 m2'}}
+                                        @elseif($room->cate_room ==2)
+                                            {{'70 m2'}}
+                                        @elseif($room->cate_room ==4)
+                                            {{'100 m2'}}
+                                        @elseif($room->cate_room ==3)
+                                            {{'150 m2'}}
+                                        @endif</p>
                 </div>
 
                 <div id="nd_booking_single_cpt_1_basic_info_night"
