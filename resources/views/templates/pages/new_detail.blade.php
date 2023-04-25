@@ -327,7 +327,7 @@
                                             <div class="elementor-widget-container">
                                                 <a href="#">
                                                     <img width="800" height="800"
-                                                        src="{{ $item->image ? '' . Storage::url($item->image) : '' }}"
+                                                        src="{{ asset('image/' . $item->image) }}"
                                                         class="attachment-large size-large" alt="" loading="lazy"
                                                         sizes="(max-width: 800px) 100vw, 800px" /> </a>
                                             </div>
@@ -350,7 +350,7 @@
                                             data-widget_type="button.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-button-wrapper">
-                                                    <a href="{{ route('route_FrontEnd_Service') }}"
+                                                    <a href="{{ route('route_FrontEnd_Room_RoomDetail', $item->id) }}"
                                                         class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
                                                         role="button">
                                                         <span class="elementor-button-content-wrapper">

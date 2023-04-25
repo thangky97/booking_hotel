@@ -135,7 +135,7 @@
                         </div>
                     </div>
                     <div class="text-end" style="margin-right: 55px;margin-bottom: 10px;">
-                        <div class="btn btn-danger light btn-sl-sm" style="width: 17%"><span class="me-2"><i class="fa fa-times"></i></span><a href="{{ route('route_BackEnd_Bookings_List') }}">Hủy</a>
+                        <div class="btn btn-danger light btn-sl-sm" style="width: 17%"><span class="me-2"><i class="fa fa-times"></i></span><a href="{{ route('route_BackEnd_Bill_List') }}">Quay Lại</a>
                         </div>
                     </div>
                 </div>

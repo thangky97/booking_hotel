@@ -74,13 +74,13 @@
                                     <p
                                         class="nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">
                                         @if($cateroom->id ==1)
-                                            {{'2 người'}}
+                                            {{'1 người'}}
                                         @elseif($cateroom->id ==2)
                                             {{'2 người'}}
                                         @elseif($cateroom->id ==3)
-                                            {{'3 người'}}
-                                        @elseif($cateroom->id ==4)
                                             {{'4 người'}}
+                                        @elseif($cateroom->id ==4)
+                                            {{'3 người'}}
                                         @endif
                                     </p>
                                     <img alt=""
@@ -89,7 +89,15 @@
                                         src="../../wp-content/plugins/nd-booking/addons/visual/rooms/layout/icon-plan-grey.svg" />
                                     <p
                                         class="nd_booking_display_table_cell nd_booking_vertical_align_middle nd_booking_font_size_12 nd_booking_line_height_26">
-                                        50 m2
+                                        @if($cateroom->id ==1)
+                                            {{'50 m2'}}
+                                        @elseif($cateroom->id ==2)
+                                            {{'70 m2'}}
+                                        @elseif($cateroom->id ==4)
+                                            {{'100 m2'}}
+                                        @elseif($cateroom->id ==3)
+                                            {{'150 m2'}}
+                                        @endif
                                     </p>
                                 </div>
                             </div>
