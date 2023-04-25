@@ -120,23 +120,26 @@
                                                 <p>{{$item->people}}</p>
                                             </td>
                                             <td class="text-center">
-                                                @if($item->status_cccd==0)
-                                                    <form action="{{route('route_BackEnd_Bookings_Updatepay',$item->id)}}" method="post" style="    margin-top: 15px;">
-                                                        @csrf
-                                                        <input name="status_cccd" value="1" hidden>
-                                                        <button type="submit" onclick="return confirm('Khách đã trả phòng và muốn nhận lại cccd ?')" class="btn btn-danger light btn-sl-sm" style="width: 120px; text-align: center">Đang giữ</button>
-                                                    </form>
-                                                @elseif($item->status_cccd==2)
-                                                    <form action="{{route('route_BackEnd_Bookings_Updatepay',$item->id)}}" method="post" style="  margin-top: 15px;">
-                                                        @csrf
-                                                        <input name="status_cccd" value="0" hidden>
-                                                        <button type="submit" onclick="return confirm('Đã nhận cccd của khách ?')" class="btn btn-primary light btn-sl-sm" style="width: 120px; text-align: center">Chưa giữ</button>
-                                                    </form>
+                                                @if(empty($item->money_paid))
+                                                    @if($item->status_cccd==0)
+                                                        <form action="{{route('route_BackEnd_Bookings_Updatepay',$item->id)}}" method="post" style="    margin-top: 15px;">
+                                                            @csrf
+                                                            <input name="status_cccd" value="1" hidden>
+                                                            <button type="submit" onclick="return confirm('Khách đã trả phòng và muốn nhận lại cccd ?')" class="btn btn-danger light btn-sl-sm" style="width: 120px; text-align: center">Đang giữ</button>
+                                                        </form>
+                                                    @elseif($item->status_cccd==2)
+                                                        <form action="{{route('route_BackEnd_Bookings_Updatepay',$item->id)}}" method="post" style="  margin-top: 15px;">
+                                                            @csrf
+                                                            <input name="status_cccd" value="0" hidden>
+                                                            <button type="submit" onclick="return confirm('Đã nhận cccd của khách ?')" class="btn btn-primary light btn-sl-sm" style="width: 120px; text-align: center">Chưa giữ</button>
+                                                        </form>
+                                                    @else
+                                                        <button type="submit" class="btn btn-success light btn-sl-sm" onclick="return confirm('Trạng thái đã trả cccd . Liên hệ quản trị viên để thay đổi !')" style="width: 120px;text-align: center">Đã trả</button>
+                                                    @endif
                                                 @else
-                                                    <button type="submit" class="btn btn-success light btn-sl-sm" onclick="return confirm('Trạng thái đã trả cccd . Liên hệ quản trị viên để thay đổi !')" style="width: 120px;text-align: center">Đã trả</button>
+                                                    <button type="submit" class="btn btn-dark light btn-sl-sm" onclick="return confirm('Trạng thái đã trả cccd . Liên hệ quản trị viên để thay đổi !')" style="width: 120px;text-align: center">Không giữ</button>
                                                 @endif
-                                                
-                                                
+
                                             </td>
                                             <td class="text-center">
                                                 @if($item->status_pay==0)
@@ -357,7 +360,7 @@
                                                 @if($item->status_booking==0)
                                                     <p style="width: 150px" class="text-danger"><i>Lỗi thanh toán VNPAY</i></p>
                                                 @else
-                                                    <p style="width: 150px" class="text-danger"><i>Đơn hủy đơn</i></p>
+                                                    <p style="width: 150px" class="text-danger"><i>Đơn bị hủy</i></p>
                                                 @endif
                                             </td>
                                             <td class="text-center">
